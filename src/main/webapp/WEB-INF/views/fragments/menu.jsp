@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvsangon" action="https://lichess.org/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-guipacrod" action="http://www.twitch.tv/skain"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
