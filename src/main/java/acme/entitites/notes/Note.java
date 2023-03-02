@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -44,5 +45,6 @@ public class Note extends AbstractEntity {
 	@Email
 	protected String			email;
 
+	@URL
 	protected String			link;
 }

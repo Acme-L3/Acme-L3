@@ -1,11 +1,15 @@
 
 package acme.entitites.tutorial;
 
-import java.time.Duration;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -38,6 +42,14 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	protected Duration			duration;
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	@NotNull
+	protected Date				startDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	@NotNull
+	protected Date				endDate;
 
 }
