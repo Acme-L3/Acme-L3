@@ -31,6 +31,7 @@ public class Session extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
+	@NotNull
 	protected SessionType		sessionType;
 
 	@Temporal(TemporalType.TIMESTAMP)

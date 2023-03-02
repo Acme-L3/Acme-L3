@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -38,12 +39,16 @@ public class Banner extends AbstractEntity {
 	@NotNull
 	protected Date				endDate;
 
+	@URL
+	@NotNull
 	protected String			linkPhoto;
 
 	@NotBlank
 	@Length(max = 75)
 	protected String			slogan;
 
+	@URL
+	@NotNull
 	protected String			linkDocument;
 
 }
