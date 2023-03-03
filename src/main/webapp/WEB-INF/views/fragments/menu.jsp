@@ -20,6 +20,10 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvsangon" action="https://lichess.org/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-guipacrod" action="http://www.twitch.tv/skain"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javrodcor" action="https://www.fcbarcelona.es/es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvcarber1" action="https://www.instagram.com/salseodelaljarafe/?hl=es"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-antbarjim1" action="https://www.hbomax.com/es/es"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
