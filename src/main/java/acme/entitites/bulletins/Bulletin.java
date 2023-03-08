@@ -34,7 +34,7 @@ public class Bulletin {
 	@Length(max = 100)
 	protected String	message;
 
-	protected boolean	critical;
+	protected Boolean	critical;
 
 	@URL
 	protected String	link;
