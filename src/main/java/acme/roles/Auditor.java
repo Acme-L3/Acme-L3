@@ -16,7 +16,11 @@ import lombok.Setter;
 @Setter
 public class Auditor extends AbstractRole {
 
+	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
@@ -32,5 +36,9 @@ public class Auditor extends AbstractRole {
 
 	@URL
 	protected String			link;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
