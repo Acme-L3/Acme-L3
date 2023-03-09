@@ -1,5 +1,5 @@
 
-package acme.forms.dashboards;
+package acme.forms;
 
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Dashboard extends AbstractForm {
+public class AuditorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -15,16 +15,16 @@ public class Dashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						theoryWorkbookActivities;
-	Integer						handsOnWorkbookActivites;
-	Double						averageActivity;
-	Double						minActivity;
-	Double						maxActivity;
-	Double						desvActivity;
-	Double						averageCourse;
-	Double						minCourse;
-	Double						maxCourse;
-	Double						desvCourse;
+	Integer						theoryAudits;
+	Integer						handsOnAudits;
+	Double						averageAudtis;
+	Double						deviationAudtis;
+	Double						minAudits;
+	Double						maxAudits;
+	Double						averageAuditRecords;
+	Double						deviationAuditRecords;
+	Double						minAuditRecords;
+	Double						maxAuditRecords;
 
 	// Relationships ----------------------------------------------------------
 
