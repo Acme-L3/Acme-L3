@@ -35,7 +35,7 @@ public class Assistant extends AbstractRole {
 
 	//Relations -----------------------------------------------------------------
 
-	@OneToMany(mappedBy = "assistantTutorial")
+	@OneToMany(mappedBy = "assistant")
 	protected Collection<Tutorial>	tutorials;
 
 }
