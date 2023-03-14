@@ -36,12 +36,15 @@ public class TutorialSession extends AbstractEntity {
 	protected String			summary;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	@PastOrPresent
+	protected Date				creationMoment;
+
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				startDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
 	@NotNull
 	protected Date				endDate;
 
