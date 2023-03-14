@@ -1,18 +1,15 @@
 
-package acme.entitites.bulletins;
-
-import java.util.Date;
+package acme.entitites.workbook;
 
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
+import acme.entitites.enrolments.Enrolment;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,15 +17,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Bulletin extends AbstractEntity {
+public class Workbook extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				moment;
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
@@ -36,11 +31,12 @@ public class Bulletin extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			summary;
 
-	protected boolean			critical;
+	// Relationships ----------------------------------------------------------
 
-	@URL
-	protected String			link;
-
+	@OneToOne
+	@Valid
+	@NotNull
+	protected Enrolment			enrolment;
 }
