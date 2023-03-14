@@ -1,5 +1,5 @@
 /*
- * SystemConfiguration.java
+ * Dashboard.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,20 +10,19 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities.systemconfiguration;
+package acme.forms;
 
-import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import java.util.Map;
 
-import acme.framework.data.AbstractEntity;
+import acme.framework.data.AbstractForm;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class SystemConfiguration extends AbstractEntity {
+@NoArgsConstructor
+public class AdminDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -31,13 +30,23 @@ public class SystemConfiguration extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Pattern(regexp = "^[A-Z]{3}$")
-	protected String			systemCurrency;
+	Integer						numberOfAdministrator;
+	Integer						numberOfStudent;
+	Integer						numberOfAuditor;
+	Integer						numberOfAssistant;
 
-	@NotBlank
-	@Pattern(regexp = "^[A-Z]{3}(,[A-Z]{3})*$")
-	protected String			acceptedCurrencies;
+	Double						ratioPeepsWithEmailAndLink;
+	Double						ratioOfNonCriticalBulletins;
+
+	Map<String, Double>			averageBudgetInOffersByCurrency;
+	Map<String, Double>			deviationBudgetInOffersByCurrency;
+	Map<String, Double>			minBudgetInOffersByCurrency;
+	Map<String, Double>			maxBudgetInOffersByCurrency;
+
+	Double						averageNumberOfNotesInLastTenWeeks;
+	Double						deviationNumberOfNotesInLastTenWeeks;
+	Double						minNumberOfNotesInLastTenWeeks;
+	Double						maxNumberOfNotesInLastTenWeeks;
 
 	// Derived attributes -----------------------------------------------------
 
