@@ -23,6 +23,7 @@ import lombok.Setter;
 @Setter
 public class Peep extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
 	protected static final long	serialVersionUID	= 1L;
 
 	@Temporal(TemporalType.TIMESTAMP)
