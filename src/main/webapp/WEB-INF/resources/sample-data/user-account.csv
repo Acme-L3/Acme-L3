@@ -1,3 +1,7 @@
 key,enabled,identity,password,username
 user-account-assistant-01,true,"UserIdentity{name: 'Antonio', surname: 'Barea', email: 'antonio.barea@hotmail.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'Antonio', surname: 'Jimenez', email: 'antonio.jimenez@gmail.com'}",assistant2,assistant2
+user-account-auditor-01,true,"UserIdentity{name: 'Jorge', surname: 'Salvaje', email: 'jordi.wild@gmail.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Gary', surname: 'Llaneza', email: 'gary.llaneza@gmail.com'}",auditor2,auditor2
+user-account-administrator-02,true,"UserIdentity{name: 'Admin', surname: '1', email: 'admin1@gmail.com'}",administrator1,administrator1
+user-account-administrator-03,true,"UserIdentity{name: 'Admin', surname: '2', email: 'admin2@gmail.com'}",administrator2,administrator2
