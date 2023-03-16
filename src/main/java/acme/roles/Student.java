@@ -39,4 +39,9 @@ public class Student extends AbstractRole {
 
 	// Relationships ----------------------------------------------------------
 
+	//	@ManyToOne
+	//	@Valid
+	//	@NotNull
+	//	protected Course course;
+
 }

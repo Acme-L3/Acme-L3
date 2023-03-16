@@ -17,10 +17,12 @@ public class StudentDashboard extends AbstractForm {
 
 	Integer						theoryWorkbookActivities;
 	Integer						handsOnWorkbookActivites;
+
 	Double						averageActivity;
 	Double						minActivity;
 	Double						maxActivity;
 	Double						desvActivity;
+
 	Double						averageCourse;
 	Double						minCourse;
 	Double						maxCourse;
