@@ -19,13 +19,9 @@ public class AdminDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						numberOfAdministrator;
-	Integer						numberOfStudent;
-	Integer						numberOfAuditor;
-	Integer						numberOfAssistant;
+	Map<String, Integer>		countOfRole;
 
-	Double						ratioPeepsWithEmailAndLink;
-	Double						ratioOfNonCriticalBulletins;
+	Map<String, Double>			ratioOfThings;
 
 	Map<String, Double>			averageBudgetInOffersByCurrency;
 	Map<String, Double>			deviationBudgetInOffersByCurrency;

@@ -1,0 +1,5 @@
+key,statement,strongFeatures,weakFeatures,link
+student-01,"Es un texto de prueba","Esto es una fortaleza de prueba","Esto es una debilidad de prueba",null
+student-02,"Esto es un texto de prueba para comprobar el numero maximo de caracteres...","Esto es un texto de prueba para comprobar el maximo de caracteres para la variable strongFeatures...","Esto es un texto de prueba para comprobar el maximo de caracteres para la variable weakFeatures.....",https://prueba.es
+student-03,"Esto es un texto con la mitad de caracteres statement","Esto es un texto con la mitad de caracteres strongFeatures","Esto es un texto con la mitad de caracteres weakFeatures", https://google.es
+student-04,"Esto es un texto de prueba lo suficientemente largo para comprobarlo","Esto es un texto de prueba lo suficientemente largo para comprobarlo","Esto es un texto de prueba lo suficientemente largo para comprobarlo",https://ev.us.es
