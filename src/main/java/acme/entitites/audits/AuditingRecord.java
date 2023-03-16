@@ -1,11 +1,13 @@
 
-package acme.entitites.offers;
+package acme.entitites.audits;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -13,7 +15,7 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
+import acme.datatypes.Mark;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,35 +23,46 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class AuditingRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				moment;
+	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			heading;
+	protected String			subject;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			assessment;
 
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				startAvailability;
+	protected Date				initialMoment;
 
+	//Custom restriction 1 hour duration
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				endAvailability;
+	protected Date				finalMoment;
 
-	protected Money				price;
+	@NotNull
+	protected Mark				mark;
 
 	@URL
-	protected String	link;
+	protected String			link;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Audit				audit;
 
 }

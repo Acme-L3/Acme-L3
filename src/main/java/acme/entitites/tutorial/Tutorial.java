@@ -1,55 +1,64 @@
 
-package acme.entitites.offers;
+package acme.entitites.tutorial;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class Tutorial extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
 	protected static final long	serialVersionUID	= 1L;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				moment;
+	@Column(unique = true)
+	@NotBlank
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			heading;
+	protected String			tittle;
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			summary;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date				startAvailability;
+	@NotBlank
+	@Length(max = 100)
+	protected String			goals;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
 	@NotNull
-	protected Date				endAvailability;
+	protected Date				startDate;
 
-	protected Money				price;
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	@NotNull
+	protected Date				endDate;
 
-	@URL
-	protected String	link;
+	//Relations -----------------------------------------------------------------
 
+	@NotNull
+	@Valid
+	@ManyToOne
+	protected Assistant			assistant;
 }

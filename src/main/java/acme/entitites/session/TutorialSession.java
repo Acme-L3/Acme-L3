@@ -1,11 +1,13 @@
 
-package acme.entitites.offers;
+package acme.entitites.session;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -13,7 +15,7 @@ import javax.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
+import acme.entitites.tutorial.Tutorial;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,19 +23,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Offer extends AbstractEntity {
+public class TutorialSession extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------
 	protected static final long	serialVersionUID	= 1L;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				moment;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			heading;
+	protected String			tittle;
 
 	@NotBlank
 	@Length(max = 100)
@@ -41,15 +37,25 @@ public class Offer extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				startAvailability;
+	@PastOrPresent
+	protected Date				creationMoment;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				endAvailability;
+	protected Date				startDate;
 
-	protected Money				price;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date				endDate;
 
 	@URL
-	protected String	link;
+	protected String			link;
+
+	//Relations -----------------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne
+	protected Tutorial			tutorial;
 
 }
