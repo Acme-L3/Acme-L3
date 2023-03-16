@@ -1,52 +1,46 @@
 
-package acme.entitites.session;
-
-import java.util.Date;
+package acme.entitites.lecture;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entitites.tutorial.Tutorial;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class TutorialSession extends AbstractEntity {
+public class Lecture extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			tittle;
+	protected String			title;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			abstractText;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@PastOrPresent
-	protected Date				creationMoment;
+	@Positive
+	protected Double			estimateLearningTime;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date				startDate;
+	@NotBlank
+	@Length(max = 100)
+	protected String			body;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				endDate;
+	protected LectureType		lectureType;
 
 	@URL
 	protected String			link;
@@ -55,7 +49,6 @@ public class TutorialSession extends AbstractEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne
-	protected Tutorial			tutorial;
-
+	@ManyToOne()
+	protected Lecturer			lecturer;
 }

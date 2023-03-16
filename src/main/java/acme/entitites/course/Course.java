@@ -1,30 +1,32 @@
 
-package acme.entitites.tutorial;
+package acme.entitites.course;
 
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
+import acme.entitites.lecture.Lecture;
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Assistant;
+import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Tutorial extends AbstractEntity {
+public class Course extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -35,30 +37,31 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			tittle;
+	protected String			title;
+
+	@NotNull
+	@Positive
+	protected Money				retailPrice;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			abstractText;
 
-	@NotBlank
-	@Length(max = 100)
-	protected String			goals;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
 	@NotNull
-	protected Date				startDate;
+	protected CourseType		courseType;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				endDate;
+	@URL
+	protected String			link;
 
 	//Relations -----------------------------------------------------------------
 
 	@NotNull
 	@Valid
-	@ManyToOne
-	protected Assistant			assistant;
+	@ManyToOne()
+	protected Lecturer			lecturer;
+
+	@NotNull
+	@Valid
+	@ManyToMany()
+	protected List<Lecture>		lectures;
 }

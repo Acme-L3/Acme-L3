@@ -1,18 +1,20 @@
 
-package acme.entities.systemconfiguration;
+package acme.roles;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
-import acme.framework.data.AbstractEntity;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
+
+import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class SystemConfiguration extends AbstractEntity {
+public class Lecturer extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -21,14 +23,19 @@ public class SystemConfiguration extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{3}$")
-	protected String			systemCurrency;
+	@Length(max = 75)
+	private String				almaMater;
 
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{3}(,[A-Z]{3})*$")
-	protected String			acceptedCurrencies;
+	@Length(max = 100)
+	private String				resume;
 
-	// Derived attributes -----------------------------------------------------
+	@NotBlank
+	@Length(max = 100)
+	private String				qualifications;
+
+	@URL
+	private String				link;
 
 	// Relationships ----------------------------------------------------------
 
