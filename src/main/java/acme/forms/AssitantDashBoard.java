@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class StudentDashboard extends AbstractForm {
+public class AssitantDashBoard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -15,18 +15,16 @@ public class StudentDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						theoryWorkbookActivities;
-	Integer						handsOnWorkbookActivites;
-
-	Double						averageActivity;
-	Double						minActivity;
-	Double						maxActivity;
-	Double						desvActivity;
-
-	Double						averageCourse;
-	Double						minCourse;
-	Double						maxCourse;
-	Double						desvCourse;
+	Integer						totalNumberOfTutorialSessions;
+	Integer						totalNumberOfHandsOnSessions;
+	Double						averageTimePerSession;
+	Double						deviationTimeSession;
+	Double						minTimeSession;
+	Double						maxTimeSession;
+	Double						averageTimePerTutorial;
+	Double						deviationTimeTutorial;
+	Double						minTimeTutorial;
+	Double						maxTimeTutorial;
 
 	// Relationships ----------------------------------------------------------
 
