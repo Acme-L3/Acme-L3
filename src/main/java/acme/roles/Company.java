@@ -1,6 +1,7 @@
 
 package acme.roles;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
@@ -22,6 +23,7 @@ public class Company extends AbstractEntity {
 	@Length(max = 75)
 	protected String			name;
 
+	@Column(unique = true)
 	@NotBlank
 	@Length(max = 25)
 	protected String			VATnumber;

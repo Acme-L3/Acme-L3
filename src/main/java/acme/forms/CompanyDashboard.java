@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PracticumDashboard extends AbstractForm {
+public class CompanyDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -17,12 +17,12 @@ public class PracticumDashboard extends AbstractForm {
 
 	Map<Integer, Integer>		totalPracticaByMonth;
 
-	double						averageSessionLength;
+	Double						averageSessionLength;
 
-	double						deviationSessionLength;
+	Double						deviationSessionLength;
 
-	double						minimumSessionLength;
+	Double						minimumSessionLength;
 
-	double						maximumSessionLength;
+	Double						maximumSessionLength;
 
 }

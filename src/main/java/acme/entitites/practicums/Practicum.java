@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entitites.course.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Company;
 import lombok.Getter;
@@ -25,7 +26,7 @@ public class Practicum extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "^[A-Z]{1,3}[0-9]{3}$")
 	protected String			code;
 
 	@NotBlank
@@ -46,9 +47,9 @@ public class Practicum extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Company			company;
 
-	//	@Valid
-	//	@NotNull
-	//	@ManyToOne(optional = false)
-	//	protected Course course;
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }
