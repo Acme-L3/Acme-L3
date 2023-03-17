@@ -1,6 +1,8 @@
 
 package acme.forms;
 
+import java.util.Map;
+
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +17,8 @@ public class AuditorDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						theoryAudits;
-	Integer						handsOnAudits;
+	Map<String, Integer>		countOfAuditsLectures;
+
 	Double						averageAudtis;
 	Double						deviationAudtis;
 	Double						minAudits;

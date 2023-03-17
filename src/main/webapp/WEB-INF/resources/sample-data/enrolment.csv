@@ -1,0 +1,11 @@
+key,code,motivation,goals,key:student,key:course
+enrolment-01,"ACB123","M","G",student-01,course-01
+enrolment-02,"BCA321","test de motivacion", "test de goal",student-02,course-01
+enrolment-03,"ASD543","Test de motivation con valor medio= 38","Test de goals con 50 caracteres //valor medio....",student-03,course-01
+enrolment-04,"AGE734","Esto es una prueba para llegar a las 75 y comprobar la restricción máxima..","Esto es una prueba para llegar a las noventa y nueve palabras y comprobar las restricciones maximas",student-04,course-01
+enrolment-05,"ASD543","test de motivacion","Esto es una prueba para llegar a las cien palabras y comprobar las restricciones del maximo .......",student-03,course-01
+enrolment-06,"JGH456","test de motivacion","Texto de prueba para el maximo valor posible menos un delta para el atributo goal..",student-01,course-01
+enrolment-07,"KJL768","test de motivacion","test de goals",student-01,course-01
+enrolment-08,"PLK639","test de motivacion","test de goals",student-03,course-01
+enrolment-09,"PKM852","test de motivacion","test de goals",student-04,course-01
+enrolment-10,"RFV147","test de motivacion","test de goals",student-02,course-01
