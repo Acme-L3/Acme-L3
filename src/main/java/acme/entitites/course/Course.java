@@ -1,11 +1,8 @@
 
 package acme.entitites.course;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -16,7 +13,6 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entitites.lecture.Lecture;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -60,8 +56,4 @@ public class Course extends AbstractEntity {
 	@ManyToOne()
 	protected Lecturer			lecturer;
 
-	@NotNull
-	@Valid
-	@ManyToMany()
-	protected List<Lecture>		lectures;
 }

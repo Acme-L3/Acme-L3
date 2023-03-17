@@ -1,6 +1,8 @@
 
 package acme.forms;
 
+import java.util.Map;
+
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +17,7 @@ public class StudentDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						theoryWorkbookActivities;
-	Integer						handsOnWorkbookActivites;
+	Map<String, Integer>		countOfWorkbookActivities;
 
 	Double						averageActivity;
 	Double						minActivity;
