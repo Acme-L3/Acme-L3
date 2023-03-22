@@ -1,0 +1,11 @@
+key,moment,title,message,critical,link
+bulletin-01,2021/10/05 09:30,"Cambios en la política de privacidad","Hemos actualizado nuestra política de privacidad.",True,https://ejemplo.com/politica-de-privacidad
+bulletin-02,2021/09/30 15:45,"Actualización del software","Hemos lanzado una nueva versión del software.",False,https://ejemplo.com/actualizacion-software
+bulletin-03,2021/09/25 10:00,"Mantenimiento programado","El sitio web estará fuera de línea durante una hora",False,https://ejemplo.com/mantenimiento-programado
+bulletin-04,2021/09/20 14:15,"Posible interrupción del servicio","Estamos experimentando una interrupción del servicio que podría afectar a algunos usuarios.",True,https://ejemplo.com/interrupcion-del-servicio
+bulletin-05,2021/09/15 11:30,"Cambio de horario de atención al cliente","A partir de la próxima semana, nuestro horario de atención al cliente será otro",False,https://ejemplo.com/horario-atencion-cliente
+bulletin-06,2021/09/10 09:00,"Nuevo producto lanzado","Hemos lanzado un nuevo producto que ya está disponible en nuestra tienda en línea.",False,https://ejemplo.com/nuevo-producto
+bulletin-07,2021/09/05 13:00,"Actualización de precios","Hemos ajustado nuestros precios para reflejar los cambios en los costos de producción.",False,https://ejemplo.com/actualizacion-precios
+bulletin-08,2021/08/30 16:30,"Ataque de phishing detectado","Hemos detectado un ataque de phishing dirigido a nuestros usuarios.",True,https://ejemplo.com/ataque-phishing
+bulletin-09,2021/08/25 12:45,"Promoción de temporada","Aprovecha nuestra promoción de temporada y obtén un descuento",False,https://ejemplo.com/promocion-temporada
+bulletin-10,2021/08/20 08:15,"Actualización de términos y condiciones","Hemos actualizado nuestros términos y condiciones para mejorar la claridad y transparencia.",False,https://ejemplo.com/terminos-condiciones

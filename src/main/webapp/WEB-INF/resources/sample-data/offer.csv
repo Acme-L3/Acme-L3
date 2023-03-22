@@ -1,0 +1,6 @@
+key,moment,heading,summary,startAvailability,endAvailability,price,link
+offer-01, "2022/01/01 10:30", "Oferta de primavera", "Descuento del 20% en productos seleccionados", "2022/02/01 00:00", "2022/04/30 23:59", "EUR 50.00", "https://www.ejemplo.com/oferta-primavera"
+offer-02, "2021/11/15 08:45", "Venta de liquidación", "Hasta un 50% de descuento en todo el sitio", "2021/11/15 00:00", "2021/12/15 23:59", "USD 100.00", "https://www.ejemplo.com/venta-liquidacion"
+offer-03, "2022/02/14 18:30", "Regala amor en San Valentín", "Descuento del 15% en joyas seleccionadas", "2022/02/14 00:00", "2022/02/15 23:59", "GPB 75.50", "https://www.ejemplo.com/san-valentin"
+offer-04, "2022/03/01 09:15", "Nueva colección de primavera", "Descubre nuestra nueva colección de moda primavera-verano", "2022/03/01 00:00", "2022/04/30 23:59", "EUR 120.00", "https://www.ejemplo.com/colección-primavera"
+offer-05, "2022/04/10 11:00", "Oferta especial para Pascua", "Compra 2 y lleva 3 en productos seleccionados", "2022/04/10 00:00", "2022/04/18 23:59", "USD 80.50", "https://www.ejemplo.com/pascua"
