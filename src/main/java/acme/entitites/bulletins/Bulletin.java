@@ -38,6 +38,7 @@ public class Bulletin extends AbstractEntity {
 	@Length(max = 100)
 	protected String			message;
 
+	@NotNull
 	protected boolean			critical;
 
 	@URL
