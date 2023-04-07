@@ -1,0 +1,10 @@
+authenticated.bulletin.list.label.moment = Momento
+authenticated.bulletin.list.label.title = Título
+authenticated.bulletin.list.label.message = Mensaje
+authenticated.bulletin.list.label.critical = Critical
+authenticated.bulletin.list.label.link = Link
+
+authenticated.announcement.form.label.title = Título
+authenticated.announcement.form.label.message = Mensaje
+authenticated.announcement.form.label.critical = Crítico
+authenticated.announcement.form.label.link = Link
