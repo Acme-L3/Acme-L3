@@ -56,4 +56,6 @@ master.menu.user-account.become-consumer = Hazte consumidor
 
 # master.menu.user-account ####################################################
 
+master.menu.authenticated = Autenticado
 master.menu.authenticated.list-bulletins = Listar Boletines
+master.menu.authenticated.list-notes = Listar Notas
