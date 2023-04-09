@@ -1,0 +1,16 @@
+authenticated.note.list.moment = Moment
+authenticated.note.list.title = Title
+authenticated.note.list.author = Author
+authenticated.note.list.message = Message
+authenticated.note.list.email = Email
+authenticated.note.list.link = Link
+authenticated.note.list.post = Post note
+
+authenticated.note.form.moment = Moment
+authenticated.note.form.title = Title
+authenticated.note.form.author = Author
+authenticated.note.form.message = Message
+authenticated.note.form.email = Email
+authenticated.note.form.link = Link
+authenticated.note.form.confirm = Confirm
+authenticated.note.form.post = Post note
