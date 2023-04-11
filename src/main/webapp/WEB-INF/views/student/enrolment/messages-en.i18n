@@ -1,3 +1,9 @@
 student.list.label.code = Code
 student.list.label.motivation = Motivation
 student.list.label.goals = Goals
+
+student.enrolment.form.label.code = Code
+student.enrolment.form.label.motivation = Motivation
+student.enrolment.form.label.goals = Goals
+
+student.enrolment.form.button.delete = Delete
