@@ -59,3 +59,8 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.authenticated = Autenticado
 master.menu.authenticated.list-bulletins = Listar Boletines
 master.menu.authenticated.list-notes = Listar Notas
+
+# master.menu.user-account ####################################################
+
+master.menu.company = Empresa
+master.menu.company.my-practica = Mis prácticas

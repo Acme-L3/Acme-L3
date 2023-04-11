@@ -40,9 +40,9 @@
 			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list/"/>
 		</acme:menu-option>
 		
-		
-		
-		
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			<acme:menu-suboption code="master.menu.company.my-practica" action="/company/practicum/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
