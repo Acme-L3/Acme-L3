@@ -8,8 +8,12 @@ student.enrolment.form.label.goals = Metas
 
 student.enrolment.list.button.delete = Eliminar
 student.enrolment.list.button.create = Crear
+student.enrolment.list.button.update = Actualizar
+
 
 student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.button.create = Crear
+student.enrolment.form.button.update = Actualizar
+
 
 student.enrolment.form.label.course = Cursos

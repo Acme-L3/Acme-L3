@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entitites.activities.Activity;
 import acme.entitites.course.Course;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.repositories.AbstractRepository;
@@ -31,5 +32,8 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 
 	@Query("select s from Student s where s.id = :id")
 	Student findStudentById(int id);
+
+	@Query("select a from Activity a where a.enrolment.id = :id")
+	Collection<Activity> findActivitiesByEnrolmentId(int id);
 
 }
