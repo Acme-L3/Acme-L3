@@ -16,7 +16,7 @@ public class AnyCourseController extends AbstractController<Any, Course> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseListService	listAllService;
+	protected AnyCourseListService	listService;
 
 	@Autowired
 	protected AnyCourseShowService	showService;
@@ -26,8 +26,8 @@ public class AnyCourseController extends AbstractController<Any, Course> {
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("list", this.listAllService);
 	}
 
 }

@@ -46,8 +46,8 @@ master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.any ##########################################################
 
-master.menu.any = Any
-master.menu.any.my-courses = My courses
+master.menu.any = Courses
+master.menu.any.course = All courses
 
 # master.menu.user-account ####################################################
 

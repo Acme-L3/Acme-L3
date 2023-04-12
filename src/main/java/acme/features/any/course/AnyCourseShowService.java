@@ -8,6 +8,7 @@ import acme.entitites.course.Course;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
 public class AnyCourseShowService extends AbstractService<Any, Course> {
@@ -24,7 +25,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().getPrincipal().hasRole(Student.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -51,7 +52,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "retailPrice", "furtherInformation");
+		tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "link", "lecturer");
 
 		super.getResponse().setData(tuple);
 	}

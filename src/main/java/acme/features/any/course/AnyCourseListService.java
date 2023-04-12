@@ -10,6 +10,7 @@ import acme.entitites.course.Course;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
 public class AnyCourseListService extends AbstractService<Any, Course> {
@@ -29,7 +30,11 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Student.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -47,7 +52,7 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "retailPrice");
+		tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "link", "lecturer");
 
 		super.getResponse().setData(tuple);
 	}

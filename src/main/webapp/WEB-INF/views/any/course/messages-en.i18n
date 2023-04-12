@@ -1,8 +1,10 @@
-any.course.list.label.title = Title:
-any.course.list.label.retailPrice = Retail price:
+any.course.list.label.code = Code
+any.course.list.label.title = Title
+any.course.list.label.cAbstract = Summary
+any.course.list.label.furtherInfo = More Info
 
-any.course.form.label.code = Code:
-any.course.form.label.title = Title:
-any.course.form.label.abstract$ = Abstract:
-any.course.form.label.retailPrice = Retail price:
-any.course.form.label.furtherInformation = Further information:
+any.course.form.label.code = Code
+any.course.form.label.title = Title
+any.course.form.label.cAbstract = Summary
+any.course.form.label.retailPrice = Price
+any.course.form.label.furtherInfo = More info
