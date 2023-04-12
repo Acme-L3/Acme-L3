@@ -17,7 +17,7 @@ import acme.roles.Student;
 public class StudentEnrolmentCreateService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
-	protected StudentEnrolmentRepository repository;
+	protected StudentEnrolmentRepository repo;
 
 
 	@Override
@@ -35,7 +35,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		Enrolment object;
 		Student student;
 
-		student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		student = this.repo.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Enrolment();
 		object.setStudent(student);
 
@@ -50,17 +50,22 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		Course course;
 
 		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
+		course = this.repo.findCourseById(courseId);
 
 		super.bind(object, "code", "motivation", "goals");
 		object.setCourse(course);
 	}
 
 	@Override
+	public void validate(final Enrolment object) {
+		assert object != null;
+	}
+
+	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		this.repository.save(object);
+		this.repo.save(object);
 	}
 
 	@Override
@@ -71,11 +76,10 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repo.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals");
-		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
