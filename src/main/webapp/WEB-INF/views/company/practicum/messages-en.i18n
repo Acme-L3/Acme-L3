@@ -14,6 +14,11 @@ company.practicum.list.label.course-code = Course code
 
 company.practicum.list.button.create = Create
 
+company.practicum.form.button.delete = Delete
+company.practicum.form.button.create = Create
+company.practicum.form.button.update = Update
+
+company.practicum.form.label.course = Course
 company.practicum.form.label.practicum-code = Practicum code
 company.practicum.form.label.practicum-title = Practicum Title
 company.practicum.form.label.summary = Summary

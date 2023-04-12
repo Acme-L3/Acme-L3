@@ -8,14 +8,13 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
 import acme.entitites.practicums.Practicum;
+import acme.entitites.session.PracticumSession;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumShowService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticumRepository repo;
@@ -58,20 +57,38 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void bind(final Practicum object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
-		Tuple tuple;
+		int courseId;
+		Course course;
 
-		courses = this.repo.findAllCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repo.findCourseById(courseId);
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
-
-		super.getResponse().setData(tuple);
+		super.bind(object, "code", "title", "summary", "goals");
+		object.setCourse(course);
 	}
+
+	@Override
+	public void validate(final Practicum object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Practicum object) {
+		assert object != null;
+
+		Collection<PracticumSession> practicumSessions;
+
+		practicumSessions = this.repo.findPracticumSessionsByPracticumId(object.getId());
+		this.repo.deleteAll(practicumSessions);
+		this.repo.delete(object);
+	}
+
+	@Override
+	public void unbind(final Practicum object) {
+		assert object != null;
+	}
+
 }

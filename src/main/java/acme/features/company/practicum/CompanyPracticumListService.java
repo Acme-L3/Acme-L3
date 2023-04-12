@@ -32,7 +32,7 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 	@Override
 	public void load() {
 		final Principal principal = super.getRequest().getPrincipal();
-		final Collection<Practicum> practicums = this.repo.findPracticaByCompanyId(principal.getActiveRoleId());
+		final Collection<Practicum> practicums = this.repo.findPracticumByCompanyId(principal.getActiveRoleId());
 
 		super.getBuffer().setData(practicums);
 	}
