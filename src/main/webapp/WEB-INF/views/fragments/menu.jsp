@@ -36,8 +36,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated">
-			<acme:menu-suboption code="master.menu.authenticated.list-bulletins" action="/authenticated/bulletin/list/"/>
-			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list/"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-bulletins" action="/authenticated/bulletin/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list"/>
 		</acme:menu-option>
 		
 		
