@@ -1,0 +1,8 @@
+authenticated.student.form.label.statement = Declaración: 
+authenticated.student.form.label.strongFeatures = Características fuertes:
+authenticated.student.form.label.weakFeatures = Características débiles:
+authenticated.student.form.label.enlace = Enlace:
+
+
+authenticated.student.form.button.create = Registrar
+authenticated.student.form.button.update = Actualizar
