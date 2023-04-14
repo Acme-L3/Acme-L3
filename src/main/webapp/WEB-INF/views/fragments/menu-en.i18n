@@ -60,3 +60,4 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.authenticated = Authenticated
 master.menu.authenticated.list-bulletins = List Bulletins
 master.menu.authenticated.list-notes = List Notes
+master.manu.authenticated.audits = List Audits
