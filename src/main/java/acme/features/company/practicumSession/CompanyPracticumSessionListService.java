@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.practicums.Practicum;
 import acme.entitites.session.PracticumSession;
-import acme.framework.components.models.Request;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -24,7 +23,6 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 	public void check() {
 		boolean status;
 
-		final Request req = super.getRequest();
 		status = super.getRequest().hasData("masterId", int.class);
 
 		super.getResponse().setChecked(status);
@@ -52,14 +50,18 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		practicumSessions = this.repo.findPracticumSessionsByPracticumId(practicumId);
 
 		super.getBuffer().setData(practicumSessions);
+		super.getResponse().setGlobal("masterId", practicumId);
 	}
 
 	@Override
-	public void unbind(final PracticumSession practicumSession) {
-		assert practicumSession != null;
+	public void unbind(final PracticumSession object) {
+		assert object != null;
 		Tuple tuple;
+		int practicumId;
 
-		tuple = super.unbind(practicumSession, "title", "summary");
+		practicumId = super.getRequest().getData("masterId", int.class);
+		tuple = super.unbind(object, "title", "summary");
+		tuple.put("masterId", practicumId);
 
 		super.getResponse().setData(tuple);
 	}

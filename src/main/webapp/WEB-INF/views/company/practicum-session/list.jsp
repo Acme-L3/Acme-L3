@@ -16,6 +16,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="company.practicumSession.list.label.title" path="title"  width="60%"/>
-	<acme:list-column code="company.practicumSession.list.label.summary" path="summary" width="20%"/>
+	<acme:list-column code="company.practicum-session.list.label.title" path="title"  width="60%"/>
+	<acme:list-column code="company.practicum-session.list.label.summary" path="summary" width="20%"/>
 </acme:list>
+
+<acme:button code="company.practicum-session.list.button.create" action="/company/practicum-session/create?masterId=${masterId}"/>
