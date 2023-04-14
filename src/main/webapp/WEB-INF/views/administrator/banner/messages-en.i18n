@@ -1,0 +1,15 @@
+administrator.banner.list.startDate = start Date
+administrator.banner.list.endDate = End Date
+administrator.banner.list.slogan = Slogan
+administrator.banner.list.button.create = Create Banner
+
+administrator.banner.form.initMoment = Inital creation moment
+administrator.banner.form.endMoment = End creation moment
+administrator.banner.form.startDate = Start Date
+administrator.banner.form.endDate = End Date
+administrator.banner.form.linkPhoto = Link Photo
+administrator.banner.form.slogan = Slogan
+administrator.banner.form.linkDocument = Link Document
+administrator.banner.form.button.update = Update
+administrator.banner.form.button.delete = Delete
+administrator.banner.form.button.create = Create
