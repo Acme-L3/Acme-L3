@@ -10,4 +10,4 @@
 	<acme:list-column code="student.list.label.activityType" path="activityType"/>
 </acme:list>
 
-<acme:button code="student.activity.list.button.create" action="/student/activity/create"/>
+<acme:button code="student.activity.list.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>

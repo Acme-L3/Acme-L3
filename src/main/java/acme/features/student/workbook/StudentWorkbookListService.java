@@ -44,14 +44,20 @@ public class StudentWorkbookListService extends AbstractService<Student, Activit
 		objects = this.repo.findActivitiesByEnrolmentId(enrolmentId);
 
 		super.getBuffer().setData(objects);
+		super.getResponse().setGlobal("enrolmentId", enrolmentId);
 	}
 
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+		int enrolmentId;
 
 		Tuple tuple;
+
+		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		tuple = super.unbind(object, "title", "summary", "activityType", "link");
+
+		tuple.put("enrolmentId", enrolmentId);
 
 		super.getResponse().setData(tuple);
 	}

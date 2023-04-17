@@ -10,4 +10,5 @@ student.activity.form.label.endDate = Fecha de fin
 student.activity.form.label.link = Enlace
 
 student.activity.list.button.create = Crear
+student.activity.form.button.create = Crear
 

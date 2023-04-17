@@ -19,10 +19,20 @@ public class StudentWorkbookController extends AbstractController<Student, Activ
 	@Autowired
 	protected StudentWorkbookShowService	showService;
 
+	@Autowired
+	protected StudentWorkbookCreateService	createService;
+
+	//	@Autowired
+	//	protected StudentActivityUpdateService	updateService;
+
+	//	@Autowired
+	//	protected StudentActivityDeleteService	deleteService;
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 	}
 }

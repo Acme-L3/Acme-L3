@@ -6,10 +6,11 @@
 <acme:form>
    	<acme:input-textbox code="student.activity.form.label.title" path="title"/>
     <acme:input-textbox code="student.activity.form.label.summary" path="summary"/>
-    <acme:input-textbox code="student.activity.form.label.activityType" path="activityType"/>
+    <acme:input-select code="student.activity.form.label.activityType" path="activityType" choices="${activities}"/>
 	<acme:input-textbox code="student.activity.form.label.startDate" path="startDate"/>
     <acme:input-textbox code="student.activity.form.label.endDate" path="endDate"/>
     <acme:input-textbox code="student.activity.form.label.link" path="link"/>
+        
 		
 	<jstl:choose>
 <%-- 		<jstl:when test="${acme:anyOf(_command, 'show')}"> --%>
@@ -18,7 +19,7 @@
 <%-- 		</jstl:when> --%>
 		
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit test="${_command == 'create'}" code="student.activity.form.button.create" action="/student/activity/create"/>
+			<acme:submit test="${_command == 'create'}" code="student.activity.form.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
 		</jstl:when>		
 	</jstl:choose>		
 </acme:form>

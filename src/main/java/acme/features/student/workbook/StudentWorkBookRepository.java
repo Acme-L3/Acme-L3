@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entitites.activities.Activity;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Student;
 
 @Repository
 public interface StudentWorkBookRepository extends AbstractRepository {
@@ -24,5 +25,11 @@ public interface StudentWorkBookRepository extends AbstractRepository {
 
 	@Query("select a from Activity a where a.id = :id")
 	Activity findActivityById(int id);
+
+	@Query("select s from Student s where s.id = :id")
+	Student findStudentById(int id);
+
+	@Query("select e from Enrolment e")
+	Collection<Enrolment> findAllEnrolments();
 
 }
