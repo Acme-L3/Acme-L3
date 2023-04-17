@@ -34,9 +34,11 @@ public class PracticumSession extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				initialDate;
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 

@@ -35,3 +35,7 @@ company.practicum-session.form.label.summary = Summary
 company.practicum-session.form.label.initialDate = Initial Date
 company.practicum-session.form.label.endDate = End Date
 company.practicum-session.form.label.link = Link
+
+company.practicum.error.label.difference = Interval between dates must exceed at least seven days
+company.practicum.error.label.endDate = End Date must be later than Initial Date
+company.practicum.error.label.initialDate = Initial Date must be later than seven days from the present

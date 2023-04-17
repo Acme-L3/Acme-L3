@@ -22,13 +22,19 @@ public class CompanyPracticumSessionController extends AbstractController<Compan
 	@Autowired
 	protected CompanyPracticumSessionCreateService	createService;
 
+	@Autowired
+	protected CompanyPracticumSessionUpdateService	updateService;
+
+	@Autowired
+	protected CompanyPracticumSessionDeleteService	deleteService;
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("delete", this.deleteService);
-		//		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }

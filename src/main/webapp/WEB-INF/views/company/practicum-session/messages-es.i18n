@@ -35,3 +35,7 @@ company.practicum-session.form.label.summary = Resumen
 company.practicum-session.form.label.initialDate = Fecha de inicio
 company.practicum-session.form.label.endDate = Fecha de fin
 company.practicum-session.form.label.link = Enlace
+
+company.practicum.error.label.difference = El intervalo entre las fechas debe ser de al menos siete días
+company.practicum.error.label.endDate = La fecha final deber ser posterior a la fecha inicial
+company.practicum.error.label.initialDate = La fecha inicial debe ser posterior a siete días desde el presente

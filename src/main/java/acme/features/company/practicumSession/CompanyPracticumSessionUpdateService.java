@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.practicums.Practicum;
 import acme.entitites.session.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionCreateService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionUpdateService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
 	protected CompanyPracticumSessionRepository repo;
@@ -23,24 +24,38 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		PracticumSession object;
+		Practicum practicum;
+		Principal principal;
+		int practicumSessionId;
+
+		practicumSessionId = super.getRequest().getData("id", int.class);
+		object = this.repo.findPracticumSessionById(practicumSessionId);
+		practicum = object.getPracticum();
+		principal = super.getRequest().getPrincipal();
+
+		status = practicum.getCompany().getId() == principal.getActiveRoleId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final PracticumSession object;
-		int practicumId;
-		Practicum practicum;
+		PracticumSession object;
+		int id;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repo.findPracticumById(practicumId);
-		object = new PracticumSession();
-		object.setPracticum(practicum);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repo.findPracticumSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -49,12 +64,11 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		int practicumId;
+		int practicumSessionId;
 		Practicum practicum;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repo.findPracticumById(practicumId);
-
+		practicumSessionId = super.getRequest().getData("id", int.class);
+		practicum = this.repo.findPracticumByPracticumSessionId(practicumSessionId);
 		super.bind(object, "title", "summary", "initialDate", "endDate", "link");
 		object.setPracticum(practicum);
 	}
@@ -75,7 +89,6 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(MomentHelper.isLongEnough(object.getInitialDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "company.practicum.error.label.difference");
-
 	}
 
 	@Override
@@ -89,17 +102,11 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void unbind(final PracticumSession object) {
 		assert object != null;
 
-		int practicumId;
-		Practicum practicum;
 		Tuple tuple;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repo.findPracticumById(practicumId);
-
 		tuple = super.unbind(object, "title", "summary", "initialDate", "endDate", "link");
-		tuple.put("practicum", practicum);
-		tuple.put("id", practicumId);
 
 		super.getResponse().setData(tuple);
 	}
+
 }
