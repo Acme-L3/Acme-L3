@@ -33,6 +33,8 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.create-bulletin = Create Bulletin
+master.menu.administrator.list-banner = List Banners
 
 # master.menu.provider ########################################################
 
@@ -52,6 +54,7 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-auditor = Become an Auditor
 
 # master.menu.user-account ####################################################
 
@@ -63,3 +66,4 @@ master.menu.authenticated.list-notes = List Notes
 
 master.menu.company = Company
 master.menu.company.my-practica = My practicums
+master.manu.authenticated.audits = List Audits
