@@ -8,6 +8,7 @@
 	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
 	<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
 	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>
+	
 	<acme:button code="student.enrolment.form.button.activity" action="/student/activity/list?enrolmentId=${id}"/>
 		
 	<jstl:choose>

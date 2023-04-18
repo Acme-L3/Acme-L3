@@ -1,10 +1,12 @@
 
-package acme.features.student.workbook;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.activities.Activity;
+import acme.entitites.activities.ActivityType;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -45,9 +47,16 @@ public class StudentWorkbookShowService extends AbstractService<Student, Activit
 	public void unbind(final Activity object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Tuple tuple;
 
+		final int enrolmentId = object.getEnrolment().getId();
+
+		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
+
 		tuple = super.unbind(object, "title", "summary", "activityType", "initDate", "endDate", "link");
+		tuple.put("activities", choices);
+		tuple.put("enrolmentId", enrolmentId);
 
 		super.getResponse().setData(tuple);
 	}

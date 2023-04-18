@@ -1,5 +1,5 @@
 
-package acme.features.student.workbook;
+package acme.features.student.activity;
 
 import javax.annotation.PostConstruct;
 
@@ -22,11 +22,11 @@ public class StudentWorkbookController extends AbstractController<Student, Activ
 	@Autowired
 	protected StudentWorkbookCreateService	createService;
 
-	//	@Autowired
-	//	protected StudentActivityUpdateService	updateService;
+	@Autowired
+	protected StudentActivityUpdateService	updateService;
 
-	//	@Autowired
-	//	protected StudentActivityDeleteService	deleteService;
+	@Autowired
+	protected StudentActivityDeleteService	deleteService;
 
 
 	@PostConstruct
@@ -34,5 +34,7 @@ public class StudentWorkbookController extends AbstractController<Student, Activ
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 }

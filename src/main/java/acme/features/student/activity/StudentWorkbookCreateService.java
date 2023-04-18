@@ -1,5 +1,5 @@
 
-package acme.features.student.workbook;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
