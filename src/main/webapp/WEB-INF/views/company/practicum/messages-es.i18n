@@ -18,6 +18,7 @@ company.practicum.list.button.create = Crear
 company.practicum.form.button.delete = Eliminar
 company.practicum.form.button.create = Crear
 company.practicum.form.button.update = Actualizar
+company.practicum.form.button.publish = Publicar
 
 company.practicum.form.label.course = Curso
 company.practicum.form.label.practicum-code = Código de la práctica

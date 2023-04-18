@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumShowService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumPublishService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticumRepository repo;
@@ -41,7 +41,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		object = this.repo.findPracticumById(practicumId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object.getCompany().getId() == principal.getActiveRoleId();
+		status = object.getCompany().getId() == principal.getActiveRoleId() && object.getDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -53,8 +53,34 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repo.findPracticumById(id);
+		object.setDraftMode(false);
 
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final Practicum object) {
+		assert object != null;
+
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repo.findCourseById(courseId);
+		super.bind(object, "code", "title", "summary", "goals", "draftMode");
+		object.setCourse(course);
+	}
+
+	@Override
+	public void validate(final Practicum object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Practicum object) {
+		assert object != null;
+
+		this.repo.save(object);
 	}
 
 	@Override
@@ -69,7 +95,6 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "draftMode");
-		tuple.put("id", object.getId());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
