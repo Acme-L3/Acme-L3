@@ -27,22 +27,6 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 		super.getResponse().setChecked(status);
 	}
 
-	//	@Override
-	//	public void authorise() {
-	//		boolean status;
-	//		Activity object;
-	//		Principal principal;
-	//		int activityId;
-	//
-	//		activityId = super.getRequest().getData("id", int.class);
-	//		object = this.repo.findActivityById(activityId);
-	//		principal = super.getRequest().getPrincipal();
-	//
-	//		status = object.getEnrolment().getId() == principal.getActiveRoleId();
-	//
-	//		super.getResponse().setAuthorised(status);
-	//	}
-
 	@Override
 	public void authorise() {
 		boolean status;
@@ -51,7 +35,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 		activityId = super.getRequest().getData("id", int.class);
 		enrolment = this.repo.findEnrolmentByActivityId(activityId);
-		status = enrolment != null && super.getRequest().getPrincipal().getAccountId() == enrolment.getStudent().getUserAccount().getId();
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().getAccountId() == enrolment.getStudent().getUserAccount().getId();
 
 		super.getResponse().setAuthorised(status);
 	}

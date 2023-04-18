@@ -43,7 +43,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		object = this.repo.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object.getStudent().getId() == principal.getActiveRoleId();
+		status = object != null && object.getStudent().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -70,9 +70,10 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		courses = this.repo.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals");
+		tuple = super.unbind(object, "code", "motivation", "goals", "creditCard");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

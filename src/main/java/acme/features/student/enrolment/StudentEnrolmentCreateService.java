@@ -37,6 +37,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		student = this.repo.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Enrolment();
+		object.setDraftMode(true);
 		object.setStudent(student);
 
 		super.getBuffer().setData(object);
@@ -81,6 +82,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		tuple = super.unbind(object, "code", "motivation", "goals");
 		tuple.put("courses", choices);
+		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

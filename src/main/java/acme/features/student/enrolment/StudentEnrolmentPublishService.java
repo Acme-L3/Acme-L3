@@ -6,20 +6,18 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entitites.activities.Activity;
 import acme.entitites.course.Course;
 import acme.entitites.enrolments.Enrolment;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentPublishService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
-	protected StudentEnrolmentRepository repo;
+	protected StudentEnrolmentRepository repository;
 
 
 	@Override
@@ -34,15 +32,14 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void authorise() {
 		boolean status;
-		Enrolment object;
-		Principal principal;
 		int enrolmentId;
+		Enrolment enrolment;
+		Student student;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		object = this.repo.findEnrolmentById(enrolmentId);
-		principal = object == null ? null : super.getRequest().getPrincipal();
-
-		status = object != null && object.isDraftMode() && object.getStudent().getId() == principal.getActiveRoleId();
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -53,7 +50,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repo.findEnrolmentById(id);
+		object = this.repository.findEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -62,30 +59,20 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repo.findCourseById(courseId);
-
-		super.bind(object, "code", "motivation", "goals");
-		object.setCourse(course);
+		super.bind(object, "code", "motivation", "goals", "workbook", "creditCard");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
-
-		Collection<Activity> activities;
-
-		activities = this.repo.findActivitiesByEnrolmentId(object.getId());
-		this.repo.deleteAll(activities);
-		this.repo.delete(object);
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override
@@ -93,13 +80,13 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		assert object != null;
 
 		Collection<Course> courses;
-		SelectChoices choices;
+		final SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repo.findAllCourses();
+		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals");
+		tuple = super.unbind(object, "code", "motivation", "goals", "creditCard");
 		tuple.put("courses", choices);
 		tuple.put("draftMode", object.isDraftMode());
 

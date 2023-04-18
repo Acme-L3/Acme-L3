@@ -39,9 +39,9 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		enrolmentId = super.getRequest().getData("id", int.class);
 		object = this.repo.findEnrolmentById(enrolmentId);
-		principal = super.getRequest().getPrincipal();
+		principal = object == null ? null : super.getRequest().getPrincipal();
 
-		status = object.getStudent().getId() == principal.getActiveRoleId();
+		status = object != null && object.isDraftMode() && object.getStudent().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -67,13 +67,14 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repo.findCourseById(courseId);
 
-		super.bind(object, "code", "motivation", "goals");
+		super.bind(object, "code", "motivation", "goals", "creditCard");
 		object.setCourse(course);
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
 	}
 
 	@Override
@@ -94,8 +95,10 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		courses = this.repo.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals");
+		tuple = super.unbind(object, "code", "motivation", "goals", "creditCard");
+		tuple.put("activityType", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
