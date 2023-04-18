@@ -15,10 +15,13 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
 
+master.menu.any.list-peeps = Listar Peeps
 master.menu.anonymous.favourite-link-alvsangon = 49030430L: Sánchez González, Álvaro
 master.menu.anonymous.favourite-link-guipacrod = 25629441N: Pacheco Rodrigues, Guillermo Alonso
 master.menu.anonymous.favourite-link-javrodcor = 29516971J: Rodríguez Cordero, Javier
@@ -62,4 +65,5 @@ master.menu.user-account.auditor = Datos de auditor
 master.menu.authenticated = Autenticado
 master.menu.authenticated.list-bulletins = Listar Boletines
 master.menu.authenticated.list-notes = Listar Notas
+master.menu.any.list-peeps = Listar Peeps
 master.manu.authenticated.audits = Listar Auditorias
