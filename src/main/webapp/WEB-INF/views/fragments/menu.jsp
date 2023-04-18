@@ -45,6 +45,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list"/>
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.manu.authenticated.audits" action="/any/audit/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-offers" action="/authenticated/offer/list"/>
 		</acme:menu-option>
 		
 		
