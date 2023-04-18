@@ -18,7 +18,9 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvsangon" action="https://lichess.org/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-guipacrod" action="http://www.twitch.tv/skain"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javrodcor" action="https://www.fcbarcelona.es/es/"/>
@@ -40,6 +42,7 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated">
 			<acme:menu-suboption code="master.menu.authenticated.list-bulletins" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list"/>
+			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
 		</acme:menu-option>
 		
 		
