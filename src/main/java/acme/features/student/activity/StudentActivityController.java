@@ -11,16 +11,16 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Student;
 
 @Controller
-public class StudentWorkbookController extends AbstractController<Student, Activity> {
+public class StudentActivityController extends AbstractController<Student, Activity> {
 
 	@Autowired
-	protected StudentWorkbookListService	listService;
+	protected StudentActivityListService	listService;
 
 	@Autowired
-	protected StudentWorkbookShowService	showService;
+	protected StudentActivityShowService	showService;
 
 	@Autowired
-	protected StudentWorkbookCreateService	createService;
+	protected StudentActivityCreateService	createService;
 
 	@Autowired
 	protected StudentActivityUpdateService	updateService;

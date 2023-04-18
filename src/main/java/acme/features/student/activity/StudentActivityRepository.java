@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
 @Repository
-public interface StudentWorkBookRepository extends AbstractRepository {
+public interface StudentActivityRepository extends AbstractRepository {
 
 	@Query("select a from Activity a")
 	Collection<Activity> findAllActivities();

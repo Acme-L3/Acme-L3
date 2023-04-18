@@ -6,22 +6,25 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.activities.Activity;
 import acme.entitites.activities.ActivityType;
-import acme.entitites.enrolments.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentWorkbookCreateService extends AbstractService<Student, Activity> {
+public class StudentActivityShowService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected StudentWorkBookRepository repo;
+	protected StudentActivityRepository repo;
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -31,44 +34,13 @@ public class StudentWorkbookCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void load() {
+		int activityId;
+		Activity activity;
 
-		Activity object;
-		Enrolment enrolment;
-		int enrolmentId;
+		activityId = super.getRequest().getData("id", int.class);
+		activity = this.repo.findActivityById(activityId);
 
-		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-		enrolment = this.repo.findEnrolmentById(enrolmentId);
-
-		object = new Activity();
-		object.setEnrolment(enrolment);
-
-		super.getBuffer().setData(object);
-	}
-
-	@Override
-	public void bind(final Activity object) {
-		assert object != null;
-
-		int enrolmentId;
-		Enrolment enrolment;
-
-		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-		enrolment = this.repo.findEnrolmentById(enrolmentId);
-
-		super.bind(object, "title", "summary", "activityType", "initDate", "endDate", "link");
-		object.setEnrolment(enrolment);
-	}
-
-	@Override
-	public void validate(final Activity object) {
-		assert object != null;
-	}
-
-	@Override
-	public void perform(final Activity object) {
-		assert object != null;
-
-		this.repo.save(object);
+		super.getBuffer().setData(activity);
 	}
 
 	@Override
@@ -88,5 +60,4 @@ public class StudentWorkbookCreateService extends AbstractService<Student, Activ
 
 		super.getResponse().setData(tuple);
 	}
-
 }

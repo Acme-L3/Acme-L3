@@ -14,10 +14,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentWorkbookListService extends AbstractService<Student, Activity> {
+public class StudentActivityListService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected StudentWorkBookRepository repo;
+	protected StudentActivityRepository repo;
 
 
 	@Override
