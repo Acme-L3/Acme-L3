@@ -38,6 +38,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		company = this.repo.findCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Practicum();
 		object.setCompany(company);
+		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -80,6 +81,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals");
+		tuple.put("draftMode", true);
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
