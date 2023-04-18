@@ -19,6 +19,7 @@
 	<acme:list-column code="company.practicum.list.label.practicum-code" path="code"  width="20%"/>
 	<acme:list-column code="company.practicum.list.label.title" path="title"  width="60%"/>
 	<acme:list-column code="company.practicum.list.label.course-code" path="courseCode" width="20%"/>
+	<acme:list-column code="company.practicum.list.label.draftMode" path="draftMode" width="20%"/>
 </acme:list>
 
 <acme:button code="company.practicum.list.button.create" action="/company/practicum/create"/>
