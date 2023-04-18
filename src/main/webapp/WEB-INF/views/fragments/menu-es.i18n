@@ -33,6 +33,8 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.create-bulletin = Crear Boletín
+master.menu.administrator.list-banner = Listar Banners
 
 # master.menu.provider ########################################################
 
@@ -52,7 +54,7 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
-
+master.menu.user-account.become-auditor = Hazte Auditor
 
 # master.menu.user-account ####################################################
 
@@ -64,3 +66,4 @@ master.menu.authenticated.list-notes = Listar Notas
 
 master.menu.company = Empresa
 master.menu.company.my-practica = Mis prácticas
+master.manu.authenticated.audits = Listar Auditorias
