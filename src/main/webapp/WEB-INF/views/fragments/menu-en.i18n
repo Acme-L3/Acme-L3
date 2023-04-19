@@ -28,6 +28,7 @@ master.menu.anonymous.favourite-link-antbarjim1 = 49192086P: Barea Jiménez, Ant
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
+master.menu.administrator.system-configuration = System Configuration
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
