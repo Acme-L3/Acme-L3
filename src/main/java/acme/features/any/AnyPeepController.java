@@ -1,33 +1,36 @@
 
-package acme.features.authenticated.auditor;
+package acme.features.any;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.framework.components.accounts.Authenticated;
+import acme.entitites.peeps.Peep;
+import acme.framework.components.accounts.Any;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Auditor;
 
 @Controller
-public class AuthenticatedAuditorController extends AbstractController<Authenticated, Auditor> {
+public class AnyPeepController extends AbstractController<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAuditorCreateService	createService;
+	protected AnyPeepListService	listService;
 
 	@Autowired
-	protected AuthenticatedAuditorUpdateService	updateService;
+	protected AnyPeepShowService	showService;
+
+	@Autowired
+	protected AnyPeepCreateService	createService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
 	}
-
 }

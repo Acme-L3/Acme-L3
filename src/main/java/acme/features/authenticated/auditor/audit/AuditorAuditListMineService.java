@@ -1,26 +1,24 @@
 
-package acme.features.authenticated.bulletin;
+package acme.features.authenticated.auditor.audit;
 
-import java.time.temporal.ChronoUnit;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entitites.bulletins.Bulletin;
-import acme.framework.components.accounts.Authenticated;
+import acme.entitites.audits.Audit;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import acme.roles.Auditor;
 
 @Service
-public class AuthenticatedBulletinListService extends AbstractService<Authenticated, Bulletin> {
+public class AuditorAuditListMineService extends AbstractService<Auditor, Audit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedBulletinRepository repository;
+	protected AuditorAuditRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -37,23 +35,18 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 
 	@Override
 	public void load() {
-		Collection<Bulletin> objects;
-		Date deadline;
-
-		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
-		objects = this.repository.findRecentBulletins(deadline);
-
+		Collection<Audit> objects;
+		Principal principal;
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findAuditsByAuditorId(principal.getActiveRoleId());
 		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Bulletin object) {
+	public void unbind(final Audit object) {
 		assert object != null;
-
 		Tuple tuple;
-
-		tuple = super.unbind(object,"moment","title","critical");
-
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
 		super.getResponse().setData(tuple);
 	}
 

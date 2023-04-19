@@ -1,33 +1,32 @@
 
-package acme.features.authenticated.auditor;
+package acme.features.authenticated.offer;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import acme.entitites.offers.Offer;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Auditor;
 
 @Controller
-public class AuthenticatedAuditorController extends AbstractController<Authenticated, Auditor> {
+public class AuthenticatedOfferController extends AbstractController<Authenticated, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAuditorCreateService	createService;
+	protected AuthenticatedOfferListService	listService;
 
 	@Autowired
-	protected AuthenticatedAuditorUpdateService	updateService;
+	protected AuthenticatedOfferShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
-
 }

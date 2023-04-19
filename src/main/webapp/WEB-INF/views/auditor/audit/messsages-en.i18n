@@ -1,0 +1,18 @@
+auditor.audit.list.code = Code
+auditor.audit.list.conclusion = Conclusion
+auditor.audit.list.strongPoints = Strong Points
+auditor.audit.list.weakPoints = Weak Points
+auditor.audit.list.button.create = Create
+
+auditor.audit.form.code = Code
+auditor.audit.form.conclusion = Conclusion
+auditor.audit.form.strongPoints = Strong Points
+auditor.audit.form.weakPoints = Weak Points
+auditor.audit.form.auditor = Auditor
+auditor.audit.form.course = Course
+auditor.audit.form.draftMode = Draft Mode
+auditor.audit.form.button.auditingRecords = Auditing Records
+auditor.audit.form.button.update = Update
+employer.audit.form.button.delete = Delete
+employer.audit.form.button.publish = Publish
+auditor.audit.form.button.create = Create
