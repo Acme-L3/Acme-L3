@@ -45,12 +45,15 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 	public void load() {
 		int practicumId;
 		Collection<PracticumSession> practicumSessions;
+		Practicum practicum;
 
 		practicumId = super.getRequest().getData("masterId", int.class);
+		practicum = this.repo.findPracticumById(practicumId);
 		practicumSessions = this.repo.findPracticumSessionsByPracticumId(practicumId);
 
 		super.getBuffer().setData(practicumSessions);
 		super.getResponse().setGlobal("masterId", practicumId);
+		super.getResponse().setGlobal("draftMode", practicum.getDraftMode());
 	}
 
 	@Override

@@ -20,4 +20,11 @@
 	<acme:list-column code="company.practicum-session.list.label.summary" path="summary" width="20%"/>
 </acme:list>
 
-<acme:button code="company.practicum-session.list.button.create" action="/company/practicum-session/create?masterId=${masterId}"/>
+<jstl:choose>
+	<jstl:when test="${ draftMode == true }">
+		<acme:button code="company.practicum-session.list.button.create" action="/company/practicum-session/create?masterId=${masterId}"/>
+	</jstl:when>
+	<jstl:when test="${ draftMode == false }">
+		<acme:button code="company.practicum-session.list.button.create.addendum" action="/company/practicum-session/create?masterId=${masterId}"/>
+	</jstl:when>
+</jstl:choose>

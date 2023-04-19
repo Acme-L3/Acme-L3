@@ -76,6 +76,9 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(MomentHelper.isLongEnough(object.getInitialDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "company.practicum.error.label.difference");
 
+		if (object.getPracticum().getDraftMode() == true && super.getResponse().getData("check", boolean.class) == true) {
+
+		}
 	}
 
 	@Override

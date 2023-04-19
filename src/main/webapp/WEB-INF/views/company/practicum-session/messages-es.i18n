@@ -15,6 +15,7 @@ company.practicum.list.label.course-code = Código del curso
 company.practicum.list.button.create = Crear
 company.practicum-session.list.button.create = Crear
 company.practicum-session.form.button.create = Crear
+company.practicum-session.list.button.create.addendum = Crear complementaria
 
 company.practicum.form.button.delete = Eliminar
 company.practicum.form.button.create = Crear
