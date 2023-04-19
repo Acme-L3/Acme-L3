@@ -41,6 +41,11 @@ master.menu.administrator.list-banner = List Banners
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.consumer.my-audits = My Audits
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumer
