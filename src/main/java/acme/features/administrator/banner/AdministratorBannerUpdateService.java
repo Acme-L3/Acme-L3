@@ -1,15 +1,12 @@
 
 package acme.features.administrator.banner;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.banner.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -56,9 +53,9 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
-		Date moment;
-		moment = MomentHelper.getCurrentMoment();
-		object.setEndMoment(moment);
+		//		Date moment;
+		//		moment = MomentHelper.getCurrentMoment();
+		//		object.setEndMoment(moment);
 		this.repository.save(object);
 	}
 
