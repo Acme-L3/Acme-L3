@@ -19,7 +19,7 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-
+master.menu.any.course= List Courses
 master.menu.any.list-peeps = List Peeps
 master.menu.anonymous.favourite-link-alvsangon = 49030430L: Sánchez González, Álvaro
 master.menu.anonymous.favourite-link-guipacrod = 25629441N: Pacheco Rodrigues, Guillermo Alonso
