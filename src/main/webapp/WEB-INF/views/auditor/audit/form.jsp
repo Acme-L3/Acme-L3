@@ -13,10 +13,10 @@
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditingRecord/list?auditId=${id}"/>			
+			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditing-record/list?auditId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditingRecord/list?auditId=${id}"/>
+			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditing-record/list?auditId=${id}"/>
 			<acme:submit code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
 			<acme:submit code="employer.audit.form.button.delete" action="/auditor/audit/delete"/>
 			<acme:submit code="employer.audit.form.button.publish" action="/auditor/audit/publish"/>
