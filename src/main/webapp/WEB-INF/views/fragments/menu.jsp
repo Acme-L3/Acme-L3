@@ -51,6 +51,7 @@
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.manu.authenticated.audits" action="/any/audit/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-offers" action="/authenticated/offer/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-tutorials" action="/authenticated/tutorial/list"/>
 		</acme:menu-option>
 		
 		
