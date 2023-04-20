@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionCreateService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionAddendumCreateService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
 	protected CompanyPracticumSessionRepository repo;
@@ -28,25 +28,39 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int practicumId;
+		Practicum practicum;
+		boolean addendumCheck;
+
+		practicumId = super.getRequest().getData("masterId", int.class);
+		addendumCheck = this.repo.findAddendumByPracticumId(true, practicumId) != null;
+		practicum = this.repo.findPracticumById(practicumId);
+		status = !addendumCheck && practicum != null && !practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final PracticumSession object;
 		int practicumId;
 		Practicum practicum;
+		PracticumSession object;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
+		practicumId = this.getRequest().getData("masterId", int.class);
 		practicum = this.repo.findPracticumById(practicumId);
+
 		object = new PracticumSession();
 		object.setPracticum(practicum);
+		object.setAddendum(true);
 
+		super.getResponse().setGlobal("draftMode", practicum.getDraftMode());
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final PracticumSession object) {
+
 		assert object != null;
 
 		super.bind(object, "title", "summary", "initialDate", "endDate", "link");
@@ -69,6 +83,8 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(MomentHelper.isLongEnough(object.getInitialDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "company.practicum.error.label.difference");
 
+		if (!object.getPracticum().getDraftMode())
+			super.state(super.getRequest().getData("check", boolean.class), "check", "company.practicum.error.label.check");
 	}
 
 	@Override
@@ -81,18 +97,14 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	@Override
 	public void unbind(final PracticumSession object) {
 		assert object != null;
-
-		int practicumId;
-		Practicum practicum;
+		int masterId;
 		Tuple tuple;
 
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repo.findPracticumById(practicumId);
-
+		masterId = super.getRequest().getData("masterId", int.class);
 		tuple = super.unbind(object, "title", "summary", "initialDate", "endDate", "link");
-		tuple.put("practicum", practicum);
-		tuple.put("masterId", practicumId);
+		tuple.put("masterId", masterId);
 
 		super.getResponse().setData(tuple);
 	}
+
 }
