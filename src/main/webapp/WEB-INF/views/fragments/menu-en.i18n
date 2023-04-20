@@ -16,10 +16,6 @@ master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
 
-
-
-
-
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
@@ -35,6 +31,7 @@ master.menu.anonymous.favourite-link-antbarjim1 = 49192086P: Barea Jiménez, Ant
 
 master.menu.administrator = Administrator
 master.menu.administrator.system-configuration = System Configuration
+master.menu.administrator.offer= List Offers
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
