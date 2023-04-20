@@ -1,10 +1,10 @@
-key,startDate,endDate,linkPhoto,slogan,linkDocument
-banner-01,2021/06/01 00:00,2021/06/07 23:59,https://www.example.com/photo1.jpg,Summer sale! Get up to 50% off,https://www.example.com/document1.pdf
-banner-02,2021/09/15 00:00,2021/09/25 23:59,https://www.example.com/photo2.jpg,Back to school! Shop now for new arrivals,https://www.example.com/document2.pdf
-banner-03,2021/12/01 00:00,2021/12/31 23:59,https://www.example.com/photo3.jpg,Winter collection now available,https://www.example.com/document3.pdf
-banner-04,2021/07/04 00:00,2021/07/05 23:59,https://www.example.com/photo4.jpg,Independence Day sale! Don't miss out,https://www.example.com/document4.pdf
-banner-05,2021/10/28 00:00,2021/11/01 23:59,https://www.example.com/photo5.jpg,Halloween costumes for the whole family,https://www.example.com/document5.pdf
-banner-06,2021/05/01 00:00,2021/05/10 23:59,https://www.example.com/photo6.jpg,Spring cleaning sale! Get organized for less,https://www.example.com/document6.pdf
-banner-07,2021/11/24 00:00,2021/11/28 23:59,https://www.example.com/photo7.jpg,Black Friday weekend deals,https://www.example.com/document7.pdf
-banner-08,2021/02/10 00:00,2021/02/14 23:59,https://www.example.com/photo8.jpg,Valentine's Day gift guide,https://www.example.com/document8.pdf
-banner-09,2022/07/30 00:00,2022/08/05 23:59,https://www.example.com/photo9.jpg,Spring into savings with our latest deals,https://www.example.com/document9.pdf
+key,initMoment,endMoment,startDate,endDate,linkPhoto,slogan,linkDocument
+banner-01,2021/06/01 10:00,2021/06/07 10:00,2021/06/01 00:00,2021/06/07 23:59,https://www.example.com/photo1.jpg,Summer sale! Get up to 50% off,https://www.example.com/document1.pdf
+banner-02,2021/09/15 12:00,2021/09/25 12:00,2021/09/15 00:00,2021/09/25 23:59,https://www.example.com/photo2.jpg,Back to school! Shop now for new arrivals,https://www.example.com/document2.pdf
+banner-03,2021/12/01 09:00,2021/12/31 09:00,2021/12/01 00:00,2021/12/31 23:59,https://www.example.com/photo3.jpg,Winter collection now available,https://www.example.com/document3.pdf
+banner-04,2021/07/04 08:00,2021/07/05 08:00,2021/07/04 00:00,2021/07/05 23:59,https://www.example.com/photo4.jpg,Independence Day sale! Don't miss out,https://www.example.com/document4.pdf
+banner-05,2021/10/28 15:00,2021/11/01 15:00,2021/10/28 00:00,2021/11/01 23:59,https://www.example.com/photo5.jpg,Halloween costumes for the whole family,https://www.example.com/document5.pdf
+banner-06,2021/05/01 10:00,2021/05/10 10:00,2021/05/01 00:00,2021/05/10 23:59,https://www.example.com/photo6.jpg,Spring cleaning sale! Get organized for less,https://www.example.com/document6.pdf
+banner-07,2021/11/24 08:00,2021/11/28 08:00,2021/11/24 00:00,2021/11/28 23:59,https://www.example.com/photo7.jpg,Black Friday weekend deals,https://www.example.com/document7.pdf
+banner-08,2021/02/10 14:00,2021/02/14 14:00,2022/07/30 00:00,2022/08/05 23:59,https://www.example.com/photo8.jpg,Valentine's Day gift guide,https://www.example.com/document8.pdf
+banner-09,2021/03/17 09:00,2021/03/31 09:00,2022/07/30 00:00,2022/08/05 23:59,https://www.example.com/photo9.jpg,Spring into savings with our latest deals,https://www.example.com/document9.pdf
