@@ -59,39 +59,6 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 
-		//		if (!super.getBuffer().getErrors().hasErrors("moment")) {
-		//			Date moment;
-		//
-		//			moment = MomentHelper.getCurrentMoment();
-		//			super.state(!MomentHelper.isAfter(object.getMoment(), moment), "moment", "administrator.offer.form.error.moment-must-be-past");
-		//		}
-		//		if (!super.getBuffer().getErrors().hasErrors("heading"))
-		//			super.state(object.getHeading().length() <= 75, "heading", "administrator.offer.form.error.heading-lenght");
-		//		if (!super.getBuffer().getErrors().hasErrors("summary"))
-		//			super.state(object.getSummary().length() <= 100, "summary", "administrator.offer.form.error.summary-lenght");
-		//		if (!super.getBuffer().getErrors().hasErrors("startAvailability")) {
-		//			Date startDate;
-		//
-		//			startDate = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.HOURS);
-		//			super.state(MomentHelper.isAfter(object.getStartAvailability(), startDate), "startAvailability", "administrator.offer.form.error.start-too-early");
-		//		}
-		//		if (!super.getBuffer().getErrors().hasErrors("endAvailability")) {
-		//			Date endDate;
-		//			final Calendar c = Calendar.getInstance();
-		//			c.setTime(object.getStartAvailability());
-		//
-		//			c.add(Calendar.DATE, 7);
-		//			endDate = c.getTime();
-		//			super.state(MomentHelper.isAfter(object.getEndAvailability(), endDate), "endAvailability", "administrator.offer.form.error.end-too-early");
-		//		}
-		//		if (!super.getBuffer().getErrors().hasErrors("price")) {
-		//			super.state(object.getPrice().getAmount() > 0, "price", "administrator.offer.form.error.negative-price");
-		//
-		//			final SystemConfiguration systemConfiguration = this.systemConfigurationRepository.findSystemConfiguration().get(0);
-		//			final boolean b = Arrays.asList(systemConfiguration.getAcceptedCurrencies().split(",")).contains(object.getPrice().getCurrency());
-		//			super.state(b, "price", "administrator.offer.form.error.not-found-currency");
-		//	}
-
 	}
 
 	@Override

@@ -51,6 +51,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		assert object.isPublished() == false;
 	}
 
 	@Override
