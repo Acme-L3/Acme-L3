@@ -18,6 +18,8 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	
+		<acme:menu-option code="master.menu.any.course" action="/any/course/list" />
 		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
@@ -65,6 +67,10 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.consumer.my-audits" action="/auditor/audit/list-mine"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
+			<acme:menu-suboption code="master.menu.lecturer.my-courses" action="/lecturer/course/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
