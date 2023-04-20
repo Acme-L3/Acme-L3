@@ -1,5 +1,5 @@
 
-package acme.features.any;
+package acme.features.any.peep;
 
 import javax.annotation.PostConstruct;
 

@@ -1,7 +1,8 @@
 
-package acme.features.any;
+package acme.features.any.peep;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyPeepShowService extends AbstractService<Any, Peep> {
+public class AnyPeepListService extends AbstractService<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -26,37 +27,23 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Peep peep;
-		Date deadline;
-
-		id = super.getRequest().getData("id", int.class);
-		peep = this.repository.findOnePeepById(id);
-		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
-		status = MomentHelper.isAfter(peep.getMoment(), deadline);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Peep object;
-		int id;
+		Collection<Peep> objects;
+		Date deadline;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePeepById(id);
+		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
+		objects = this.repository.findRecentPeeps(deadline);
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -65,7 +52,7 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "moment", "title", "nick", "message", "email", "link");
+		tuple = super.unbind(object, "title", "nick", "message");
 
 		super.getResponse().setData(tuple);
 	}
