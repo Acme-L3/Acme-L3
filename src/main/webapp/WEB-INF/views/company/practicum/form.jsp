@@ -23,7 +23,7 @@
 	<acme:input-textbox code="company.practicum.form.label.goals" path="goals"/>
 	
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' && draftMode == true}">
+		<jstl:when test="${_command == 'show' || _command == 'update'  && draftMode == true}">
 			<acme:submit code="company.practicum.form.button.delete" action="/company/practicum/delete"/>
 			<acme:submit code="company.practicum.form.button.update" action="/company/practicum/update"/>
 			<acme:button code="company.practicum.form.button.publish" action="/company/practicum/publish?id=${id}"/>		
