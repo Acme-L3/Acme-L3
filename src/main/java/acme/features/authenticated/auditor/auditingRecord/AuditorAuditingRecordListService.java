@@ -25,7 +25,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 
 	@Override
 	public void check() {
-		final boolean status = super.getRequest().hasData("id", int.class);
+		final boolean status = super.getRequest().hasData("auditId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
@@ -55,7 +55,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
+		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
 		super.getResponse().setData(tuple);
 	}
 

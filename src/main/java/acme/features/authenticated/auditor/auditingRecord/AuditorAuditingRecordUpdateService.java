@@ -33,10 +33,10 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		int auditingRecordId;
 		Audit audit;
 
-		auditingRecordId = super.getRequest().getData("auditingRecordId", int.class);
+		auditingRecordId = super.getRequest().getData("id", int.class);
 		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
-		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
-		super.getResponse().setData(status);
+		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -44,14 +44,15 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		AuditingRecord object;
 		int auditingRecordId;
 
-		auditingRecordId = super.getRequest().getData("auditingRecordId", int.class);
+		auditingRecordId = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditingRecordById(auditingRecordId);
+		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assesment", "initialMoment", "finalMoment", "mark", "link");
+		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
 	}
 
 	@Override
@@ -69,8 +70,8 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "subject", "assesment", "initialMoment", "finalMoment", "mark", "link");
-		tuple.put("auditId", object.getAudit().getId());
+		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
+		tuple.put("id", object.getAudit().getId());
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 		super.getResponse().setData(tuple);
 	}

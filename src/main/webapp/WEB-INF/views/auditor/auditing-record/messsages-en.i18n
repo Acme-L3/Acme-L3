@@ -5,9 +5,10 @@ auditor.auditingRecord.list.button.create=Create
 auditor.auditingRecord.form.subject=Subject
 auditor.auditingRecord.form.assessment=Assessment
 auditor.auditingRecord.form.initialMoment=Initial moment
-auditor.auditingRecord.form.endMoment=End moment
+auditor.auditingRecord.form.finalMoment=Final moment
 auditor.auditingRecord.form.mark=Mark
 auditor.auditingRecord.form.link=Link
+auditor.auditingRecord.form.correction=Correcction
 
 auditor.auditingRecord.form.button.update=Update
 auditor.auditingRecord.form.button.delete=Delete

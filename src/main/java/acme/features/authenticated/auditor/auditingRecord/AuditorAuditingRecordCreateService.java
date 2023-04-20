@@ -23,7 +23,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 	@Override
 	public void check() {
-		final boolean status = super.getRequest().hasData("id", int.class);
+		final boolean status = super.getRequest().hasData("auditId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
@@ -34,7 +34,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		final Audit audit;
 		auditId = super.getRequest().getData("auditId", int.class);
 		audit = this.repository.findAuditById(auditId);
-		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -53,6 +53,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		object.setFinalMoment(null);
 		object.setMark("");
 		object.setLink("");
+		object.setCorrection(false);
 		object.setAudit(audit);
 		super.getBuffer().setData(object);
 	}
@@ -60,12 +61,13 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assesment", "initialMoment", "finalMoment", "mark", "link");
+		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
 	}
 
 	@Override
 	public void validate(final AuditingRecord object) {
 		assert object != null;
+
 	}
 
 	@Override
@@ -78,9 +80,10 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "subject", "assesment", "initialMoment", "finalMoment", "mark", "link");
+		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
 		tuple.put("draftMode", object.getAudit().isDraftMode());
+		tuple.put("correction", false);
 		super.getResponse().setData(tuple);
 	}
 

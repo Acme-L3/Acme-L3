@@ -16,7 +16,7 @@ public interface AuditorAuditingRecordRepository extends AbstractRepository {
 	@Query("select a from Audit a where a.id = :id")
 	Audit findAuditById(int id);
 
-	@Query("select au from AuditingRecord au where au.audit.id = :auditId")
+	@Query("select ar from AuditingRecord ar where ar.audit.id = :auditId")
 	Collection<AuditingRecord> findAuditingRecordsByAuditId(int auditId);
 
 	@Query("select ar.audit from AuditingRecord ar where ar.id = :auditingRecordId")

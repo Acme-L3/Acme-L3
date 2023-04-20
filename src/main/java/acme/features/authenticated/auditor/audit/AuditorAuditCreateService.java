@@ -38,6 +38,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		final Audit object;
 		Auditor auditor;
+
 		auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Audit();
 		object.setDraftMode(true);
@@ -50,6 +51,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		assert object != null;
 		int courseId;
 		Course course;
+
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
@@ -73,6 +75,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		Collection<Course> courses;
 		SelectChoices coursesChoices;
 		Tuple tuple;
+
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = this.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");

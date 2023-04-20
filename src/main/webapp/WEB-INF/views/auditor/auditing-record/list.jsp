@@ -8,4 +8,4 @@
 	<acme:list-column code="auditor.auditingRecord.list.assessment" path="assessment" width="20%"/>
 </acme:list>
 
-<acme:button test="${showCreate}" code="auditor.auditingRecord.list.button.create" action="/auditor/auditing-record/create?auditId=${masterId}"/>
+<acme:button test="${showCreate}" code="auditor.auditingRecord.list.button.create" action="/auditor/auditing-record/create?auditId=${auditId}"/>
