@@ -50,6 +50,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.auditor = Auditor
 master.menu.consumer.my-audits = My Audits
 
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.my-courses = My Courses
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumer
