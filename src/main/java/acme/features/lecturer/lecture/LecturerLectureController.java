@@ -25,10 +25,13 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 	protected LecturerLectureDeleteService	deleteService;
 
 	@Autowired
-	protected LecturerLectureListService		listService;
+	protected LecturerLectureListService	listService;
 
 	@Autowired
-	protected LecturerLectureShowService		showService;
+	protected LecturerLectureShowService	showService;
+
+	@Autowired
+	protected LecturerLecturePublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -37,9 +40,10 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("list", this.listService);
+		super.addCustomCommand("list-by-course", "list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

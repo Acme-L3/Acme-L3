@@ -51,6 +51,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
+		assert object.isPublished() == false;
 	}
 
 	@Override
@@ -63,6 +64,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 		final Tuple tuple = super.unbind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
+		tuple.put("courseId", super.getRequest().getData("courseId", int.class));
 		super.getResponse().setData(tuple);
 	}
 }

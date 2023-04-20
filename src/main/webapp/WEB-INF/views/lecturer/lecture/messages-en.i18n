@@ -1,28 +1,20 @@
-administrator.offer.list.moment=Moment
-administrator.offer.list.heading=Heading
-administrator.offer.list.summary=Summary
-administrator.offer.list.startAvailability=Start Availability
-administrator.offer.list.endAvailability=End Availability
-administrator.offer.list.price=Price
-administrator.offer.list.link=Link
-administrator.offer.list.button.create= Create offer
+lecturer.lecture.form.label.title = Title
+lecturer.lecture.form.label.abstractText = Abstract Text
+lecturer.lecture.form.label.body = Body
+lecturer.lecture.form.label.lectureType = Type
+lecturer.lecture.form.label.link = Link
+lecturer.lecture.form.label.estimateLearningTime =Estimate Learning Time
 
-administrator.offer.form.moment=Moment
-administrator.offer.form.heading=Heading
-administrator.offer.form.summary=Summary
-administrator.offer.form.startAvailability=Start Availability
-administrator.offer.form.endAvailability=End Availability
-administrator.offer.form.price=Price
-administrator.offer.form.link=Link
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.abstractText = Abstract Text
+lecturer.lecture.list.label.body = Body
+lecturer.lecture.list.label.estimateLearningTime =Estimate Learning Time
+lecturer.lecture.list.label.link = Link
+lecturer.lecture.list.label.lectureType = Type
 
-administrator.offer.form.button.update=Update
-administrator.offer.form.button.delete=Delete
-administrator.offer.form.button.create=Create
+lecturer.lecture.form.button.create=Create
+lecturer.lecture.form.button.update=Update
+lecturer.lecture.form.button.delete=Delete
+lecturer.lecture.form.button.publish=Publish
 
-administrator.offer.form.error.moment-must-be-past=Moment must be past
-administrator.offer.form.error.start-too-early= Start moment must be 1 hour away from now
-administrator.offer.form.error.heading-lenght= Heading too long.Maximum 75 characters
-administrator.offer.form.error.summary-lenght= Summary too long.Maximum 100 characters
-administrator.offer.form.error.end-too-early= End date must be one week after from start moment
-administrator.offer.form.error.negative-price= Price must not be negative
-administrator.offer.form.error.not-found-currency=Not found this currency in the accepted currencies.
+lecturer.lecture.list.button.create=Create Lecture

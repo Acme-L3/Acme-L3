@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.lecture.Lecture;
+import acme.entitites.lecture.LectureType;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -28,10 +30,10 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void authorise() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Lecture l = this.repository.findLectureById(id);
 		final boolean status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		final boolean logged = super.getRequest().getPrincipal().getAccountId() == l.getLecturer().getUserAccount().getId();
+		final int id = super.getRequest().getData("id", int.class);
+		final Lecture object = this.repository.findLectureById(id);
+		final boolean logged = object.getLecturer().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
 		super.getResponse().setAuthorised(status && logged);
 	}
 
@@ -46,7 +48,12 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
+
 		final Tuple tuple = super.unbind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
+		tuple.put("published", object.isPublished());
+		final SelectChoices choices = SelectChoices.from(LectureType.class, object.getLectureType());
+		tuple.put("types", choices);
+		tuple.put("courseId", object.getCourse().getId());
 		super.getResponse().setData(tuple);
 	}
 

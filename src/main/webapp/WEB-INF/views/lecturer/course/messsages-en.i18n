@@ -19,3 +19,4 @@ lecturer.course.form.button.delete=Delete
 lecturer.course.form.button.publish=Publish
 
 lecturer.course.list.button.create=Create Course
+lecturer.lecture.form.error.lecture-not-publish=Lectures not published

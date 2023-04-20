@@ -4,13 +4,12 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>	
 
 <acme:list>
-	<acme:list-column code="administrator.offer.list.moment" path="moment" width="30%"/>
-	<acme:list-column code="administrator.offer.list.heading" path="heading" width="30%"/>	
-	<acme:list-column code="administrator.offer.list.summary" path="summary" width="30%"/>
-	<acme:list-column code="administrator.offer.list.startAvailability" path="startAvailability" width="50%"/>
-	<acme:list-column code="administrator.offer.list.endAvailability" path="endAvailability" width="50%"/>
-	<acme:list-column code="administrator.offer.list.price" path="price" width="50%"/>
-	<acme:list-column code="administrator.offer.list.link" path="link" width="50%"/>
+	<acme:list-column code="lecturer.lecture.list.label.title" path="title" width="20%"/>
+	<acme:list-column code="lecturer.lecture.list.label.abstractText" path="abstractText" width="20%"/>
+	<acme:list-column code="lecturer.lecture.list.label.body" path="body" width="20%"/>
+	<acme:list-column code="lecturer.lecture.list.label.lectureType" path="lectureType" width="20%"/>
+	<acme:list-column code="lecturer.lecture.list.label.estimateLearningTime" path="estimateLearningTime" width="20%"/>
+	<acme:list-column code="lecturer.lecture.list.label.link" path="link" width="20%"/>
 </acme:list>
 
-<acme:button code="administrator.offer.list.button.create" action="/administrator/offer/create"/>
+<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create?courseId=${courseId}"/>

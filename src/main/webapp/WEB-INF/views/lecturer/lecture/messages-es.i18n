@@ -1,28 +1,20 @@
-administrator.offer.list.moment=Heading
-administrator.offer.list.heading=Cabecera
-administrator.offer.list.summary=Resumen
-administrator.offer.list.startAvailability=Inicio de Disponibilidad
-administrator.offer.list.endAvailability=Fin de Disponibilidad
-administrator.offer.list.price=Precio
-administrator.offer.list.link=Enlace
-administrator.offer.list.button.create= Crear Oferta
+lecturer.lecture.form.label.title = Título
+lecturer.lecture.form.label.abstractText = Texto Abstracto
+lecturer.lecture.form.label.body = Cuerpo
+lecturer.lecture.form.label.lectureType = Tipo
+lecturer.lecture.form.label.link = Enlace
+lecturer.lecture.form.label.estimateLearningTime =Tiempo Estimado de Aprendizaje
 
-administrator.offer.form.moment=Momento
-administrator.offer.form.heading=Cabecera
-administrator.offer.form.summary=Resumen
-administrator.offer.form.startAvailability=Inicio de Disponibilidad
-administrator.offer.form.endAvailability=Fin de Disponibilidad
-administrator.offer.form.price=Precio
-administrator.offer.form.link=Enlace
+lecturer.lecture.list.label.title = Título
+lecturer.lecture.list.label.abstractText = Texto Abstracto
+lecturer.lecture.list.label.body = Cuerpo
+lecturer.lecture.list.label.estimateLearningTime =Tiempo Estimado de Aprendizaje
+lecturer.lecture.list.label.link = Enlace
+lecturer.lecture.list.label.lectureType = Tipo
 
-administrator.offer.form.button.update=Actualizar
-administrator.offer.form.button.delete=Borrar
-administrator.offer.form.button.create=Crear
+lecturer.lecture.form.button.create=Crear
+lecturer.lecture.form.button.update=Actualizar
+lecturer.lecture.form.button.delete=Borrar
+lecturer.lecture.form.button.publish=Publicar
 
-administrator.offer.form.error.moment-must-be-past=El momento debe ser en el pasado
-administrator.offer.form.error.start-too-early=Inicio de Disponibilidad debe ser 1 hora despues de ahora
-administrator.offer.form.error.heading-lenght=La cabecera es muy larga. Máximo 75 caracteres
-administrator.offer.form.error.summary-lenght= El resumen es muy largo. Máximo 100 caracteres
-administrator.offer.form.error.end-too-early=Fin de Disponibilidad debe ser 1 semana despues del inicio de disponibilidad
-administrator.offer.form.error.negative-price=El precio no puede ser negativo
-administrator.offer.form.error.not-found-currency=No esta esta moneda en las monedas aceptadas.
+lecturer.lecture.list.button.create=Crear Lección
