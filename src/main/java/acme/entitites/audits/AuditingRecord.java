@@ -11,11 +11,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Mark;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -50,11 +50,14 @@ public class AuditingRecord extends AbstractEntity {
 	@NotNull
 	protected Date				finalMoment;
 
-	@NotNull
-	protected Mark				mark;
+	@NotBlank
+	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$", message = "{validation.regex.mark}")
+	protected String			mark;
 
 	@URL
 	protected String			link;
+
+	protected boolean			correction;
 
 	// Derived attributes -----------------------------------------------------
 

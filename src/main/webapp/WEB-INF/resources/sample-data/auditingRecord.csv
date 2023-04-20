@@ -1,11 +1,11 @@
-key,subject,assessment,initialMoment,finalMoment,mark,link,key:audit
-auditing-record-01,Matemáticas,Examen final,2021/12/20 10:00,2021/12/20 12:00,B,https://www.ejemplo.com/examen-matematicas,audit-01
-auditing-record-02,Historia,Ensayo,2021/10/15 14:00,2021/10/15 16:00,C,https://www.ejemplo.com/ensayo-historia,audit-02
-auditing-record-03,Inglés,Oral exam,2021/09/10 09:00,2021/09/10 10:00,A_PLUS,https://www.ejemplo.com/examen-ingles,audit-03
-auditing-record-04,Ciencias,Laboratorio,2021/11/05 13:00,2021/11/05 17:00,F_MINUS,https://www.ejemplo.com/laboratorio-ciencias,audit-04
-auditing-record-05,Geografía,Presentación,2021/08/30 10:00,2021/08/30 11:00,A,https://www.ejemplo.com/presentacion-geografia,audit-05
-auditing-record-06,Artes plásticas,Proyecto final,2021/12/10 16:00,2021/12/10 18:00,B,https://www.ejemplo.com/proyecto-artes,audit-06
-auditing-record-07,Lengua y literatura,Ensayo crítico,2021/11/20 14:00,2021/11/20 16:00,F,https://www.ejemplo.com/ensayo-literatura,audit-07
-auditing-record-08,Educación física,Prueba de resistencia,2021/10/05 08:00,2021/10/05 09:30,C,https://www.ejemplo.com/prueba-fisica,audit-08
-auditing-record-09,Programación,Proyecto de equipo,2021/12/05 09:00,2021/12/05 11:00,A_PLUS,https://www.ejemplo.com/proyecto-programacion,audit-09
-auditing-record-10,Psicología,Investigación,2021/09/25 10:00,2021/09/25 12:00,B,https://www.ejemplo.com/investigacion-psicologia,audit-10
+key,subject,assessment,initialMoment,finalMoment,mark,link,correction,key:audit
+auditing-record-01,Matemáticas,Examen final,2021/12/20 10:00,2021/12/20 12:00,B,https://www.ejemplo.com/examen-matematicas,true,audit-01
+auditing-record-02,Historia,Ensayo,2021/10/15 14:00,2021/10/15 16:00,C,https://www.ejemplo.com/ensayo-historia,false,audit-02
+auditing-record-03,Inglés,Oral exam,2021/09/10 09:00,2021/09/10 10:00,A_PLUS,https://www.ejemplo.com/examen-ingles,false,audit-03
+auditing-record-04,Ciencias,Laboratorio,2021/11/05 13:00,2021/11/05 17:00,F_MINUS,https://www.ejemplo.com/laboratorio-ciencias,false,audit-04
+auditing-record-05,Geografía,Presentación,2021/08/30 10:00,2021/08/30 11:00,A,https://www.ejemplo.com/presentacion-geografia,false,audit-05
+auditing-record-06,Artes plásticas,Proyecto final,2021/12/10 16:00,2021/12/10 18:00,B,https://www.ejemplo.com/proyecto-artes,false,audit-06
+auditing-record-07,Lengua y literatura,Ensayo crítico,2021/11/20 14:00,2021/11/20 16:00,F,https://www.ejemplo.com/ensayo-literatura,false,audit-07
+auditing-record-08,Educación física,Prueba de resistencia,2021/10/05 08:00,2021/10/05 09:30,C,https://www.ejemplo.com/prueba-fisica,false,audit-08
+auditing-record-09,Programación,Proyecto de equipo,2021/12/05 09:00,2021/12/05 11:00,A_PLUS,https://www.ejemplo.com/proyecto-programacion,false,audit-09
+auditing-record-10,Psicología,Investigación,2021/09/25 10:00,2021/09/25 12:00,B,https://www.ejemplo.com/investigacion-psicologia,false,audit-10
