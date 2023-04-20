@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.activities.Activity;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.models.Request;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -36,7 +37,9 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 		Principal principal;
 		int enrolmentId;
 		Enrolment enrolment;
+		Request req;
 
+		req = super.getRequest();
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repo.findEnrolmentById(enrolmentId);
 
