@@ -1,22 +1,25 @@
 
 package acme.entitites.audits;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Mark;
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -50,11 +53,14 @@ public class AuditingRecord extends AbstractEntity {
 	@NotNull
 	protected Date				finalMoment;
 
-	@NotNull
-	protected Mark				mark;
+	@NotBlank
+	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$", message = "{validation.regex.mark}")
+	protected String			mark;
 
 	@URL
 	protected String			link;
+
+	protected boolean			correction;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -64,5 +70,12 @@ public class AuditingRecord extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Audit				audit;
+
+
+	@Transient
+	public Double getHoursFromPeriod() {
+		final Duration duration = MomentHelper.computeDuration(this.initialMoment, this.finalMoment);
+		return duration.getSeconds() / 3600.0;
+	}
 
 }

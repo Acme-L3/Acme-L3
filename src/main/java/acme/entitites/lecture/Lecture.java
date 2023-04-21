@@ -46,6 +46,9 @@ public class Lecture extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	@NotNull
+	protected boolean			isPublished;
+
 	//Relations -----------------------------------------------------------------
 
 	@NotNull

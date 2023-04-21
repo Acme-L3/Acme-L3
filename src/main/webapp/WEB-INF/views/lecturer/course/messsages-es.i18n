@@ -1,0 +1,22 @@
+lecturer.course.form.label.title = Título
+lecturer.course.form.label.code = Código
+lecturer.course.form.label.retailPrice = Precio
+lecturer.course.form.label.abstractText = Texto
+lecturer.course.form.label.link = Enlace
+lecturer.course.form.label.courseType = Tipo
+
+lecturer.course.list.label.title = Título
+lecturer.course.list.label.code = Código
+lecturer.course.list.label.retailPrice = Precio
+lecturer.course.list.label.abstractText = Texto
+lecturer.course.list.label.link = Enlace
+lecturer.course.list.label.courseType = Tipo
+
+lecturer.course.form.button.lecture=Listar lecciones del curso
+lecturer.course.form.button.create=Crear
+lecturer.course.form.button.update=Actualizar
+lecturer.course.form.button.delete=Borrar
+lecturer.course.form.button.publish=Publicar
+
+lecturer.course.list.button.create=Crear curso
+lecturer.lecture.form.error.lecture-not-publish=Lecciones no publicadas
