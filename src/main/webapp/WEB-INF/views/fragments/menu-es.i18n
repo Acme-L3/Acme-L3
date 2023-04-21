@@ -56,6 +56,11 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.auditor = Auditor
 master.menu.consumer.my-audits = Mis auditorías
 
+# master.menu.assistant ########################################################
+
+master.menu.assistant = Asistente
+master.menu.assistant.my-tutorials = Mis Tutorías
+
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Profesor

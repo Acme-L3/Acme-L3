@@ -70,6 +70,10 @@
 			<acme:menu-suboption code="master.menu.consumer.my-audits" action="/auditor/audit/list-mine"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.my-tutorials" action="/assistant/tutorial/list-mine"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
 			<acme:menu-suboption code="master.menu.lecturer.my-courses" action="/lecturer/course/list"/>
 		</acme:menu-option>

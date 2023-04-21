@@ -50,6 +50,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.auditor = Auditor
 master.menu.consumer.my-audits = My Audits
 
+# master.menu.assistant ########################################################
+
+master.menu.assistant = Assistant
+master.menu.assistant.my-tutorials = My Tutorials
+
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Lecturer
