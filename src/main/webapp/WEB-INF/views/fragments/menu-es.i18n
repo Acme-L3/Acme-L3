@@ -8,14 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
-
-
 
 # master.menu.anonymous #######################################################
 
@@ -31,8 +29,6 @@ master.menu.anonymous.favourite-link-antbarjim1 = 49192086P: Barea Jiménez, Ant
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-master.menu.administrator.system-configuration = Configurador del sistema
-master.menu.administrator.offer= Listar ofertas
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
@@ -77,6 +73,9 @@ master.menu.user-account.become-assistant = Hazte asistente
 master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
+master.menu.user-account.company = Datos de compañía
+master.menu.user-account.become-company = Hazte compañía
+
 
 # master.menu.user-account ####################################################
 
