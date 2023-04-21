@@ -1,0 +1,46 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.practicum.list.label.practicum-code = Practicum code
+company.practicum.list.label.title = Title
+company.practicum.list.label.course-code = Course code
+
+company.practicum.list.button.create = Create
+company.practicum-session.list.button.create = Create
+company.practicum-session.form.button.create = Create
+company.practicum-session.list.button.create.addendum = Create Addendum
+company.practicum-session.form.button.addendum = Create Addendum
+
+company.practicum.form.button.delete = Delete
+company.practicum.form.button.create = Create
+company.practicum.form.button.update = Update
+company.practicum.list.button.list.practicumSessions = Practicum Sessions
+
+company.practicum.form.label.course = Course
+company.practicum.form.label.practicum-code = Practicum code
+company.practicum.form.label.practicum-title = Practicum Title
+company.practicum.form.label.summary = Summary
+company.practicum.form.label.goals = Goals
+
+company.practicum-session.list.label.title = Title
+company.practicum-session.list.label.summary = Summary
+company.practicum-session.list.label.addendum = Addendum
+
+company.practicum-session.form.label.title = Title
+company.practicum-session.form.label.summary = Summary
+company.practicum-session.form.label.initialDate = Initial Date
+company.practicum-session.form.label.endDate = End Date
+company.practicum-session.form.label.link = Link
+company.practicum-session.form.button.check = Confirmation
+
+company.practicum.error.label.difference = Interval between dates must exceed at least seven days
+company.practicum.error.label.endDate = End Date must be later than Initial Date
+company.practicum.error.label.initialDate = Initial Date must be later than seven days from the present
+company.practicum.error.label.check = Need to confirm
