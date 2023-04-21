@@ -41,6 +41,11 @@ master.menu.administrator.list-banner = List Banners
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
 
+# master.menu.student ##########################################################
+
+master.menu.student = Student
+master.menu.student.my-enrolments = My enrolments
+
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor

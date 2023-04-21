@@ -42,6 +42,11 @@ master.menu.administrator.list-banner = Listar Banners
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
 
+# master.menu.student ##########################################################
+
+master.menu.student = Estudiante
+master.menu.student.my-enrolments = Mis registros
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
