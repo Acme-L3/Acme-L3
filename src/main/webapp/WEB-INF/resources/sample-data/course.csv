@@ -1,4 +1,4 @@
-key,code,title,retailPrice,abstractText,courseType,link,key:lecturer
-course-01,A123,Programming Course,GBP 120.0,"This is the new IA programming course!",BALANCED,,lecturer-01
-course-02,LSO439,IA Tech Day,USD 40.0,"Join us on Tech day",THEORY,https://www.example.com/course-02,lecturer-02
-course-03,SD201,Charla sobre IA,EUR 10.50,"Charla sobre IA",HANDS_ON,,lecturer-01
+key,code,title,retailPrice,abstractText,courseType,link,key:lecturer,isPublished
+course-01,A123,Programming Course,GBP 120.0,This is the new IA programming course!,BALANCED,,lecturer-01,true
+course-02,LSO439,IA Tech Day,USD 40.0,Join us on Tech day,THEORY,https://www.example.com/course-02,lecturer-02,true
+course-03,SD201,Charla sobre IA,EUR 10.50,Charla sobre IA,HANDS_ON,,lecturer-01,true
