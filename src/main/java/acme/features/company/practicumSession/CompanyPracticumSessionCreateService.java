@@ -41,8 +41,10 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		practicum = this.repo.findPracticumById(practicumId);
 		object = new PracticumSession();
 		object.setPracticum(practicum);
+		practicum = this.repo.findPracticumById(object.getPracticum().getId());
 
 		super.getBuffer().setData(object);
+		super.getResponse().setGlobal("draftMode", practicum.getDraftMode());
 	}
 
 	@Override

@@ -66,7 +66,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		int practicumId;
 
 		practicumId = super.getRequest().getData("masterId", int.class);
-		tuple = super.unbind(object, "title", "summary");
+		tuple = super.unbind(object, "title", "summary", "addendum");
 		tuple.put("masterId", practicumId);
 
 		super.getResponse().setData(tuple);
