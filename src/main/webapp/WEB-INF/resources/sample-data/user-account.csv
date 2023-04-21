@@ -7,6 +7,8 @@ user-account-administrator-02,true,"UserIdentity{name: 'Admin', surname: '1', em
 user-account-administrator-03,true,"UserIdentity{name: 'Admin', surname: '2', email: 'admin2@gmail.com'}",administrator2,administrator2
 user-account-company-01,true,"UserIdentity{name: 'Company', surname: '1', email: 'company1@gmail.com'}",company1,company1
 user-account-company-02,true,"UserIdentity{name: 'Company', surname: '2', email: 'company2@gmail.com'}",company2,company2
+user-account-company-03,true,"UserIdentity{name: 'Company', surname: '3', email: 'company3@gmail.com'}",company3,company3
+user-account-company-04,true,"UserIdentity{name: 'Company', surname: '4', email: 'company4@gmail.com'}",company4,company4
 user-account-student-01,true,"UserIdentity{name: 'Student', surname: '1', email: 'student1@gmail.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Student', surname: '2', email: 'student2@gmail.com'}",student2,student2
 user-account-lecturer-01,true,"UserIdentity{name: 'Lecturer1', surname: 'Boe', email: 'lecturer01@acme.com'}",lecturer1,lecturer1
