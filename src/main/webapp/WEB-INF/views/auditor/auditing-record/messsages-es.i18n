@@ -1,0 +1,15 @@
+auditor.auditingRecord.list.subject=Tema
+auditor.auditingRecord.list.assessment=Evaluación
+auditor.auditingRecord.list.button.create=Crear
+
+auditor.auditingRecord.form.subject=Tema
+auditor.auditingRecord.form.assessment=Evaluación
+auditor.auditingRecord.form.initialMoment=Momento inicial
+auditor.auditingRecord.form.finalMoments=Momento final
+auditor.auditingRecord.form.mark=Nota
+auditor.auditingRecord.form.link=Link
+auditor.auditingRecord.form.correction=Corrección
+
+auditor.auditingRecord.form.button.update=Actualizar
+auditor.auditingRecord.form.button.delete=Eliminar
+auditor.auditingRecord.form.button.create=Crear

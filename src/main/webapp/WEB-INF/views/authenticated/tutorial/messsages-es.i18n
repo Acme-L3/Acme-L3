@@ -1,0 +1,12 @@
+authenticated.tutorial.form.code = Código
+authenticated.tutorial.form.tittle = Título
+authenticated.tutorial.form.summary = Resumen
+authenticated.tutorial.form.goals = Objetivos
+authenticated.tutorial.form.startDate = Fecha de inicio
+authenticated.tutorial.form.endDate = Fecha final
+authenticated.tutorial.form.assistant = Asistente
+authenticated.tutorial.form.course = Curso
+
+authenticated.tutorial.list.code = Código
+authenticated.tutorial.list.tittle = Título
+authenticated.tutorial.list.summary = Resumen

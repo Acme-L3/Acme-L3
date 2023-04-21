@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -18,7 +18,8 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-
+master.menu.any.course= Listar cursos
+master.menu.any.list-peeps = Listar Peeps
 master.menu.anonymous.favourite-link-alvsangon = 49030430L: Sánchez González, Álvaro
 master.menu.anonymous.favourite-link-guipacrod = 25629441N: Pacheco Rodrigues, Guillermo Alonso
 master.menu.anonymous.favourite-link-javrodcor = 29516971J: Rodríguez Cordero, Javier
@@ -33,6 +34,8 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.create-bulletin = Crear Boletín
+master.menu.administrator.list-banner = Listar Banners
 
 # master.menu.provider ########################################################
 
@@ -49,6 +52,18 @@ master.menu.student.my-enrolments = Mis registros
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.consumer.my-audits = Mis auditorías
+master.menu.auditor.dashboard = Dashboard
+
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.my-courses = Mis cursos
+master.menu.lecturer.dashboard =Panel de datos
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -57,6 +72,14 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-assistant = Hazte asistente
+master.menu.user-account.assistant = Datos de asistente
+master.menu.user-account.lecturer = Datos de profesor
+master.menu.user-account.become-lecturer = Hazte profesor
+master.menu.user-account.company = Datos de compañía
+master.menu.user-account.become-company = Hazte compañía
 
 
 # master.menu.user-account ####################################################
@@ -64,3 +87,10 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.authenticated = Autenticado
 master.menu.authenticated.list-bulletins = Listar Boletines
 master.menu.authenticated.list-notes = Listar Notas
+master.menu.company = Empresa
+master.menu.company.my-practica = Mis prácticas
+master.manu.authenticated.audits = Listar Auditorias
+master.menu.any.list-peeps = Listar Peeps
+master.manu.authenticated.audits = Listar Auditorias
+master.menu.authenticated.list-offers = Listar Ofertas
+master.menu.authenticated.list-tutorials = Listar Tutoriales

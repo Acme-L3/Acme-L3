@@ -1,0 +1,20 @@
+lecturer.lecture.form.label.title = Título
+lecturer.lecture.form.label.abstractText = Texto Abstracto
+lecturer.lecture.form.label.body = Cuerpo
+lecturer.lecture.form.label.lectureType = Tipo
+lecturer.lecture.form.label.link = Enlace
+lecturer.lecture.form.label.estimateLearningTime =Tiempo Estimado de Aprendizaje
+
+lecturer.lecture.list.label.title = Título
+lecturer.lecture.list.label.abstractText = Texto Abstracto
+lecturer.lecture.list.label.body = Cuerpo
+lecturer.lecture.list.label.estimateLearningTime =Tiempo Estimado de Aprendizaje
+lecturer.lecture.list.label.link = Enlace
+lecturer.lecture.list.label.lectureType = Tipo
+
+lecturer.lecture.form.button.create=Crear
+lecturer.lecture.form.button.update=Actualizar
+lecturer.lecture.form.button.delete=Borrar
+lecturer.lecture.form.button.publish=Publicar
+
+lecturer.lecture.list.button.create=Crear Lección

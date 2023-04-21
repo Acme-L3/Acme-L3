@@ -1,0 +1,20 @@
+lecturer.lecture.form.label.title = Title
+lecturer.lecture.form.label.abstractText = Abstract Text
+lecturer.lecture.form.label.body = Body
+lecturer.lecture.form.label.lectureType = Type
+lecturer.lecture.form.label.link = Link
+lecturer.lecture.form.label.estimateLearningTime =Estimate Learning Time
+
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.abstractText = Abstract Text
+lecturer.lecture.list.label.body = Body
+lecturer.lecture.list.label.estimateLearningTime =Estimate Learning Time
+lecturer.lecture.list.label.link = Link
+lecturer.lecture.list.label.lectureType = Type
+
+lecturer.lecture.form.button.create=Create
+lecturer.lecture.form.button.update=Update
+lecturer.lecture.form.button.delete=Delete
+lecturer.lecture.form.button.publish=Publish
+
+lecturer.lecture.list.button.create=Create Lecture
