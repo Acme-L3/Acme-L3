@@ -13,8 +13,11 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyCourseRepository extends AbstractRepository {
 
-	@Query("select p from Course p where p.id = :id")
-	Course findOneCourseById(int id);
+	@Query("select c from Course c where c.id = :id")
+	Course findCourseById(int id);
+
+	@Query("select c from Course c")
+	Collection<Course> findAllCourses();
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);

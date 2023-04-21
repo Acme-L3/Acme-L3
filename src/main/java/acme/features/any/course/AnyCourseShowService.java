@@ -8,6 +8,7 @@ import acme.entitites.course.Course;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
 public class AnyCourseShowService extends AbstractService<Any, Course> {
@@ -15,7 +16,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected AnyCourseRepository repo;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -24,7 +25,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().getPrincipal().hasRole(Student.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -36,7 +37,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		Course course;
 
 		id = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(id);
+		course = this.repo.findCourseById(id);
 		status = course.isPublished();
 
 		super.getResponse().setAuthorised(status);
@@ -48,7 +49,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		object = this.repo.findCourseById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -59,8 +60,9 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link");
+		tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "link", "lecturer");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

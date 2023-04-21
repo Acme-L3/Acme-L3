@@ -1,0 +1,10 @@
+any.course.list.label.code = Código
+any.course.list.label.title = Titulo
+any.course.list.label.cAbstract = Resumen
+any.course.list.label.furtherInfo = Más Información
+
+any.course.form.label.code = Código
+any.course.form.label.title = Titulo
+any.course.form.label.cAbstract = Resumen
+any.course.form.label.retailPrice = Precio
+any.course.form.label.furtherInfo = Más Información
