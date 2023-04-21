@@ -1,0 +1,19 @@
+assistant.tutorialSession.form.tittle = Título
+assistant.tutorialSession.form.summary = Resumen
+assistant.tutorialSession.form.creationMoment = Momento de Creacion
+assistant.tutorialSession.form.startDate = Fecha Inicial
+assistant.tutorialSession.form.endDate = Fecha Final
+assistant.tutorialSession.form.link = Link
+
+assistant.tutorialSession.form.button.update = Actualizar
+assistant.tutorialSession.form.button.delete = Borrar
+assistant.tutorialSession.form.button.create = Crear
+
+assistant.tutorialSession.list.tittle = Título
+assistant.tutorialSession.list.summary = Resumen
+assistant.tutorialSession.list.button.create = Crear
+
+
+assistant.tutorial.form.error.one.day = La fecha de inicio tiene que estar al menos un dia por delante de la fecha de creacion
+assistant.tutorial.form.error.duration.max = La duración no puede ser mayor de 5 horas
+assistant.tutorial.form.error.is.before = La fecha de inicio debe ser anterior a la fecha final
