@@ -1,15 +1,13 @@
 
 package acme.forms;
 
-import java.util.Map;
-
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AssitantDashboard extends AbstractForm {
+public class AssistantDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -17,7 +15,7 @@ public class AssitantDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<String, Integer>		totalSessions;
+	Double						totalNumberOfTutorials;
 
 	Double						averageTimePerSession;
 	Double						deviationTimeSession;
