@@ -1,0 +1,7 @@
+administrator.system-configuration.form.systemCurrency = System Currency
+administrator.system-configuration.form.acceptedCurrencies = Accepted Currencies
+administrator.system-configuration.form.button.update = Update
+
+administrator.system-configuration.form.error.pattern.system-currency = Wrong Pattern. Must be three upper-case letters.
+administrator.system-configuration.form.error.pattern.accepted-currencies = Wrong Pattern. Must be words with three upper-case letters separated with commas.
+administrator.system-configuration.form.error.not-found-in-list = System Currency is not in the Accepted Currencies.

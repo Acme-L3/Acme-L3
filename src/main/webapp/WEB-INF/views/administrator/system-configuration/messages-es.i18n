@@ -1,0 +1,7 @@
+administrator.system-configuration.form.systemCurrency = Moneda actual
+administrator.system-configuration.form.acceptedCurrencies = Monedas aceptadas
+administrator.system-configuration.form.button.update = Actualizar
+
+administrator.system-configuration.form.error.pattern.system-currency = Patron erróneo. Deben ser 3 letras en mayúsculas.
+administrator.system-configuration.form.error.pattern.accepted-currencies = Patron erróneo. Deben ser palabras de 3 letras en mayúsculas separadas por comas.
+administrator.system-configuration.form.error.not-found-in-list = Moneda del sistema no está en las monedas aceptadas.
