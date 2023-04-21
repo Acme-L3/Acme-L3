@@ -117,6 +117,7 @@ master.menu.student.my-enrolments = My enrolments
 
 master.menu.assistant = Assistant
 master.menu.assistant.my-tutorials = My Tutorials
+master.menu.assistant.dashboard = Dashboard
 
 # master.menu.auditor ##########################################################
 

@@ -120,6 +120,7 @@ master.menu.student.my-enrolments = Mis registros
 
 master.menu.assistant = Asistente
 master.menu.assistant.my-tutorials = Mis Tutorías
+master.menu.assistant.dashboard = Dashboard
 
 # master.menu.consumer ##########################################################
 

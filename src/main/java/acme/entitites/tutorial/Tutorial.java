@@ -1,6 +1,7 @@
 
 package acme.entitites.tutorial;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -65,6 +66,12 @@ public class Tutorial extends AbstractEntity {
 		boolean result;
 		result = !this.draftMode && MomentHelper.isFuture(this.startDate);
 		return result;
+	}
+
+	@Transient
+	public Double getHoursFromPeriod() {
+		final Duration duration = MomentHelper.computeDuration(this.startDate, this.endDate);
+		return duration.getSeconds() / 3600.0;
 	}
 	//Relations -----------------------------------------------------------------
 
