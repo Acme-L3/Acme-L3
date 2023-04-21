@@ -49,7 +49,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.list-bulletins" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list"/>
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
-			<acme:menu-suboption code="master.manu.authenticated.audits" action="/any/audit/list"/>
+			<acme:menu-suboption code="master.manu.authenticated.audits" action="/authenticated/audit/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-offers" action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-tutorials" action="/authenticated/tutorial/list"/>
 		</acme:menu-option>
@@ -68,6 +68,7 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.consumer.my-audits" action="/auditor/audit/list-mine"/>
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">

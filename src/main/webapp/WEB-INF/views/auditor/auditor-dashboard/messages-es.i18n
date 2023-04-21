@@ -1,0 +1,11 @@
+auditor.dashboard.form.title.general-indicators =  Indicadores generales 
+
+auditor.dashboard.form.label.total-number-of-audits =  Total de auditorías
+auditor.dashboard.form.label.average-number-of-auditing-records =  Media de registros de auditoría
+auditor.dashboard.form.label.maximum-number-of-auditing-records = Máximo número de registros en una auditoría
+auditor.dashboard.form.label.minimum-number-of-auditing-records = Mínimo número de registros en una auditoría
+auditor.dashboard.form.label.deviation-of-auditing-records = Desviación típica del número de registros de auditoría
+auditor.dashboard.form.label.average-time-of-auditing-records = Media de tiempo en registros de auditoría
+auditor.dashboard.form.label.time-deviation-of-auditing-records = Desviación típica del tiempo en registros de auditoría
+auditor.dashboard.form.label.maximum-time-of-auditing-records = Máximo tiempo en registros de auditoría
+auditor.dashboard.form.label.minimum-time-of-auditing-records = Mínimo tiempo en registros de auditoría

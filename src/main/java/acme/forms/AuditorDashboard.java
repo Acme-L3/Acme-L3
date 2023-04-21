@@ -19,14 +19,15 @@ public class AuditorDashboard extends AbstractForm {
 
 	Map<String, Integer>		countOfAuditsLectures;
 
-	Double						averageAudtis;
-	Double						deviationAudtis;
-	Double						minAudits;
-	Double						maxAudits;
-	Double						averageAuditRecords;
-	Double						deviationAuditRecords;
-	Double						minAuditRecords;
-	Double						maxAuditRecords;
+	Double						totalNumberAudits;
+	Double						averageAuditingRecords;
+	Double						averageTimeAuditingRecords;
+	Double						deviationAuditingRecords;
+	Double						timeDeviationAuditingRecords;
+	Double						minAuditingRecords;
+	Double						maxAuditingRecords;
+	Double						minTimeAuditingRecords;
+	Double						maxTimeAuditingRecords;
 
 	// Relationships ----------------------------------------------------------
 
