@@ -54,6 +54,7 @@ master.menu.consumer.my-audits = My Audits
 
 master.menu.lecturer = Lecturer
 master.menu.lecturer.my-courses = My Courses
+master.menu.lecturer.dashboard =Dashboard
 
 # master.menu.consumer ##########################################################
 
