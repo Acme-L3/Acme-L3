@@ -41,6 +41,10 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	protected boolean			draftMode;
+
+	protected String			creditCard;
+
 	// Derived attributes  ----------------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

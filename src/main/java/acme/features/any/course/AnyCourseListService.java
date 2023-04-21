@@ -35,6 +35,7 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 		status = super.getRequest().getPrincipal().hasRole(Student.class);
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override

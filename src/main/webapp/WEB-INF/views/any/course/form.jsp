@@ -6,8 +6,9 @@
 <acme:form>
 	<acme:input-textbox code="any.course.form.label.code" path="code"/>
 	<acme:input-textbox code="any.course.form.label.title" path="title"/>
-	<acme:input-textbox code="any.course.form.label.cAbstract" path="cAbstract"/>
-	<acme:input-textbox code="any.course.form.label.retailPrice" path="retailPrice"/>
-	<acme:input-textbox code="any.course.form.label.furtherInfo" path="furtherInfo"/>
+	<acme:input-textbox code="any.course.form.label.abstractText" path="abstractText"/>
+	<acme:input-money code="any.course.form.label.retailPrice" path="retailPrice"/>
+	<acme:input-url code="any.course.form.label.link" path="link"/>
+
 	
 </acme:form>

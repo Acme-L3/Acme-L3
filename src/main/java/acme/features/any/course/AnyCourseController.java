@@ -29,5 +29,5 @@ public class AnyCourseController extends AbstractController<Any, Course> {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 	}
-
+  
 }

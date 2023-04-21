@@ -1,0 +1,13 @@
+authenticated.audit.list.code = Codigo
+authenticated.audit.list.conclusion=Conclusion
+authenticated.audit.list.strongPoints= Puntos fuertes
+authenticated.audit.list.weakPoints=Puntos Debiles
+authenticated.audit.form.auditor=Auditor
+authenticated.audit.form.course=Curso
+
+authenticated.audit.form.code=Codigo
+authenticated.audit.form.conclusion=Conclusion
+authenticated.audit.form.strongPoints=Puntos fuertes
+authenticated.audit.form.weakPoints=Puntos Debiles
+authenticated.audit.form.auditor=Auditor
+authenticated.audit.form.course=Curso
