@@ -13,3 +13,7 @@ auditor.auditingRecord.form.correction=Corrección
 auditor.auditingRecord.form.button.update=Actualizar
 auditor.auditingRecord.form.button.delete=Eliminar
 auditor.auditingRecord.form.button.create=Crear
+
+auditor.auditingrecord.error.date.initialAfterFinal = La fecha de inicio debe ser anterior a la fecha de finalización
+auditor.auditingrecord.error.date.shortPeriod = El periodo de tiempo debe durar al menos una hora
+auditor.auditingrecord.correction.confirmation = Debe confirmar la corrección de registro de auditoría
