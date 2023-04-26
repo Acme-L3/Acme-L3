@@ -59,7 +59,7 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		int courseId;
 		Course course;
 
-		courseId = super.getRequest().getData("id", int.class);
+		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 		object.setCourse(course);
