@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -58,6 +59,15 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	@Override
 	public void validate(final AuditingRecord object) {
 		assert object != null;
+
+		final Boolean correction = super.getRequest().getData("correction", boolean.class);
+		super.state(correction, "*", "auditor.auditingrecord.correction.confirmation");
+
+		if (!super.getBuffer().getErrors().hasErrors("initialMoment") && !super.getBuffer().getErrors().hasErrors("finalMoment"))
+			if (!MomentHelper.isBefore(object.getInitialMoment(), object.getFinalMoment()))
+				super.state(false, "initialMoment", "auditor.auditingrecord.error.date.initialAfterFinal");
+			else
+				super.state(!(object.getHoursFromPeriod() < 1), "finalMoment", "auditor.auditingrecord.error.date.shortPeriod");
 	}
 
 	@Override
