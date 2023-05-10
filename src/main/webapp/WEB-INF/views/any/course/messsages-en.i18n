@@ -1,0 +1,13 @@
+any.course.form.label.title = Title
+any.course.form.label.code = Code
+any.course.form.label.retailPrice = Retail Price
+any.course.form.label.abstractText = Abstract Text
+any.course.form.label.link = Link
+any.course.form.label.courseType = Type
+
+any.course.list.label.title = Title
+any.course.list.label.code = Code
+any.course.list.label.retailPrice = Retail Price
+any.course.list.label.abstractText = Abstract Text
+any.course.list.label.link = Link
+any.course.list.label.courseType = Type

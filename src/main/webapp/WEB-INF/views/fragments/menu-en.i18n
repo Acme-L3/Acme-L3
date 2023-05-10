@@ -1,4 +1,3 @@
-# menu-en.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -18,7 +17,8 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-
+master.menu.administrator.system-configuration = System Configuration
+master.menu.administrator.offer= List Offers
 master.menu.anonymous.favourite-link-alvsangon = 49030430L: Sánchez González, Álvaro
 master.menu.anonymous.favourite-link-guipacrod = 25629441N: Pacheco Rodrigues, Guillermo Alonso
 master.menu.anonymous.favourite-link-javrodcor = 29516971J: Rodríguez Cordero, Javier
@@ -33,11 +33,36 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.create-bulletin = Create Bulletin
+master.menu.administrator.list-banner = List Banners
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
+
+# master.menu.student ##########################################################
+
+master.menu.student = Student
+master.menu.student.my-enrolments = My enrolments
+
+# master.menu.assistant ########################################################
+
+master.menu.assistant = Assistant
+master.menu.assistant.my-tutorials = My Tutorials
+master.menu.assistant.dashboard = Dashboard
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.consumer.my-audits = My Audits
+master.menu.auditor.dashboard = Dashboard
+
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.my-courses = My Courses
+master.menu.lecturer.dashboard =Dashboard
 
 # master.menu.consumer ##########################################################
 
@@ -52,9 +77,26 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become a student
+master.menu.user-account.company = Company data
+master.menu.user-account.become-company = Become a company
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-assistant = Become an assistant
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
 
 # master.menu.user-account ####################################################
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.list-bulletins = List Bulletins
 master.menu.authenticated.list-notes = List Notes
+master.menu.company = Company
+master.menu.company.my-practica = My practicums
+master.manu.authenticated.audits = List Audits
+master.menu.any.list-peeps = List Peeps
+master.manu.authenticated.audits = List Audits
+master.menu.authenticated.list-offers = List Offers
+master.menu.authenticated.list-tutorials = List Tutorials

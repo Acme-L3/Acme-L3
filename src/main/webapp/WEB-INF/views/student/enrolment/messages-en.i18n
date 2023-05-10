@@ -1,0 +1,21 @@
+student.list.label.code = Code
+student.list.label.motivation = Motivation
+student.list.label.goals = Goals
+
+student.enrolment.form.label.code = Code
+student.enrolment.form.label.motivation = Motivation
+student.enrolment.form.label.goals = Goals
+student.enrolment.form.label.creditCard = Credit card
+
+student.enrolment.list.button.delete = Delete
+student.enrolment.list.button.create = Create
+student.enrolment.list.button.update = Update
+
+
+student.enrolment.form.button.delete = Delete
+student.enrolment.form.button.update = Update
+student.enrolment.form.button.create = Create
+student.enrolment.form.button.publish = Finalise
+
+student.enrolment.form.label.course = Courses
+student.enrolment.form.button.activity = Activities

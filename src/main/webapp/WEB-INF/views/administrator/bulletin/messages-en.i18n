@@ -1,0 +1,7 @@
+administrator.bulletin.form.moment = Moment
+administrator.bulletin.form.title = Title
+administrator.bulletin.form.message = Message
+administrator.bulletin.form.critical = Critical
+administrator.bulletin.form.link = Link
+administrator.bulletin.form.confirm = Confirmation
+administrator.bulletin.form.create = Create Bulletin

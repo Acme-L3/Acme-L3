@@ -1,0 +1,10 @@
+authenticated.offer.form.label.heading = Título
+authenticated.offer.form.label.summary = Resumen
+authenticated.offer.form.label.startAvailability = Fecha Inicio
+authenticated.offer.form.label.endAvailability = Fecha Final
+authenticated.offer.form.label.price = Precio
+authenticated.offer.form.label.link = Link
+
+authenticated.offer.list.label.moment = Momento
+authenticated.offer.list.label.heading = Título
+authenticated.offer.list.label.summary = Resumen

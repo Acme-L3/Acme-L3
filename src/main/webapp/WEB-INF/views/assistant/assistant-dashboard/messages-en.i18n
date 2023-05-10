@@ -1,0 +1,10 @@
+assistant.dashboard.form.title.general-indicators = General indicators 
+assistant.dashboard.form.label.total-number-of-sessions = Total number of Tutorials
+assistant.dashboard.form.label.average-time-per-session-records = Average time in session
+assistant.dashboard.form.label.deviation-of-session-records = Deviation time in session
+assistant.dashboard.form.label.maximum-time-of-session-records = Maximum time in session
+assistant.dashboard.form.label.minimum-time-of-session-records = Minimum time in session
+assistant.dashboard.form.label.average-time-of-tutorial-records = Average time in tutorial
+assistant.dashboard.form.label.time-deviation-of-tutorial-records = Deviation time in tutorial
+assistant.dashboard.form.label.maximum-time-of-tutorial-records = Maximum time in tutorial
+assistant.dashboard.form.label.minimum-time-of-tutorial-records = Minimum time in tutorial
