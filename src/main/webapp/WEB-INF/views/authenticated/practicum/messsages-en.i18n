@@ -1,0 +1,13 @@
+authenticated.practicum.list.label.practicum-code = Practicum Code
+authenticated.practicum.list.label.title = Title
+authenticated.practicum.list.label.course-code = Course Code
+
+authenticated.practicum.form.label.practicum-code = Practicum Code
+authenticated.practicum.form.label.title = Title
+authenticated.practicum.form.label.summary = Summary
+authenticated.practicum.form.label.goals = Goals
+
+authenticated.practicum.form.label.company-name = Company name
+authenticated.practicum.form.label.VATnumber = Company VAT number
+authenticated.practicum.form.label.company-summary = Company summary
+authenticated.practicum.form.label.link = Company link

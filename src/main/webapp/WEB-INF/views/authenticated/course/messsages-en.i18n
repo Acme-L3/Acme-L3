@@ -1,0 +1,12 @@
+authenticated.course.list.label.code = Code
+authenticated.course.list.label.title = Title
+authenticated.course.list.label.retailPrice = Retail Price
+
+authenticated.course.form.label.code = Code
+authenticated.course.form.label.title = Title
+authenticated.course.form.label.retailPrice = Retail Price
+authenticated.course.form.label.abstractText = Abstract
+authenticated.course.form.label.courseType = Course Type
+authenticated.course.form.label.link = Link
+
+authenticated.course.list.button.list.practicums = Practicums

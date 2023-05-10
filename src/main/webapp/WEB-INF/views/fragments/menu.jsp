@@ -49,6 +49,7 @@
 			<acme:menu-suboption code="master.manu.authenticated.audits" action="/authenticated/audit/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-offers" action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-tutorials" action="/authenticated/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-course" action="/authenticated/course/list"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.my-practica" action="/company/practicum/list"/>
