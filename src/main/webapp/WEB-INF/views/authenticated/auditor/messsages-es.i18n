@@ -3,3 +3,4 @@ authenticated.auditor.form.professionalID = ID Profesional
 authenticated.auditor.form.certifications = Certificaciones
 authenticated.auditor.form.link = Link
 authenticated.auditor.form.button.create= Crear
+authenticated.auditor.form.button.update = Actualizar

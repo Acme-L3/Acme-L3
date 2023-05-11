@@ -55,6 +55,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		object = this.repo.findPracticumById(id);
 
 		super.getBuffer().setData(object);
+		super.getResponse().setGlobal("draftMode", object.getDraftMode());
 	}
 
 	@Override

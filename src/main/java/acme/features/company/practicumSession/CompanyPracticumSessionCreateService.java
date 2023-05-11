@@ -41,22 +41,17 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		practicum = this.repo.findPracticumById(practicumId);
 		object = new PracticumSession();
 		object.setPracticum(practicum);
+		practicum = this.repo.findPracticumById(object.getPracticum().getId());
 
 		super.getBuffer().setData(object);
+		super.getResponse().setGlobal("draftMode", practicum.getDraftMode());
 	}
 
 	@Override
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		int practicumId;
-		Practicum practicum;
-
-		practicumId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repo.findPracticumById(practicumId);
-
 		super.bind(object, "title", "summary", "initialDate", "endDate", "link");
-		object.setPracticum(practicum);
 	}
 
 	@Override
@@ -98,7 +93,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 		tuple = super.unbind(object, "title", "summary", "initialDate", "endDate", "link");
 		tuple.put("practicum", practicum);
-		tuple.put("id", practicumId);
+		tuple.put("masterId", practicumId);
 
 		super.getResponse().setData(tuple);
 	}

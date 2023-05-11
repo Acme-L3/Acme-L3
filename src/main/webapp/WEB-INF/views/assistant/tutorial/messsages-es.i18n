@@ -1,0 +1,24 @@
+assistant.tutorial.form.code = Código
+assistant.tutorial.form.tittle = Título
+assistant.tutorial.form.summary = Resumen
+assistant.tutorial.form.goals = Objetivos
+assistant.tutorial.form.startDate = Fecha de Inicio
+assistant.tutorial.form.endDate = Fecha Final
+assistant.tutorial.form.draftMode = Modo borrador
+assistant.tutorial.form.course = Curso 
+
+assistant.tutorial.form.button.tutorialSessions = Sesiones
+assistant.tutorial.form.button.update = Actualizar
+assistant.tutorial.form.button.delete = Borrar
+assistant.tutorial.form.button.publish = Publicar
+assistant.tutorial.form.button.create = Crear
+
+assistant.tutorial.list.code = Código
+assistant.tutorial.list.tittle = Título
+assistant.tutorial.list.summary = Resumen
+assistant.tutorial.list.goals = Objetivos
+
+assistant.tutorial.list.button.create = Crear
+
+assistant.tutorial.form.error.duration.max = La duración no puede ser mayor de 5 horas
+assistant.tutorial.form.error.is.before = La fecha de inicio debe ser anterior a la fecha final

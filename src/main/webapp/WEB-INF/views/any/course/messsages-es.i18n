@@ -1,0 +1,13 @@
+any.course.form.label.title = Título
+any.course.form.label.code = Código
+any.course.form.label.retailPrice = Precio
+any.course.form.label.abstractText = Texto
+any.course.form.label.link = Enlace
+any.course.form.label.courseType = Tipo
+
+any.course.list.label.title = Título
+any.course.list.label.code = Código
+any.course.list.label.retailPrice = Precio
+any.course.list.label.abstractText = Texto
+any.course.list.label.link = Enlace
+any.course.list.label.courseType = Tipo

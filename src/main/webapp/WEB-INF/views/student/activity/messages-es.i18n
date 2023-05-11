@@ -1,0 +1,17 @@
+student.list.label.title = Título
+student.list.label.summary = Resumen
+student.list.label.activityType = Tipo de actividad
+
+student.activity.form.label.title = Título
+student.activity.form.label.summary = Resumen
+student.activity.form.label.activityType = Tipo de actividad
+student.activity.form.label.initDate = Fecha de inicio
+student.activity.form.label.endDate = Fecha de fin
+student.activity.form.label.link = Enlace
+
+student.activity.list.button.create = Crear
+student.activity.form.button.create = Crear
+
+student.activity.form.button.delete = Eliminar
+student.activity.form.button.update = Actualizar
+

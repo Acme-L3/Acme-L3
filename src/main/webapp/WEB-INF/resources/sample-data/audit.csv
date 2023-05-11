@@ -1,11 +1,11 @@
-key,code,conclusion,strong-points,weak-points,key:auditor,key:course
-audit-01,A123,This audit was successful,The team was well-organized,There were no significant issues found,auditor-01,course-01
-audit-02,B456,The audit revealed some areas for improvement,Communication within the team was good,There were a few minor discrepancies found,auditor-02,course-01
-audit-03,C789,Overall the audit was satisfactory,The team worked well together,Documentation could be improved,auditor-01,course-02
-audit-04,D012,The audit identified several opportunities for improvement,The team was knowledgeable,Training on certain processes is recommended,auditor-02,course-02
-audit-05,E345,This audit was completed without any major issues,The team demonstrated good attention to detail,There were a few minor discrepancies found,auditor-01,course-01
-audit-06,F678,The audit identified some areas for improvement,The team was responsive to feedback,There were a few minor discrepancies found,auditor-02,course-01
-audit-07,G901,Overall the audit was successful,The team was well-prepared and thorough,Documentation was well-maintained,auditor-01,course-02
-audit-08,H234,The audit revealed several areas for improvement,The team was cooperative and professional,Additional training on certain processes is recommended,auditor-02,course-02
-audit-09,I567,This audit was completed without any major issues,The team was well-organized,There were no significant issues found,auditor-01,course-01
-audit-10,J890,The audit identified some opportunities for improvement,The team was knowledgeable and thorough,Additional training on certain processes is recommended,auditor-02,course-01
+key,code,conclusion,strong-points,weak-points,draft-mode,key:auditor,key:course
+audit-01,A123,This audit was successful,The team was well-organized,There were no significant issues found,true,auditor-01,course-01
+audit-02,B456,The audit revealed some areas for improvement,Communication within the team was good,There were a few minor discrepancies found,false,auditor-02,course-01
+audit-03,C789,Overall the audit was satisfactory,The team worked well together,Documentation could be improved,true,auditor-01,course-02
+audit-04,D012,The audit identified several opportunities for improvement,The team was knowledgeable,Training on certain processes is recommended,false,auditor-02,course-02
+audit-05,E345,This audit was completed without any major issues,The team demonstrated good attention to detail,There were a few minor discrepancies found,false,auditor-01,course-01
+audit-06,F678,The audit identified some areas for improvement,The team was responsive to feedback,There were a few minor discrepancies found,true,auditor-02,course-01
+audit-07,G901,Overall the audit was successful,The team was well-prepared and thorough,Documentation was well-maintained,false,auditor-01,course-02
+audit-08,H234,The audit revealed several areas for improvement,The team was cooperative and professional,Additional training on certain processes is recommended,true,auditor-02,course-02
+audit-09,I567,This audit was completed without any major issues,The team was well-organized,There were no significant issues found,false,auditor-01,course-01
+audit-10,J890,The audit identified some opportunities for improvement,The team was knowledgeable and thorough,Additional training on certain processes is recommended,true,auditor-02,course-01
