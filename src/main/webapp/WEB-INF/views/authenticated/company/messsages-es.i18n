@@ -15,3 +15,5 @@ authenticated.company.form.label.link = Enlace
 
 authenticated.company.form.button.create = Registar
 authenticated.company.form.button.update = Actualiza
+
+authenticated.company.error.label.VATnumber = Este número VAT ya está registrado
