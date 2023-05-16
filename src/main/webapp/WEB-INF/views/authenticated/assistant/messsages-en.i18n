@@ -1,6 +1,7 @@
 authenticated.assistant.form.supervisor = Supervisor
 authenticated.assistant.form.curriculum = Curriculum
 authenticated.assistant.form.link = Link
+authenticated.assistant.form.expertiseField = Expertise Fields
 
 authenticated.assistant.form.button.create = Create
 authenticated.assistant.form.button.update = Update
