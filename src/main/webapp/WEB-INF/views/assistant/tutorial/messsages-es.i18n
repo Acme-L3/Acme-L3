@@ -22,3 +22,4 @@ assistant.tutorial.list.button.create = Crear
 
 assistant.tutorial.form.error.duration.max = La duración no puede ser mayor de 5 horas
 assistant.tutorial.form.error.is.before = La fecha de inicio debe ser anterior a la fecha final
+assistant.tutorial.form.error.duplicated-code = El codigo no puede estar duplicado.

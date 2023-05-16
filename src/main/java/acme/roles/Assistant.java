@@ -26,6 +26,10 @@ public class Assistant extends AbstractRole {
 	@Length(max = 100)
 	protected String			curriculum;
 
+	@NotBlank
+	@Length(max = 100)
+	protected String			expertiseField;
+
 	@URL
 	protected String			link;
 

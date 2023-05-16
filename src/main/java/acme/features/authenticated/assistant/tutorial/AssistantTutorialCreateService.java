@@ -81,6 +81,12 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	public void validate(final Tutorial object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Tutorial existing;
+			existing = this.repository.findTutorialByCode(object.getCode());
+			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Duration duracion;
 			final long maxDuration = 18000L;
