@@ -4,7 +4,6 @@ package acme.features.authenticated.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -31,11 +30,11 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void authorise() {
 		boolean status;
 		int auditingRecordId;
-		Audit audit;
+		AuditingRecord auditingRecord;
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
-		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
-		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		auditingRecord = this.repository.findAuditingRecordById(auditingRecordId);
+		status = auditingRecord != null && super.getRequest().getPrincipal().hasRole(auditingRecord.getAudit().getAuditor()) && auditingRecord.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -51,7 +50,10 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
+		//		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
+		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "link");
+		object.setDraftMode(true);
+		object.setCorrection(false);
 	}
 
 	@Override
@@ -69,9 +71,7 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
-		tuple.put("id", object.getAudit().getId());
-		tuple.put("draftMode", object.getAudit().isDraftMode());
+		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
 		super.getResponse().setData(tuple);
 	}
 

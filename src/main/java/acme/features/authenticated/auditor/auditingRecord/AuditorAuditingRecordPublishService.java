@@ -11,7 +11,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor, AuditingRecord> {
+public class AuditorAuditingRecordPublishService extends AbstractService<Auditor, AuditingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,11 +29,12 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 
 	@Override
 	public void authorise() {
-		final boolean status;
+		boolean status;
 		int auditingRecordId;
+		AuditingRecord auditingRecord;
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
-		final AuditingRecord auditingRecord = this.repository.findAuditingRecordById(auditingRecordId);
+		auditingRecord = this.repository.findAuditingRecordById(auditingRecordId);
 		status = super.getRequest().getPrincipal().hasRole(auditingRecord.getAudit().getAuditor()) && auditingRecord.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,7 +52,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "draftMode");
+		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "link", "draftMode");
 	}
 
 	@Override
@@ -63,23 +64,23 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 				super.state(false, "initialMoment", "auditor.auditingrecord.error.date.initialAfterFinal");
 			else
 				super.state(!(object.getHoursFromPeriod() < 1), "finalMoment", "auditor.auditingrecord.error.date.shortPeriod");
-
-		final Boolean correction = super.getRequest().getData("correction", boolean.class);
-		super.state(correction, "*", "auditor.auditingrecord.correction.confirmation");
-
 	}
 
 	@Override
 	public void perform(final AuditingRecord object) {
 		assert object != null;
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
-		Tuple tuple;
+
+		final Tuple tuple;
+
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "draftMode");
+
 		super.getResponse().setData(tuple);
 	}
 
