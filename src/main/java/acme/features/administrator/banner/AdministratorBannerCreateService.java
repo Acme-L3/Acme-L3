@@ -38,6 +38,10 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void load() {
 		Banner object;
 		object = new Banner();
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+		object.setEndMoment(moment);
+		object.setInitMoment(moment);
 
 		super.getBuffer().setData(object);
 
@@ -53,19 +57,19 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(object.getStartDate().after(MomentHelper.getCurrentMoment()), "startDate", "adminitrator.banner.form.error.startDate-past");
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			final boolean b = object.getStartDate().after(MomentHelper.getCurrentMoment());
+			super.state(b, "startDate", "administrator.banner.form.error.startDate-past");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "adminitrator.banner.form.error.endDate-not-long-enough");
+			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "administrator.banner.form.error.endDate-not-long-enough");
 
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
-		Date moment;
-		moment = MomentHelper.getCurrentMoment();
-		object.setInitMoment(moment);
+
 		this.repository.save(object);
 	}
 
