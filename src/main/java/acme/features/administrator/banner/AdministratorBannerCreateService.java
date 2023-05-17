@@ -1,12 +1,16 @@
 
 package acme.features.administrator.banner;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.banner.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -34,6 +38,10 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void load() {
 		Banner object;
 		object = new Banner();
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+		object.setEndMoment(moment);
+		object.setInitMoment(moment);
 
 		super.getBuffer().setData(object);
 
@@ -49,11 +57,19 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			final boolean b = object.getStartDate().after(MomentHelper.getCurrentMoment());
+			super.state(b, "startDate", "administrator.banner.form.error.startDate-past");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS) && object.getStartDate().after(object.getEndDate()), "endDate", "administrator.banner.form.error.endDate-not-long-enough");
+
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 

@@ -14,3 +14,6 @@ administrator.banner.form.linkDocument = Link Documento
 administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.delete = Eliminar
 administrator.banner.form.button.create = Crear
+
+adminitrator.banner.form.error.startDate-past=Fecha de Inicio debe ser futura
+adminitrator.banner.form.error.endDate-not-long-enough=Ficha final debe ser al menos 1 semana mas tarde a fecha de inicio
