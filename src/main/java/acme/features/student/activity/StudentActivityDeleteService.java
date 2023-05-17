@@ -29,15 +29,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int activityId;
-		Enrolment enrolment;
-
-		activityId = super.getRequest().getData("id", int.class);
-		enrolment = this.repo.findEnrolmentByActivityId(activityId);
-		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().getAccountId() == enrolment.getStudent().getUserAccount().getId();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override

@@ -60,6 +60,12 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
+		Collection<String> codes;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			codes = this.repo.findAllCodesFromEnrolments();
+			super.state(!codes.contains(object.getCode()), "code", "student.enrolment.form.error.code");
+		}
 	}
 
 	@Override
@@ -82,6 +88,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		tuple = super.unbind(object, "code", "motivation", "goals");
 		tuple.put("courses", choices);
+
 		tuple.put("draftMode", object.isDraftMode());
 
 		super.getResponse().setData(tuple);

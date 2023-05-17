@@ -19,3 +19,13 @@ student.enrolment.form.button.publish = Finalise
 
 student.enrolment.form.label.course = Courses
 student.enrolment.form.button.activity = Activities
+
+student.enrolment.form.label.holderName = Holder's full name
+student.enrolment.form.label.lowerNibble = Card number
+
+student.enrolment.error.holderName.null = Can not be null
+student.enrolment.error.lowerNibble.null = Can not be null
+
+student.enrolment.error.lowerNibble.notValidNumber = Not valid card number
+
+student.enrolment.form.error.code = Duplicated code

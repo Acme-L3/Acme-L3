@@ -43,7 +43,9 @@ public class Enrolment extends AbstractEntity {
 
 	protected boolean			draftMode;
 
-	protected String			creditCard;
+	protected String			holderName;
+
+	protected String			lowerNibble;
 
 	// Derived attributes  ----------------------------------------------------------
 
