@@ -4,6 +4,8 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entitites.course.Course;
+import acme.entitites.course.CourseType;
 import acme.entitites.lecture.Lecture;
 import acme.entitites.lecture.LectureType;
 import acme.features.administrator.systemconfiguration.AdministratorSystemConfigurationRepository;
@@ -75,6 +77,34 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		assert object != null;
 		object.setPublished(true);
 		this.repository.save(object);
+
+		this.updateCourseType(object.getCourse().getId());
+	}
+
+	private void updateCourseType(final int id) {
+		final Course c = this.courseRepository.findCourseById(id);
+
+		boolean courseHasHandsOn = false;
+		boolean courseHasTheory = false;
+
+		for (final Lecture l : this.repository.findAllLecturesByCourse(id))
+			if (l.getLectureType().equals(LectureType.HANDS_ON))
+				courseHasHandsOn = true;
+			else if (l.getLectureType().equals(LectureType.THEORY))
+				courseHasTheory = true;
+			else {
+				courseHasHandsOn = true;
+				courseHasTheory = true;
+			}
+
+		CourseType lt = CourseType.THEORY;
+		if (courseHasHandsOn == true)
+			lt = CourseType.HANDS_ON;
+		else if (courseHasTheory == false)
+			lt = CourseType.BALANCED;
+
+		this.courseRepository.setCourseTypeById(lt, id);
+
 	}
 
 	@Override

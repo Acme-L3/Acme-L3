@@ -69,7 +69,16 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		final int id = super.getRequest().getData("id", int.class);
 		final Collection<Lecture> collect = this.lectureRepository.findAllLecturesByCourse(id);
 		for (final Lecture l : collect)
-			super.state(l.isPublished(), "courseType", "lecturer.lecture.form.error.lecture-not-publish");
+			super.state(l.isPublished(), "courseType", "lecturer.course.form.error.lecture-not-publish");
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(!this.repository.existsCourseWithCodeParam(object.getCode()), "code", "lecturer.course.form.error.code-duplicate");
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			super.state(object.getRetailPrice().getAmount() > 0.0, "retailPrice", "lecturer.course.form.error.retailPrice-negative");
+			final boolean b = this.systemConfigurationRepository.findSystemConfiguration().get(0).getAcceptedCurrencies().contains(object.getRetailPrice().getCurrency());
+			super.state(b, "retailPrice", "lecturer.course.form.error.retailPrice-not-accepted");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("courseType"))
+			super.state(object.getCourseType() != CourseType.THEORY, "courseType", "lecturer.course.form.error.courseType-theory-published");
 
 	}
 
