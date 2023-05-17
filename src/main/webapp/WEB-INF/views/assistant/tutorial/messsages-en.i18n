@@ -8,6 +8,7 @@ assistant.tutorial.form.draftMode = Draft Mode
 assistant.tutorial.form.course = Course 
 
 assistant.tutorial.form.button.tutorialSessions = Tutorial Sessions
+assistant.tutorial.form.button.handsOnSessions = Hands On Sessions
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete
 assistant.tutorial.form.button.publish = Publish

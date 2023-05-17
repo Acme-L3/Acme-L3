@@ -17,10 +17,14 @@ public class AssistantDashboard extends AbstractForm {
 
 	Double						totalNumberOfTutorials;
 
-	Double						averageTimePerSession;
-	Double						deviationTimeSession;
-	Double						minTimeSession;
-	Double						maxTimeSession;
+	Double						averageTimePerTutorialSession;
+	Double						deviationTimeTutorialSession;
+	Double						minTimeTutorialSession;
+	Double						maxTimeTutorialSession;
+	Double						averageTimePerHandsOnSession;
+	Double						deviationTimeHandsOnSession;
+	Double						minTimeHandsOnSession;
+	Double						maxTimeHandsOnSession;
 	Double						averageTimePerTutorial;
 	Double						deviationTimeTutorial;
 	Double						minTimeTutorial;

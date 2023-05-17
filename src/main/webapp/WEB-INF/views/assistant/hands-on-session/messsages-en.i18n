@@ -1,0 +1,18 @@
+assistant.practica.form.tittle = Title
+assistant.practica.form.summary = Summary
+assistant.practica.form.creationMoment = Creation Moment
+assistant.practica.form.startDate = Start Date
+assistant.practica.form.endDate = End Date
+assistant.practica.form.link = Link
+
+assistant.practica.form.button.update = Update
+assistant.practica.form.button.delete = Delete
+assistant.practica.form.button.create = Create
+
+assistant.practica.list.tittle = Title
+assistant.practica.list.summary = Summary
+assistant.practica.list.button.create = Create
+
+assistant.tutorial.form.error.one.day = The Start Date must be at least one day ahead from the Creation Moment
+assistant.tutorial.form.error.duration.max = The duration max be lower than 5 hours
+assistant.tutorial.form.error.is.before = Start Date must be before than End Date
