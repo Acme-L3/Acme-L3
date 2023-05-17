@@ -62,7 +62,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 			super.state(b, "startDate", "administrator.banner.form.error.startDate-past");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "administrator.banner.form.error.endDate-not-long-enough");
+			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS) && object.getStartDate().after(object.getEndDate()), "endDate", "administrator.banner.form.error.endDate-not-long-enough");
 
 	}
 
