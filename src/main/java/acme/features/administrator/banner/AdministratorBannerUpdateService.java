@@ -1,6 +1,7 @@
 
 package acme.features.administrator.banner;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,11 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getStartDate().after(MomentHelper.getCurrentMoment()), "startDate", "adminitrator.banner.form.error.startDate-past");
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS), "endDate", "adminitrator.banner.form.error.endDate-not-long-enough");
 	}
 
 	@Override
@@ -58,7 +64,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 		assert object != null;
 		Date moment;
 		moment = MomentHelper.getCurrentMoment();
-		object.setEndMoment(moment);
+		object.setInitMoment(moment);
 		this.repository.save(object);
 	}
 

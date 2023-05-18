@@ -9,7 +9,7 @@
 	<acme:input-textbox code="lecturer.course.form.label.title" path="title"/>	
 	<acme:input-money code="lecturer.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-textbox code="lecturer.course.form.label.abstractText" path="abstractText"/>
-	<acme:input-select code="lecturer.course.form.label.courseType" path="courseType" choices="${types}"/>
+	<acme:input-select code="lecturer.course.form.label.courseType" path="courseType" choices="${types}" readonly="true"/>
 	<acme:input-url code="lecturer.course.form.label.link" path="link"/>
 	
 	<jstl:choose>	 
