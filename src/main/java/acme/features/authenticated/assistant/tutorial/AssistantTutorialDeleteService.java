@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
+import acme.entitites.session.HandsOnSession;
 import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
@@ -73,9 +74,12 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	public void perform(final Tutorial object) {
 		assert object != null;
 		final Collection<TutorialSession> tutorialSessions;
+		final Collection<HandsOnSession> handsOnSessions;
 
 		tutorialSessions = this.repository.findTutorialSessionsByTutorialId(object.getId());
 		this.repository.deleteAll(tutorialSessions);
+		handsOnSessions = this.repository.findHandsOnSessionsByTutorialId(object.getId());
+		this.repository.deleteAll(handsOnSessions);
 		this.repository.delete(object);
 	}
 

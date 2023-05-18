@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
+import acme.entitites.session.HandsOnSession;
+import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -78,6 +80,12 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
+
+		if (!super.getBuffer().getErrors().hasErrors("draftMode")) {
+			final Collection<HandsOnSession> hands = this.repository.findHandsOnSessionsByTutorialId(object.getId());
+			final Collection<TutorialSession> theory = this.repository.findTutorialSessionsByTutorialId(object.getId());
+			super.state(!hands.isEmpty() || !theory.isEmpty(), "draftMode", "assistant.tutorial.form.error.publish.empty");
+		}
 	}
 
 	@Override

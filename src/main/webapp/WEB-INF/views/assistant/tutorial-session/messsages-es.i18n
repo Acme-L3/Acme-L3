@@ -21,3 +21,4 @@ assistant.tutorial.form.error.one.day.tutorial = No puedes crear una nueva sesio
 assistant.tutorial.form.error.is.before.tutorial = La fecha de creacion tiene que ser antes que la fecha final del tutorial
 assistant.tutorial.form.error.is.before.tutorial2 = La fecha de inicio de la sesion debe ser posterior a la fecha de inicio del tutorial
 assistant.tutorial.form.error.is.before.tutorial2 = La fecha final de la sesion debe ser anterior a la fecha final del tutorial
+assistant.tutorial.form.error.duration.min = La duración mínima es de 1 hora

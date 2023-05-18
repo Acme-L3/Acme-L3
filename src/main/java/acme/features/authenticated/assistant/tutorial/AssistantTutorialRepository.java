@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entitites.course.Course;
+import acme.entitites.session.HandsOnSession;
 import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.repositories.AbstractRepository;
@@ -29,6 +30,9 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 
 	@Query("select ts from TutorialSession ts where ts.tutorial.id = :id")
 	Collection<TutorialSession> findTutorialSessionsByTutorialId(int id);
+
+	@Query("select ts from HandsOnSession ts where ts.tutorial.id = :id")
+	Collection<HandsOnSession> findHandsOnSessionsByTutorialId(int id);
 
 	@Query("select t from Tutorial t where t.assistant.id = :id")
 	Collection<Tutorial> findTutorialsByAssistantId(int id);

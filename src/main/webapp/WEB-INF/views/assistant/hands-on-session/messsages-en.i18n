@@ -20,3 +20,5 @@ assistant.tutorial.form.error.one.day.tutorial = You cant create a new session b
 assistant.tutorial.form.error.is.before.tutorial = The creation moment must be before than the end date of the tutorial
 assistant.tutorial.form.error.is.before.tutorial2 = The start date of the session must be after than the start date of tutorial
 assistant.tutorial.form.error.is.before.tutorial3 = The end date of the session must be before than the end date of tutorial
+assistant.tutorial.form.error.duration.min = The minimum duration is 1 hour
+ 

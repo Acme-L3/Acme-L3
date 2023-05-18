@@ -7,7 +7,7 @@ assistant.tutorial.form.endDate = Fecha Final
 assistant.tutorial.form.draftMode = Modo borrador
 assistant.tutorial.form.course = Curso 
 
-assistant.tutorial.form.button.tutorialSessions = Sesiones Tutoriales
+assistant.tutorial.form.button.tutorialSessions = Sesiones Teoricas
 assistant.tutorial.form.button.handsOnSessions = Sesiones Practicas
 assistant.tutorial.form.button.update = Actualizar
 assistant.tutorial.form.button.delete = Borrar
@@ -23,4 +23,5 @@ assistant.tutorial.list.button.create = Crear
 
 assistant.tutorial.form.error.duration.max = La duración no puede ser mayor de 5 horas
 assistant.tutorial.form.error.is.before = La fecha de inicio debe ser anterior a la fecha final
-assistant.tutorial.form.error.duplicated-code = El codigo no puede estar duplicado.
+assistant.tutorial.form.error.duplicated-code = El código no puede estar duplicado.
+assistant.tutorial.form.error.publish.empty = No puedes publicar un tutorial sin ninguna sesión

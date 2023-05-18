@@ -7,7 +7,7 @@ assistant.tutorial.form.endDate = End Date
 assistant.tutorial.form.draftMode = Draft Mode
 assistant.tutorial.form.course = Course 
 
-assistant.tutorial.form.button.tutorialSessions = Tutorial Sessions
+assistant.tutorial.form.button.tutorialSessions = Theory Sessions
 assistant.tutorial.form.button.handsOnSessions = Hands On Sessions
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete
@@ -24,3 +24,4 @@ assistant.tutorial.list.button.create = Create
 assistant.tutorial.form.error.duration.max = The duration max be lower than 5 hours
 assistant.tutorial.form.error.is.before = Start Date must be before than End Date
 assistant.tutorial.form.error.duplicated-code = Code must be unique
+assistant.tutorial.form.error.publish.empty = You can't publish a tutorial without any sessions
