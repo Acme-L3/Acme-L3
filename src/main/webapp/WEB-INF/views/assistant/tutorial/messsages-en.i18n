@@ -25,3 +25,7 @@ assistant.tutorial.form.error.duration.max = The duration max be lower than 5 ho
 assistant.tutorial.form.error.is.before = Start Date must be before than End Date
 assistant.tutorial.form.error.duplicated-code = Code must be unique
 assistant.tutorial.form.error.publish.empty = You can't publish a tutorial without any sessions
+assistant.tutorial.form.error.is.after.tuto = You can't update or publish because the End Date of a theory session is after of the End Date of the tutorial
+assistant.tutorial.form.error.is.after.handsOn = You can't update or publish because the End Date of a hands on session is after of the End Date of the tutorial
+assistant.tutorial.form.error.is.before.tuto = You can't update or publish because the Start Date of a theory session is before of the Start Date of the tutorial
+assistant.tutorial.form.error.is.before.handsOn = You can't update or publish because the Start Date of a hands on session is before of the Start Date of the tutorial
