@@ -12,4 +12,7 @@
 	<acme:input-textbox code="authenticated.tutorial.form.endDate" path="endDate"/>
 	<acme:input-select code="authenticated.tutorial.form.assistant" path="assistant" choices ="${assistants}"/>
 	<acme:input-select code="authenticated.tutorial.form.course" path="course" choices ="${courses}"/>
+	
+	<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/authenticated/tutorial-session/list?tutorialId=${id}"/>
+	<acme:button code="assistant.tutorial.form.button.handsOnSessions" action="/authenticated/hands-on-session/list?tutorialId=${id}"/>
 </acme:form>
