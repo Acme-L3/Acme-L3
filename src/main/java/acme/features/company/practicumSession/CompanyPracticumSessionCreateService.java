@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.practicums.Practicum;
 import acme.entitites.session.PracticumSession;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -23,12 +24,28 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("masterId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int practicumId;
+		Practicum practicum;
+		Company company;
+		Principal principal;
+
+		practicumId = super.getRequest().getData("masterId", int.class);
+		practicum = this.repo.findPracticumById(practicumId);
+		company = practicum.getCompany();
+		principal = super.getRequest().getPrincipal();
+		status = practicum != null && company.getId() == principal.getActiveRoleId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

@@ -12,12 +12,6 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorSystemConfigurationRepository extends AbstractRepository {
 
-	//	@Query("select b from Bulletin b where b.id = :id")
-	//	Bulletin findBulletinById(int id);
-	//
-	//	@Query("select b from Bulletin b")
-	//	Collection<Bulletin> findAllBulletins();
-
 	@Query("select sc from SystemConfiguration sc")
 	List<SystemConfiguration> findSystemConfiguration();
 }

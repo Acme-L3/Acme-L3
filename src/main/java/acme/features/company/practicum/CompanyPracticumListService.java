@@ -31,8 +31,11 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 
 	@Override
 	public void load() {
-		final Principal principal = super.getRequest().getPrincipal();
-		final Collection<Practicum> practicums = this.repo.findPracticumByCompanyId(principal.getActiveRoleId());
+		Principal principal;
+		Collection<Practicum> practicums;
+
+		principal = super.getRequest().getPrincipal();
+		practicums = this.repo.findPracticumByCompanyId(principal.getActiveRoleId());
 
 		super.getBuffer().setData(practicums);
 	}
@@ -40,6 +43,7 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 	@Override
 	public void unbind(final Practicum practicum) {
 		assert practicum != null;
+
 		Tuple tuple;
 
 		tuple = super.unbind(practicum, "code", "title", "draftMode");
