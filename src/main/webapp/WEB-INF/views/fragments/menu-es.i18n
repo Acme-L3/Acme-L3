@@ -104,3 +104,4 @@ master.manu.authenticated.audits = Listar Auditorias
 master.menu.authenticated.list-offers = Listar Ofertas
 master.menu.authenticated.list-tutorials = Listar Tutoriales
 master.menu.authenticated.list-course = Listar Cursos
+master.menu.any.course = Listar cursos

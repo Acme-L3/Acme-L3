@@ -15,3 +15,5 @@ student.activity.form.button.create = Crear
 student.activity.form.button.delete = Eliminar
 student.activity.form.button.update = Actualizar
 
+student.activity.error.endDate = No es una fecha válida
+

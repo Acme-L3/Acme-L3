@@ -21,17 +21,17 @@ public class AuthenticatedStudentCreateService extends AbstractService<Authentic
 
 
 	@Override
-	public void check() {
-		super.getResponse().setChecked(true);
-	}
-
-	@Override
 	public void authorise() {
 		boolean status;
 
 		status = !super.getRequest().getPrincipal().hasRole(Student.class);
 
 		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
+	public void check() {
+		super.getResponse().setChecked(true);
 	}
 
 	@Override

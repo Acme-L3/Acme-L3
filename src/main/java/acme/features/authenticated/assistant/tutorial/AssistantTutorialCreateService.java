@@ -1,7 +1,6 @@
 
 package acme.features.authenticated.assistant.tutorial;
 
-import java.time.Duration;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -87,15 +86,9 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			Duration duracion;
-			final long maxDuration = 18000L;
-			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
-			super.state(duracion.getSeconds() < maxDuration, "startDate", "assistant.tutorial.form.error.duration.max");
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
+
 	}
 
 	@Override

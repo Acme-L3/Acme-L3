@@ -1,15 +1,12 @@
 
 package acme.features.student.enrolment;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -43,7 +40,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		object = this.repo.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object != null && object.getStudent().getId() == principal.getActiveRoleId();
+		status = object.getStudent().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,20 +60,15 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repo.findAllCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		final Course course = object.getCourse();
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "creditCard");
-		tuple.put("enrolmentId", object.getId());
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
-		tuple.put("draftMode", object.isDraftMode());
+		tuple = super.unbind(object, "code", "motivation", "goals", "lowerNibble", "holderName", "draftMode");
+		tuple.put("course", course.getCode());
 
 		super.getResponse().setData(tuple);
+
 	}
 
 }

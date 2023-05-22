@@ -1,7 +1,6 @@
 
 package acme.features.authenticated.assistant.tutorial;
 
-import java.time.Duration;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,13 +73,6 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 			Tutorial existing;
 			existing = this.repository.findTutorialByCode(object.getCode());
 			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			Duration duracion;
-			final long maxDuration = 18000L;
-			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
-			super.state(duracion.getSeconds() < maxDuration, "startDate", "assistant.tutorial.form.error.duration.max");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))

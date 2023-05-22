@@ -40,7 +40,7 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 		Collection<Bulletin> objects;
 		Date deadline;
 
-		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
+		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
 		objects = this.repository.findRecentBulletins(deadline);
 
 		super.getBuffer().setData(objects);
@@ -52,7 +52,7 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 
 		Tuple tuple;
 
-		tuple = super.unbind(object,"moment","title","critical");
+		tuple = super.unbind(object, "moment", "title", "critical");
 
 		super.getResponse().setData(tuple);
 	}

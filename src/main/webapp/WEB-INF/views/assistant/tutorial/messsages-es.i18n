@@ -7,7 +7,8 @@ assistant.tutorial.form.endDate = Fecha Final
 assistant.tutorial.form.draftMode = Modo borrador
 assistant.tutorial.form.course = Curso 
 
-assistant.tutorial.form.button.tutorialSessions = Sesiones
+assistant.tutorial.form.button.tutorialSessions = Sesiones Tutoriales
+assistant.tutorial.form.button.handsOnSessions = Sesiones Practicas
 assistant.tutorial.form.button.update = Actualizar
 assistant.tutorial.form.button.delete = Borrar
 assistant.tutorial.form.button.publish = Publicar
