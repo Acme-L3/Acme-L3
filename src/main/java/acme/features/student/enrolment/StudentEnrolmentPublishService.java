@@ -1,7 +1,10 @@
 
 package acme.features.student.enrolment;
 
-import java.util.Collection;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,8 +12,8 @@ import org.springframework.stereotype.Service;
 import acme.entitites.course.Course;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -33,15 +36,15 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 	@Override
 	public void authorise() {
 		boolean status;
-		int enrolmentId;
-		Enrolment enrolment;
+		Enrolment object;
 		Principal principal;
+		int enrolmentId;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		object = this.repository.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
 
-		status = enrolment.getStudent().getId() == principal.getActiveRoleId();
+		status = object.getStudent().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -58,13 +61,6 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 	}
 
 	@Override
-	public void bind(final Enrolment object) {
-		assert object != null;
-
-		super.bind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
-	}
-
-	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
 
@@ -78,11 +74,27 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		if (!super.getBuffer().getErrors().hasErrors("lowerNibble")) {
 			String lowerNibble;
 			lowerNibble = object.getLowerNibble();
-
 			super.state(lowerNibble.length() != 0, "lowerNibble", "student.enrolment.error.lowerNibble.null");
-			super.state(lowerNibble.length() == 16, "lowerNibble", "student.enrolment.error.lowerNibble.notValidNumber");
+			super.state(lowerNibble.length() >= 13, "lowerNibble", "student.enrolment.error.lowerNibble.notValidNumber");
+			super.state(lowerNibble.length() <= 18, "lowerNibble", "student.enrolment.error.lowerNibble.notValidNumber");
 		}
 
+		final String cvc = super.getRequest().getData("cvc", String.class);
+		if (!super.getBuffer().getErrors().hasErrors("cvc"))
+			super.state(cvc.length() != 0 && cvc.matches("^\\d{3}$"), "cvc", "student.enrolment.error.cvc.matches");
+
+		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
+		final DateFormat format = new SimpleDateFormat("MM/yy");
+		try {
+			final Date dateParse = format.parse(expiryDate);
+			final int mes = Integer.parseInt(expiryDate.split("/")[0]);
+			if (mes < 1 || mes > 12)
+				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
+			if (MomentHelper.isBefore(dateParse, MomentHelper.getCurrentMoment()))
+				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
+		} catch (final ParseException e) {
+			super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
+		}
 	}
 
 	@Override
@@ -92,7 +104,8 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		object.setDraftMode(false);
 
 		final String lowerNibble = super.getRequest().getData("lowerNibble", String.class);
-		object.setLowerNibble(lowerNibble.substring(12, 16));
+		final String lastNumber = lowerNibble.substring(lowerNibble.length() - 4);
+		object.setLowerNibble(lastNumber);
 
 		final String holderName = super.getRequest().getData("holderName", String.class);
 		object.setHolderName(holderName);
@@ -101,21 +114,33 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 	}
 
 	@Override
-	public void unbind(final Enrolment object) {
+	public void bind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
+		Integer enrolmentId;
+		Enrolment enrolment;
 
-		final int id = object.getStudent().getId();
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
 
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		super.bind(object, "code", "motivation", "goal", "holderName", "lowerNibble");
+
+	}
+
+	@Override
+	public void unbind(final Enrolment object) {
+		assert object != null;
+		final String cvc = "";
+		final String expiryDate = "";
+
+		final Course course = object.getCourse();
 
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "lowerNibble", "holderName", "draftMode");
-		tuple.put("courses", choices);
+		tuple.put("coursesRead", course.getCode());
+		tuple.put("cvc", cvc);
+		tuple.put("expiryDate", expiryDate);
 
 		super.getResponse().setData(tuple);
 	}
