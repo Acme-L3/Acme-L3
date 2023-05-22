@@ -10,6 +10,8 @@ import acme.entitites.course.Course;
 import acme.entitites.practicums.Practicum;
 import acme.entitites.session.PracticumSession;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -89,6 +91,20 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
+
+		Collection<Course> courses;
+		SelectChoices choices;
+		Tuple tuple;
+
+		courses = this.repo.findAllCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
+		tuple = super.unbind(object, "code", "title", "summary", "goals");
+		tuple.put("draftMode", true);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+
+		super.getResponse().setData(tuple);
 	}
 
 }

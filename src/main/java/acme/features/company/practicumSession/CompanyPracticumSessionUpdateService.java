@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.practicums.Practicum;
 import acme.entitites.session.PracticumSession;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -36,15 +35,13 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		boolean status;
 		PracticumSession object;
 		Practicum practicum;
-		Principal principal;
 		int practicumSessionId;
 
 		practicumSessionId = super.getRequest().getData("id", int.class);
 		object = this.repo.findPracticumSessionById(practicumSessionId);
 		practicum = object.getPracticum();
-		principal = super.getRequest().getPrincipal();
 
-		status = practicum.getCompany().getId() == principal.getActiveRoleId();
+		status = object != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -72,7 +69,9 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 		practicumSessionId = super.getRequest().getData("id", int.class);
 		practicum = this.repo.findPracticumByPracticumSessionId(practicumSessionId);
+
 		super.bind(object, "title", "summary", "initialDate", "endDate", "link");
+
 		object.setPracticum(practicum);
 	}
 
