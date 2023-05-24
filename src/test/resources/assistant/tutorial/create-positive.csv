@@ -1,0 +1,13 @@
+recordIndex,code,tittle,summary,goals,start-date,end-date,course,draft-mode
+6,A300,"T","Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+7,A301,"Te","Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+8,A302,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+9,A303,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe","Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+10,A304,"Test","T","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+11,A305,"Test","Te","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+12,A306,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+13,A307,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+14,A308,"Test","Test","T",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+15,A309,"Test","Test","Te",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+16,A310,"Test","Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+17,A311,"Test","Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true

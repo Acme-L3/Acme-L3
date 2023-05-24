@@ -87,7 +87,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
+			if (object.getStartDate() != null && object.getEndDate() != null)
+				super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
 
 	}
 
