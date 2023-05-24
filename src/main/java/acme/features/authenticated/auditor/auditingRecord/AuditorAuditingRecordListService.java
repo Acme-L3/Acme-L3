@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.auditor.auditingRecord;
 
+import java.time.Duration;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -34,10 +36,12 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		final boolean status;
 		final int auditId;
 		final Audit audit;
+		Auditor loggedAuditor;
 
 		auditId = super.getRequest().getData("auditId", int.class);
 		audit = this.repository.findAuditById(auditId);
-		status = audit != null && (!audit.isDraftMode() || super.getRequest().getPrincipal().hasRole(audit.getAuditor()));
+		loggedAuditor = this.repository.findOneAuditorByUsername(super.getRequest().getPrincipal().getUsername());
+		status = audit != null && loggedAuditor == audit.getAuditor();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -55,7 +59,12 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
+		Duration auditingDuration;
+
+		auditingDuration = MomentHelper.computeDuration(object.getInitialMoment(), object.getFinalMoment());
+
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
+		tuple.put("auditingDuration", String.format("%dD %dH %dMin", auditingDuration.toDays(), auditingDuration.toHours() % 24, auditingDuration.toMinutes() % 60));
 		super.getResponse().setData(tuple);
 	}
 

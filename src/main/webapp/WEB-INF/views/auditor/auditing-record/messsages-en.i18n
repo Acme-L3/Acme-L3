@@ -1,6 +1,9 @@
 auditor.auditingRecord.list.subject=Subject
 auditor.auditingRecord.list.assessment=Assessment
+auditor.auditingRecord.list.mark=Mark
+auditor.auditingRecord.list.correction=Correction
 auditor.auditingRecord.list.button.create=Create
+auditor.auditingRecord.list.button.createCorrection= Create correction
 
 auditor.auditingRecord.form.subject=Subject
 auditor.auditingRecord.form.assessment=Assessment
@@ -8,7 +11,6 @@ auditor.auditingRecord.form.initialMoment=Initial moment
 auditor.auditingRecord.form.finalMoment=Final moment
 auditor.auditingRecord.form.mark=Mark
 auditor.auditingRecord.form.link=Link
-auditor.auditingRecord.form.correction=Correcction
 
 auditor.auditingRecord.form.button.update=Update
 auditor.auditingRecord.form.button.delete=Delete

@@ -54,7 +54,7 @@ public class AuditingRecord extends AbstractEntity {
 	protected Date				finalMoment;
 
 	@NotBlank
-	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$", message = "{validation.regex.mark}")
+	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$")
 	protected String			mark;
 
 	@URL

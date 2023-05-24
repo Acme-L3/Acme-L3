@@ -51,7 +51,13 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
-		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
+		int auditingRecordId;
+		final Audit audit;
+
+		auditingRecordId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
+		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
+		object.setAudit(audit);
 	}
 
 	@Override
@@ -69,8 +75,11 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
-		tuple.put("id", object.getAudit().getId());
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
+		tuple.put("auditId", this.repository.findAuditingRecordById(id).getId());
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 		super.getResponse().setData(tuple);
 	}
