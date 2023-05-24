@@ -1,0 +1,9 @@
+assistant.tutorialSession.form.tittle = Title
+assistant.tutorialSession.form.summary = Summary
+assistant.tutorialSession.form.creationMoment = Creation Moment
+assistant.tutorialSession.form.startDate = Start Date
+assistant.tutorialSession.form.endDate = End Date
+assistant.tutorialSession.form.link = Link
+
+assistant.tutorialSession.list.tittle = Title
+assistant.tutorialSession.list.summary = Summary

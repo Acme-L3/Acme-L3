@@ -78,14 +78,21 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			Duration duracion;
 			final long maxDuration = 18000L;
 			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
-			super.state(duracion.getSeconds() < maxDuration, "endDate", "assistant.tutorial.form.error.duration.max");
+			super.state(duracion.getSeconds() <= maxDuration, "endDate", "assistant.tutorial.form.error.duration.max");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Duration duracion;
 			final long maxDuration = 86400L;
 			duracion = MomentHelper.computeDuration(object.getCreationMoment(), object.getStartDate());
-			super.state(duracion.getSeconds() > maxDuration, "startDate", "assistant.tutorial.form.error.one.day");
+			super.state(duracion.getSeconds() >= maxDuration, "startDate", "assistant.tutorial.form.error.one.day");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			Duration duracion;
+			final long minDuration = 3600L;
+			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
+			super.state(duracion.getSeconds() >= minDuration, "startDate", "assistant.tutorial.form.error.duration.min");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
@@ -107,7 +114,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			final Tutorial tutorial;
 			tutorialId = super.getRequest().getData("tutorialId", int.class);
 			tutorial = this.repository.findTutorialById(tutorialId);
-			super.state(MomentHelper.isBefore(object.getCreationMoment(), tutorial.getEndDate()), "creationMoment", "assistant.tutorial.form.error.is.before.tutorial");
+			super.state(MomentHelper.isBeforeOrEqual(object.getCreationMoment(), tutorial.getEndDate()), "creationMoment", "assistant.tutorial.form.error.is.before.tutorial");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
@@ -115,7 +122,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			final Tutorial tutorial;
 			tutorialId = super.getRequest().getData("tutorialId", int.class);
 			tutorial = this.repository.findTutorialById(tutorialId);
-			super.state(MomentHelper.isBefore(tutorial.getStartDate(), object.getStartDate()), "startDate", "assistant.tutorial.form.error.is.before.tutorial2");
+			super.state(MomentHelper.isBeforeOrEqual(tutorial.getStartDate(), object.getStartDate()), "startDate", "assistant.tutorial.form.error.is.before.tutorial2");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
@@ -123,7 +130,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			final Tutorial tutorial;
 			tutorialId = super.getRequest().getData("tutorialId", int.class);
 			tutorial = this.repository.findTutorialById(tutorialId);
-			super.state(MomentHelper.isBefore(object.getEndDate(), tutorial.getEndDate()), "endDate", "assistant.tutorial.form.error.is.before.tutorial3");
+			super.state(MomentHelper.isBeforeOrEqual(object.getEndDate(), tutorial.getEndDate()), "endDate", "assistant.tutorial.form.error.is.before.tutorial3");
 		}
 
 	}

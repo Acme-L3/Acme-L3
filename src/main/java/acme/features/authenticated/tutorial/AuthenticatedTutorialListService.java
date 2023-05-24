@@ -34,7 +34,7 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 	@Override
 	public void load() {
 		Collection<Tutorial> objects;
-		objects = this.repository.findTutorialWithCourse();
+		objects = this.repository.findTutorialsAviability();
 		super.getBuffer().setData(objects);
 	}
 
