@@ -16,3 +16,4 @@ auditor.audit.form.button.update = Update
 employer.audit.form.button.delete = Delete
 employer.audit.form.button.publish = Publish
 auditor.audit.form.button.create = Create
+auditor.audit.form.error.duplicated=This code is already in use
