@@ -32,7 +32,7 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 		super.checkFormExists();
 
 		super.clickOnSubmit("Delete");
-		super.checkListingExists();
+		super.checkNotErrorsExist();
 
 		super.signOut();
 	}
@@ -47,10 +47,9 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
-
 		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
 
+		super.checkFormExists();
 		super.checkNotSubmitExists("Delete");
 
 		super.signOut();

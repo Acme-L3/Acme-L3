@@ -1,13 +1,22 @@
 
 package acme.testing.company.practicumSession;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entitites.practicums.Practicum;
 import acme.testing.TestHarness;
+import acme.testing.company.practicum.CompanyPracticumTestRepository;
 
 public class CompanyPracticumSessionListTest extends TestHarness {
+
+	@Autowired
+	protected CompanyPracticumTestRepository repo;
+
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum-session/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -40,6 +49,61 @@ public class CompanyPracticumSessionListTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// TODO
+
+		final List<Practicum> practicums = this.repo.findPracticumsByCompany("company1");
+
+		super.checkLinkExists("Sign in");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+
+		super.checkLinkExists("Sign in");
+		super.signIn("administrator", "administrator");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+		super.signOut();
+
+		super.checkLinkExists("Sign in");
+		super.signIn("student1", "student1");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+		super.signOut();
+
+		super.checkLinkExists("Sign in");
+		super.signIn("lecturer1", "lecturer1");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+		super.signOut();
+
+		super.checkLinkExists("Sign in");
+		super.signIn("auditor1", "auditor1");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+		super.signOut();
+
+		super.checkLinkExists("Sign in");
+		super.signIn("assistant1", "assistant1");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+		super.signOut();
+
+		super.checkLinkExists("Sign in");
+		super.signIn("company2", "company2");
+		practicums.forEach(practicum -> {
+			super.request("/company/practicum-session/list", "masterId=" + practicum.getId());
+			super.checkPanicExists();
+		});
+		super.signOut();
 	}
 }
