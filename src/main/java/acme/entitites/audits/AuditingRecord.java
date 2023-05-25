@@ -47,14 +47,13 @@ public class AuditingRecord extends AbstractEntity {
 	@NotNull
 	protected Date				initialMoment;
 
-	//Custom restriction 1 hour duration
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				finalMoment;
 
 	@NotBlank
-	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$", message = "{validation.regex.mark}")
+	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$")
 	protected String			mark;
 
 	@URL

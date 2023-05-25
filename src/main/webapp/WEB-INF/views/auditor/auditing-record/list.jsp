@@ -4,8 +4,16 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="auditor.auditingRecord.list.subject" path="subject" width="80%"/>	
-	<acme:list-column code="auditor.auditingRecord.list.assessment" path="assessment" width="20%"/>
+	<acme:list-column code="auditor.auditingRecord.list.subject" path="subject" width="80%"/>
+	<acme:list-column code="auditor.auditingRecord.list.mark" path="mark"/>		
+	<acme:list-column code="auditor.auditingRecord.list.correction" path="correction"/>
 </acme:list>
 
-<acme:button test="${showCreate}" code="auditor.auditingRecord.list.button.create" action="/auditor/auditing-record/create?auditId=${auditId}"/>
+<jstl:choose>
+	<jstl:when test="${!showCreate}">
+		<acme:button code="auditor.auditingRecord.list.button.createCorrection" action="/auditor/auditing-record/create-correction?auditId=${auditId}"/>
+	</jstl:when>
+	<jstl:when test="${showCreate}">
+		<acme:button code="auditor.auditingRecord.list.button.create" action="/auditor/auditing-record/create?auditId=${auditId}"/>
+	</jstl:when>
+</jstl:choose>

@@ -33,4 +33,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select a from Audit a where a.auditor.id = :id")
 	Collection<Audit> findAuditsByAuditorId(int id);
 
+	@Query("select a from Audit a where a.code = :code")
+	Audit findAuditByCode(String code);
+
 }

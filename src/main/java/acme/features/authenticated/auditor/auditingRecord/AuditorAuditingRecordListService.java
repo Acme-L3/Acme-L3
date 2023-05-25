@@ -34,10 +34,12 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		final boolean status;
 		final int auditId;
 		final Audit audit;
+		Auditor loggedAuditor;
 
 		auditId = super.getRequest().getData("auditId", int.class);
 		audit = this.repository.findAuditById(auditId);
-		status = audit != null && (!audit.isDraftMode() || super.getRequest().getPrincipal().hasRole(audit.getAuditor()));
+		loggedAuditor = this.repository.findOneAuditorByUsername(super.getRequest().getPrincipal().getUsername());
+		status = audit != null && loggedAuditor == audit.getAuditor();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -55,6 +57,7 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
+
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link", "correction");
 		super.getResponse().setData(tuple);
 	}
