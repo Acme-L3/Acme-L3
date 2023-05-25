@@ -25,3 +25,5 @@ company.practicum.form.label.practicum-code = Código de la práctica
 company.practicum.form.label.practicum-title = Nombre de la práctica
 company.practicum.form.label.summary = Resumen
 company.practicum.form.label.goals = Objetivos
+
+company.practicum.error.label.code = Este código ya existe

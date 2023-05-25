@@ -44,3 +44,5 @@ company.practicum.error.label.difference = Interval between dates must exceed at
 company.practicum.error.label.endDate = End Date must be later than Initial Date
 company.practicum.error.label.initialDate = Initial Date must be later than seven days from the present
 company.practicum.error.label.check = Need to confirm
+
+company.practicum.error.noPracticumSessions = A practicum can't be published without sessions

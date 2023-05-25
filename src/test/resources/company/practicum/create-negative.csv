@@ -1,0 +1,6 @@
+recordIndex,course,practicumCode,practicumTitle,summary,goals
+0,---,AAA113,p,p,p
+1,A123,AAA111,p,p,p
+2,A123,,p,p,p
+3,A123,AAA113,,p,p
+4,A123,AAA113,p,,p
