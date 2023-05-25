@@ -59,10 +59,12 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
+		final int id = super.getRequest().getData("id", int.class);
+		final String codeInDatabase = this.repository.findCourseById(id).getCode();
+		if (!super.getBuffer().getErrors().hasErrors("code") && !codeInDatabase.equalsIgnoreCase(object.getCode()))
 			super.state(!this.repository.existsCourseWithCodeParam(object.getCode()), "code", "lecturer.course.form.error.code-duplicate");
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			super.state(object.getRetailPrice().getAmount() > 0.0, "retailPrice", "lecturer.course.form.error.retailPrice-negative");
+			super.state(object.getRetailPrice().getAmount() >= 0.0, "retailPrice", "lecturer.course.form.error.retailPrice-negative");
 			final boolean b = this.systemConfigurationRepository.findSystemConfiguration().get(0).getAcceptedCurrencies().contains(object.getRetailPrice().getCurrency());
 			super.state(b, "retailPrice", "lecturer.course.form.error.retailPrice-not-accepted");
 		}

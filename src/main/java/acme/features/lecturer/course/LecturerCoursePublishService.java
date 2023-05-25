@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.course.Course;
 import acme.entitites.course.CourseType;
 import acme.entitites.lecture.Lecture;
+import acme.entitites.lecture.LectureType;
 import acme.features.administrator.systemconfiguration.AdministratorSystemConfigurationRepository;
 import acme.features.lecturer.lecture.LecturerLectureRepository;
 import acme.framework.components.jsp.SelectChoices;
@@ -68,17 +69,24 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 		final int id = super.getRequest().getData("id", int.class);
 		final Collection<Lecture> collect = this.lectureRepository.findAllLecturesByCourse(id);
-		for (final Lecture l : collect)
-			super.state(l.isPublished(), "courseType", "lecturer.course.form.error.lecture-not-publish");
-		if (!super.getBuffer().getErrors().hasErrors("code"))
+		final String codeInDatabase = this.repository.findCourseById(id).getCode();
+		if (!super.getBuffer().getErrors().hasErrors("code") && !codeInDatabase.equalsIgnoreCase(object.getCode()))
 			super.state(!this.repository.existsCourseWithCodeParam(object.getCode()), "code", "lecturer.course.form.error.code-duplicate");
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			super.state(object.getRetailPrice().getAmount() > 0.0, "retailPrice", "lecturer.course.form.error.retailPrice-negative");
+			super.state(object.getRetailPrice().getAmount() >= 0.0, "retailPrice", "lecturer.course.form.error.retailPrice-negative");
 			final boolean b = this.systemConfigurationRepository.findSystemConfiguration().get(0).getAcceptedCurrencies().contains(object.getRetailPrice().getCurrency());
 			super.state(b, "retailPrice", "lecturer.course.form.error.retailPrice-not-accepted");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("courseType"))
-			super.state(object.getCourseType() != CourseType.THEORY, "courseType", "lecturer.course.form.error.courseType-theory-published");
+		if (!super.getBuffer().getErrors().hasErrors("courseType")) {
+			boolean purelyTheorycal = true;
+			super.state(!collect.isEmpty(), "courseType", "lecturer.course.form.error.lecture-empty");
+			for (final Lecture l : collect) {
+				super.state(l.isPublished(), "courseType", "lecturer.course.form.error.lecture-not-publish");
+				if (l.getLectureType() != LectureType.THEORY)
+					purelyTheorycal = false;
+			}
+			super.state(!purelyTheorycal, "courseType", "lecturer.course.form.error.courseType-purely-theorycal");
+		}
 
 	}
 

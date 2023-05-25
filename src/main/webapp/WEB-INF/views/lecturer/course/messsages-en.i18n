@@ -22,4 +22,4 @@ lecturer.course.list.button.create=Create Course
 lecturer.course.form.error.lecture-not-publish=Lectures not published
 lecturer.course.form.error.code-duplicate= Code Duplicated
 lecturer.course.form.error.retailPrice-not-accepted= Currency not accepted
-lecturer.course.form.error.courseType-theory-published= Can not publish a Theory Only Course
+lecturer.course.form.error.courseType-purely-theorycal= Can not publish a Theory Only Course

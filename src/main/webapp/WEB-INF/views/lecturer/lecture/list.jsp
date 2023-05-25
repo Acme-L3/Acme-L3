@@ -11,5 +11,5 @@
 	<acme:list-column code="lecturer.lecture.list.label.estimateLearningTime" path="estimateLearningTime" width="20%"/>
 	<acme:list-column code="lecturer.lecture.list.label.link" path="link" width="20%"/>
 </acme:list>
-
-<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create?courseId=${param.courseId}"/>
+<jstl:if test="${coursePublished == false}"><acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create?courseId=${param.courseId}"/></jstl:if>
+ 
