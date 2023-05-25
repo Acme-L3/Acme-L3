@@ -1,11 +1,17 @@
 
 package acme.features.company.practicum;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entitites.course.Course;
 import acme.entitites.practicums.Practicum;
+import acme.entitites.session.PracticumSession;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -28,9 +34,9 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void authorise() {
 		boolean status;
+		int practicumId;
 		Practicum object;
 		Principal principal;
-		int practicumId;
 
 		practicumId = super.getRequest().getData("id", int.class);
 		object = this.repo.findPracticumById(practicumId);
@@ -62,6 +68,13 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
+		Collection<PracticumSession> practicumSessions;
+
+		practicumSessions = this.repo.findPracticumSessionsByPracticumId(object.getId());
+
+		super.state(!practicumSessions.isEmpty(), "*", "company.practicum.error.noPracticumSessions");
+
 	}
 
 	@Override
@@ -76,5 +89,19 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
+
+		Collection<Course> courses;
+		SelectChoices choices;
+		Tuple tuple;
+
+		courses = this.repo.findAllCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
+		tuple = super.unbind(object, "code", "title", "summary", "goals", "draftMode");
+		tuple.put("id", object.getId());
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
+
+		super.getResponse().setData(tuple);
 	}
 }
