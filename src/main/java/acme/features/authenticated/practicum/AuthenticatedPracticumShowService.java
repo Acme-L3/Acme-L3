@@ -27,7 +27,15 @@ public class AuthenticatedPracticumShowService extends AbstractService<Authentic
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int practicumId;
+		Practicum practicum;
+		boolean status;
+
+		practicumId = super.getRequest().getData("id", int.class);
+		practicum = this.repo.findPracticumById(practicumId);
+		status = practicum != null && !practicum.getDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

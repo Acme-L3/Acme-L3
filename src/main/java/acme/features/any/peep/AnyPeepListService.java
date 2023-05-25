@@ -40,7 +40,7 @@ public class AnyPeepListService extends AbstractService<Any, Peep> {
 		Collection<Peep> objects;
 		Date deadline;
 
-		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
+		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
 		objects = this.repository.findRecentPeeps(deadline);
 
 		super.getBuffer().setData(objects);

@@ -101,3 +101,4 @@ master.manu.authenticated.audits = List Audits
 master.menu.authenticated.list-offers = List Offers
 master.menu.authenticated.list-tutorials = List Tutorials
 master.menu.authenticated.list-course = List Courses
+master.menu.any.course = List Courses (Practicums)

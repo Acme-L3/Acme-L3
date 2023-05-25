@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.activities.Activity;
 import acme.entitites.activities.ActivityType;
+import acme.entitites.enrolments.Enrolment;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -29,7 +31,22 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final boolean status;
+		final int id;
+		Activity activity;
+		Principal principal;
+		Enrolment object;
+
+		id = super.getRequest().getData("id", int.class);
+
+		activity = this.repo.findActivityById(id);
+		final Enrolment enrolment = activity.getEnrolment();
+		object = this.repo.findEnrolmentById(enrolment.getId());
+		principal = super.getRequest().getPrincipal();
+
+		status = object.getStudent().getId() == principal.getActiveRoleId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

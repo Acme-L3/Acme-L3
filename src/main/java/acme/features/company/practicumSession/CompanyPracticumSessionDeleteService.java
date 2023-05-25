@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.practicums.Practicum;
 import acme.entitites.session.PracticumSession;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -37,7 +38,7 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 		practicum = this.repo.findPracticumByPracticumSessionId(practicumSessionId);
 		principal = super.getRequest().getPrincipal();
 
-		status = practicum.getCompany().getId() == principal.getActiveRoleId();
+		status = practicum != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -83,7 +84,11 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 	public void unbind(final PracticumSession object) {
 		assert object != null;
 
-		super.unbind(object, "title", "summary", "startDate", "endDate", "link");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "summary", "startDate", "endDate", "link");
+
+		super.getResponse().setData(tuple);
 	}
 
 }

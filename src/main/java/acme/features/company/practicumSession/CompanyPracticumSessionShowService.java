@@ -31,14 +31,14 @@ public class CompanyPracticumSessionShowService extends AbstractService<Company,
 	public void authorise() {
 		boolean status;
 		PracticumSession object;
-		Principal principal;
 		int practicumSessionId;
+		Principal principal;
 
 		practicumSessionId = super.getRequest().getData("id", int.class);
 		object = this.repo.findPracticumSessionById(practicumSessionId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object.getPracticum().getCompany().getId() == principal.getActiveRoleId();
+		status = object != null && principal.hasRole(object.getPracticum().getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}

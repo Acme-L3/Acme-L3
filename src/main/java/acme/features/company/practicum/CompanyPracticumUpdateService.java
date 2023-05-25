@@ -66,6 +66,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repo.findCourseById(courseId);
+
 		super.bind(object, "code", "title", "summary", "goals");
 		object.setCourse(course);
 	}
