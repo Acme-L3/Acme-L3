@@ -24,6 +24,7 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void check() {
+
 		super.getResponse().setChecked(true);
 	}
 

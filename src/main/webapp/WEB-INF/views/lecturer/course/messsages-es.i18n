@@ -22,4 +22,4 @@ lecturer.course.list.button.create=Crear curso
 lecturer.course.form.error.lecture-not-publish=Lecciones no publicadas
 lecturer.course.form.error.code-duplicate= Codigo duplicado
 lecturer.course.form.error.retailPrice-not-accepted= Moneda no aceptada
-lecturer.course.form.error.courseType-theory-published= No puedes publicar un curso solo teórico
+lecturer.course.form.error.courseType-purely-theorycal= No puedes publicar un curso solo teórico
