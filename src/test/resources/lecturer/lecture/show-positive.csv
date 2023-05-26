@@ -1,0 +1,7 @@
+recordIndexCourse,recordIndexLecture,title,abstractText,estimateLearningTime,body,lectureType,link,key:lecturer,key:course,isPublished
+0,1,Introduction to Machine Learning,This lecture provides an introduction to the field of machine learning.,1.00,"We will cover the basics of machine learning, including supervised and unsupervised learning.",THEORY,https://www.example.com/lecture-01,lecturer1
+0,0,Deep Learning Fundamentals,"This lecture covers the fundamental concepts of deep learning, including neural networks.",1.00,"In this lecture, we will cover the basic building blocks of deep learning.",HANDS_ON,,lecturer2
+0,2,Reinforcement Learning,This lecture provides an introduction to reinforcement learning.,2.00,we will cover the basics of reinforcement learning.,THEORY,,lecturer1
+0,1,Probabilistic Graphical Models,This lecture covers the basics of probabilistic graphical models.,3.00,We will cover the basics of probabilistic graphical models.,THEORY,https://www.example.com/lecture-04,lecturer2
+0,0,Data Visualization,"This lecture covers the basics of data visualization, including different types of charts.",1.50,"In this lecture, we will cover the basics of data visualization.",HANDS_ON,https://www.example.com/lecture-05,lecturer1
+1,0,Data Wrangling,This lecture covers the basics of data wrangling.,2.00,"We will cover the basics,including the process of cleaning, transforming",HANDS_ON,https://www.example.com/lecture-06,lecturer1
