@@ -138,7 +138,7 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "lowerNibble", "holderName", "draftMode");
-		tuple.put("coursesRead", course.getCode());
+		tuple.put("courseShow", course.getCode());
 		tuple.put("cvc", cvc);
 		tuple.put("expiryDate", expiryDate);
 

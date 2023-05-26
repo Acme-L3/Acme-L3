@@ -1,0 +1,8 @@
+recordIndex,code,holderName,lowerNibble,expiryDate,CVC
+0,ACB123,,1234123412341234,10/24,444
+0,ACB123,Alvaro Carrera,,10/24,444
+0,ACB123,Alvaro Carrera,1234123412341234,,444
+0,ACB123,Alvaro Carrera,1234123412341234,16/24,444
+0,ACB123,Alvaro Carrera,1234123412341234,10/24,
+
+
