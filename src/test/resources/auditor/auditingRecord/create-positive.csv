@@ -1,0 +1,7 @@
+auditRecordIndex,auditingRecordIndex,subject,assessment,initialMoment,finalMoment,mark,link
+0,1,"subject 1", "assessment 1", "2019/02/02 10:00","2019/02/02 12:00",A_PLUS,"https://example.com"
+0,2,"subject 2", "assessment 2", "2019/02/03 10:00","2019/02/03 12:00",A,"https://example.com"
+0,3,"subject 3", "assessment 3", "2019/02/04 10:00","2019/02/04 12:00",B,"https://example.com"
+0,4,"subject 4", "assessment 4", "2019/02/05 10:00","2019/02/05 12:00",C,"https://example.com"
+0,5,"subject 5", "assessment 5", "2019/02/06 10:00","2019/02/06 12:00",F,"https://example.com"
+0,6,"subject 6", "assessment 6", "2019/02/07 10:00","2019/02/07 12:00",F_MINUS,"https://example.com"
