@@ -55,6 +55,18 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	}
 
 	@Override
+	public void bind(final Enrolment object) {
+		assert object != null;
+
+		Course course;
+
+		course = this.repository.findCourseById(object.getCourse().getId());
+
+		super.bind(object, "code", "motivation", "goals");
+		object.setCourse(course);
+	}
+
+	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
 	}
@@ -74,21 +86,9 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		final Course course = object.getCourse();
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "lowerNibble", "holderName", "draftMode");
-		tuple.put("coursesRead", course.getCode());
+		tuple.put("courseShow", course.getCode());
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void bind(final Enrolment object) {
-		assert object != null;
-
-		Course course;
-
-		course = this.repository.findCourseById(object.getCourse().getId());
-
-		super.bind(object, "code", "motivation", "goals");
-		object.setCourse(course);
 	}
 
 }

@@ -11,7 +11,7 @@
 	<jstl:choose>
 	 	
 		<jstl:when test="${(_command == 'show'||_command == 'update'||_command == 'delete'||_command == 'publish') && draftMode == true}">
-			<acme:input-textbox code="student.enrolment.form.label.course" path="coursesRead" readonly="true"/>
+			<acme:input-textbox code="student.enrolment.form.label.course" path="courseShow" readonly="true"/>
 			<acme:input-textbox code="student.enrolment.form.label.holderName" path="holderName"/>
 			<acme:input-textbox code="student.enrolment.form.label.lowerNibble" path="lowerNibble"/>
 			<acme:input-textbox code="student.enrolment.form.label.expiryDate" path="expiryDate"/>
@@ -22,7 +22,7 @@
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-		<acme:input-textbox code="student.enrolment.form.label.course" path="coursesRead" readonly="true"/>
+		<acme:input-textbox code="student.enrolment.form.label.course" path="courseShow" readonly="true"/>
 		<acme:button code="student.activity.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>
 		</jstl:when>
     

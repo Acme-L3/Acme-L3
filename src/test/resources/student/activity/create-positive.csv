@@ -1,0 +1,7 @@
+recordIndex,title,summary,activityType,initDate,endDate,link
+5,NewActivity,newActivity,THEORY,2022/03/22 11:00,2022/03/22 16:00,https://paginaprueba.com
+5,"T","S","THEORY",2022/03/22 11:00,2022/03/22 16:00,null
+5,"Esto es una prueba para comprobar el numero maximo de caracteres disponible","Esto es una prueba para comprobar el numero maximo de caracteres disponible para el atributo summary","BALANCED",2022/07/14 10:00, 2022/07/15 12:00,null
+5,Esto es una prueba","Esto es una prueba","THEORY",2021/9/07 18:00, 2021/9/07 22:12,null
+5,Texto con la mitad de caracteres title","Texto con la mitad de caracteres para el summary..","HANDS_ON",2021/03/21 16:28,2021/03/22 14:12,https://google.es
+5,Esto es un texto de prueba lo suficientemente largo","Esto es un texto de prueba lo suficientemente largo","BALANCED",2021/04/19 17:23,2021/04/19 19:23,null
