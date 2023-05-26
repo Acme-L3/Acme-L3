@@ -58,8 +58,6 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 
 		if (userAccount.isAuthenticated())
 			object.setNick(userAccount.getIdentity().getName() + "  " + userAccount.getIdentity().getSurname());
-		else
-			object.setNick("");
 
 		super.getBuffer().setData(object);
 
