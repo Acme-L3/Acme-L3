@@ -4,6 +4,7 @@ package acme.features.authenticated.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -34,7 +35,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
 
-		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
+		final Audit audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
 		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
