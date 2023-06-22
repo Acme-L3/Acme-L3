@@ -55,7 +55,7 @@ master.menu.assistant.dashboard = Dashboard
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
-master.menu.consumer.my-audits = My Audits
+master.menu.auditor.my-audits = My Audits
 master.menu.auditor.dashboard = Dashboard
 
 # master.menu.lecturer ##########################################################
