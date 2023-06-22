@@ -1,11 +1,26 @@
 key,code,conclusion,strong-points,weak-points,draft-mode,key:auditor,key:course
-audit-01,A123,This audit was successful,The team was well-organized,There were no significant issues found,true,auditor-01,course-01
-audit-02,B456,The audit revealed some areas for improvement,Communication within the team was good,There were a few minor discrepancies found,false,auditor-02,course-01
-audit-03,C789,Overall the audit was satisfactory,The team worked well together,Documentation could be improved,true,auditor-01,course-02
-audit-04,D012,The audit identified several opportunities for improvement,The team was knowledgeable,Training on certain processes is recommended,false,auditor-02,course-02
-audit-05,E345,This audit was completed without any major issues,The team demonstrated good attention to detail,There were a few minor discrepancies found,false,auditor-01,course-01
-audit-06,F678,The audit identified some areas for improvement,The team was responsive to feedback,There were a few minor discrepancies found,true,auditor-02,course-01
-audit-07,G901,Overall the audit was successful,The team was well-prepared and thorough,Documentation was well-maintained,false,auditor-01,course-02
-audit-08,H234,The audit revealed several areas for improvement,The team was cooperative and professional,Additional training on certain processes is recommended,true,auditor-02,course-02
-audit-09,I567,This audit was completed without any major issues,The team was well-organized,There were no significant issues found,false,auditor-01,course-01
-audit-10,J890,The audit identified some opportunities for improvement,The team was knowledgeable and thorough,Additional training on certain processes is recommended,true,auditor-02,course-01
+audit-01,A123,"esta es una conclusión con 100 caracteres esta es una conclusión con 100 caracteres esta es una con ","puntos fuertes",".",false,auditor-01,course-01
+audit-02,XX123,"como 33","puntos fuertes hasta llegar a 100 caracteres puntos fuertes puntos fuertes puntos fuertes puntos fue",".",true,auditor-02,course-01
+audit-03,YYY123,"a",".","puntos debiles hasta 100 caracteres puntos debiles puntos debilespuntos debilespuntos debiles puntos",false,auditor-01,course-02
+audit-04,GGG000,"通ネ面憲スオナツ躍給","b","f",true,auditor-02,course-02
+audit-05,GGG001,"/*-+<<<>>>@@~~","c","f",false,auditor-01,course-01
+audit-06,GGG002,".","algo en griego ahora","f",false,auditor-02,course-01
+audit-07,GGG003,".","Λορεμ ιπσθμ δολορ σιτ αμετ ωισι","f",false,auditor-01,course-02
+audit-08,GGG004,".","ahora que","f",false,auditor-02,course-02
+audit-09,GGG005,".","zzz","f",false,auditor-01,course-01
+audit-10,GGG006,".","3984582€@¬#~€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*9__---___si","f",true,auditor-02,course-01
+audit-11,GGG007,".","am","f",false,auditor-01,course-02
+audit-12,GGG008,".","españa","f",true,auditor-02,course-02
+audit-13,GGG009,".","Ñ","f",false,auditor-01,course-01
+audit-14,GGG010,"esta no es una conclusión con 100 caracteres","3984582€@¬pp€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*9__---___si","f",true,auditor-02,course-01
+audit-15,GGG011,"system.out.println(Hola Mundo!)","break","f",false,auditor-01,course-02
+audit-16,GGG012,"Spring?","nah","JxKSt3XTEUm$6aarbwMpqj;3qk6fP&ca5RvSvZjE)aY#PhEPJfPw2rec-Y3vG-)cB-MU8H]47?Fi[)MLbd_UpamW&;S82C9fZ3&q",true,auditor-02,course-02
+audit-17,GGG013,"a","H2O",".",false,auditor-01,course-01
+audit-18,GGG014,"a","GOT",".",false,auditor-02,course-01
+audit-19,GGG015,"a","Monica Geller",".",true,auditor-01,course-02
+audit-20,GGG016,"a","o","Λορεμ ιπσθμ 通ネ面憲",false,auditor-02,course-02
+audit-21,GGG017,"a","Rachel Green","l",false,auditor-01,course-01
+audit-22,GGG018,"a","dificil",".",true,auditor-02,course-01
+audit-23,GGG019,"a","b",".",false,auditor-01,course-02
+audit-24,GGG020,"a","a",".",false,auditor-02,course-02
+audit-25,GGG021,"nononononononononononononononononononononononononononononononononononononononononononononononononono","si",".",true,auditor-01,course-01
