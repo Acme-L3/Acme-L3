@@ -37,7 +37,7 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 		practicum = this.repo.findPracticumByPracticumSessionId(practicumSessionId);
 		principal = super.getRequest().getPrincipal();
 
-		status = practicum.getCompany().getId() == principal.getActiveRoleId();
+		status = practicum != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -82,8 +82,6 @@ public class CompanyPracticumSessionDeleteService extends AbstractService<Compan
 	@Override
 	public void unbind(final PracticumSession object) {
 		assert object != null;
-
-		super.unbind(object, "title", "summary", "startDate", "endDate", "link");
 	}
 
 }

@@ -6,7 +6,7 @@
 <acme:form>
 	<acme:input-textbox code="assistant.tutorialSession.form.tittle" path="tittle"/>
 	<acme:input-textbox code="assistant.tutorialSession.form.summary" path="summary"/>
-	<acme:input-moment code="assistant.tutorialSession.form.creationMoment" path="creationMoment" />
+	<acme:input-moment code="assistant.tutorialSession.form.creationMoment" path="creationMoment"/>
 	<acme:input-moment code="assistant.tutorialSession.form.startDate" path="startDate"/>
 	<acme:input-moment code="assistant.tutorialSession.form.endDate" path="endDate"/>
 	<acme:input-url code="assistant.tutorialSession.form.link" path="link"/>

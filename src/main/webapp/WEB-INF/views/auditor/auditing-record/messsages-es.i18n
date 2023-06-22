@@ -1,8 +1,10 @@
 auditor.auditingRecord.list.subject=Tema
 auditor.auditingRecord.list.assessment=Evaluación
+auditor.auditingRecord.list.mark=Nota
+auditor.auditingRecord.list.correction=Corrección
 auditor.auditingRecord.list.button.create=Crear
-auditor.auditingRecord.list.draft=Publicado
-auditor.auditingRecord.list.button.correction=Nuevo Registro de Corrección
+
+auditor.auditingRecord.list.button.createCorrection= Crear correccion
 
 auditor.auditingRecord.form.subject=Tema
 auditor.auditingRecord.form.assessment=Evaluación

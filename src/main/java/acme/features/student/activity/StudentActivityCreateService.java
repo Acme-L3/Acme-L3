@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.activities.Activity;
 import acme.entitites.activities.ActivityType;
 import acme.entitites.enrolments.Enrolment;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -27,7 +28,18 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Enrolment object;
+		Principal principal;
+		int enrolmentId;
+
+		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
+		object = this.repo.findEnrolmentById(enrolmentId);
+		principal = super.getRequest().getPrincipal();
+
+		status = object.getStudent().getId() == principal.getActiveRoleId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -62,11 +74,8 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void validate(final Activity object) {
-		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("initDate") && !super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getInitDate(), object.getEndDate()), "initDate", "student.activity.form.error.initDate");
-		super.state(MomentHelper.isBefore(object.getInitDate(), object.getEndDate()), "endDate", "student.activity.form.error.endDate");
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isAfter(object.getEndDate(), object.getInitDate()), "endDate", "student.activity.error.endDate");
 	}
 
 	@Override

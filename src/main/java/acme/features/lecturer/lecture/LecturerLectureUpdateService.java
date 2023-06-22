@@ -85,6 +85,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		final SelectChoices choices = SelectChoices.from(LectureType.class, object.getLectureType());
 		tuple.put("types", choices);
 		tuple.put("published", object.isPublished());
+		tuple.put("coursePublished", object.getCourse().isPublished());
 		tuple.put("courseId", this.repository.findLectureById(id).getCourse().getId());
 		super.getResponse().setData(tuple);
 	}

@@ -13,3 +13,6 @@ administrator.banner.form.linkDocument = Link Document
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
 administrator.banner.form.button.create = Create
+
+administrator.banner.form.error.startDate-past=Start date must be a future date
+administrator.banner.form.error.endDate-not-long-enough=End Date must be at least 1 week after Start Date

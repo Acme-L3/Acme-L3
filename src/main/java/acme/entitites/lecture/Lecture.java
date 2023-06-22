@@ -4,6 +4,8 @@ package acme.entitites.lecture;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -34,6 +36,8 @@ public class Lecture extends AbstractEntity {
 
 	@NotNull
 	@Positive
+	@Min(1)
+	@Max(5)
 	protected Double			estimateLearningTime;
 
 	@NotBlank

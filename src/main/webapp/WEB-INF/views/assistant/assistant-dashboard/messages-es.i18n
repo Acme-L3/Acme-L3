@@ -1,9 +1,13 @@
 assistant.dashboard.form.title.general-indicators = Indicaciones generales
 assistant.dashboard.form.label.total-number-of-sessions = Número total de sesiones
-assistant.dashboard.form.label.average-time-per-session-records = Tiempo medio de las sesiones
-assistant.dashboard.form.label.deviation-of-session-records = Desviación típica del tiempo de las sesiones
-assistant.dashboard.form.label.maximum-time-of-session-records = Tiempo maximo de la sesion
-assistant.dashboard.form.label.minimum-time-of-session-records = Tiempo minimo de la sesion
+assistant.dashboard.form.label.average-time-per-session-records = Tiempo medio de las sesiones teoricas
+assistant.dashboard.form.label.deviation-of-session-records = Desviación típica del tiempo de las sesiones teoricas
+assistant.dashboard.form.label.maximum-time-of-session-records = Tiempo maximo de la sesion teorica
+assistant.dashboard.form.label.minimum-time-of-session-records = Tiempo minimo de la sesion teorica
+assistant.dashboard.form.label.average-time-per-hands-on-records = Tiempo medio de las sesiones practicas
+assistant.dashboard.form.label.deviation-of-hands-on-records = Desviación típica del tiempo de las sesiones practicas
+assistant.dashboard.form.label.maximum-time-of-hands-on-records = Tiempo maximo de la sesion practica
+assistant.dashboard.form.label.minimum-time-of-hands-on-records = Tiempo minimo de la sesion practica
 assistant.dashboard.form.label.average-time-of-tutorial-records = Tiempo medio de los tutoriales
 assistant.dashboard.form.label.time-deviation-of-tutorial-records = Desviación típica del tiempo de los tutoriales
 assistant.dashboard.form.label.maximum-time-of-tutorial-records = Tiempo máximo del tutorial

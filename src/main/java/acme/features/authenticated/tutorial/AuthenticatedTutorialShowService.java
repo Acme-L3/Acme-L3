@@ -33,7 +33,12 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		Tutorial tutorial;
+		final int id = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findTutorialById(id);
+		status = tutorial != null && !tutorial.isDraftMode();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -62,7 +67,7 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "startDate", "endDate");
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
-		tuple.put("assistant", assistantsChoices.getSelected().getKey());
+		tuple.put("assistant", object.getAssistant().getIdentity().getFullName());
 		tuple.put("assistants", assistantsChoices);
 
 		super.getResponse().setData(tuple);

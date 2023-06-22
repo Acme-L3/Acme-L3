@@ -6,7 +6,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entitites.course.Course;
 import acme.entitites.lecture.Lecture;
+import acme.features.lecturer.course.LecturerCourseRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -17,7 +19,10 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected LecturerLectureRepository	repository;
+
+	@Autowired
+	protected LecturerCourseRepository	courseRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -39,6 +44,8 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		Collection<Lecture> objects;
 		final int id = super.getRequest().getData("courseId", int.class);
 		objects = this.repository.findAllLecturesByCourse(id);
+		final Course c = this.courseRepository.findCourseById(super.getRequest().getData("courseId", int.class));
+		super.getResponse().setGlobal("coursePublished", c.isPublished());
 
 		super.getBuffer().setData(objects);
 
@@ -50,6 +57,7 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		final Tuple tuple = super.unbind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
 		tuple.put("courseId", super.getRequest().getData("courseId", int.class));
 		super.getResponse().setData(tuple);
+
 	}
 
 }

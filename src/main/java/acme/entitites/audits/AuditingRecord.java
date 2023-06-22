@@ -47,7 +47,6 @@ public class AuditingRecord extends AbstractEntity {
 	@NotNull
 	protected Date				initialMoment;
 
-	//Custom restriction 1 hour duration
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull

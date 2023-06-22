@@ -1,8 +1,8 @@
 
 package acme.features.authenticated.assistant.tutorial;
 
-import java.time.Duration;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,15 +70,72 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	public void validate(final Tutorial object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			Duration duracion;
-			final long maxDuration = 18000L;
-			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
-			super.state(duracion.getSeconds() < maxDuration, "startDate", "assistant.tutorial.form.error.duration.max");
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Tutorial existing;
+			existing = this.repository.findTutorialByCode(object.getCode());
+			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
+			if (object.getStartDate() != null && object.getEndDate() != null)
+				super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			final Collection<Date> hsStartDate = this.repository.findHandsOnSessionsStartDateByTutorialId(object.getId());
+			Boolean res = null;
+			if (!hsStartDate.isEmpty()) {
+				for (final Date fecha : hsStartDate)
+					if (MomentHelper.isBefore(object.getStartDate(), fecha))
+						res = true;
+					else
+						res = false;
+			} else
+				res = true;
+			super.state(res, "startDate", "assistant.tutorial.form.error.is.before.handsOn");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+			final Collection<Date> tsStartDate = this.repository.findTutorialSessionsStartDateByTutorialId(object.getId());
+			Boolean res = null;
+			if (!tsStartDate.isEmpty()) {
+				for (final Date fecha : tsStartDate)
+					if (MomentHelper.isBefore(object.getStartDate(), fecha))
+						res = true;
+					else
+						res = false;
+			} else
+				res = true;
+			super.state(res, "startDate", "assistant.tutorial.form.error.is.before.tuto");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			final Collection<Date> hsEndDate = this.repository.findHandsOnSessionsEndDateByTutorialId(object.getId());
+			Boolean res = null;
+			if (!hsEndDate.isEmpty()) {
+				for (final Date fecha : hsEndDate)
+					if (MomentHelper.isBefore(fecha, object.getEndDate()))
+						res = true;
+					else
+						res = false;
+			} else
+				res = true;
+			super.state(res, "endDate", "assistant.tutorial.form.error.is.after.handsOn");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+			final Collection<Date> tsEndDate = this.repository.findTutorialSessionsEndDateByTutorialId(object.getId());
+			Boolean res = null;
+			if (!tsEndDate.isEmpty()) {
+				for (final Date fecha : tsEndDate)
+					if (MomentHelper.isBefore(fecha, object.getEndDate()))
+						res = true;
+					else
+						res = false;
+			} else
+				res = true;
+			super.state(res, "endDate", "assistant.tutorial.form.error.is.after.tuto");
+		}
+
 	}
 
 	@Override

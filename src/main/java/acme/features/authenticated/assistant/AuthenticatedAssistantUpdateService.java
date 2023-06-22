@@ -50,7 +50,7 @@ public class AuthenticatedAssistantUpdateService extends AbstractService<Authent
 	public void bind(final Assistant object) {
 		assert object != null;
 
-		super.bind(object, "supervisor", "curriculum", "link");
+		super.bind(object, "supervisor", "curriculum", "expertiseField", "link");
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class AuthenticatedAssistantUpdateService extends AbstractService<Authent
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "supervisor", "curriculum", "link");
+		tuple = super.unbind(object, "supervisor", "curriculum", "expertiseField", "link");
 		super.getResponse().setData(tuple);
 	}
 

@@ -19,4 +19,7 @@ lecturer.course.form.button.delete=Delete
 lecturer.course.form.button.publish=Publish
 
 lecturer.course.list.button.create=Create Course
-lecturer.lecture.form.error.lecture-not-publish=Lectures not published
+lecturer.course.form.error.lecture-not-publish=Lectures not published
+lecturer.course.form.error.code-duplicate= Code Duplicated
+lecturer.course.form.error.retailPrice-not-accepted= Currency not accepted
+lecturer.course.form.error.courseType-purely-theorycal= Can not publish a Theory Only Course

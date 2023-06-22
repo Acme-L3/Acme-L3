@@ -19,4 +19,7 @@ lecturer.course.form.button.delete=Borrar
 lecturer.course.form.button.publish=Publicar
 
 lecturer.course.list.button.create=Crear curso
-lecturer.lecture.form.error.lecture-not-publish=Lecciones no publicadas
+lecturer.course.form.error.lecture-not-publish=Lecciones no publicadas
+lecturer.course.form.error.code-duplicate= Codigo duplicado
+lecturer.course.form.error.retailPrice-not-accepted= Moneda no aceptada
+lecturer.course.form.error.courseType-purely-theorycal= No puedes publicar un curso solo teórico

@@ -18,11 +18,6 @@
 	<acme:input-moment code="auditor.auditingRecord.form.finalMoment" path="finalMoment"/>
 	<acme:input-textbox code="auditor.auditingRecord.form.mark" path="mark"/>
 	<acme:input-url code="auditor.auditingRecord.form.link" path="link"/>
-	
-	<jstl:if test="${_command == 'correct'}">
-		<acme:message code="auditor.auditingRecord.message.correction.disclaimer"/>
-		<acme:input-checkbox code="auditor.auditingRecord.form.confirm" path="confirm"/>
-	</jstl:if>
 
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
@@ -32,9 +27,11 @@
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.auditingRecord.form.button.create" action="/auditor/auditing-record/create?auditId=${auditId}"/>
-		</jstl:when>	
-		<jstl:when test="${_command == 'correct'}">
-			<acme:submit code="auditor.auditingRecord.form.button.correct" action="/auditor/auditing-record/correct?auditId=${auditId}"/>
-		</jstl:when>		
+
+		</jstl:when>
+		<jstl:when test="${_command == 'create-correction'}">
+			<acme:submit code="auditor.auditingRecord.form.button.create" action="/auditor/auditing-record/create-correction?auditId=${auditId}"/>
+		</jstl:when>			
+
 	</jstl:choose>		
 </acme:form>

@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entitites.course.Course;
 import acme.entitites.lecture.Lecture;
 import acme.entitites.lecture.LectureType;
 import acme.features.administrator.systemconfiguration.AdministratorSystemConfigurationRepository;
@@ -40,8 +41,13 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
+		final Course c = this.courseRepository.findCourseById(super.getRequest().getData("courseId", int.class));
 		final boolean status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		super.getResponse().setAuthorised(status);
+		final boolean coursePublished = c.isPublished();
+		final int courseId = super.getRequest().getData("courseId", int.class);
+		final Course object = this.courseRepository.findCourseById(courseId);
+		final boolean logged = object.getLecturer().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
+		super.getResponse().setAuthorised(status && !coursePublished && logged);
 	}
 
 	@Override
@@ -88,6 +94,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		assert object != null;
 
 		this.repository.save(object);
+
 	}
 
 	@Override

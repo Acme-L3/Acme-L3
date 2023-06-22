@@ -25,3 +25,5 @@ company.practicum.form.label.practicum-code = Practicum code
 company.practicum.form.label.practicum-title = Practicum Title
 company.practicum.form.label.summary = Summary
 company.practicum.form.label.goals = Goals
+
+company.practicum.error.label.code = This code is already in use

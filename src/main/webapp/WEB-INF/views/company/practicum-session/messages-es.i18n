@@ -44,3 +44,5 @@ company.practicum.error.label.difference = El intervalo entre las fechas debe se
 company.practicum.error.label.endDate = La fecha final deber ser posterior a la fecha inicial
 company.practicum.error.label.initialDate = La fecha inicial debe ser posterior a siete días desde el presente
 company.practicum.error.label.check = Debe confirmar
+
+company.practicum.error.noPracticumSessions = Una práctica no puede ser publicada sin sesiones

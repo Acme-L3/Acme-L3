@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.lecture.Lecture;
+import acme.features.lecturer.course.LecturerCourseRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -15,7 +16,10 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected LecturerLectureRepository	repository;
+
+	@Autowired
+	protected LecturerCourseRepository	courseRepository;
 
 	// AbstractService interface ----------------------------------------------
 

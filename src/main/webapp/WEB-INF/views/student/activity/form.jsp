@@ -13,7 +13,7 @@
         
 		
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show')}">
+		<jstl:when test="${(_command == 'show'||_command == 'update'||_command == 'delete')}">
 			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
 			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
 		</jstl:when>

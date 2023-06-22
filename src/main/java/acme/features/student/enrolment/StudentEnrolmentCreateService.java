@@ -10,6 +10,8 @@ import acme.entitites.course.Course;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.controllers.HttpMethod;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -34,10 +36,12 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	public void load() {
 		Enrolment object;
 		Student student;
+		int studentId;
 
-		student = this.repo.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		studentId = super.getRequest().getPrincipal().getActiveRoleId();
+		student = this.repo.findStudentById(studentId);
+
 		object = new Enrolment();
-		object.setDraftMode(true);
 		object.setStudent(student);
 
 		super.getBuffer().setData(object);
@@ -55,11 +59,14 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		super.bind(object, "code", "motivation", "goals");
 		object.setCourse(course);
+		object.setDraftMode(true);
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
-		assert object != null;
+		final Collection<String> allCodes = this.repo.findAllCodesFromEnrolments();
+		if (!super.getBuffer().getErrors().hasErrors("lowerNibble"))
+			super.state(!allCodes.contains(object.getCode()), "code", "student.enrolment.error.code");
 	}
 
 	@Override
@@ -80,11 +87,17 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		courses = this.repo.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals");
+		tuple = super.unbind(object, "code", "motivation", "goals", "course");
+		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-		tuple.put("draftMode", object.isDraftMode());
-
 		super.getResponse().setData(tuple);
+
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals(HttpMethod.POST))
+			PrincipalHelper.handleUpdate();
 	}
 
 }

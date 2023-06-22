@@ -21,7 +21,7 @@
 			<acme:message code="assistant.dashboard.form.label.average-time-per-session-records"/>
 		</th>
 		<td>
-			<acme:print value="${averageTimePerSession}"/>
+			<acme:print value="${averageTimePerTutorialSession}"/>
 		</td>
 	</tr>
 	<tr>
@@ -29,7 +29,7 @@
 			<acme:message code="assistant.dashboard.form.label.deviation-of-session-records"/>
 		</th>
 		<td>
-			<acme:print value="${deviationTimeSession}"/>
+			<acme:print value="${deviationTimeTutorialSession}"/>
 		</td>
 	</tr>
 	<tr>
@@ -37,7 +37,7 @@
 			<acme:message code="assistant.dashboard.form.label.maximum-time-of-session-records"/>
 		</th>
 		<td>
-			<acme:print value="${maxTimeSession}"/>
+			<acme:print value="${maxTimeTutorialSession}"/>
 		</td>
 	</tr>
 	<tr>
@@ -45,7 +45,39 @@
 			<acme:message code="assistant.dashboard.form.label.minimum-time-of-session-records"/>
 		</th>
 		<td>
-			<acme:print value="${minTimeSession}"/>
+			<acme:print value="${minTimeTutorialSession}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.average-time-per-hands-on-records"/>
+		</th>
+		<td>
+			<acme:print value="${averageTimePerHandsOnSession}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.deviation-of-hands-on-records"/>
+		</th>
+		<td>
+			<acme:print value="${deviationTimeHandsOnSession}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.maximum-time-of-hands-on-records"/>
+		</th>
+		<td>
+			<acme:print value="${maxTimeHandsOnSession}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="assistant.dashboard.form.label.minimum-time-of-hands-on-records"/>
+		</th>
+		<td>
+			<acme:print value="${minTimeHandsOnSession}"/>
 		</td>
 	</tr>
 	<tr>

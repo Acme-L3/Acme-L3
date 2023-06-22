@@ -52,7 +52,7 @@ master.menu.student.my-enrolments = Mis registros
 # master.menu.assistant ########################################################
 
 master.menu.assistant = Asistente
-master.menu.assistant.my-tutorials = Mis Tutorías
+master.menu.assistant.my-tutorials = Mis Tutoriales
 master.menu.assistant.dashboard = Dashboard
 
 # master.menu.consumer ##########################################################
@@ -104,3 +104,4 @@ master.manu.authenticated.audits = Listar Auditorias
 master.menu.authenticated.list-offers = Listar Ofertas
 master.menu.authenticated.list-tutorials = Listar Tutoriales
 master.menu.authenticated.list-course = Listar Cursos
+master.menu.any.course = Listar cursos (prácticas)
