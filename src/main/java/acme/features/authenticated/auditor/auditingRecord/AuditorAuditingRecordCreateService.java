@@ -47,8 +47,8 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void load() {
 		//		final AuditingRecord object;
-		//		int auditId;
-		//		Audit audit;
+		int auditId;
+		Audit audit;
 		//
 		//		auditId = super.getRequest().getData("auditId", int.class);
 		//		audit = this.repository.findAuditById(auditId);
@@ -65,14 +65,12 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 		AuditingRecord object;
 
-
 		auditId = super.getRequest().getData("auditId", int.class);
 		audit = this.repository.findAuditById(auditId);
 
 		object = new AuditingRecord();
 		object.setAudit(audit);
 		object.setCorrection(false);
-
 
 		super.getBuffer().setData(object);
 	}
@@ -110,7 +108,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
 		tuple.put("draftMode", object.getAudit().isDraftMode());
-
 
 		super.getResponse().setData(tuple);
 

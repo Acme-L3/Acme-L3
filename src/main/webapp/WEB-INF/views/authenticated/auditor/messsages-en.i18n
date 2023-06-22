@@ -4,3 +4,4 @@ authenticated.auditor.form.certifications = Certifications
 authenticated.auditor.form.link = Link
 authenticated.auditor.form.button.create = Create
 authenticated.auditor.form.button.update = Update
+authenticated.auditor.form.error.duplicated = Professional ID already in use
