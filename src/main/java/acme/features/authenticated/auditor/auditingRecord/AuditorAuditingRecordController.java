@@ -31,6 +31,7 @@ public class AuditorAuditingRecordController extends AbstractController<Auditor,
 	protected AuditorAuditingRecordUpdateService	updateService;
 
 	@Autowired
+
 	protected AuditorAuditingCorrectionService		correctionService;
 
 	// Constructors -----------------------------------------------------------

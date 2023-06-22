@@ -4,7 +4,6 @@ package acme.features.authenticated.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -32,11 +31,12 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	public void authorise() {
 		final boolean status;
 		int auditingRecordId;
-		Audit audit;
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
+
 		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
 		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -53,7 +53,9 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
+
 		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
+
 	}
 
 	@Override
@@ -65,6 +67,10 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 				super.state(false, "initialMoment", "auditor.auditingrecord.error.date.initialAfterFinal");
 			else
 				super.state(!(object.getHoursFromPeriod() < 1), "finalMoment", "auditor.auditingrecord.error.date.shortPeriod");
+
+		final Boolean correction = super.getRequest().getData("correction", boolean.class);
+		super.state(correction, "*", "auditor.auditingrecord.correction.confirmation");
+
 	}
 
 	@Override
@@ -77,6 +83,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
+
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
 		tuple.put("auditId", object.getAudit().getId());
 		tuple.put("draftMode", object.getAudit().isDraftMode());

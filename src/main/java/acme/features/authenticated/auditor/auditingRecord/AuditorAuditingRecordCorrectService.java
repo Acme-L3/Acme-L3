@@ -14,7 +14,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
+public class AuditorAuditingRecordCorrectService extends AbstractService<Auditor, AuditingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,62 +32,39 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 	@Override
 	public void authorise() {
-		final boolean status;
-		int auditId;
-		final Audit audit;
-
-		auditId = super.getRequest().getData("auditId", int.class);
-		audit = this.repository.findAuditById(auditId);
-
-		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		boolean status;
+		final Audit audit = this.repository.findAuditById(super.getRequest().getData("auditId", int.class));
+		status = super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && !audit.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		//		final AuditingRecord object;
-		//		int auditId;
-		//		Audit audit;
-		//
-		//		auditId = super.getRequest().getData("auditId", int.class);
-		//		audit = this.repository.findAuditById(auditId);
-		//		object = new AuditingRecord();
-		//		object.setSubject("");
-		//		object.setAssessment("");
-		//		object.setInitialMoment(null);
-		//		object.setFinalMoment(null);
-		//		object.setMark("");
-		//		object.setLink("");
-		//		object.setCorrection(false);
-		//		object.setAudit(audit);
-		//		super.getBuffer().setData(object);
+		final AuditingRecord auditingRecord = new AuditingRecord();
 
-		AuditingRecord object;
-
-
-		auditId = super.getRequest().getData("auditId", int.class);
-		audit = this.repository.findAuditById(auditId);
-
-		object = new AuditingRecord();
-		object.setAudit(audit);
-		object.setCorrection(false);
-
-
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(auditingRecord);
 	}
 
 	@Override
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
+		final int auditId = super.getRequest().getData("auditId", int.class);
+		final Audit audit = this.repository.findAuditById(auditId);
 
+		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
+		object.setAudit(audit);
+		object.setDraftMode(false);
+		object.setCorrection(true);
 	}
 
 	@Override
 	public void validate(final AuditingRecord object) {
 		assert object != null;
+
+		final Boolean correction = super.getRequest().getData("correction", boolean.class);
+		super.state(correction, "*", "auditor.auditingrecord.correction.confirmation");
 
 		if (!super.getBuffer().getErrors().hasErrors("initialMoment") && !super.getBuffer().getErrors().hasErrors("finalMoment"))
 			if (!MomentHelper.isBefore(object.getInitialMoment(), object.getFinalMoment()))
@@ -106,14 +83,9 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 		Tuple tuple;
-
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
-		tuple.put("draftMode", object.getAudit().isDraftMode());
-
-
 		super.getResponse().setData(tuple);
-
 	}
 
 	@Override

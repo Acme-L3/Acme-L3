@@ -3,6 +3,7 @@ auditor.auditingRecord.list.assessment=Evaluación
 auditor.auditingRecord.list.mark=Nota
 auditor.auditingRecord.list.correction=Corrección
 auditor.auditingRecord.list.button.create=Crear
+
 auditor.auditingRecord.list.button.createCorrection= Crear correccion
 
 auditor.auditingRecord.form.subject=Tema
@@ -12,10 +13,15 @@ auditor.auditingRecord.form.finalMoments=Momento final
 auditor.auditingRecord.form.mark=Nota
 auditor.auditingRecord.form.link=Link
 auditor.auditingRecord.form.correction=Corrección
+auditor.auditingRecord.form.hours=Horas
+auditor.auditingRecord.message.correction.disclaimer=ATENCIÓN: Este registro será publicado automáticamente al crearse
+auditor.auditingRecord.message.correction=Registro de Corrección
+auditor.auditingRecord.form.confirm= Confirmar Creación
 
 auditor.auditingRecord.form.button.update=Actualizar
 auditor.auditingRecord.form.button.delete=Eliminar
 auditor.auditingRecord.form.button.create=Crear
+auditor.auditingRecord.form.button.correct=Crear Correción
 
 auditor.auditingrecord.error.date.initialAfterFinal = La fecha de inicio debe ser anterior a la fecha de finalización
 auditor.auditingrecord.error.date.shortPeriod = El periodo de tiempo debe durar al menos una hora
