@@ -10,3 +10,4 @@ authenticated.course.form.label.courseType = Tipo de Curso
 authenticated.course.form.label.link = Enlace
 
 authenticated.course.list.button.list.practicums = Prácticas
+authenticated.course.list.button.list.audits = Auditorías

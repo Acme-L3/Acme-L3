@@ -6,6 +6,4 @@
 <acme:list>
 	<acme:list-column code="authenticated.audit.list.code" path="code"/>
 	<acme:list-column code="authenticated.audit.list.conclusion" path="conclusion"/>
-	<acme:list-column code="authenticated.audit.list.strongPoints" path="strongPoints"/>
-	<acme:list-column code="authenticated.audit.list.weakPoints" path="weakPoints"/>
 </acme:list>
