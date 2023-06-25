@@ -10,3 +10,4 @@ authenticated.course.form.label.courseType = Course Type
 authenticated.course.form.label.link = Link
 
 authenticated.course.list.button.list.practicums = Practicums
+authenticated.course.list.button.list.audits = Audits
