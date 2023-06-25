@@ -4,9 +4,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="auditor.audit.list.code" path="code" width="25%"/>
-	<acme:list-column code="auditor.audit.list.conclusion" path="conclusion" width="25%"/>
-	<acme:list-column code="auditor.audit.list.strongPoints" path="strongPoints" width="25%"/>
+	<acme:list-column code="auditor.audit.list.code" path="code" width="20%"/>
+	<acme:list-column code="auditor.audit.list.conclusion" path="conclusion" width="60%"/>
 
 </acme:list>
 

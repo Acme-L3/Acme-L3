@@ -17,3 +17,4 @@ employer.audit.form.button.delete = Borrar
 employer.audit.form.button.publish = Publicar
 auditor.audit.form.button.create = Crear
 auditor.audit.form.error.duplicated=Este código ya está en uso
+auditor.audit.error.not-published=Este curso ya ha sido publicado

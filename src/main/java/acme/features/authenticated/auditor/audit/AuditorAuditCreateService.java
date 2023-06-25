@@ -37,24 +37,26 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void load() {
 		final Audit object;
-		Auditor auditor;
 
-		auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Audit();
 		object.setDraftMode(true);
-		object.setAuditor(auditor);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
+
 		int courseId;
 		Course course;
 
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		final Auditor auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setAuditor(auditor);
 		object.setCourse(course);
 	}
 
@@ -66,8 +68,12 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 			Audit existing;
 
 			existing = this.repository.findAuditByCode(object.getCode());
-			super.state(existing == null, "code", "auditor.audit.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "auditor.audit.form.error.duplicated");
 		}
+		//		if (!super.getBuffer().getErrors().hasErrors("course")) {
+		//			final Course selectedCourse = object.getCourse();
+		//			super.state(selectedCourse.isPublished(), "course", "auditor.audit.error.not-published");
+		//		}
 	}
 
 	@Override
@@ -85,6 +91,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
+
 		tuple = this.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
