@@ -18,3 +18,4 @@ employer.audit.form.button.publish = Publish
 auditor.audit.form.button.create = Create
 auditor.audit.form.error.duplicated=This code is already in use
 auditor.audit.error.not-published=This course been published already
+auditor.audit.form.error.not-draft-mode = This audit is already published, can't be edited or deleted
