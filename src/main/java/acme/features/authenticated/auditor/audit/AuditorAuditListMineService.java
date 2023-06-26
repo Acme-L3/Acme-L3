@@ -37,6 +37,7 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 	public void load() {
 		Collection<Audit> objects;
 		Principal principal;
+
 		principal = super.getRequest().getPrincipal();
 		objects = this.repository.findAuditsByAuditorId(principal.getActiveRoleId());
 		super.getBuffer().setData(objects);
@@ -45,8 +46,9 @@ public class AuditorAuditListMineService extends AbstractService<Auditor, Audit>
 	@Override
 	public void unbind(final Audit object) {
 		assert object != null;
+
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		tuple = super.unbind(object, "code", "conclusion");
 		super.getResponse().setData(tuple);
 	}
 

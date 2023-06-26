@@ -35,12 +35,11 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		boolean status;
 		int auditId;
 		Audit audit;
-		Auditor auditor;
 
 		auditId = super.getRequest().getData("id", int.class);
 		audit = this.repository.findAuditById(auditId);
-		auditor = audit == null ? null : audit.getAuditor();
-		status = super.getRequest().getPrincipal().hasRole(auditor) || audit != null && !audit.isDraftMode();
+		status = audit != null && super.getRequest().getPrincipal().getActiveRoleId() == audit.getAuditor().getId();
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -48,21 +47,24 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		Audit object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditById(id);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void unbind(final Audit object) {
 		assert object != null;
+
 		final Collection<Course> courses;
 		final SelectChoices coursesChoices;
 		final Tuple tuple;
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "Auditor", "course", "draftMode");
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
 
