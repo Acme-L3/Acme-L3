@@ -1,6 +1,6 @@
 key,code,conclusion,strong-points,weak-points,draft-mode,key:auditor,key:course
 audit-01,A123,"esta es una conclusión con 100 caracteres esta es una conclusión con 100 caracteres esta es una con ","puntos fuertes",".",true,auditor-01,course-01
-audit-02,XX123,"como 33","puntos fuertes hasta llegar a 100 caracteres puntos fuertes puntos fuertes puntos fuertes puntos fue",".",true,auditor-02,course-01
+audit-02,XX123,"SELECT * FROM Audit","puntos fuertes hasta llegar a 100 caracteres puntos fuertes puntos fuertes puntos fuertes puntos fue",".",true,auditor-02,course-01
 audit-03,YYY123,"a",".","puntos debiles hasta 100 caracteres puntos debiles puntos debilespuntos debilespuntos debiles puntos",false,auditor-01,course-02
 audit-04,GGG000,"通ネ面憲スオナツ躍給","b","f",true,auditor-02,course-02
 audit-05,GGG001,"/*-+<<<>>>@@~~","c","f",true,auditor-01,course-01
