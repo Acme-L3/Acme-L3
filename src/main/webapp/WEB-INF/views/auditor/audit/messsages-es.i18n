@@ -17,3 +17,6 @@ employer.audit.form.button.delete = Borrar
 employer.audit.form.button.publish = Publicar
 auditor.audit.form.button.create = Crear
 auditor.audit.form.error.duplicated=Este código ya está en uso
+auditor.audit.error.not-published=Este curso ya ha sido publicado
+auditor.audit.form.error.not-draft-mode = Esta auditoría ya está publicada, no puede ser eliminada o editada
+auditor.audit.form.error.no-records = Esta auditoría aún no puede publicarse porque no tiene registros

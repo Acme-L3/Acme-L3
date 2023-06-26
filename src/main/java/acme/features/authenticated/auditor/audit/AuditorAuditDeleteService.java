@@ -55,18 +55,15 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("id", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
-		object.setCourse(course);
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+
+		super.state(object.isDraftMode(), "*", "auditor.audit.form.error.not-draft-mode");
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.audits.Audit;
+import acme.entitites.audits.AuditingRecord;
 import acme.entitites.course.Course;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -48,39 +49,41 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void load() {
 		Audit object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditById(id);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
-		object.setCourse(course);
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
 
+		Collection<AuditingRecord> auditingRecords;
+		auditingRecords = this.repository.findAuditingRecordsByAuditId(object.getId());
+
+		super.state(!auditingRecords.isEmpty(), "*", "auditor.audit.form.error.no-records");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Audit existing;
 
 			existing = this.repository.findAuditByCode(object.getCode());
-			if (!existing.isDraftMode())
-				super.state(existing == null, "code", "auditor.audit.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "auditor.audit.form.error.duplicated");
 		}
 	}
 
 	@Override
 	public void perform(final Audit object) {
 		assert object != null;
+
 		object.setDraftMode(false);
 		this.repository.save(object);
 	}
@@ -88,7 +91,8 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	@Override
 	public void unbind(final Audit object) {
 		assert object != null;
-		Collection<Course> courses;
+
+		final Collection<Course> courses;
 		final SelectChoices coursesChoices;
 		final Tuple tuple;
 

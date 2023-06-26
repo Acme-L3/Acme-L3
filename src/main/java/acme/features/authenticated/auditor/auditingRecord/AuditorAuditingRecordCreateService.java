@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -46,31 +44,17 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 
 	@Override
 	public void load() {
-		//		final AuditingRecord object;
+		AuditingRecord object;
 		int auditId;
 		Audit audit;
-		//
-		//		auditId = super.getRequest().getData("auditId", int.class);
-		//		audit = this.repository.findAuditById(auditId);
-		//		object = new AuditingRecord();
-		//		object.setSubject("");
-		//		object.setAssessment("");
-		//		object.setInitialMoment(null);
-		//		object.setFinalMoment(null);
-		//		object.setMark("");
-		//		object.setLink("");
-		//		object.setCorrection(false);
-		//		object.setAudit(audit);
-		//		super.getBuffer().setData(object);
-
-		AuditingRecord object;
 
 		auditId = super.getRequest().getData("auditId", int.class);
 		audit = this.repository.findAuditById(auditId);
 
 		object = new AuditingRecord();
+		object.setInitialMoment(MomentHelper.getCurrentMoment());
+		object.setFinalMoment(MomentHelper.getCurrentMoment());
 		object.setAudit(audit);
-		object.setCorrection(false);
 
 		super.getBuffer().setData(object);
 	}
@@ -103,20 +87,17 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
+
+		int auditId;
 		Tuple tuple;
 
+		auditId = super.getRequest().getData("auditId", int.class);
+
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
-		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
-		tuple.put("draftMode", object.getAudit().isDraftMode());
+		tuple.put("auditId", auditId);
 
 		super.getResponse().setData(tuple);
 
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }

@@ -30,10 +30,6 @@ public class AuditorAuditingRecordController extends AbstractController<Auditor,
 	@Autowired
 	protected AuditorAuditingRecordUpdateService	updateService;
 
-	@Autowired
-
-	protected AuditorAuditingCorrectionService		correctionService;
-
 	// Constructors -----------------------------------------------------------
 
 
@@ -44,7 +40,6 @@ public class AuditorAuditingRecordController extends AbstractController<Auditor,
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("update", this.updateService);
-		super.addCustomCommand("create-correction", "create", this.correctionService);
 	}
 
 }

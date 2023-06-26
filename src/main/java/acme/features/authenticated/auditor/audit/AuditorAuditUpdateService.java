@@ -41,6 +41,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		audit = this.repository.findAuditById(auditId);
 		auditor = audit == null ? null : audit.getAuditor();
 		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(auditor);
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -48,21 +49,18 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		Audit object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditById(id);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
-		final int courseId;
-		final Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
-		object.setCourse(course);
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 	}
 
 	@Override
@@ -79,12 +77,14 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void perform(final Audit object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Audit object) {
 		assert object != null;
+
 		final Collection<Course> courses;
 		final SelectChoices coursesChoices;
 		final Tuple tuple;

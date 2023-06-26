@@ -31,11 +31,11 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void authorise() {
 		boolean status;
 		int auditingRecordId;
-		AuditingRecord auditingRecord;
+		Audit audit;
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
-		auditingRecord = this.repository.findAuditingRecordById(auditingRecordId);
-		status = auditingRecord != null && super.getRequest().getPrincipal().hasRole(auditingRecord.getAudit().getAuditor()) && auditingRecord.isDraftMode();
+		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
+		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -43,6 +43,7 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void load() {
 		AuditingRecord object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditingRecordById(id);
 		super.getBuffer().setData(object);
@@ -52,13 +53,7 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	public void bind(final AuditingRecord object) {
 		assert object != null;
 
-		int auditingRecordId;
-		final Audit audit;
-
-		auditingRecordId = super.getRequest().getData("id", int.class);
-		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
 		super.bind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
-		object.setAudit(audit);
 
 	}
 
@@ -76,15 +71,11 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	@Override
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
+
 		Tuple tuple;
 
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
-		tuple.put("auditId", this.repository.findAuditingRecordById(id).getId());
-		tuple.put("draftMode", object.getAudit().isDraftMode());
-
+		tuple.put("auditId", object.getAudit().getId());
 		super.getResponse().setData(tuple);
 	}
 

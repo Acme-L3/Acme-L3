@@ -9,13 +9,12 @@
 	<acme:input-textbox code="auditor.audit.form.strongPoints" path="strongPoints"/>
 	<acme:input-textbox code="auditor.audit.form.weakPoints" path="weakPoints"/>
 	<acme:input-select code="auditor.audit.form.course" path="course" choices ="${courses}"/>
-	<acme:input-checkbox code="auditor.audit.form.draftMode" path="draftMode"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditing-record/list?auditId=${id}"/>			
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|puclish') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="auditor.audit.form.button.auditingRecords" action="/auditor/auditing-record/list?auditId=${id}"/>
 			<acme:submit code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
 			<acme:submit code="employer.audit.form.button.delete" action="/auditor/audit/delete"/>

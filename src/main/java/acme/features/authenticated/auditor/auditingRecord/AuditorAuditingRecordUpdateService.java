@@ -36,7 +36,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		auditingRecordId = super.getRequest().getData("id", int.class);
 
 		final Audit audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
-		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -68,9 +68,6 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 				super.state(false, "initialMoment", "auditor.auditingrecord.error.date.initialAfterFinal");
 			else
 				super.state(!(object.getHoursFromPeriod() < 1), "finalMoment", "auditor.auditingrecord.error.date.shortPeriod");
-
-		final Boolean correction = super.getRequest().getData("correction", boolean.class);
-		super.state(correction, "*", "auditor.auditingrecord.correction.confirmation");
 
 	}
 

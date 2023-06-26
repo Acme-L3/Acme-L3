@@ -4,9 +4,9 @@ package acme.features.authenticated.auditor.auditingRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
@@ -31,14 +31,11 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 	public void authorise() {
 		boolean status;
 		int auditingRecordId;
-
-		final AuditingRecord auditingRecord;
-		final Auditor auditor;
+		final Audit audit;
 
 		auditingRecordId = super.getRequest().getData("id", int.class);
-		auditingRecord = this.repository.findAuditingRecordById(auditingRecordId);
-		auditor = auditingRecord == null ? null : auditingRecord.getAudit().getAuditor();
-		status = super.getRequest().getPrincipal().hasRole(auditor);
+		audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
+		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -59,7 +56,7 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 
 		Tuple tuple;
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
-		tuple.put("draftMode", object.getAudit().isDraftMode());
+		tuple.put("masterId", object.getAudit().getId());
 
 		super.getResponse().setData(tuple);
 	}
