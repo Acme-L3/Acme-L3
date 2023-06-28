@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entitites.session.HandsOnSession;
 import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.repositories.AbstractRepository;
@@ -24,9 +23,6 @@ public interface AssistantDashboardRepository extends AbstractRepository {
 
 	@Query("select au from TutorialSession au where au.tutorial.assistant.id = :id")
 	List<TutorialSession> findAllTutorialSessionsByAssistantId(int id);
-
-	@Query("select au from HandsOnSession au where au.tutorial.assistant.id = :id")
-	List<HandsOnSession> findAllHandsOnSessionsByAssistantId(int id);
 
 	@Query("select t from Tutorial t where t.assistant.id = :id")
 	List<Tutorial> findAllTutorialsByAssistantId(int id);
@@ -50,23 +46,9 @@ public interface AssistantDashboardRepository extends AbstractRepository {
 		return records.stream().mapToDouble(TutorialSession::getHoursFromPeriod).average().orElse(0);
 	}
 
-	default Double averageTimeOfHandsOnSessionSessions(final int id) {
-		final List<HandsOnSession> records = this.findAllHandsOnSessionsByAssistantId(id);
-		return records.stream().mapToDouble(HandsOnSession::getHoursFromPeriod).average().orElse(0);
-	}
-
 	default Double deviationTimeTutorialSession(final int id) {
 		final List<TutorialSession> records = this.findAllTutorialSessionsByAssistantId(id);
 		final List<Double> hours = records.stream().map(TutorialSession::getHoursFromPeriod).collect(Collectors.toList());
-		final Double average = hours.stream().mapToDouble(Double::doubleValue).average().orElse(0);
-		final List<Double> squaredDistancesToMean = hours.stream().map(h -> Math.pow(h - average, 2)).collect(Collectors.toList());
-		final Double averageSquaredDistancesToMean = squaredDistancesToMean.stream().mapToDouble(Double::doubleValue).average().orElse(0);
-		return Math.sqrt(averageSquaredDistancesToMean);
-	}
-
-	default Double deviationTimeHandsOnSession(final int id) {
-		final List<HandsOnSession> records = this.findAllHandsOnSessionsByAssistantId(id);
-		final List<Double> hours = records.stream().map(HandsOnSession::getHoursFromPeriod).collect(Collectors.toList());
 		final Double average = hours.stream().mapToDouble(Double::doubleValue).average().orElse(0);
 		final List<Double> squaredDistancesToMean = hours.stream().map(h -> Math.pow(h - average, 2)).collect(Collectors.toList());
 		final Double averageSquaredDistancesToMean = squaredDistancesToMean.stream().mapToDouble(Double::doubleValue).average().orElse(0);
@@ -88,18 +70,9 @@ public interface AssistantDashboardRepository extends AbstractRepository {
 		return records.stream().mapToDouble(TutorialSession::getHoursFromPeriod).min().orElse(0);
 	}
 
-	default Double minimumTimeOfHandsOnSession(final int id) {
-		final List<HandsOnSession> records = this.findAllHandsOnSessionsByAssistantId(id);
-		return records.stream().mapToDouble(HandsOnSession::getHoursFromPeriod).min().orElse(0);
-	}
-
 	default Double maximumTimeOfTutorialSession(final int id) {
 		final List<TutorialSession> records = this.findAllTutorialSessionsByAssistantId(id);
 		return records.stream().mapToDouble(TutorialSession::getHoursFromPeriod).max().orElse(0);
 	}
 
-	default Double maximumTimeOfHandsOnSession(final int id) {
-		final List<HandsOnSession> records = this.findAllHandsOnSessionsByAssistantId(id);
-		return records.stream().mapToDouble(HandsOnSession::getHoursFromPeriod).max().orElse(0);
-	}
 }

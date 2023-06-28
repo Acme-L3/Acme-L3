@@ -8,7 +8,6 @@ assistant.tutorial.form.draftMode = Modo borrador
 assistant.tutorial.form.course = Curso 
 
 assistant.tutorial.form.button.tutorialSessions = Sesiones Teoricas
-assistant.tutorial.form.button.handsOnSessions = Sesiones Practicas
 assistant.tutorial.form.button.update = Actualizar
 assistant.tutorial.form.button.delete = Borrar
 assistant.tutorial.form.button.publish = Publicar
@@ -26,6 +25,4 @@ assistant.tutorial.form.error.is.before = La fecha de inicio debe ser anterior a
 assistant.tutorial.form.error.duplicated-code = El código no puede estar duplicado.
 assistant.tutorial.form.error.publish.empty = No puedes publicar un tutorial sin ninguna sesión
 assistant.tutorial.form.error.is.after.tuto = No puedes actualizarlo o publicarlo debido a que una sesión teórica tiene una fecha final posterior a la del tutorial
-assistant.tutorial.form.error.is.after.handsOn = No puedes actualizarlo o publicarlo debido a que una sesión práctica tiene una fecha final posterior a la del tutorial
 assistant.tutorial.form.error.is.before.tuto = No puedes actualizarlo o publicarlo debido a que una sesión teórica tiene una fecha inicial anterior a la del tutorial
-assistant.tutorial.form.error.is.before.handsOn = No puedes actualizarlo o publicarlo debido a que una sesión práctica tiene una fecha inicial anterior a la del tutorial

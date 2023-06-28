@@ -8,7 +8,6 @@ assistant.tutorial.form.draftMode = Draft Mode
 assistant.tutorial.form.course = Course 
 
 assistant.tutorial.form.button.tutorialSessions = Theory Sessions
-assistant.tutorial.form.button.handsOnSessions = Hands On Sessions
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete
 assistant.tutorial.form.button.publish = Publish
@@ -26,6 +25,4 @@ assistant.tutorial.form.error.is.before = Start Date must be before than End Dat
 assistant.tutorial.form.error.duplicated-code = Code must be unique
 assistant.tutorial.form.error.publish.empty = You can't publish a tutorial without any sessions
 assistant.tutorial.form.error.is.after.tuto = You can't update or publish because the End Date of a theory session is after of the End Date of the tutorial
-assistant.tutorial.form.error.is.after.handsOn = You can't update or publish because the End Date of a hands on session is after of the End Date of the tutorial
 assistant.tutorial.form.error.is.before.tuto = You can't update or publish because the Start Date of a theory session is before of the Start Date of the tutorial
-assistant.tutorial.form.error.is.before.handsOn = You can't update or publish because the Start Date of a hands on session is before of the Start Date of the tutorial
