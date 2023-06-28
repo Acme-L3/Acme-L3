@@ -45,10 +45,6 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		final Double deviationTimeTutorialSession;
 		final Double minimumTimeOfTutorialSession;
 		final Double maximumTimeOfTutorialSession;
-		final Double averageTimeOfHandsOnSessions;
-		final Double deviationTimeHandsOnSession;
-		final Double minimumTimeOfHandsOnSession;
-		final Double maximumTimeOfHandsOnSession;
 
 		totalNumberOfTutorials = this.repository.totalNumberOfTutorials(id);
 		averageTimeOfTutorials = this.repository.averageTimeOfTutorials(id);
@@ -59,10 +55,6 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		deviationTimeTutorialSession = this.repository.deviationTimeTutorialSession(id);
 		minimumTimeOfTutorialSession = this.repository.minimumTimeOfTutorialSession(id);
 		maximumTimeOfTutorialSession = this.repository.maximumTimeOfTutorialSession(id);
-		averageTimeOfHandsOnSessions = this.repository.averageTimeOfHandsOnSessionSessions(id);
-		deviationTimeHandsOnSession = this.repository.deviationTimeHandsOnSession(id);
-		minimumTimeOfHandsOnSession = this.repository.minimumTimeOfHandsOnSession(id);
-		maximumTimeOfHandsOnSession = this.repository.maximumTimeOfHandsOnSession(id);
 
 		dashboard = new AssistantDashboard();
 		dashboard.setTotalNumberOfTutorials(totalNumberOfTutorials);
@@ -70,10 +62,6 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		dashboard.setDeviationTimeTutorialSession(deviationTimeTutorialSession);
 		dashboard.setMinTimeTutorialSession(minimumTimeOfTutorialSession);
 		dashboard.setMaxTimeTutorialSession(maximumTimeOfTutorialSession);
-		dashboard.setAverageTimePerHandsOnSession(averageTimeOfHandsOnSessions);
-		dashboard.setDeviationTimeHandsOnSession(deviationTimeHandsOnSession);
-		dashboard.setMinTimeHandsOnSession(minimumTimeOfHandsOnSession);
-		dashboard.setMaxTimeHandsOnSession(maximumTimeOfHandsOnSession);
 		dashboard.setAverageTimePerTutorial(averageTimeOfTutorials);
 		dashboard.setDeviationTimeTutorial(deviationTimeTutorial);
 		dashboard.setMinTimeTutorial(minimumTimeOfTutorial);
@@ -86,8 +74,8 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 	public void unbind(final AssistantDashboard object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "totalNumberOfTutorials", "averageTimePerTutorialSession", "deviationTimeTutorialSession", "minTimeTutorialSession", "maxTimeTutorialSession", "averageTimePerHandsOnSession", "deviationTimeHandsOnSession",
-			"minTimeHandsOnSession", "maxTimeHandsOnSession", "averageTimePerTutorial", "deviationTimeTutorial", "minTimeTutorial", "maxTimeTutorial");
+		tuple = super.unbind(object, "totalNumberOfTutorials", "averageTimePerTutorialSession", "deviationTimeTutorialSession", "minTimeTutorialSession", "maxTimeTutorialSession", "averageTimePerHandsOnSession", "averageTimePerTutorial",
+			"deviationTimeTutorial", "minTimeTutorial", "maxTimeTutorial");
 		super.getResponse().setData(tuple);
 	}
 }

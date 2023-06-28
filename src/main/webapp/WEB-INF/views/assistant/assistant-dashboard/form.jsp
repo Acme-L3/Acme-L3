@@ -50,38 +50,6 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.average-time-per-hands-on-records"/>
-		</th>
-		<td>
-			<acme:print value="${averageTimePerHandsOnSession}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.deviation-of-hands-on-records"/>
-		</th>
-		<td>
-			<acme:print value="${deviationTimeHandsOnSession}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.maximum-time-of-hands-on-records"/>
-		</th>
-		<td>
-			<acme:print value="${maxTimeHandsOnSession}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.minimum-time-of-hands-on-records"/>
-		</th>
-		<td>
-			<acme:print value="${minTimeHandsOnSession}"/>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
 			<acme:message code="assistant.dashboard.form.label.average-time-of-tutorial-records"/>
 		</th>
 		<td>
