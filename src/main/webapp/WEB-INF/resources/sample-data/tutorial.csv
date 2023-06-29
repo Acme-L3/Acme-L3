@@ -1,9 +1,9 @@
 key,code,tittle,summary,goals,key:course,draft-mode,key:assistant
-tutorial-01,AA124,"T","Test","Test",course-02,true,assistant-01
-tutorial-02,AAA124,"T","Test","Test",course-02,true,assistant-01
-tutorial-03,ZZZ999,"T","Test","Test",course-02,true,assistant-01
-tutorial-04,A124,"T","Test","Test",course-02,true,assistant-01
-tutorial-05,A125,"Te","Test","Test",course-02,true,assistant-01
+tutorial-01,AA124,"T","Test","Test",course-02,false,assistant-01
+tutorial-02,AAA124,"T","Test","Test",course-01,false,assistant-01
+tutorial-03,ZZZ999,"T","Test","Test",course-02,false,assistant-01
+tutorial-04,A124,"T","Test","Test",course-03,false,assistant-01
+tutorial-05,A125,"Te","Test","Test",course-03,true,assistant-01
 tutorial-06,A126,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test","Test",course-02,true,assistant-01
 tutorial-07,A127,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe","Test","Test",course-02,true,assistant-01
 tutorial-08,A128,<h1>Hola!</h1>,"Test","Test",course-02,true,assistant-01

@@ -8,10 +8,16 @@
 	<acme:input-textbox code="authenticated.tutorial.form.tittle" path="tittle"/>
 	<acme:input-textbox code="authenticated.tutorial.form.summary" path="summary"/>
 	<acme:input-textbox code="authenticated.tutorial.form.goals" path="goals"/>
-	<acme:input-textbox code="authenticated.tutorial.form.startDate" path="startDate"/>
-	<acme:input-textbox code="authenticated.tutorial.form.endDate" path="endDate"/>
-	<acme:input-select code="authenticated.tutorial.form.assistant" path="assistant" choices ="${assistants}"/>
+	<acme:input-double code="authenticated.tutorial.form.estimated-time" path="estimatedTime"/>
 	<acme:input-select code="authenticated.tutorial.form.course" path="course" choices ="${courses}"/>
 	
-	<acme:button code="assistant.tutorial.form.button.tutorialSessions" action="/authenticated/tutorial-session/list?tutorialId=${id}"/>
+	<label>
+			<acme:message code="authenticated.tutorial.form.message"/>
+	</label>
+	
+	<acme:input-textbox code="authenticated.tutorial.form.assistant.supervisor" path="assistant.supervisor"/>
+	<acme:input-textbox code="authenticated.tutorial.form.assistant.curriculum" path="assistant.curriculum"/>
+	<acme:input-textbox code="authenticated.tutorial.form.assistant.expertiseField" path="assistant.expertiseField"/>
+	<acme:input-textbox code="authenticated.tutorial.form.assistant.link" path="assistant.link"/>
+	
 </acme:form>
