@@ -73,13 +73,6 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Duration duracion;
-			final long maxDuration = 86400L;
-			duracion = MomentHelper.computeDuration(object.getCreationMoment(), object.getStartDate());
-			super.state(duracion.getSeconds() >= maxDuration, "startDate", "assistant.tutorial.form.error.one.day");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			Duration duracion;
 			final long minDuration = 3600L;
 			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
 			super.state(duracion.getSeconds() >= minDuration, "startDate", "assistant.tutorial.form.error.duration.min");
@@ -87,45 +80,6 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
-
-		if (!super.getBuffer().getErrors().hasErrors("creationMoment")) {
-			int tutorialSessionId;
-			Tutorial tutorial;
-
-			tutorialSessionId = super.getRequest().getData("id", int.class);
-			tutorial = this.repository.findTutorialByTutorialSessionId(tutorialSessionId);
-			super.state(MomentHelper.isBeforeOrEqual(object.getCreationMoment(), tutorial.getEndDate()), "creationMoment", "assistant.tutorial.form.error.is.before.tutorial");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			int tutorialSessionId;
-			Tutorial tutorial;
-
-			tutorialSessionId = super.getRequest().getData("id", int.class);
-			tutorial = this.repository.findTutorialByTutorialSessionId(tutorialSessionId);
-			super.state(MomentHelper.isBeforeOrEqual(tutorial.getStartDate(), object.getStartDate()), "startDate", "assistant.tutorial.form.error.is.before.tutorial2");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			int tutorialSessionId;
-			Tutorial tutorial;
-
-			tutorialSessionId = super.getRequest().getData("id", int.class);
-			tutorial = this.repository.findTutorialByTutorialSessionId(tutorialSessionId);
-			super.state(MomentHelper.isBeforeOrEqual(object.getEndDate(), tutorial.getEndDate()), "endDate", "assistant.tutorial.form.error.is.before.tutorial3");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("creationMoment")) {
-			int tutorialSessionId;
-			Tutorial tutorial;
-
-			tutorialSessionId = super.getRequest().getData("id", int.class);
-			tutorial = this.repository.findTutorialByTutorialSessionId(tutorialSessionId);
-			final long minDuration = 86400L;
-			Duration duracion;
-			duracion = MomentHelper.computeDuration(object.getCreationMoment(), tutorial.getEndDate());
-			super.state(duracion.getSeconds() > minDuration, "creationMoment", "assistant.tutorial.form.error.one.day.tutorial");
-		}
 
 	}
 

@@ -57,8 +57,6 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		assistant = this.repository.findAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Tutorial();
-		object.setStartDate(moment1);
-		object.setEndDate(moment2);
 		object.setDraftMode(true);
 		object.setAssistant(assistant);
 		super.getBuffer().setData(object);
@@ -85,10 +83,6 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 			existing = this.repository.findTutorialByCode(object.getCode());
 			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			if (object.getStartDate() != null && object.getEndDate() != null)
-				super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
 
 	}
 
