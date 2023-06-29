@@ -2,10 +2,15 @@ authenticated.tutorial.form.code = Código
 authenticated.tutorial.form.tittle = Título
 authenticated.tutorial.form.summary = Resumen
 authenticated.tutorial.form.goals = Objetivos
-authenticated.tutorial.form.startDate = Fecha de inicio
-authenticated.tutorial.form.endDate = Fecha final
-authenticated.tutorial.form.assistant = Asistente
+authenticated.tutorial.form.estimated-time = Tiempo estimado (En horas)
 authenticated.tutorial.form.course = Curso
+
+authenticated.tutorial.form.message= Información del asistente
+
+authenticated.tutorial.form.assistant.supervisor = Supervisor del asistente
+authenticated.tutorial.form.assistant.curriculum = Curriculum del asistente
+authenticated.tutorial.form.assistant.expertiseField = Puntos fuertes del asistente
+authenticated.tutorial.form.assistant.link = Link del asistente
 
 authenticated.tutorial.list.code = Código
 authenticated.tutorial.list.tittle = Título

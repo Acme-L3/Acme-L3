@@ -47,7 +47,6 @@
 			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list"/>
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-offers" action="/authenticated/offer/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.list-tutorials" action="/authenticated/tutorial/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-course" action="/authenticated/course/list"/>
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">

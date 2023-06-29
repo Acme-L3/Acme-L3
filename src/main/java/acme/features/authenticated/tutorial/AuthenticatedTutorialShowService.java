@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
+import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Assistant;
 
 @Service
 public class AuthenticatedTutorialShowService extends AbstractService<Authenticated, Tutorial> {
@@ -53,22 +53,23 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 		assert object != null;
 
 		final Collection<Course> courses;
-		final Collection<Assistant> assistants;
 		final SelectChoices coursesChoices;
-		final SelectChoices assistantsChoices;
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
 
-		assistants = this.repository.findAllAssistants();
-		assistantsChoices = SelectChoices.from(assistants, "supervisor", object.getAssistant());
+		final Collection<TutorialSession> sessions;
+		Double estimatedTime;
+		sessions = this.repository.findTutorialSessionsByTutorialId(object.getId());
+		estimatedTime = 0.;
+		for (final TutorialSession ts : sessions)
+			estimatedTime += ts.getHoursFromPeriod();
 
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "startDate", "endDate");
+		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "assistant.supervisor", "assistant.curriculum", "assistant.expertiseField", "assistant.link");
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
-		tuple.put("assistant", object.getAssistant().getIdentity().getFullName());
-		tuple.put("assistants", assistantsChoices);
+		tuple.put("estimatedTime", estimatedTime);
 
 		super.getResponse().setData(tuple);
 	}

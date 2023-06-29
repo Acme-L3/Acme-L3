@@ -2,10 +2,15 @@ authenticated.tutorial.form.code = Code
 authenticated.tutorial.form.tittle = Title
 authenticated.tutorial.form.summary = Summary
 authenticated.tutorial.form.goals = Goals
-authenticated.tutorial.form.startDate = Start Date
-authenticated.tutorial.form.endDate = End Date
-authenticated.tutorial.form.assistant = Assistant
+authenticated.tutorial.form.estimated-time = Estimated Time (In hours)
 authenticated.tutorial.form.course = Course
+
+authenticated.tutorial.form.message= Assistant Data
+
+authenticated.tutorial.form.assistant.supervisor = Assistant supervisor
+authenticated.tutorial.form.assistant.curriculum = Assistant curriculum
+authenticated.tutorial.form.assistant.expertiseField = Assistant expertise fields
+authenticated.tutorial.form.assistant.link = Assistant Link
 
 authenticated.tutorial.list.code = Code
 authenticated.tutorial.list.tittle = Title

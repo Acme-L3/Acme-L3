@@ -23,24 +23,40 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("masterId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int masterId;
+		Collection<Tutorial> tutorial;
+		boolean status;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		tutorial = this.repository.findAllTutorialsByCourseIdPublished(masterId);
+		status = tutorial != null;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Collection<Tutorial> objects;
-		objects = this.repository.findTutorialsAviability();
+		int courseId;
+		courseId = super.getRequest().getData("masterId", int.class);
+		objects = this.repository.findAllTutorialsByCourseIdPublished(courseId);
 		super.getBuffer().setData(objects);
+		super.getResponse().setGlobal("masterId", courseId);
 	}
 
 	@Override
 	public void unbind(final Tutorial object) {
 		assert object != null;
+
 		final Tuple tuple = super.unbind(object, "code", "tittle", "summary");
 		super.getResponse().setData(tuple);
 	}
