@@ -1,6 +1,10 @@
 
 package acme.forms;
 
+import java.util.Map;
+
+import acme.datatypes.Statistics;
+import acme.entitites.session.SessionType;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,24 +15,19 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long			serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	Double						totalNumberOfTutorials;
+	protected Map<SessionType, Integer>	tutorialCount;
 
-	Double						averageTimePerTutorialSession;
-	Double						deviationTimeTutorialSession;
-	Double						minTimeTutorialSession;
-	Double						maxTimeTutorialSession;
-	Double						averageTimePerHandsOnSession;
-	Double						deviationTimeHandsOnSession;
-	Double						minTimeHandsOnSession;
-	Double						maxTimeHandsOnSession;
-	Double						averageTimePerTutorial;
-	Double						deviationTimeTutorial;
-	Double						minTimeTutorial;
-	Double						maxTimeTutorial;
+	//Statistics of tutorial
+
+	protected Statistics				tutorialStatistics;
+
+	//Statistics of sessions
+
+	protected Statistics				sessionStatistics;
 
 	// Relationships ----------------------------------------------------------
 

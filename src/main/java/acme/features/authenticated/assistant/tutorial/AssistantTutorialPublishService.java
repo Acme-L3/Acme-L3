@@ -2,7 +2,6 @@
 package acme.features.authenticated.assistant.tutorial;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
@@ -78,42 +76,11 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			if (object.getStartDate() != null && object.getEndDate() != null)
-				super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "assistant.tutorial.form.error.is.before");
-
 		if (!super.getBuffer().getErrors().hasErrors("draftMode")) {
 			final Collection<TutorialSession> theory = this.repository.findTutorialSessionsByTutorialId(object.getId());
 			super.state(!theory.isEmpty(), "draftMode", "assistant.tutorial.form.error.publish.empty");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			final Collection<Date> tsStartDate = this.repository.findTutorialSessionsStartDateByTutorialId(object.getId());
-			Boolean res = null;
-			if (!tsStartDate.isEmpty()) {
-				for (final Date fecha : tsStartDate)
-					if (MomentHelper.isBefore(object.getStartDate(), fecha))
-						res = true;
-					else
-						res = false;
-			} else
-				res = true;
-			super.state(res, "startDate", "assistant.tutorial.form.error.is.before.tuto");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			final Collection<Date> tsEndDate = this.repository.findTutorialSessionsEndDateByTutorialId(object.getId());
-			Boolean res = null;
-			if (!tsEndDate.isEmpty()) {
-				for (final Date fecha : tsEndDate)
-					if (MomentHelper.isBefore(fecha, object.getEndDate()))
-						res = true;
-					else
-						res = false;
-			} else
-				res = true;
-			super.state(res, "endDate", "assistant.tutorial.form.error.is.after.tuto");
-		}
 	}
 
 	@Override
