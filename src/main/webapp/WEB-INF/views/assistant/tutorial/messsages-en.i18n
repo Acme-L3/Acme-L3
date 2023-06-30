@@ -2,10 +2,8 @@ assistant.tutorial.form.code = Code
 assistant.tutorial.form.tittle = Title
 assistant.tutorial.form.summary = Summary
 assistant.tutorial.form.goals = Goals
-assistant.tutorial.form.startDate = Start Date
-assistant.tutorial.form.endDate = End Date
-assistant.tutorial.form.draftMode = Draft Mode
-assistant.tutorial.form.course = Course 
+assistant.tutorial.form.course = Course
+authenticated.tutorial.form.estimated-time = Estimated Time (In hours)
 
 assistant.tutorial.form.button.tutorialSessions = Theory Sessions
 assistant.tutorial.form.button.update = Update
@@ -15,14 +13,8 @@ assistant.tutorial.form.button.create = Create
 
 assistant.tutorial.list.code = Code
 assistant.tutorial.list.tittle = Title
-assistant.tutorial.list.summary = Summary
-assistant.tutorial.list.goals = Goals
 
 assistant.tutorial.list.button.create = Create
 
-assistant.tutorial.form.error.duration.max = The duration max be lower than 5 hours
-assistant.tutorial.form.error.is.before = Start Date must be before than End Date
 assistant.tutorial.form.error.duplicated-code = Code must be unique
 assistant.tutorial.form.error.publish.empty = You can't publish a tutorial without any sessions
-assistant.tutorial.form.error.is.after.tuto = You can't update or publish because the End Date of a theory session is after of the End Date of the tutorial
-assistant.tutorial.form.error.is.before.tuto = You can't update or publish because the Start Date of a theory session is before of the Start Date of the tutorial

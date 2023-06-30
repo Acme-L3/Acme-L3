@@ -1,9 +1,7 @@
 
 package acme.features.authenticated.assistant.tutorial;
 
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +10,6 @@ import acme.entitites.course.Course;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
@@ -40,25 +37,13 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void load() {
 		final Tutorial object;
-		Date moment;
-		final Calendar calendar1 = Calendar.getInstance();
-		final Calendar calendar2 = Calendar.getInstance();
-		final Date moment1;
-		final Date moment2;
 		final Assistant assistant;
-
-		moment = MomentHelper.getCurrentMoment();
-		calendar1.setTime(moment);
-		calendar1.add(Calendar.HOUR, 1);
-		moment1 = calendar1.getTime();
-		calendar2.setTime(moment);
-		calendar2.add(Calendar.HOUR, 2);
-		moment2 = calendar1.getTime();
 
 		assistant = this.repository.findAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Tutorial();
-		object.setDraftMode(true);
 		object.setAssistant(assistant);
+		object.setDraftMode(true);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -70,7 +55,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
+
+		super.bind(object, "code", "tittle", "summary", "goals");
 		object.setCourse(course);
 	}
 
@@ -101,7 +87,8 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = this.unbind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
+
+		tuple = this.unbind(object, "code", "tittle", "summary", "goals", "draftMode");
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
 		super.getResponse().setData(tuple);
