@@ -57,13 +57,8 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
-		object.setCourse(course);
+		super.bind(object, "code", "tittle", "summary", "goals");
 	}
 
 	@Override
@@ -76,9 +71,9 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 			super.state(existing == null || existing.getId() == object.getId(), "code", "assistant.tutorial.form.error.duplicated-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("draftMode")) {
+		if (!super.getBuffer().getErrors().hasErrors("*")) {
 			final Collection<TutorialSession> theory = this.repository.findTutorialSessionsByTutorialId(object.getId());
-			super.state(!theory.isEmpty(), "draftMode", "assistant.tutorial.form.error.publish.empty");
+			super.state(!theory.isEmpty(), "*", "assistant.tutorial.form.error.publish.empty");
 		}
 
 	}
@@ -97,9 +92,17 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		final SelectChoices coursesChoices;
 		final Tuple tuple;
 
+		final Collection<TutorialSession> sessions;
+		Double estimatedTime;
+		sessions = this.repository.findTutorialSessionsByTutorialId(object.getId());
+		estimatedTime = 0.;
+		for (final TutorialSession ts : sessions)
+			estimatedTime += ts.getHoursFromPeriod();
+
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
+		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "draftMode");
+		tuple.put("estimatedTime", estimatedTime);
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
 

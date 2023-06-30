@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
+import acme.entitites.session.TutorialSession;
 import acme.entitites.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -60,9 +61,17 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 		final SelectChoices coursesChoices;
 		final Tuple tuple;
 
+		final Collection<TutorialSession> sessions;
+		Double estimatedTime;
+		sessions = this.repository.findTutorialSessionsByTutorialId(object.getId());
+		estimatedTime = 0.;
+		for (final TutorialSession ts : sessions)
+			estimatedTime += ts.getHoursFromPeriod();
+
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
+		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "draftMode");
+		tuple.put("estimatedTime", estimatedTime);
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
 

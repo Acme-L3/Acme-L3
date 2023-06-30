@@ -55,13 +55,8 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.bind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
-		object.setCourse(course);
+		super.bind(object, "code", "tittle", "summary", "goals");
 	}
 
 	@Override
@@ -86,9 +81,17 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 		final SelectChoices coursesChoices;
 		final Tuple tuple;
 
+		final Collection<TutorialSession> sessions;
+		Double estimatedTime;
+		sessions = this.repository.findTutorialSessionsByTutorialId(object.getId());
+		estimatedTime = 0.;
+		for (final TutorialSession ts : sessions)
+			estimatedTime += ts.getHoursFromPeriod();
+
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
-		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "startDate", "endDate", "draftMode");
+		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "draftMode");
+		tuple.put("estimatedTime", estimatedTime);
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
 

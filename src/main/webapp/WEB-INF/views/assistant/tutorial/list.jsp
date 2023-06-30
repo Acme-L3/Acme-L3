@@ -6,8 +6,6 @@
 <acme:list>
 	<acme:list-column code="assistant.tutorial.list.code" path="code" width="25%"/>
 	<acme:list-column code="assistant.tutorial.list.tittle" path="tittle" width="25%"/>
-	<acme:list-column code="assistant.tutorial.list.summary" path="summary" width="25%"/>	
-	<acme:list-column code="assistant.tutorial.list.goals" path="goals" width="25%"/>
 
 </acme:list>
 
