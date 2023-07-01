@@ -1,6 +1,6 @@
 assistant.tutorialSession.form.tittle = Title
 assistant.tutorialSession.form.summary = Summary
-assistant.tutorialSession.form.creationMoment = Creation Moment
+assistant.tutorialSession.form.sessionType = Session Type
 assistant.tutorialSession.form.startDate = Start Date
 assistant.tutorialSession.form.endDate = End Date
 assistant.tutorialSession.form.link = Link
@@ -13,11 +13,9 @@ assistant.tutorialSession.list.tittle = Title
 assistant.tutorialSession.list.summary = Summary
 assistant.tutorialSession.list.button.create = Create
 
-assistant.tutorial.form.error.one.day = The Start Date must be at least one day ahead from the Creation Moment
+
 assistant.tutorial.form.error.duration.max = The duration max be lower than 5 hours
 assistant.tutorial.form.error.is.before = Start Date must be before than End Date
-assistant.tutorial.form.error.one.day.tutorial = You cant create a new session because tutorial time is nearly over
-assistant.tutorial.form.error.is.before.tutorial = The creation moment must be before than the end date of the tutorial
-assistant.tutorial.form.error.is.before.tutorial2 = The start date of the session must be after than the start date of tutorial
-assistant.tutorial.form.error.is.before.tutorial3 = The end date of the session must be before than the end date of tutorial
 assistant.tutorial.form.error.duration.min = The minimum duration is 1 hour
+assistant.tutorial.form.error.one.day.ahead = The Start Date must be at least one day ahead
+assistant.tutorial.form.error.limit.date = Deadlines are January 1, 2000 at 00:00 UTC and December 31, 2000 at 23:59 UTC.

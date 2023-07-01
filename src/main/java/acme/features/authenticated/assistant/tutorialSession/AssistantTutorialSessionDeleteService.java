@@ -51,7 +51,7 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 	@Override
 	public void bind(final TutorialSession object) {
 		assert object != null;
-		super.bind(object, "tittle", "summary", "creationMoment", "startDate", "endDate", "link");
+		super.bind(object, "tittle", "summary", "sessionType", "startDate", "endDate", "link");
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 	public void unbind(final TutorialSession object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "tittle", "summary", "creationMoment", "startDate", "endDate", "link");
+		tuple = super.unbind(object, "tittle", "summary", "sessionType", "startDate", "endDate", "link");
 		tuple.put("id", object.getTutorial().getId());
 		tuple.put("draftMode", object.getTutorial().isDraftMode());
 		super.getResponse().setData(tuple);
