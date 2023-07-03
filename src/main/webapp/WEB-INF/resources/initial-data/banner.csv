@@ -1,0 +1,4 @@
+key,initMoment,endMoment,startDate,endDate,linkPhoto,slogan,linkDocument
+banner-01,2021/06/01 10:00,2021/06/07 10:00,2021/06/01 00:00,2026/06/07 23:59,https://www.example.com/photo1.jpg,Summer sale! Get up to 50% off,https://www.example.com/document1.pdf
+banner-02,2021/09/15 12:00,2021/09/25 12:00,2021/09/15 00:00,2026/09/25 23:59,https://www.example.com/photo2.jpg,Back to school! Shop now for new arrivals,https://www.example.com/document2.pdf
+banner-03,2021/12/01 09:00,2021/12/31 09:00,2021/12/01 00:00,2026/12/31 23:59,https://www.example.com/photo3.jpg,Winter collection now available,https://www.example.com/document3.pdf

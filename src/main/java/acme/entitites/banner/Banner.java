@@ -43,7 +43,7 @@ public class Banner extends AbstractEntity {
 	protected Date				endDate;
 
 	@URL
-	@NotNull
+	@NotBlank
 	protected String			linkPhoto;
 
 	@NotBlank
@@ -51,7 +51,7 @@ public class Banner extends AbstractEntity {
 	protected String			slogan;
 
 	@URL
-	@NotNull
+	@NotBlank
 	protected String			linkDocument;
 
 }
