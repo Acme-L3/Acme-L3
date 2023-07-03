@@ -23,22 +23,22 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorialSession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String creationMoment, final String startDate, final String endDate, final String link) {
+	public void test100Positive(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String sessionType, final String startDate, final String endDate, final String link) {
 		// HINT: this test authenticates as an assistant, list his or her tutorials, navigates
 		// HINT+ to their theory sessions, and checks that they have the expected data.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant6", "assistant6");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
 
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Theory Sessions");
+		super.clickOnButton("Sessions");
 
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
-		super.fillInputBoxIn("creationMoment", creationMoment);
+		super.fillInputBoxIn("sessionType", sessionType);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("link", link);
@@ -51,7 +51,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 		super.checkInputBoxHasValue("tittle", tittle);
 		super.checkInputBoxHasValue("summary", summary);
-		super.checkInputBoxHasValue("creationMoment", creationMoment);
+		super.checkInputBoxHasValue("sessionType", sessionType);
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("link", link);
@@ -61,22 +61,22 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorialSession/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String creationMoment, final String startDate, final String endDate, final String link) {
+	public void test200Negative(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String sessionType, final String startDate, final String endDate, final String link) {
 		// HINT: this test attempts to create theory sessions using wrong data.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant6", "assistant6");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Theory Sessions");
+		super.clickOnButton("Sessions");
 
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
-		super.fillInputBoxIn("creationMoment", creationMoment);
+		super.fillInputBoxIn("sessionType", sessionType);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("link", link);
@@ -124,7 +124,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 
 		super.checkLinkExists("Sign in");
 		super.signIn("assistant2", "assistant2");
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant2");
+		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
 		for (final Tutorial tutorial : tutorials)
 			if (!tutorial.isDraftMode()) {
 				param = String.format("masterId=%d", tutorial.getId());

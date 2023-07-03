@@ -11,11 +11,11 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String startDate, final String endDate, final String course, final String draftMode) {
+	public void test100Positive(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String course) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: tutorials, creates a new one, and check that it's been created properly.
 
-		super.signIn("assistant1", "assistant1");
+		super.signIn("assistant6", "assistant6");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
@@ -25,10 +25,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("startDate", startDate);
-		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
@@ -36,8 +33,6 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, tittle);
-		super.checkColumnHasValue(recordIndex, 2, summary);
-		super.checkColumnHasValue(recordIndex, 3, goals);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -45,25 +40,19 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("tittle", tittle);
 		super.checkInputBoxHasValue("summary", summary);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("startDate", startDate);
-		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("draftMode", draftMode);
 
-		super.clickOnButton("Theory Sessions");
+		super.clickOnButton("Sessions");
 		super.checkListingExists();
 		super.checkListingEmpty();
 		super.clickOnButton("Return");
-		super.clickOnButton("Hands On Sessions");
-		super.checkListingExists();
-		super.checkListingEmpty();
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String startDate, final String endDate, final String course, final String draftMode) {
+	public void test200Negative(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String course) {
 		// HINT: this test attempts to create tutorials with incorrect data.
 
 		super.signIn("assistant1", "assistant1");
@@ -76,10 +65,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("startDate", startDate);
-		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Create");
 
 		super.checkErrorsExist();

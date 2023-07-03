@@ -36,7 +36,7 @@ public class AssitantTutorialSessionListTest extends TestHarness {
 		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.checkInputBoxHasValue("code", code);
-		super.clickOnButton("Theory Sessions");
+		super.clickOnButton("Sessions");
 
 		super.checkListingExists();
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, tittle);

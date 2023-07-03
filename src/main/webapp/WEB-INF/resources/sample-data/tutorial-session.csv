@@ -1,6 +1,6 @@
 key,tittle,summary,session-type,start-date,end-date,link,key:tutorial
 tutorial-session-01,"T","Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,null,tutorial-01
-tutorial-session-02,"Te","Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,null,tutorial-02
+tutorial-session-02,"Te","Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,null,tutorial-06
 tutorial-session-03,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,null,tutorial-03
 tutorial-session-04,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe","Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,null,tutorial-04
 tutorial-session-05,<h1>Hola!</h1>,"Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,null,tutorial-01
@@ -18,6 +18,6 @@ tutorial-session-16,"Test","Привет с добрым утром",HANDS_ON,20
 tutorial-session-17,"Test","Test",THEORETICAL,2025/02/04 08:00,2025/02/04 12:59,null,tutorial-01
 tutorial-session-18,"Test","Test",THEORETICAL,2025/02/04 08:00,2025/02/04 12:59,https://www.google.es/,tutorial-02
 tutorial-session-19,"Test123","Test",THEORETICAL,2000/01/01 00:00,2000/01/01 01:01,https://www.google.es/,tutorial-03
-tutorial-session-20,"Test123","Test",THEORETICAL,2000/01/01 00:01,2000/01/01 02:02,https://www.google.es/,tutorial-04
+tutorial-session-20,"Test123","Test",THEORETICAL,2000/01/01 00:01,2000/01/01 02:02,https://www.google.es/,tutorial-06
 tutorial-session-21,"Test","Test",THEORETICAL,2100/12/31 23:58,2100/12/31 23:59,https://www.google.es/,tutorial-01
-tutorial-session-22,"Test","Test",THEORETICAL,2100/12/31 23:59,2100/12/31 23:59,https://www.google.es/,tutorial-02
+tutorial-session-22,"Test","Test",THEORETICAL,2100/12/31 23:59,2100/12/31 23:59,https://www.google.es/,tutorial-06

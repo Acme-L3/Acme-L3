@@ -1,14 +1,11 @@
-recordIndex,code,tittle,summary,goals,start-date,end-date,course,draft-mode
-0,,,,,,,---,
-0,A320,,"Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A321,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTeseeee","Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A322,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe",,"Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A323,"Test","TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A324,"Test","Te",,2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A325,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","TesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttestTesttest",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A326,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test",,2027/02/03 09:00,"IA Tech Day",true
-0,A327,"Test","Test","T",2028/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A328,"Test","Test","Te",2020/02/03 08:00,,"IA Tech Day",true
-0,A329,"Test","Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",2020/02/03 08:00,2019/02/03 09:00,"IA Tech Day",true
-0,A124,"Test","Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,124A,"Test","Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+recordIndex,code,tittle,summary,goals,course
+0,,,,,---
+0,A320,,"Test","Test","Proyecto IA"
+0,A321,"76estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test","Test","Proyecto IA"
+0,A322,"Test",,"Test","Proyecto IA"
+0,A323,"TEst","TEST","TEST",---
+0,A324,"Test","Te",,"Proyecto IA"
+0,A124,"Test","Test","Test","Proyecto IA"
+0,124A,"Test","Test","Test","Proyecto IA"
+0,A324,"Test","101stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestT","Proyecto IA"
+0,A324,"Test","Te","101stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","Proyecto IA"
