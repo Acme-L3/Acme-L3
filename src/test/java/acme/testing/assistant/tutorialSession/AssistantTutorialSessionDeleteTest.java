@@ -34,7 +34,7 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Theory Sessions");
+		super.clickOnButton("Sessions");
 		super.checkListingExists();
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 		super.checkFormExists();
@@ -57,13 +57,12 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 		Collection<TutorialSession> theorys;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
-		theorys = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		super.checkLinkExists("Sign in");
+		theorys = this.repository.findManyTutorialSessionsByAssistantUsername("assistant1");
 		for (final TutorialSession theory : theorys)
 			if (theory.getTutorial().isDraftMode()) {
 				param = String.format("id=%d", theory.getTutorial().getId());
 
-				super.checkLinkExists("Sign in");
 				super.request("/assistant/tutorial-session/delete", param);
 				super.checkPanicExists();
 

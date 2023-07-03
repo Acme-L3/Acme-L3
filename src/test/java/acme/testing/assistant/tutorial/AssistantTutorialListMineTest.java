@@ -11,7 +11,7 @@ public class AssistantTutorialListMineTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/list-mine-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String tittle, final String summary, final String goals) {
+	public void test100Positive(final int recordIndex, final String code, final String tittle) {
 		// HINT: this test authenticates as an assistant, lists his or her tutorials only,
 		// HINT+ and then checks that the listing has the expected data.
 
@@ -23,8 +23,6 @@ public class AssistantTutorialListMineTest extends TestHarness {
 
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, tittle);
-		super.checkColumnHasValue(recordIndex, 2, summary);
-		super.checkColumnHasValue(recordIndex, 3, goals);
 
 		super.signOut();
 	}

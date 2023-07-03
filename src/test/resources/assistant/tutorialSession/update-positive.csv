@@ -1,7 +1,12 @@
-tutorialRecordIndex,code,tutorialSessionRecordIndex,tittle,summary,creation-moment,start-date,end-date,link
-0,A124,1,"Te1","Test",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,2,"Te2","Teste",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,3,"Te3","Test",2021/05/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,4,"Te4","Test",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 11:00,
-0,A124,5,"Te5","T",2021/02/03 08:00,2026/02/04 07:00,2026/02/04 10:00,
-0,A124,6,"Te6","Teeee",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
+tutorialRecordIndex,code,tutorialSessionRecordIndex,tittle,summary,session-type,start-date,end-date,link
+2,A126,0,<h1>Hola!</h1>,"<h1>Hola!</h1>","THEORETICAL",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,1,<script>alert("Hello There")</script>,<script>alert("Hello There")</script>,"THEORETICAL",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,0,"<h1>Hola!</h1>","ØðƤƠƘƘǠǢƿ","THEORETICAL",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,1,<script>alert("Hello There")</script>,"Привет с добрым утром","THEORETICAL",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,2,"T","Test","HANDS_ON",2100/12/31 22:59,2100/12/31 23:59,"https://www.youtube.com/"
+2,A126,0,"<h1>Hola!</h1>","T","HANDS_ON",2026/02/04 08:00,2026/02/04 13:00,
+2,A126,1,<script>alert("Hello There")</script>,"Te","HANDS_ON",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,2,"T","100tTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","HANDS_ON",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,0,"<h1>Hola!</h1>","99stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","HANDS_ON",2026/02/04 08:00,2026/02/04 10:00,"https://www.youtube.com/"
+2,A126,0,<h1>Hola!</h1>,"Test",2026/02/04 08:00,2026/02/04 13:00,"https://www.youtube.com/"
+2,A126,1,<script>alert("Hello There")</script>,"Test",2026/02/04 08:00,2026/02/04 09:00,"https://www.youtube.com/"

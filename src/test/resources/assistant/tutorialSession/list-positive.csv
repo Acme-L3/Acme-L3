@@ -1,10 +1,5 @@
 tutorialRecordIndex,code,tutorialSessionRecordIndex,tittle,summary
-0,A124,0,"T","Test"
-0,A124,1,"Te","Test"
-0,A124,8,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test"
-0,A124,7,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe","Test"
-0,A124,6,"Test","T"
-0,A124,3,"Test","Te"
-0,A124,2,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest"
-0,A124,5,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes"
-0,A124,4,"Test","Test"
+0,A124,0,"Test",Привет с добрым утром
+0,A124,1,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes"
+0,A124,2,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe","Test"
+0,A124,3,"Привет с добрым утром","Test"

@@ -1,10 +1,7 @@
-tutorialRecordIndex,code,tutorialSessionRecordIndex,tittle,summary,creation-moment,start-date,end-date,link
-0,A124,0,"T","Test",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,1,"Te","Test",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,8,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,7,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTe","Test",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,6,"Test","T",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,3,"Test","Te",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,2,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,5,"Test","TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes",2021/02/03 08:00,2026/02/04 08:00,2026/02/04 10:00,
-0,A124,4,"Test","Test",2021/02/03 08:00,2025/02/04 08:00,2025/02/04 12:59,
+tutorialRecordIndex,code,tutorialSessionRecordIndex,tittle,summary,session-type,start-date,end-date,link
+16,AA124,1,"T","Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,
+16,AA124,0,<h1>Hola!</h1>,"Test",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,
+16,AA124,3,"Test","T",THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,
+16,AA124,4,"Test",<h1>Hola!</h1>,THEORETICAL,2026/02/04 08:00,2026/02/04 10:00,
+16,AA124,2,"Test","Test",THEORETICAL,2025/02/04 08:00,2025/02/04 12:59,
+16,AA124,5,"Test","Test",THEORETICAL,2100/12/31 23:58,2100/12/31 23:59,https://www.google.es/

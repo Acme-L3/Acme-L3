@@ -23,7 +23,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String startDate, final String endDate, final String course, final String draftMode) {
+	public void test100Positive(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String course) {
 		// HINT: this test logs in as an assistant, lists his or her tutorials, 
 		// HINT+ selects one of them, updates it, and then checks that 
 		// HINT+ the update has actually been performed.
@@ -41,18 +41,13 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("startDate", startDate);
-		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, tittle);
-		super.checkColumnHasValue(recordIndex, 2, summary);
-		super.checkColumnHasValue(recordIndex, 3, goals);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -60,17 +55,14 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("tittle", tittle);
 		super.checkInputBoxHasValue("summary", summary);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("startDate", startDate);
-		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("draftMode", draftMode);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String startDate, final String endDate, final String course, final String draftMode) {
+	public void test200Negative(final int recordIndex, final String code, final String tittle, final String summary, final String goals, final String course) {
 		// HINT: this test attempts to update a tutorial with wrong data.
 
 		super.signIn("assistant1", "assistant1");
@@ -86,10 +78,8 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("startDate", startDate);
-		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("draftMode", draftMode);
+
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();

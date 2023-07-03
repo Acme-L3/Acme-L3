@@ -3,6 +3,7 @@ package acme.features.authenticated.assistant.tutorialSession;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,8 +88,24 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 
-			final Date iniDate = new Date(946681200000L);
-			final Date limitDate = new Date(4102449540000L);
+			final Calendar calendar1 = Calendar.getInstance();
+			calendar1.set(Calendar.YEAR, 2000);
+			calendar1.set(Calendar.MONTH, Calendar.JANUARY);
+			calendar1.set(Calendar.DAY_OF_MONTH, 1);
+			calendar1.set(Calendar.HOUR_OF_DAY, 00);
+			calendar1.set(Calendar.MINUTE, 00);
+			calendar1.set(Calendar.SECOND, 00);
+			calendar1.set(Calendar.MILLISECOND, 0);
+			final Date iniDate = calendar1.getTime();
+			final Calendar calendar = Calendar.getInstance();
+			calendar.set(Calendar.YEAR, 2100);
+			calendar.set(Calendar.MONTH, Calendar.DECEMBER);
+			calendar.set(Calendar.DAY_OF_MONTH, 31);
+			calendar.set(Calendar.HOUR_OF_DAY, 23);
+			calendar.set(Calendar.MINUTE, 59);
+			calendar.set(Calendar.SECOND, 00);
+			calendar.set(Calendar.MILLISECOND, 0);
+			final Date limitDate = calendar.getTime();
 			boolean date1;
 			boolean date2;
 			date1 = MomentHelper.isAfterOrEqual(object.getStartDate(), iniDate);
@@ -101,14 +118,14 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			Duration duracion;
 			final long maxDuration = 18000L;
 			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
-			super.state(duracion.getSeconds() < maxDuration, "endDate", "assistant.tutorial.form.error.duration.max");
+			super.state(duracion.getSeconds() <= maxDuration, "endDate", "assistant.tutorial.form.error.duration.max");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Duration duracion;
 			final long minDuration = 3600L;
 			duracion = MomentHelper.computeDuration(object.getStartDate(), object.getEndDate());
-			super.state(duracion.getSeconds() > minDuration, "startDate", "assistant.tutorial.form.error.duration.min");
+			super.state(duracion.getSeconds() >= minDuration, "startDate", "assistant.tutorial.form.error.duration.min");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))

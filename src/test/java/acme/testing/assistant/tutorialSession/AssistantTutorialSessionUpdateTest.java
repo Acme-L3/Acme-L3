@@ -23,8 +23,7 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorialSession/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String creationMoment, final String startDate, final String endDate,
-		final String link) {
+	public void test100Positive(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String sessionType, final String startDate, final String endDate, final String link) {
 		// HINT: this test signs in as an assistant, lists his or her tutorials, selects
 		// HINT+ one of them and update it.
 
@@ -34,14 +33,14 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Theory Sessions");
+		super.clickOnButton("Sessions");
 		super.checkListingExists();
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("tittle", tittle);
 		super.fillInputBoxIn("summary", summary);
-		super.fillInputBoxIn("creationMoment", creationMoment);
+		super.fillInputBoxIn("sessionType", sessionType);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("endDate", endDate);
 		super.fillInputBoxIn("link", link);
@@ -54,7 +53,7 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 		super.checkInputBoxHasValue("tittle", tittle);
 		super.checkInputBoxHasValue("summary", summary);
-		super.checkInputBoxHasValue("creationMoment", creationMoment);
+		super.checkInputBoxHasValue("sessionType", sessionType);
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("link", link);
@@ -62,8 +61,33 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		super.signOut();
 	}
 
-	public void test200Negative() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorialSession/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String tittle, final String summary, final String sessionType, final String startDate, final String endDate, final String link) {
 		// HINT: The framework does not give enough support for this test.
+
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Assistant", "My Tutorials");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(tutorialRecordIndex);
+		super.clickOnButton("Sessions");
+		super.checkListingExists();
+		super.clickOnListingRecord(tutorialSessionRecordIndex);
+		super.checkFormExists();
+
+		super.fillInputBoxIn("tittle", tittle);
+		super.fillInputBoxIn("summary", summary);
+		super.fillInputBoxIn("sessionType", sessionType);
+		super.fillInputBoxIn("startDate", startDate);
+		super.fillInputBoxIn("endDate", endDate);
+		super.fillInputBoxIn("link", link);
+		super.clickOnSubmit("Update");
+
+		super.checkErrorsExist();
+
+		super.signOut();
 	}
 
 	@Test
@@ -74,13 +98,12 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 		Collection<TutorialSession> theorys;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
-		theorys = this.repository.findManyTutorialSessionsByAssistantUsername("assistant2");
+		super.checkLinkExists("Sign in");
+		theorys = this.repository.findManyTutorialSessionsByAssistantUsername("assistant1");
 		for (final TutorialSession theory : theorys)
 			if (theory.getTutorial().isDraftMode()) {
 				param = String.format("id=%d", theory.getTutorial().getId());
 
-				super.checkLinkExists("Sign in");
 				super.request("/assistant/tutorial-session/update", param);
 				super.checkPanicExists();
 

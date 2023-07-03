@@ -1,8 +1,9 @@
-recordIndex,code,tittle,summary,goals,start-date,end-date,course,draft-mode
-0,A124,"T","Test","Test",2026/11/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-0,A124,"T","Test","Test",2020/02/03 08:00,2023/02/03 09:00,"IA Tech Day",true
-1,A125,"Te","Test","Test",2020/02/03 08:00,2019/02/03 09:00,"IA Tech Day",true
-2,A126,"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTeseeeeeeeeeeeeeeeeeeeee","Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-3,A127,,"Test","Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-4,A128,"Test",,"Test",2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
-5,A129,"Test","Te",,2020/02/03 08:00,2027/02/03 09:00,"IA Tech Day",true
+recordIndex,code,tittle,summary,goals,course
+1,A125,,,,---
+2,A126,,"Test","Test","Charla sobre AC"
+3,A127,"Te",,"Test","Charla sobre AC"
+1,A125,"76estTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTes","Test","Test","Charla sobre AC"
+3,A127,"estTEESTestTESES","101stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","Test","Charla sobre AC"
+1,A125,"Test","Te","101stTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest","Charla sobre AC"
+3,A127,"Test,"Test",,"Proyecto IA"
+1,A125,"Test,"Test","Test",---
