@@ -42,7 +42,7 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 		id = super.getRequest().getData("id", int.class);
 		offer = this.repository.findOneOfferById(id);
-		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
+		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
 		status = MomentHelper.isAfter(offer.getMoment(), deadline);
 
 		super.getResponse().setAuthorised(status);
