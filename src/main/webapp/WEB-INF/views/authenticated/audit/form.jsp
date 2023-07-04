@@ -8,6 +8,7 @@
 	<acme:input-textbox code="authenticated.audit.form.conclusion" path="conclusion"/>
 	<acme:input-textbox code="authenticated.audit.form.strongPoints" path="strongPoints"/>
 	<acme:input-textbox code="authenticated.audit.form.weakPoints" path="weakPoints"/>
+	<acme:input-textbox code="authenticated.audit.form.mark" path="mark"/>
 	<acme:input-select code="authenticated.audit.form.auditor" path="auditor" choices ="${auditors}"/>
 	<acme:input-select code="authenticated.audit.form.course" path="course" choices ="${courses}"/>
 </acme:form>

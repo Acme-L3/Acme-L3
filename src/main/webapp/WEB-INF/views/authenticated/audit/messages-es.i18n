@@ -11,3 +11,4 @@ authenticated.audit.form.strongPoints=Puntos fuertes
 authenticated.audit.form.weakPoints=Puntos Debiles
 authenticated.audit.form.auditor=Auditor
 authenticated.audit.form.course=Curso
+authenticated.audit.form.mark=Nota
