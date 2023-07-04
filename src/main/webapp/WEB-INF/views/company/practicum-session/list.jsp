@@ -18,7 +18,6 @@
 <acme:list>
 	<acme:list-column code="company.practicum-session.list.label.title" path="title"  width="60%"/>
 	<acme:list-column code="company.practicum-session.list.label.summary" path="summary" width="20%"/>
-	<acme:list-column code="company.practicum-session.list.label.addendum" path="addendum" width="20%"/>
 </acme:list>
 
 <jstl:choose>
