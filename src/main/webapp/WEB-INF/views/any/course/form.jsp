@@ -9,6 +9,8 @@
 	<acme:input-textbox code="any.course.form.label.abstractText" path="abstractText"/>
 	<acme:input-money code="any.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-url code="any.course.form.label.link" path="link"/>
+	
+	<acme:button code="authenticated.course.list.button.list.tutorials" action="/authenticated/tutorial/list?masterId=${id}"/>
 
 	
 </acme:form>
