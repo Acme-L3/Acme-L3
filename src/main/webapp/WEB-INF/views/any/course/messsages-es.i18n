@@ -11,3 +11,6 @@ any.course.list.label.retailPrice = Precio
 any.course.list.label.abstractText = Texto
 any.course.list.label.link = Enlace
 any.course.list.label.courseType = Tipo
+
+
+authenticated.course.list.button.list.tutorials = Tutoriales

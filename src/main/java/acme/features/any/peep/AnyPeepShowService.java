@@ -1,16 +1,12 @@
 
 package acme.features.any.peep;
 
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.peeps.Peep;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -38,12 +34,10 @@ public class AnyPeepShowService extends AbstractService<Any, Peep> {
 		boolean status;
 		int id;
 		Peep peep;
-		Date deadline;
 
 		id = super.getRequest().getData("id", int.class);
 		peep = this.repository.findOnePeepById(id);
-		deadline = MomentHelper.deltaFromCurrentMoment(-365, ChronoUnit.DAYS);
-		status = MomentHelper.isAfter(peep.getMoment(), deadline);
+		status = peep != null;
 
 		super.getResponse().setAuthorised(status);
 	}

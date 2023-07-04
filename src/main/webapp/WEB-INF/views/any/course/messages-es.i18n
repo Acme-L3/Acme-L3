@@ -8,3 +8,6 @@ any.course.form.label.title = Titulo
 any.course.form.label.cAbstract = Resumen
 any.course.form.label.retailPrice = Precio
 any.course.form.label.furtherInfo = Más Información
+
+
+authenticated.course.list.button.list.tutorials = Tutoriales

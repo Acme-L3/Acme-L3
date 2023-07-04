@@ -1,9 +1,7 @@
 
 package acme.features.any.peep;
 
-import java.time.temporal.ChronoUnit;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.entitites.peeps.Peep;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -38,10 +35,8 @@ public class AnyPeepListService extends AbstractService<Any, Peep> {
 	@Override
 	public void load() {
 		Collection<Peep> objects;
-		Date deadline;
 
-		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
-		objects = this.repository.findRecentPeeps(deadline);
+		objects = this.repository.findAllPeeps();
 
 		super.getBuffer().setData(objects);
 	}
