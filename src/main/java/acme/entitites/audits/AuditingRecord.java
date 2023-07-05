@@ -5,6 +5,8 @@ import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,7 +15,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -52,12 +53,15 @@ public class AuditingRecord extends AbstractEntity {
 	@NotNull
 	protected Date				finalMoment;
 
-	@NotBlank
-	@Pattern(regexp = "^((A_PLUS|A|B|C|F|F_MINUS))$")
-	protected String			mark;
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	protected Mark				mark;
 
 	@URL
 	protected String			link;
+
+	@NotNull
+	protected boolean			correction;
 
 	// Derived attributes -----------------------------------------------------
 

@@ -9,6 +9,5 @@
 	<acme:list-column code="auditor.auditingRecord.list.mark" path="mark" width="20%"/>	
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
-	<acme:button code="auditor.auditingRecord.list.button.create" action="/auditor/auditing-record/create?auditId=${auditId}"/>
-</jstl:if>
+	<acme:button test = "${draftMode == true && showCreate}"  code="auditor.auditingRecord.list.button.create" action="/auditor/auditing-record/create?auditId=${auditId}"/>
+	<acme:button test = "${draftMode == false && showCreate && !isAuditingRecordsEmpty}"  code="auditor.auditingRecord.list.button.create-correction" action="/auditor/auditing-record/create?auditId=${auditId}"/>
