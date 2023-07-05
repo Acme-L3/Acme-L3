@@ -17,8 +17,14 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	@Query("select a from Auditor a where a.userAccount.id = :accountId")
 	Auditor findAuditorByAccountId(int accountId);
 
-	@Query("select count(a) from Audit a where a.auditor.id = :id")
-	Double totalNumberOfAudits(int id);
+	@Query("select count(a) from Audit a where a.auditor.id = :id AND a.course.courseType = 0")
+	int totalNumberOfTheoryAudits(int id);
+
+	@Query("select count(a) from Audit a where a.auditor.id = :id AND a.course.courseType = 1")
+	int totalNumberOfHandsOnAudits(int id);
+
+	@Query("select count(a) from Audit a where a.auditor.id = :id AND a.course.courseType = 2")
+	int totalNumberOfBalancedAudits(int id);
 
 	@Query("select avg(select count(ar) from AuditingRecord ar where ar.audit.id = a.id) from Audit a where a.auditor.id = :id")
 	Double averageNumberOfAuditingRecords(int id);

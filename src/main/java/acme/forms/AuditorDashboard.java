@@ -1,8 +1,6 @@
 
 package acme.forms;
 
-import java.util.Map;
-
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,17 +15,17 @@ public class AuditorDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<String, Integer>		countOfAuditsLectures;
-
-	Double						totalNumberAudits;
-	Double						averageAuditingRecords;
-	Double						averageTimeAuditingRecords;
-	Double						deviationAuditingRecords;
-	Double						timeDeviationAuditingRecords;
-	Double						minAuditingRecords;
-	Double						maxAuditingRecords;
-	Double						minTimeAuditingRecords;
-	Double						maxTimeAuditingRecords;
+	protected int				totalNumberOfTheoryAudits;
+	protected int				totalNumberOfHandsOnAudits;
+	protected int				totalNumberOfBalancedAudits;
+	protected Double			averageNumberOfAuditingRecords;
+	protected Double			deviationNumberOfAuditingRecords;
+	protected Double			minimumNumberOfAuditingRecords;
+	protected Double			maximumNumberOfAuditingRecords;
+	protected Double			averageTimeAuditingRecords;
+	protected Double			timeDeviationAuditingRecords;
+	protected Double			minTimeAuditingRecords;
+	protected Double			maxTimeAuditingRecords;
 
 	// Relationships ----------------------------------------------------------
 
