@@ -20,4 +20,5 @@ auditor.auditingRrecord.form.button.create-correctionRecord=Create correction Au
 auditor.auditingrecord.error.date.initialAfterFinal = The start date must be before the end date
 auditor.auditingrecord.error.date.shortPeriod = The time period must be at least one hour long
 auditor.auditingrRecord.form.error.not-draft-mode=The associated audit has been published, you cannot edit or delete this audit
+auditor.auditingrecord.error.limit.date=Deadlines are January 1, 2000 at 00:00 UTC and December 31, 2100 at 23:59 UTC
 auditor.auditingrecord.correction.confirmation = You must confirm the correction of the Auditing Record

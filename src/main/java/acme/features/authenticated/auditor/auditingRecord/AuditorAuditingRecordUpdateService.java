@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.auditor.auditingRecord;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +72,18 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 				super.state(false, "initialMoment", "auditor.auditingrecord.error.date.initialAfterFinal");
 			else
 				super.state(!(object.getHoursFromPeriod() < 1), "finalMoment", "auditor.auditingrecord.error.date.shortPeriod");
+
+		if (!super.getBuffer().getErrors().hasErrors("initialMoment")) {
+
+			final Date iniDate = new Date(946681200000L);
+			final Date limitDate = new Date(4102449540000L);
+			boolean date1;
+			boolean date2;
+			date1 = MomentHelper.isAfterOrEqual(object.getInitialMoment(), iniDate);
+			date2 = MomentHelper.isBeforeOrEqual(object.getFinalMoment(), limitDate);
+			super.state(date1 && date2, "initialMoment", "auditor.auditingrecord.error.limit.date");
+
+		}
 
 	}
 
