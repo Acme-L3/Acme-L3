@@ -10,10 +10,27 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="auditor.dashboard.form.label.total-number-of-audits"/>
+			<acme:message code="auditor.dashboard.form.label.total-number-of-theory-audits"/>
 		</th>
 		<td>
-			<acme:print value="${totalNumberAudits}"/>
+			<acme:print value="${totalNumberOfTheoryAudits}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.total-number-of-handson-audits"/>
+		</th>
+		<td>
+			<acme:print value="${totalNumberOfHandsOnAudits}"/>
+		</td>
+	</tr>
+	<tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.total-number-of-balanced-audits"/>
+		</th>
+		<td>
+			<acme:print value="${totalNumberOfBalancedAudits}"/>
 		</td>
 	</tr>
 	<tr>
@@ -21,7 +38,7 @@
 			<acme:message code="auditor.dashboard.form.label.average-number-of-auditing-records"/>
 		</th>
 		<td>
-			<acme:print value="${averageAuditingRecords}"/>
+			<acme:print value="${averageNumberOfAuditingRecords}"/>
 		</td>
 	</tr>
 	<tr>
@@ -29,7 +46,7 @@
 			<acme:message code="auditor.dashboard.form.label.deviation-of-auditing-records"/>
 		</th>
 		<td>
-			<acme:print value="${deviationAuditingRecords}"/>
+			<acme:print value="${deviationNumberOfAuditingRecords}"/>
 		</td>
 	</tr>
 	<tr>
@@ -37,7 +54,7 @@
 			<acme:message code="auditor.dashboard.form.label.maximum-number-of-auditing-records"/>
 		</th>
 		<td>
-			<acme:print value="${maxAuditingRecords}"/>
+			<acme:print value="${maximumNumberOfAuditingRecords}"/>
 		</td>
 	</tr>
 	<tr>
@@ -45,7 +62,7 @@
 			<acme:message code="auditor.dashboard.form.label.minimum-number-of-auditing-records"/>
 		</th>
 		<td>
-			<acme:print value="${minAuditingRecords}"/>
+			<acme:print value="${minimumNumberOfAuditingRecords}"/>
 		</td>
 	</tr>
 	<tr>

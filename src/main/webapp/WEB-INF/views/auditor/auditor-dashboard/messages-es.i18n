@@ -1,6 +1,8 @@
 auditor.dashboard.form.title.general-indicators =  Indicadores generales 
 
-auditor.dashboard.form.label.total-number-of-audits =  Total de auditorías
+auditor.dashboard.form.label.total-number-of-theory-audits =  Número total de auditorías teóricas
+auditor.dashboard.form.label.total-number-of-handson-audits =  Número total de auditorías prácticas
+auditor.dashboard.form.label.total-number-of-balanced-audits =  Número total de auditorías equilibradas
 auditor.dashboard.form.label.average-number-of-auditing-records =  Media de registros de auditoría
 auditor.dashboard.form.label.maximum-number-of-auditing-records = Máximo número de registros en una auditoría
 auditor.dashboard.form.label.minimum-number-of-auditing-records = Mínimo número de registros en una auditoría

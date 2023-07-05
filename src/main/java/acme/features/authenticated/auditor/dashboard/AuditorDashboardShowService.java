@@ -35,33 +35,38 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 
 		final int id = this.repository.findAuditorByAccountId(super.getRequest().getPrincipal().getAccountId()).getId();
 
-		AuditorDashboard dashboard;
-		Double totalNumberAudits;
-		Double averageAuditingRecords;
-		Double deviationAuditingRecords;
-		Double minAuditingRecords;
-		Double maxAuditingRecords;
+		final int totalNumberOfTheoryAudits;
+		final int totalNumberOfHandsOnAudits;
+		final int totalNumberOfBalancedAudits;
+		Double averageNumberOfAuditingRecords;
+		Double deviationNumberOfAuditingRecords;
+		Double minimumNumberOfAuditingRecords;
+		Double maximumNumberOfAuditingRecords;
 		Double averageTimeAuditingRecords;
 		Double timeDeviationAuditingRecords;
 		Double minTimeAuditingRecords;
 		Double maxTimeAuditingRecords;
 
-		totalNumberAudits = this.repository.totalNumberOfAudits(id);
-		averageAuditingRecords = this.repository.averageNumberOfAuditingRecords(id);
-		minAuditingRecords = this.repository.minimumNumberOfAuditingRecords(id);
-		maxAuditingRecords = this.repository.maximumNumberOfAuditingRecords(id);
-		deviationAuditingRecords = this.repository.deviationOfAuditingRecords(id);
+		totalNumberOfTheoryAudits = this.repository.totalNumberOfTheoryAudits(id);
+		totalNumberOfHandsOnAudits = this.repository.totalNumberOfHandsOnAudits(id);
+		totalNumberOfBalancedAudits = this.repository.totalNumberOfBalancedAudits(id);
+		averageNumberOfAuditingRecords = this.repository.averageNumberOfAuditingRecords(id);
+		minimumNumberOfAuditingRecords = this.repository.minimumNumberOfAuditingRecords(id);
+		maximumNumberOfAuditingRecords = this.repository.maximumNumberOfAuditingRecords(id);
+		deviationNumberOfAuditingRecords = this.repository.deviationOfAuditingRecords(id);
 		averageTimeAuditingRecords = this.repository.averageTimeOfAuditingRecords(id);
 		timeDeviationAuditingRecords = this.repository.timeDeviationOfAuditingRecords(id);
 		minTimeAuditingRecords = this.repository.minimumTimeOfAuditingRecords(id);
 		maxTimeAuditingRecords = this.repository.maximumTimeOfAuditingRecords(id);
 
-		dashboard = new AuditorDashboard();
-		dashboard.setTotalNumberAudits(totalNumberAudits);
-		dashboard.setAverageAuditingRecords(averageAuditingRecords);
-		dashboard.setMinAuditingRecords(minAuditingRecords);
-		dashboard.setMaxAuditingRecords(maxAuditingRecords);
-		dashboard.setDeviationAuditingRecords(deviationAuditingRecords);
+		final AuditorDashboard dashboard = new AuditorDashboard();
+		dashboard.setTotalNumberOfTheoryAudits(totalNumberOfTheoryAudits);
+		dashboard.setTotalNumberOfHandsOnAudits(totalNumberOfHandsOnAudits);
+		dashboard.setTotalNumberOfBalancedAudits(totalNumberOfBalancedAudits);
+		dashboard.setAverageNumberOfAuditingRecords(averageNumberOfAuditingRecords);
+		dashboard.setMinimumNumberOfAuditingRecords(minimumNumberOfAuditingRecords);
+		dashboard.setMaximumNumberOfAuditingRecords(maximumNumberOfAuditingRecords);
+		dashboard.setDeviationNumberOfAuditingRecords(deviationNumberOfAuditingRecords);
 		dashboard.setAverageTimeAuditingRecords(averageTimeAuditingRecords);
 		dashboard.setTimeDeviationAuditingRecords(timeDeviationAuditingRecords);
 		dashboard.setMinTimeAuditingRecords(minTimeAuditingRecords);
@@ -74,8 +79,8 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 	public void unbind(final AuditorDashboard object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "totalNumberAudits", "averageAuditingRecords", "minAuditingRecords", "maxAuditingRecords", "deviationAuditingRecords", "averageTimeAuditingRecords", "timeDeviationAuditingRecords", "minTimeAuditingRecords",
-			"maxTimeAuditingRecords");
+		tuple = super.unbind(object, "totalNumberOfTheoryAudits", "totalNumberOfHandsOnAudits", "totalNumberOfBalancedAudits", "averageNumberOfAuditingRecords", "minimumNumberOfAuditingRecords", "maximumNumberOfAuditingRecords",
+			"deviationNumberOfAuditingRecords", "averageTimeAuditingRecords", "timeDeviationAuditingRecords", "minTimeAuditingRecords", "maxTimeAuditingRecords");
 
 		super.getResponse().setData(tuple);
 	}
