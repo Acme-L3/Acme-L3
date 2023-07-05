@@ -2,6 +2,7 @@ auditor.auditingRecord.list.subject=Tema
 auditor.auditingRecord.list.assessment=Evaluación
 auditor.auditingRecord.list.mark=Nota
 auditor.auditingRecord.list.button.create=Crear
+auditor.auditingRecord.list.button.create-correction=Crear corrección
 
 auditor.auditingRecord.list.button.createCorrection= Crear correccion
 
@@ -20,8 +21,10 @@ auditor.auditingRecord.form.confirm= Confirmar Creación
 auditor.auditingRecord.form.button.update=Actualizar
 auditor.auditingRecord.form.button.delete=Eliminar
 auditor.auditingRecord.form.button.create=Crear
-auditor.auditingRecord.form.button.correct=Crear Correción
+auditor.auditingRecord.form.button.confirmation=Confimación
+auditor.auditingRrecord.form.button.create-correctionRecord=Crear corrección de registro de auditoría
 
 auditor.auditingrecord.error.date.initialAfterFinal = La fecha de inicio debe ser anterior a la fecha de finalización
 auditor.auditingrecord.error.date.shortPeriod = El periodo de tiempo debe durar al menos una hora
+auditor.auditingrRecord.form.error.not-draft-mode=La auditoría asociada ha sido publicada, no puedes editar o eliminar este registro de auditoría
 auditor.auditingrecord.correction.confirmation = Debe confirmar la corrección de registro de auditoría

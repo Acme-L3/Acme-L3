@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.audits.Audit;
 import acme.entitites.audits.AuditingRecord;
+import acme.entitites.audits.Mark;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -36,7 +38,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 		auditingRecordId = super.getRequest().getData("id", int.class);
 
 		final Audit audit = this.repository.findAuditByAuditingRecordId(auditingRecordId);
-		status = audit != null && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
+		status = audit != null && audit.isDraftMode() && super.getRequest().getPrincipal().hasRole(audit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -84,6 +86,9 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 
 		tuple = super.unbind(object, "subject", "assessment", "initialMoment", "finalMoment", "mark", "link");
 		tuple.put("auditId", object.getAudit().getId());
+		final SelectChoices choices = SelectChoices.from(Mark.class, object.getMark());
+		tuple.put("mark", choices.getSelected().getKey());
+		tuple.put("marks", choices);
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 		super.getResponse().setData(tuple);
 	}

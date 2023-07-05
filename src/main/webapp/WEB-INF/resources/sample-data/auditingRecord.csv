@@ -1,16 +1,16 @@
-key,subject,assessment,initialMoment,finalMoment,mark,link,key:audit
-auditing-record-01,Matematicas,Examen final,2021/12/20 10:00,2021/12/20 12:00,B,https://www.ejemplo.com/examen-matematicas,audit-01
-auditing-record-02,"subject until 75 subject subject subject subject subject subject subject su",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,"https://generator.lorem-ipsum.info",audit-02
-auditing-record-03,".","assessment until 100 assessment assessment assessment assessment assessment assessment assessment as",2021/12/20 10:00,2021/12/20 12:00,A,null,audit-01
-auditing-record-04,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,audit-02
-auditing-record-05,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,audit-03
-auditing-record-06,".",".",2021/12/20 10:00,2021/12/20 12:00,F,null,audit-02
-auditing-record-07,".","Λορεμ ιπσθμ ",2021/12/20 10:00,2021/12/20 12:00,A,"https://twitch.tv",audit-04
-auditing-record-08,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,audit-01
-auditing-record-09,".","@@###€€€%%%/*-+",2021/12/20 10:00,2021/12/20 12:00,B,null,audit-05
-auditing-record-10,"Λορεμ ιπσθμ δολορ σιτ",".",2021/12/20 10:00,2021/12/20 12:00,C,null,audit-06
-auditing-record-11,"<button>",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,audit-07
-auditing-record-12,"!!_--__@@@",".",2021/12/20 10:00,2021/12/20 12:00,A,null,audit-01
-auditing-record-13,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,audit-02
-auditing-record-14,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,audit-01
-auditing-record-15,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,"https://www.tesla.com/es_es/models/design#overview",audit-08
+key,subject,assessment,initialMoment,finalMoment,mark,link,correction,key:audit
+auditing-record-01,Matematicas,Examen final,2021/12/20 10:00,2021/12/20 12:00,B,https://www.ejemplo.com/examen-matematicas,false,audit-01
+auditing-record-02,"subject until 75 subject subject subject subject subject subject subject su",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,"https://generator.lorem-ipsum.info",false,audit-02
+auditing-record-03,".","assessment until 100 assessment assessment assessment assessment assessment assessment assessment as",2021/12/20 10:00,2021/12/20 12:00,A,null,false,audit-01
+auditing-record-04,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,false,audit-02
+auditing-record-05,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,false,audit-03
+auditing-record-06,".",".",2021/12/20 10:00,2021/12/20 12:00,F,null,false,audit-02
+auditing-record-07,".","Λορεμ ιπσθμ ",2021/12/20 10:00,2021/12/20 12:00,A,"https://twitch.tv",false,audit-04
+auditing-record-08,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,false,audit-01
+auditing-record-09,".","@@###€€€%%%/*-+",2021/12/20 10:00,2021/12/20 12:00,B,null,false,audit-05
+auditing-record-10,"Λορεμ ιπσθμ δολορ σιτ",".",2021/12/20 10:00,2021/12/20 12:00,C,null,false,audit-06
+auditing-record-11,"<button>",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,false,audit-07
+auditing-record-12,"!!_--__@@@",".",2021/12/20 10:00,2021/12/20 12:00,A,null,false,audit-01
+auditing-record-13,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,false,audit-02
+auditing-record-14,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,false,audit-01
+auditing-record-15,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,"https://www.tesla.com/es_es/models/design#overview",false,audit-08
