@@ -3,6 +3,10 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+<jstl:if test="${correction == true}">
+			<h2><acme:message code="auditor.auditingRecord.form.header"/></h2>
+	</jstl:if>
+
 <acme:form>
 	<acme:input-textbox code="auditor.auditingRecord.form.subject" path="subject"/>
 	<acme:input-textbox code="auditor.auditingRecord.form.assessment" path="assessment"/>

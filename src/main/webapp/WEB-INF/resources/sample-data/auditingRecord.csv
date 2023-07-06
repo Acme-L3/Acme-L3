@@ -14,3 +14,8 @@ auditing-record-12,"!!_--__@@@",".",2021/12/20 10:00,2021/12/20 12:00,A,null,fal
 auditing-record-13,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,false,audit-02
 auditing-record-14,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,null,false,audit-01
 auditing-record-15,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,"https://www.tesla.com/es_es/models/design#overview",false,audit-08
+auditing-record-16,".",".",2021/12/20 10:00,2021/12/20 12:00,A_PLUS,"https://www.google.es",false,audit-20
+auditing-record-17,".",".",2021/12/20 10:00,2021/12/20 12:00,F_MINUS,null,true,audit-06
+auditing-record-18,".",".",2021/12/20 10:00,2021/12/20 12:00,A,null,true,audit-08
+auditing-record-19,".",".",2021/12/20 10:00,2021/12/20 12:00,B,null,false,audit-09
+auditing-record-20,".",".",2021/12/20 10:00,2021/12/20 12:00,C,null,true,audit-09
