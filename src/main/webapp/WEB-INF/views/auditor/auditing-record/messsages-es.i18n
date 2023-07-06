@@ -17,6 +17,7 @@ auditor.auditingRecord.form.hours=Horas
 auditor.auditingRecord.message.correction.disclaimer=ATENCIÓN: Este registro será publicado automáticamente al crearse
 auditor.auditingRecord.message.correction=Registro de Corrección
 auditor.auditingRecord.form.confirm= Confirmar Creación
+auditor.auditingRecord.form.header=Corrección de registro de auditoría
 
 auditor.auditingRecord.form.button.update=Actualizar
 auditor.auditingRecord.form.button.delete=Eliminar

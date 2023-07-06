@@ -9,18 +9,18 @@ audit-07,GGG003,".","Λορεμ ιπσθμ δολορ σιτ αμετ ωισι",
 audit-08,GGG004,".","ahora que","f",false,auditor-02,course-02
 audit-09,GGG005,".","zzz","f",false,auditor-01,course-01
 audit-10,GGG006,".","3984582€@¬#~€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*9__---___si","f",true,auditor-02,course-01
-audit-11,GGG007,".","am","f",false,auditor-01,course-02
+audit-11,GGG007,".","am","f",true,auditor-01,course-02
 audit-12,GGG008,".","españa","f",true,auditor-02,course-02
-audit-13,GGG009,".","Ñ","f",false,auditor-01,course-01
+audit-13,GGG009,".","Ñ","f",true,auditor-01,course-01
 audit-14,GGG010,"esta no es una conclusión con 100 caracteres","3984582€@¬pp€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*93984582€@¬#~€#@#€@#~¬@#~€€€/*9__---___si","f",true,auditor-02,course-01
-audit-15,GGG011,"system.out.println(Hola Mundo!)","break","f",false,auditor-01,course-02
+audit-15,GGG011,"system.out.println(Hola Mundo!)","break","f",true,auditor-01,course-02
 audit-16,GGG012,"Spring?","nah","JxKSt3XTEUm$6aarbwMpqj;3qk6fP&ca5RvSvZjE)aY#PhEPJfPw2rec-Y3vG-)cB-MU8H]47?Fi[)MLbd_UpamW&;S82C9fZ3&q",true,auditor-02,course-02
-audit-17,GGG013,"a","H2O",".",false,auditor-01,course-01
-audit-18,GGG014,"a","GOT",".",false,auditor-02,course-01
+audit-17,GGG013,"a","H2O",".",true,auditor-01,course-01
+audit-18,GGG014,"a","GOT",".",true,auditor-02,course-01
 audit-19,GGG015,"a","Monica Geller",".",true,auditor-01,course-02
 audit-20,GGG016,"a","o","Λορεμ ιπσθμ 通ネ面憲",false,auditor-02,course-02
-audit-21,GGG017,"a","Rachel Green","l",false,auditor-01,course-01
+audit-21,GGG017,"a","Rachel Green","l",true,auditor-01,course-01
 audit-22,GGG018,"a","dificil",".",true,auditor-02,course-01
 audit-23,GGG019,"a","b",".",true,auditor-01,course-02
-audit-24,GGG020,"a","a",".",false,auditor-02,course-02
+audit-24,GGG020,"a","a",".",true,auditor-02,course-02
 audit-25,GGG021,"nononononononononononononononononononononononononononononononononononononononononononononononononono","si",".",true,auditor-01,course-01
