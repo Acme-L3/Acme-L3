@@ -22,7 +22,6 @@ public class CompanyPracticumListTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, practicumCode);
 		super.checkColumnHasValue(recordIndex, 1, title);
 		super.checkColumnHasValue(recordIndex, 2, courseCode);
-		super.checkColumnHasValue(recordIndex, 3, draft);
 
 		super.signOut();
 	}

@@ -44,5 +44,5 @@ company.practicum.error.label.difference = Interval between dates must exceed at
 company.practicum.error.label.endDate = End Date must be later than Initial Date
 company.practicum.error.label.initialDate = Initial Date must be later than seven days from the present
 company.practicum.error.label.check = Need to confirm
-
 company.practicum.error.noPracticumSessions = A practicum can't be published without sessions
+company.practicum.error.limit.date = Deadlines are January 1, 2000 at 00:00 UTC and December 31, 2100 at 23:59 UTC

@@ -37,7 +37,7 @@ public class CompanyPracticumPublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Negative(final int recordIndex, final String code) {
+	public void test200Negative(final int recordIndex, final String code) {
 		super.signIn("company1", "company1");
 
 		super.clickOnMenu("Company", "My practicums");
@@ -48,6 +48,25 @@ public class CompanyPracticumPublishTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkNotSubmitExists("Publish");
+
+		super.signOut();
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/company/practicum/publish-negative-2.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test201Negative(final int recordIndex, final String code) {
+		super.signIn("company1", "company1");
+
+		super.clickOnMenu("Company", "My practicums");
+		super.checkListingExists();
+		super.sortListing(0, "desc");
+		super.checkColumnHasValue(recordIndex, 0, code);
+
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
+		super.clickOnSubmit("Publish");
+
+		super.checkErrorsExist();
 
 		super.signOut();
 	}
