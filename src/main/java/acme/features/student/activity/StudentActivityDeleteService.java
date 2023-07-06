@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.activities.Activity;
+import acme.entitites.activities.ActivityType;
 import acme.entitites.enrolments.Enrolment;
 import acme.features.student.enrolment.StudentEnrolmentRepository;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -29,13 +32,28 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Activity activity;
+		Principal principal;
+		Enrolment object;
+
+		id = super.getRequest().getData("id", int.class);
+		activity = this.repo.findActivityById(id);
+
+		final Enrolment enrolment = activity.getEnrolment();
+		object = this.repo.findEnrolmentById(enrolment.getId());
+		principal = super.getRequest().getPrincipal();
+
+		status = object.getStudent().getId() == principal.getActiveRoleId() && activity.isDraftMode();
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
-		Activity object;
 		int id;
+		Activity object;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repo.findActivityById(id);
@@ -46,14 +64,8 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-		int activityId;
-		Enrolment enrolment;
 
-		activityId = super.getRequest().getData("id", int.class);
-		enrolment = this.repo.findEnrolmentByActivityId(activityId);
 		super.bind(object, "title", "summary", "activityType", "initDate", "endDate", "link");
-
-		object.setEnrolment(enrolment);
 	}
 
 	@Override
@@ -72,9 +84,14 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "summary", "activityType", "initDate", "endDate", "link");
+		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
+
+		tuple = super.unbind(object, "title", "summary", "activityType", "link");
+		tuple.put("activities", choices);
+		tuple.put("readonly", object.getEnrolment().isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

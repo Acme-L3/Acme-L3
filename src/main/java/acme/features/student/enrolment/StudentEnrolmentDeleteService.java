@@ -10,8 +10,6 @@ import acme.entitites.activities.Activity;
 import acme.entitites.course.Course;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -19,7 +17,7 @@ import acme.roles.Student;
 public class StudentEnrolmentDeleteService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
-	protected StudentEnrolmentRepository repository;
+	protected StudentEnrolmentRepository repo;
 
 
 	@Override
@@ -39,7 +37,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		int enrolmentId;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(enrolmentId);
+		object = this.repo.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
 
 		status = object.getStudent().getId() == principal.getActiveRoleId();
@@ -53,7 +51,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(id);
+		object = this.repo.findEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -68,10 +66,10 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		assert object != null;
 
 		Collection<Activity> activities;
-		activities = this.repository.findActivitiesByEnrolmentId(object.getId());
+		activities = this.repo.findActivitiesByEnrolmentId(object.getId());
 
-		this.repository.deleteAll(activities);
-		this.repository.delete(object);
+		this.repo.deleteAll(activities);
+		this.repo.delete(object);
 	}
 
 	@Override
@@ -80,7 +78,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 
 		Course course;
 
-		course = this.repository.findCourseById(object.getCourse().getId());
+		course = this.repo.findCourseById(object.getCourse().getId());
 
 		super.bind(object, "code", "motivation", "goals");
 		object.setCourse(course);
@@ -89,17 +87,6 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
-
-		final Collection<Course> courses;
-		final SelectChoices choices;
-		Tuple tuple;
-
-		final Course course = object.getCourse();
-
-		tuple = super.unbind(object, "code", "motivation", "goals");
-		tuple.put("courseShow", course.getCode());
-
-		super.getResponse().setData(tuple);
 	}
 
 }

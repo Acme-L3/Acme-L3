@@ -1,24 +1,26 @@
 student.enrolment.list.label.code = Código
 student.enrolment.list.label.motivation= Motivación
 student.enrolment.list.label.goals = Metas
+
 student.enrolment.list.button.create = Crear
 
 student.enrolment.form.label.code = Código
 student.enrolment.form.label.motivation= Motivación
 student.enrolment.form.label.goals = Metas
-student.enrolment.form.button.create = Crear
-student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.label.course = Curso
-student.enrolment.form.button.update = Actualizar
-student.enrolment.form.button.publish = Publicar
-student.enrolment.form.label.holderName = Nombre completo de la tarjeta
+student.enrolment.form.label.holderName = Número de la tarjeta
 student.enrolment.form.label.lowerNibble = Número de la tarjeta
 student.enrolment.form.label.expiryDate = Fecha de Caducidad
 student.enrolment.form.label.cvc = CVC
+
+student.enrolment.form.button.create = Crear
+student.enrolment.form.button.delete = Eliminar
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.publish = Publicar
 
 student.enrolment.error.expiryDate.matches = Formato incorrecto
 student.enrolment.error.cvc.matches = Formato incorrecto
 student.enrolment.error.code = Código duplicado
 student.enrolment.error.holderName.null = No puede estar vacío
 student.enrolment.error.lowerNibble.null = No puede estar vacío
-student.enrolment.error.lowerNibble.notValidNumber = No es un número válido
+student.enrolment.error.lowerNibble.notValidNumber = No es un número válido, debe estar entre 13 y 18 dígitos

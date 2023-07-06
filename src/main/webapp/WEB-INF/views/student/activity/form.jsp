@@ -13,7 +13,7 @@
         
 		
 	<jstl:choose>
-		<jstl:when test="${(_command == 'show'||_command == 'update'||_command == 'delete')}">
+		<jstl:when test="${(_command == 'show' || _command == 'update' || _command == 'delete') && draftMode == true}">
 			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
 			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
 		</jstl:when>

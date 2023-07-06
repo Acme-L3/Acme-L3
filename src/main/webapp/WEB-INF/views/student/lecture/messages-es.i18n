@@ -1,0 +1,12 @@
+student.lecture.form.button.lecture = Lección
+
+student.lecture.list.label.title = Título
+student.lecture.list.label.abstractText = Resumen
+student.lecture.list.label.estimateLearningTime = Tiempo necesario
+
+student.lecture.form.label.title = Título
+student.lecture.form.label.abstractText = Resumne
+student.lecture.form.label.estimateLearningTime = Tiempo necesario
+student.lecture.form.label.body = Cuerpo
+student.lecture.form.label.lectureType = Tipo de Lección
+student.lecture.form.label.link = Enlace

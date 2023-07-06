@@ -11,9 +11,12 @@ student.activity.form.label.endDate = End date
 student.activity.form.label.link = Link
 
 student.activity.list.button.create = Create
+
 student.activity.form.button.create = Create
 student.activity.form.button.delete = Delete
 student.activity.form.button.update = Update
+
 student.activity.form.button.activities = Activities
 
 student.activity.error.endDate = Not valid date
+student.activity.error.date = Not valid date

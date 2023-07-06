@@ -1,6 +1,7 @@
-key,title,summary,activityType,initDate,endDate,link,key:enrolment
-activity-01,"A","E","THEORY",2022/03/21 15:00, 2022/03/21 18:00, null,enrolment-01
-activity-02,"Esto es una prueba para comprobar el numero maximo de caracteres disponible","Esto es una prueba para comprobar el numero maximo de caracteres disponible para el atributo summary","BALANCED",2022/07/14 10:00, 2022/07/15 12:00,https://prueba.es,enrolment-02
-activity-03,"Esto es una prueba","Esto es otra prueba","HANDS_ON",2022/10/06 18:00, 2022/10/06 20:00,https://ev.us.es,enrolment-03
-activity-04,"Texto con la mitad de caracteres title","Texto con la mitad de caracteres para el summary..","THEORY",2023/03/15 16:00, 2023/03/16 17:42,https://google.es,enrolment-04
-activity-05,"Esto es un texto de prueba lo suficientemente largo","Esto es un texto de prueba lo suficientemente largo","BALANCED",2023/10/29 09:26, 2023/10/29 11:46,https://google.es,enrolment-05
+key,title,summary,activityType,initDate,endDate,link,draftMode,key:enrolment
+activity-01,"A","E","THEORY",2022/03/21 15:00,2022/03/21 18:00,null,true,enrolment-01
+activity-06,"I","O","THEORY",2022/03/21 15:00,2022/03/21 18:00,null,false,enrolment-01
+activity-02,"Esto es una prueba para comprobar el numero maximo de caracteres disponible","Esto es una prueba para comprobar el numero maximo de caracteres disponible para el atributo summary","BALANCED",2022/07/14 10:00, 2022/07/15 12:00,https://prueba.es,true,enrolment-02
+activity-03,"Esto es una prueba","Esto es otra prueba","HANDS_ON",2022/10/06 18:00, 2022/10/06 20:00,https://ev.us.es,true,enrolment-03
+activity-04,"Texto con la mitad de caracteres title","Texto con la mitad de caracteres para el summary..","THEORY",2023/03/15 16:00, 2023/03/16 17:42,https://google.es,true,enrolment-04
+activity-05,"Esto es un texto de prueba lo suficientemente largo","Esto es un texto de prueba lo suficientemente largo","BALANCED",2023/10/29 09:26, 2023/10/29 11:46,https://google.es,true,enrolment-05
