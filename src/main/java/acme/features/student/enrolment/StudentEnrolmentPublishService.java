@@ -21,7 +21,7 @@ import acme.roles.Student;
 public class StudentEnrolmentPublishService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
-	protected StudentEnrolmentRepository repository;
+	protected StudentEnrolmentRepository repo;
 
 
 	@Override
@@ -41,10 +41,10 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		int enrolmentId;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(enrolmentId);
+		object = this.repo.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object.getStudent().getId() == principal.getActiveRoleId();
+		status = object.getStudent().getId() == principal.getActiveRoleId() && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,7 +55,7 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(id);
+		object = this.repo.findEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -87,8 +87,8 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		final DateFormat format = new SimpleDateFormat("MM/yy");
 		try {
 			final Date dateParse = format.parse(expiryDate);
-			final int mes = Integer.parseInt(expiryDate.split("/")[0]);
-			if (mes < 1 || mes > 12)
+			final int month = Integer.parseInt(expiryDate.split("/")[0]);
+			if (month < 1 || month > 12)
 				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
 			if (MomentHelper.isBefore(dateParse, MomentHelper.getCurrentMoment()))
 				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
@@ -110,7 +110,7 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		final String holderName = super.getRequest().getData("holderName", String.class);
 		object.setHolderName(holderName);
 
-		this.repository.save(object);
+		this.repo.save(object);
 	}
 
 	@Override
@@ -121,7 +121,7 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		Enrolment enrolment;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		enrolment = this.repo.findEnrolmentById(enrolmentId);
 
 		super.bind(object, "code", "motivation", "goal", "holderName", "lowerNibble");
 

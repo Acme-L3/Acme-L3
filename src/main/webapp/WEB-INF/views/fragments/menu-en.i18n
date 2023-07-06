@@ -45,6 +45,7 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.student = Student
 master.menu.student.my-enrolments = My enrolments
+master.menu.student.courses = View courses
 
 # master.menu.assistant ########################################################
 

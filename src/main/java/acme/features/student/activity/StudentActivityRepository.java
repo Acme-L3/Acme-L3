@@ -4,14 +4,12 @@ package acme.features.student.activity;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 
 import acme.entitites.activities.Activity;
 import acme.entitites.enrolments.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Student;
 
-@Repository
 public interface StudentActivityRepository extends AbstractRepository {
 
 	@Query("select a from Activity a")

@@ -3,7 +3,6 @@ student.list.label.summary = Resumen
 student.list.label.activityType = Tipo de actividad
 student.list.label.link = Enlace
 
-student.list.label.link = Enlace
 student.activity.form.label.title = Título
 student.activity.form.label.summary = Resumen
 student.activity.form.label.activityType = Tipo de actividad
@@ -16,7 +15,9 @@ student.activity.list.button.create = Crear
 student.activity.form.button.create = Crear
 student.activity.form.button.delete = Eliminar
 student.activity.form.button.update = Actualizar
+
 student.activity.form.button.activities = Actividades
 
 student.activity.error.endDate = No es una fecha válida
+student.activity.error.date = No es una fecha válida
 

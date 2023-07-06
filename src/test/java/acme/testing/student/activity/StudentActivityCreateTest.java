@@ -20,6 +20,7 @@ public class StudentActivityCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/activity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String summary, final String activityType, final String initDate, final String endDate, final String link) {
+
 		super.signIn("student1", "student1");
 		super.clickOnMenu("Student", "My enrolments");
 

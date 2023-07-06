@@ -1,5 +1,5 @@
 key,code,motivation,goals,key:student,key:course,draftMode,holderName,lowerNibble
-enrolment-01,ACB123,M,G,student-01,course-01,true,null,null
+enrolment-01,ACB123,M,G,student-01,course-01,false,null,null
 enrolment-02,BCA321,test de motivacion,test de goal,student-02,course-01,false,null,null
 enrolment-03,ASD543,Test de motivation con valor medio= 38,Test de goals con 50 caracteres //valor medio....,student-01,course-01,true,null,null
 enrolment-04,AGE734,Esto es una prueba para llegar a las 75 y comprobar la restricción máxima..,Esto es una prueba para llegar a las noventa y nueve palabras y comprobar las restricciones maximas,student-01,course-01,true,null,null

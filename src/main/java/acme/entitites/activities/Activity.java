@@ -52,6 +52,9 @@ public class Activity extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	@NotNull
+	protected boolean			draftMode;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull

@@ -1,0 +1,12 @@
+student.lecture.form.button.lecture = Lecture
+
+student.lecture.list.label.title = Title
+student.lecture.list.label.abstractText = Summary
+student.lecture.list.label.estimateLearningTime = Learning Time
+
+student.lecture.form.label.title = Title
+student.lecture.form.label.abstractText = Summary
+student.lecture.form.label.estimateLearningTime = Learning Time
+student.lecture.form.label.body = Body
+student.lecture.form.label.lectureType = Lecture Type
+student.lecture.form.label.link = Link

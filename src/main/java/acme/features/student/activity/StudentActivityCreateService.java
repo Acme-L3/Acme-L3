@@ -23,7 +23,11 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("enrolmentId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -75,12 +79,16 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void validate(final Activity object) {
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(object.getEndDate() != null && object.getInitDate() != null, "endDate", "student.activity.error.date");
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(MomentHelper.isAfter(object.getEndDate(), object.getInitDate()), "endDate", "student.activity.error.endDate");
 	}
 
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;
+
+		object.setDraftMode(true);
 
 		this.repo.save(object);
 	}

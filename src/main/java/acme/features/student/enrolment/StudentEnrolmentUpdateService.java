@@ -15,7 +15,7 @@ import acme.roles.Student;
 public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
-	protected StudentEnrolmentRepository repository;
+	protected StudentEnrolmentRepository repo;
 
 
 	@Override
@@ -35,10 +35,10 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		int enrolmentId;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(enrolmentId);
+		object = this.repo.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
 
-		status = object.getStudent().getId() == principal.getActiveRoleId();
+		status = object.getStudent().getId() == principal.getActiveRoleId() && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,7 +49,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(id);
+		object = this.repo.findEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -60,7 +60,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		Course course;
 
-		course = this.repository.findCourseById(object.getCourse().getId());
+		course = this.repo.findCourseById(object.getCourse().getId());
 
 		super.bind(object, "code", "motivation", "goals");
 		object.setCourse(course);
@@ -69,13 +69,20 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Enrolment exist;
+			exist = this.repo.findEnrolmentByCode(object.getCode());
+			super.state(exist == null || exist.equals(object), "code", "student.enrolment.error.code");
+
+		}
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		this.repository.save(object);
+		this.repo.save(object);
 	}
 
 	@Override

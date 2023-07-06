@@ -38,7 +38,7 @@
 		<link>
 			<name>acme-framework</name>
 			<type>2</type>
-			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.5.0/target/classes</locationURI>
+			<location>C:/Users/alvar/Downloads/Workspace-23.5.0/Workspace-23.5.0/Frameworks/Acme-Framework-23.5.0/target/classes</location>
 		</link>
 	</linkedResources>
 </projectDescription>

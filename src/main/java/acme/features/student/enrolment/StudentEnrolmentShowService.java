@@ -38,8 +38,8 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 		enrolmentId = super.getRequest().getData("id", int.class);
 		object = this.repo.findEnrolmentById(enrolmentId);
-		principal = super.getRequest().getPrincipal();
 
+		principal = super.getRequest().getPrincipal();
 		status = object.getStudent().getId() == principal.getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);

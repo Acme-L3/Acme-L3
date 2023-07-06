@@ -22,13 +22,14 @@
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-		<acme:input-textbox code="student.enrolment.form.label.course" path="courseShow" readonly="true"/>
-		<acme:button code="student.activity.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>
+			<acme:input-textbox code="student.enrolment.form.label.course" path="courseShow" readonly="true"/>
+			<acme:button code="student.activity.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>
 		</jstl:when>
     
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>
+			<acme:input-select code="student.enrolment.form.label.course" path="courses" choices="${courses}"/>
 			<acme:submit code="student.enrolment.form.button.create" action="/student/enrolment/create"/>
-		</jstl:when>		
+		</jstl:when>
+				
 	</jstl:choose>
 </acme:form>
