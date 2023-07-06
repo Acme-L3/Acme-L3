@@ -1,0 +1,4 @@
+auditRecordIndex,auditingRecordIndex,subject,assessment,initialMoment,finalMoment,mark,link,correction
+3,2,"subject 1 hasta 75 caracteres subject 1 hasta 75 caracteres subject 1 hast", "assessment 1", "2020/04/11 10:00","2020/04/11 11:00",A_PLUS,"https://example.com",true
+3,3,"subject 2", "Λορεμ ιπσθμ δολορ σιτ αμετ ωισι", "2020/04/11 10:00","2020/04/11 11:00",A,"https://example.com",true
+3,4,"subject 3", "assessment 3", "2020/04/11 10:00","2020/04/11 11:00",B,"https://example.com",true

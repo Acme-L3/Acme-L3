@@ -32,8 +32,6 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.checkListingExists();
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, conclusion);
-		super.checkColumnHasValue(recordIndex, 2, strongPoints);
-		super.checkColumnHasValue(recordIndex, 3, weakPoints);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();

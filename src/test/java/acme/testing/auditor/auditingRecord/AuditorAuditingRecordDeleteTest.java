@@ -39,9 +39,29 @@ public class AuditorAuditingRecordDeleteTest extends TestHarness {
 
 	}
 
-	@Test
-	public void test200Negative() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/auditor/auditingRecord/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int auditRecordIndex, final int auditingRecordIndex) {
+		super.signIn("auditor1", "auditor1");
 
+		super.clickOnMenu("Auditor", "My Audits");
+		super.checkListingExists();
+		super.clickOnListingRecord(auditRecordIndex);
+		super.clickOnButton("Auditing Records");
+		super.checkListingExists();
+		super.clickOnListingRecord(auditingRecordIndex);
+		super.checkFormExists();
+
+		final String auditingRecordIdString = super.getCurrentQuery();
+		final int auditingRecordId = Integer.parseInt(auditingRecordIdString.substring(auditingRecordIdString.indexOf("=") + 1));
+		final String param = String.format("id=%d", auditingRecordId);
+
+		super.checkNotSubmitExists("Delete");
+
+		super.request("/auditor/auditing-record/delete", param);
+		super.checkPanicExists();
+
+		super.signOut();
 	}
 
 	@Test
@@ -55,22 +75,22 @@ public class AuditorAuditingRecordDeleteTest extends TestHarness {
 			param = String.format("id=%d", auditingRecord.getAudit().getId());
 
 			super.signIn("administrator", "administrator");
-			super.request("/auditor/auditingRecords/show", param);
+			super.request("/auditor/auditing-record/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("auditor2", "auditor2");
-			super.request("/auditor/auditing-record/show", param);
+			super.request("/auditor/auditing-record/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("auditor1", "auditor1");
-			super.request("/auditor/auditing-record/show", param);
+			super.request("/auditor/auditing-record/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student1", "student1");
-			super.request("/auditor/auditing-record/show", param);
+			super.request("/auditor/auditing-record/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
@@ -88,26 +108,26 @@ public class AuditorAuditingRecordDeleteTest extends TestHarness {
 				param = String.format("id=%d", auditingRecords.getAudit().getId());
 
 				super.checkLinkExists("Sign in");
-				super.request("/auditor/auditingRecords/show", param);
+				super.request("/auditor/auditing-record/delete", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/auditor/auditingRecords/show", param);
+				super.request("/auditor/auditing-record/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("auditor2", "auditor2");
-				super.request("/auditor/auditingRecords/show", param);
+				super.request("/auditor/auditing-record/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("auditor1", "auditor1");
-				super.request("/auditor/auditingRecords/show", param);
+				super.request("/auditor/auditing-record/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("assistant1", "assistant1");
-				super.request("/auditor/auditingRecords/show", param);
+				super.request("/auditor/auditing-record/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 			}

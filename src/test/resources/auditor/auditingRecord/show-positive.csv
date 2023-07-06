@@ -1,5 +1,4 @@
-auditRecordIndex,code,auditingRecordRecordIndex,subject,assessment,intialMoment,finalMoment,mark,correction,link
-0,A123,0,"Matematicas","Examen final","2021/12/20 10:00","2021/12/20 12:00",B,false,"https://www.ejemplo.com/examen-matematicas"
-0,A123,1,"Psicologia","Investigacion","2021/09/25 10:00","2021/09/25 12:00",A,false,"https://www.ejemplo.com/investigacion-psicologia"
-1,C789,0,"Ingles","Oral exam","2021/09/10 09:00","2021/09/10 10:00",A_PLUS,false,"https://www.ejemplo.com/examen-ingles"
-1,C789,1,"Lengua","Proyecto final","2021/09/25 10:00","2021/09/25 12:00",F,false,"https://www.ejemplo.com/investigacion-psicologia"
+auditRecordIndex,code,auditingRecordRecordIndex,subject,assessment,intialMoment,finalMoment,mark,link
+0,A123,0,"!!_--__@@@",".","2021/12/20 10:00","2021/12/20 12:00",A,""
+0,A123,1,".","assessment until 100 assessment assessment assessment assessment assessment assessment assessment as","2021/12/20 10:00","2021/12/20 12:00",A,""
+3,GGG001,1,".",".","2021/12/20 10:00","2021/12/20 12:00",C,""

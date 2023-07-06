@@ -1,10 +1,14 @@
-auditRecordIndex,auditingRecordsRecordIndex,newAuditingRecordsIndex,subject,assessment,initialDate,finalMoment,mark,link
-0,0,0,,"Examen final 2","2021/12/20 10:00","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas 2",,"2021/12/20 10:00","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2",,"2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2","2021/12/20 10:00",,B,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2","2021/12/20 10:00","2021/12/20 12:00",A,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2","2021/12/20 13:00","2021/12/20 12:00",A,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2","2021/12/20 10:00","2021/12/20 10:10",A,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2","2021/12/20 10:00","2021/12/20 12:00",X,https://www.ejemplo.com/examen-matematicas
-0,0,0,"Matematicas","Examen final 2","2021/12/20 10:00","2021/12/20 12:00",,https://www.ejemplo.com/examen-matematicas
+auditRecordIndex,auditingRecordsRecordIndex,subject,assessment,initialMoment,finalMoment,mark,link
+0,0,"","Examen final 2","2021/12/20 10:00","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres","Examen final 2","2021/12/20 10:00","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas 2","","2021/12/20 10:00","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas 2","Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres","2021/12/20 10:00","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres Mas de 100 caracteres","2021/12/20 12:00",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","2021/12/20 10:00","",B,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","","2021/12/20 12:00",A,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","2021/12/20 13:00","2021/12/20 12:00",A,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","2021/12/20 10:00","2021/12/20 10:10",A,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","2021/12/20 10:00","2021/12/20 12:00",---,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","2021/12/20 10:00","3500/12/20 10:10",A,https://www.ejemplo.com/examen-matematicas
+0,0,"Matematicas","Examen final 2","1200/12/20 10:00","2021/12/20 10:10",A,https://www.ejemplo.com/examen-matematicas
