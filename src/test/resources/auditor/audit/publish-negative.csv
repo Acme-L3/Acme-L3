@@ -1,9 +1,3 @@
 recordIndex,code,conclusion,strongPoints,weakPoints,course
-0,E345,"conclusion 1","strong point 1","weak point 1","Programming Course"
-0, ,"conclusion 2","strong point 2","weak point 2","IA Tech Day"
-0,N123," ","strong point 3","weak point 3","Charla sobre IA"
-0,M125,"conclusion 4"," ","weak point 4","Programming Course"
-0,D123,"conclusion 5","strong point 5"," ","IA Tech Day"
-0,123,"conclusion 6","strong point 6","weak point 6","Charla sobre IA"
-0,M129,"conclusion 7","strong point 7","weak point 7",---
-0,M14365,"conclusion 8","strong point 8","weak point 8","Charla sobre IA"
+3,GGG005,".","zzz","f","Programming Course"
+12,YYY123,"a",".","puntos debiles hasta 100 caracteres puntos debiles puntos debilespuntos debilespuntos debiles puntos","IA Tech Day"

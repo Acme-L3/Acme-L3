@@ -42,7 +42,8 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 
 		super.checkListingExists();
 		super.checkColumnHasValue(newAuditingRecordsRecordIndex, 0, subject);
-		super.checkColumnHasValue(newAuditingRecordsRecordIndex, 1, mark);
+		super.checkColumnHasValue(newAuditingRecordsRecordIndex, 1, assessment);
+		super.checkColumnHasValue(newAuditingRecordsRecordIndex, 2, mark);
 
 		super.clickOnListingRecord(newAuditingRecordsRecordIndex);
 		super.checkFormExists();
@@ -58,7 +59,7 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditingRecord/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int auditRecordIndex, final int auditingRecordsRecordIndex, final String subject, final String assessment, final String initialMoment, final String finalMoment, final String mark) {
+	public void test200Negative(final int auditRecordIndex, final int auditingRecordsRecordIndex, final String subject, final String assessment, final String initialMoment, final String finalMoment, final String mark, final String link) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -69,12 +70,12 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.clickOnListingRecord(auditingRecordsRecordIndex);
 		super.checkFormExists();
-		super.checkFormExists();
 		super.fillInputBoxIn("subject", subject);
 		super.fillInputBoxIn("assessment", assessment);
 		super.fillInputBoxIn("initialMoment", initialMoment);
 		super.fillInputBoxIn("finalMoment", finalMoment);
 		super.fillInputBoxIn("mark", mark);
+		super.fillInputBoxIn("link", link);
 
 		super.clickOnSubmit("Update");
 
@@ -83,6 +84,38 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 
 		super.signOut();
 	}
+
+	//	@ParameterizedTest
+	//	@CsvFileSource(resources = "/auditor/auditingRecord/update-negative-correction.csv", encoding = "utf-8", numLinesToSkip = 1)
+	//	public void test201Negative(final int auditRecordIndex, final int auditingRecordsRecordIndex, final String subject, final String assessment, final String initialMoment, final String finalMoment, final String mark, final String link) {
+	//
+	//		super.signIn("auditor1", "auditor1");
+	//
+	//		super.clickOnMenu("Auditor", "My Audits");
+	//		super.checkListingExists();
+	//		super.clickOnListingRecord(auditRecordIndex);
+	//		super.clickOnButton("Auditing Records");
+	//		super.checkListingExists();
+	//		super.clickOnListingRecord(auditingRecordsRecordIndex);
+	//		super.checkFormExists();
+	//		super.fillInputBoxIn("subject", subject);
+	//		super.fillInputBoxIn("assessment", assessment);
+	//		super.fillInputBoxIn("initialMoment", initialMoment);
+	//		super.fillInputBoxIn("finalMoment", finalMoment);
+	//		super.fillInputBoxIn("mark", mark);
+	//		super.fillInputBoxIn("link", link);
+	//
+	//		final String auditingRecordIdString = super.getCurrentQuery();
+	//		final int auditingRecordId = Integer.parseInt(auditingRecordIdString.substring(auditingRecordIdString.indexOf("=") + 1));
+	//		final String param = String.format("id=%d", auditingRecordId);
+	//
+	//		super.checkNotSubmitExists("Update");
+	//
+	//		super.request("/auditor/auditing-record/update", param);
+	//		super.checkPanicExists();
+	//
+	//		super.signOut();
+	//	}
 
 	@Test
 	public void test300Hacking() {
@@ -96,21 +129,21 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 				param = String.format("id=%d", auditingRecord.getAudit().getId());
 
 				super.checkLinkExists("Sign in");
-				super.request("/auditor/auditing-records/update", param);
+				super.request("/auditor/auditing-record/update", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/auditor/auditing-records/update", param);
+				super.request("/auditor/auditing-record/update", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("auditor2", "auditor2");
-				super.request("/auditor/auditing-records/update", param);
+				super.request("/auditor/auditing-record/update", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("student1", "student1");
-				super.request("/auditor/auditing-records/update", param);
+				super.request("/auditor/auditing-record/update", param);
 				super.checkPanicExists();
 				super.signOut();
 			}

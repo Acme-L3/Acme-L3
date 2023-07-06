@@ -47,14 +47,18 @@ public class AuditorAuditPublishTest extends TestHarness {
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("conclusion", conclusion);
-		super.fillInputBoxIn("strongPoints", strongPoints);
-		super.fillInputBoxIn("weakPoints", weakPoints);
-		super.fillInputBoxIn("course", course);
-		super.clickOnSubmit("Publish");
-		super.checkErrorsExist();
-		super.checkNotPanicExists();
+		super.checkInputBoxHasValue("course", course);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("conclusion", conclusion);
+		super.checkInputBoxHasValue("strongPoints", strongPoints);
+		super.checkInputBoxHasValue("weakPoints", weakPoints);
+
+		final Audit audit = this.repository.findAuditByCode(code);
+		final String param = String.format("id=%d", audit.getId());
+		super.checkNotSubmitExists("Publish");
+
+		super.request("/auditor/audit/publish", param);
+		super.checkPanicExists();
 
 		super.signOut();
 	}

@@ -19,7 +19,7 @@ public class AuditorAuditShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String course) {
+	public void test100Positive(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String course, final String mark) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -33,6 +33,7 @@ public class AuditorAuditShowTest extends TestHarness {
 		super.checkInputBoxHasValue("strongPoints", strongPoints);
 		super.checkInputBoxHasValue("weakPoints", weakPoints);
 		super.checkInputBoxHasValue("course", course);
+		super.checkInputBoxHasValue("mark", mark);
 
 		super.signOut();
 

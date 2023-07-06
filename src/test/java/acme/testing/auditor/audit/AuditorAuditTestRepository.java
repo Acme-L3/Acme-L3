@@ -17,4 +17,7 @@ public interface AuditorAuditTestRepository extends AbstractRepository {
 	@Query("select ar from AuditingRecord ar where ar.audit.auditor.userAccount.username = :username")
 	Collection<AuditingRecord> findAuditingRecordsByAuditorUsername(String username);
 
+	@Query("select a from Audit a where a.code=:code")
+	Audit findAuditByCode(String code);
+
 }
