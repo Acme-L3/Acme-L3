@@ -2,6 +2,7 @@
 package acme.features.company.practicumSession;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,11 +76,44 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
+		Date minimumInitialDate;
+		Calendar minimumCalendar;
 		Date minimumDate;
+		Calendar maximumCalendar;
+		Date maximumDate;
+		boolean isInitDateCorrect;
+		boolean isEndDateCorrect;
 
 		if (!super.getBuffer().getErrors().hasErrors("initialDate")) {
-			minimumDate = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getInitialDate(), minimumDate), "initialDate", "company.practicum.error.label.initialDate");
+			minimumInitialDate = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getInitialDate(), minimumInitialDate), "initialDate", "company.practicum.error.label.initialDate");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("initialDate")) {
+			minimumCalendar = Calendar.getInstance();
+			minimumCalendar.set(Calendar.YEAR, 2000);
+			minimumCalendar.set(Calendar.MONTH, Calendar.JANUARY);
+			minimumCalendar.set(Calendar.DAY_OF_MONTH, 1);
+			minimumCalendar.set(Calendar.HOUR_OF_DAY, 00);
+			minimumCalendar.set(Calendar.MINUTE, 00);
+			minimumCalendar.set(Calendar.SECOND, 00);
+			minimumCalendar.set(Calendar.MILLISECOND, 0);
+			minimumDate = minimumCalendar.getTime();
+
+			maximumCalendar = Calendar.getInstance();
+			maximumCalendar.set(Calendar.YEAR, 2100);
+			maximumCalendar.set(Calendar.MONTH, Calendar.DECEMBER);
+			maximumCalendar.set(Calendar.DAY_OF_MONTH, 31);
+			maximumCalendar.set(Calendar.HOUR_OF_DAY, 23);
+			maximumCalendar.set(Calendar.MINUTE, 59);
+			maximumCalendar.set(Calendar.SECOND, 00);
+			maximumCalendar.set(Calendar.MILLISECOND, 0);
+			maximumDate = maximumCalendar.getTime();
+
+			isInitDateCorrect = MomentHelper.isAfterOrEqual(object.getInitialDate(), minimumDate);
+			isEndDateCorrect = MomentHelper.isBeforeOrEqual(object.getEndDate(), maximumDate);
+
+			super.state(isInitDateCorrect && isEndDateCorrect, "initialDate", "company.practicum.error.limit.date");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))

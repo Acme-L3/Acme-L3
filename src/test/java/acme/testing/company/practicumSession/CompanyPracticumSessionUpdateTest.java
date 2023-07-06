@@ -27,7 +27,7 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 
 		super.clickOnButton("Practicum Sessions");
 
@@ -68,7 +68,7 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 
 		super.clickOnButton("Practicum Sessions");
 
@@ -99,7 +99,7 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 
 		super.clickOnButton("Practicum Sessions");
 

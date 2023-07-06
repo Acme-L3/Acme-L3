@@ -26,7 +26,7 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 
 		super.clickOnButton("Practicum Sessions");
 
