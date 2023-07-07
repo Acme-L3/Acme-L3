@@ -5,3 +5,5 @@ administrator.bulletin.form.critical = Critical
 administrator.bulletin.form.link = Link
 administrator.bulletin.form.confirm = Confirmation
 administrator.bulletin.form.create = Create Bulletin
+
+administrator.bulletin.form.moment.error = The date entered is invalid

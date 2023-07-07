@@ -5,3 +5,5 @@ administrator.bulletin.form.critical = Crítico
 administrator.bulletin.form.link = Link
 administrator.bulletin.form.confirm = Confirmar
 administrator.bulletin.form.create = Crer Boletín
+
+administrator.bulletin.form.moment.error = La fecha introducida no es válida
