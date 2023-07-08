@@ -66,7 +66,7 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 	public void bind(final Peep object) {
 		assert object != null;
 
-		super.bind(object, "moment", "title", "nick", "message", "email", "link");
+		super.bind(object, "title", "nick", "message", "email", "link");
 	}
 	@Override
 	public void validate(final Peep object) {
