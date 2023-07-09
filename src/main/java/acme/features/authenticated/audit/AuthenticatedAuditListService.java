@@ -50,6 +50,7 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 	@Override
 	public void unbind(final Audit object) {
 		assert object != null;
+
 		final Tuple tuple = super.unbind(object, "code", "conclusion");
 		super.getResponse().setData(tuple);
 	}
