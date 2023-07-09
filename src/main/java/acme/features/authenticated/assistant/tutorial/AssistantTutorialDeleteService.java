@@ -88,7 +88,7 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 		for (final TutorialSession ts : sessions)
 			estimatedTime += ts.getHoursFromPeriod();
 
-		courses = this.repository.findAllCoursesNotPublished();
+		courses = this.repository.findAllCoursesPublished();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "tittle", "summary", "goals", "draftMode");
 		tuple.put("estimatedTime", estimatedTime);

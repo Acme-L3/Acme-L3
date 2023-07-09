@@ -12,3 +12,5 @@
 	<acme:input-url code="any.course.form.label.link" path="link"/>
 
 </acme:form>
+
+	<acme:button code="authenticated.course.list.button.list.tutorials" action="/authenticated/tutorial/list?masterId=${id}"/>
