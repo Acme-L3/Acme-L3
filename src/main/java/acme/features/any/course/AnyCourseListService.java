@@ -2,6 +2,7 @@
 package acme.features.any.course;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,6 @@ import acme.entitites.course.Course;
 import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Student;
 
 @Service
 public class AnyCourseListService extends AbstractService<Any, Course> {
@@ -30,11 +30,8 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 	@Override
 	public void authorise() {
-		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRole(Student.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 
 	}
 
@@ -43,6 +40,7 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 		Collection<Course> objects;
 
 		objects = this.repo.findAllCourses();
+		objects = objects.stream().filter(x -> x.isPublished() == true).collect(Collectors.toList());
 
 		super.getBuffer().setData(objects);
 	}
@@ -53,7 +51,7 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "link", "lecturer");
+		tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "link", "courseType");
 
 		super.getResponse().setData(tuple);
 	}

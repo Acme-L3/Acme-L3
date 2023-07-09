@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entitites.course.Course;
 import acme.entitites.course.CourseType;
 import acme.features.administrator.systemconfiguration.AdministratorSystemConfigurationRepository;
-import acme.framework.components.jsp.SelectChoices;
+import acme.features.lecturer.lecture.LecturerLectureRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -22,7 +22,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Autowired
 	protected LecturerCourseRepository						repository;
-
+	@Autowired
+	protected LecturerLectureRepository						lectureRepository;
 	@Autowired
 	protected AdministratorSystemConfigurationRepository	systemConfigurationRepository;
 
@@ -53,7 +54,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		object.setAbstractText("");
 		object.setLink("");
 		object.setCourseType(CourseType.BALANCED);
-		object.setLecturer(this.repository.findOneLecturerByUserAccountId(super.getRequest().getPrincipal().getAccountId()));
+		object.setLecturer(this.repository.findLecturerByUserAccountId(super.getRequest().getPrincipal().getAccountId()));
 		object.setPublished(false);
 
 		super.getBuffer().setData(object);
@@ -63,7 +64,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		super.bind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link");
+		super.bind(object, "code", "title", "retailPrice", "abstractText", "link");
+		object.setCourseType(CourseType.BALANCED);
 	}
 
 	@Override
@@ -85,16 +87,15 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 
 		this.repository.save(object);
+
 	}
 
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
 
-		final SelectChoices choices = SelectChoices.from(CourseType.class, object.getCourseType());
-		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link");
-		tuple.put("types", choices);
-		tuple.put("published", object.isPublished());
+		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "link", "isPublished");
+		tuple.put("types", null);
 		super.getResponse().setData(tuple);
 	}
 

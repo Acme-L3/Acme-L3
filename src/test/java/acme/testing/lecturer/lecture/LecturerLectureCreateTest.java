@@ -1,7 +1,6 @@
 
 package acme.testing.lecturer.lecture;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -9,25 +8,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.TestHarness;
 
 public class LecturerLectureCreateTest extends TestHarness {
-
-	@Override
-	@BeforeAll
-	public void beforeAll() {
-		super.signIn("lecturer2", "lecturer2");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-
-		super.clickOnButton("Create Course");
-		super.fillInputBoxIn("code", "ZZZ999");
-		super.fillInputBoxIn("title", "titleTest");
-		super.fillInputBoxIn("retailPrice", "EUR 12");
-		super.fillInputBoxIn("abstractText", "abstractTest");
-		super.fillInputBoxIn("courseType", "BALANCED");
-		super.clickOnSubmit("Create");
-
-		super.signOut();
-	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -37,15 +17,10 @@ public class LecturerLectureCreateTest extends TestHarness {
 
 		super.signIn("lecturer2", "lecturer2");
 
-		super.clickOnMenu("Lecturer", "My Courses");
+		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
 		super.clickOnButton("Create Lecture");
-		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("abstractText", abstractText);
@@ -53,18 +28,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("estimateLearningTime", estimateLearningTime);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
-		super.clickOnListingRecord(0);
-
-		super.checkFormExists();
-		super.clickOnSubmit("Delete");
+		super.checkNotPanicExists();
 
 		super.signOut();
 	}
@@ -77,15 +41,10 @@ public class LecturerLectureCreateTest extends TestHarness {
 
 		super.signIn("lecturer2", "lecturer2");
 
-		super.clickOnMenu("Lecturer", "My Courses");
+		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
 		super.clickOnButton("Create Lecture");
-		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("abstractText", abstractText);
@@ -93,7 +52,6 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("estimateLearningTime", estimateLearningTime);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create");
-
 		super.checkErrorsExist();
 
 		super.signOut();

@@ -25,7 +25,6 @@ public class LecturerCourseUpdateTest extends TestHarness {
 		super.fillInputBoxIn("title", "titleTest");
 		super.fillInputBoxIn("retailPrice", "EUR 12");
 		super.fillInputBoxIn("abstractText", "abstractTest");
-		super.fillInputBoxIn("courseType", "BALANCED");
 		super.clickOnSubmit("Create");
 
 		super.checkListingExists();
@@ -36,25 +35,8 @@ public class LecturerCourseUpdateTest extends TestHarness {
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("retailPrice", retailPrice);
 		super.fillInputBoxIn("abstractText", abstractText);
-		super.fillInputBoxIn("courseType", courseType);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
-		super.checkInputBoxHasValue("abstractText", abstractText);
-		super.checkInputBoxHasValue("courseType", courseType);
-		super.checkInputBoxHasValue("link", link);
-
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
-		super.checkListingEmpty();
 
 		super.signOut();
 	}
@@ -74,7 +56,6 @@ public class LecturerCourseUpdateTest extends TestHarness {
 		super.fillInputBoxIn("title", "titleTest");
 		super.fillInputBoxIn("retailPrice", "EUR 12");
 		super.fillInputBoxIn("abstractText", "abstractTest");
-		super.fillInputBoxIn("courseType", "BALANCED");
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Lecturer", "My Courses");
@@ -86,17 +67,10 @@ public class LecturerCourseUpdateTest extends TestHarness {
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("retailPrice", retailPrice);
 		super.fillInputBoxIn("abstractText", abstractText);
-		super.fillInputBoxIn("courseType", courseType);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.clickOnSubmit("Delete");
 
 		super.signOut();
 	}

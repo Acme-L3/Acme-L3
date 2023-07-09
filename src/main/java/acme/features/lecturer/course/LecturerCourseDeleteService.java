@@ -1,10 +1,13 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
+import acme.features.lecturer.lecture.LecturerLectureRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -15,7 +18,9 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerCourseRepository	repository;
+	@Autowired
+	protected LecturerLectureRepository	lectureRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -28,11 +33,19 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		final boolean status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		boolean status = false;
+
+		final Lecturer lecturer = this.repository.findLecturerByUserAccountId(super.getRequest().getPrincipal().getAccountId());
+
 		final int id = super.getRequest().getData("id", int.class);
-		final Course object = this.repository.findCourseById(id);
-		final boolean logged = object.getLecturer().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
-		super.getResponse().setAuthorised(status && logged && !object.isPublished());
+		final Course course = this.repository.findCourseById(id);
+
+		if (course != null && !course.isPublished() && lecturer != null) {
+			final Collection<Course> lecturerCourses = this.repository.findAllCoursesByLecturerId(lecturer.getId());
+			status = lecturerCourses.contains(course);
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -45,7 +58,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		super.bind(object, "moment", "heading", "summary", "startAvailability", "endAvailability", "price", "link");
+		super.bind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link");
 	}
 
 	@Override
@@ -63,8 +76,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "moment", "summary", "heading", "startAvailability", "endAvailability", "price", "link");
-		tuple.put("published", object.isPublished());
+		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link", "isPublished");
 		super.getResponse().setData(tuple);
 	}
 }

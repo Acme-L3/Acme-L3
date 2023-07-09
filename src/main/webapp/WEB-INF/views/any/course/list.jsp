@@ -7,7 +7,7 @@
 	<acme:list-column code="any.course.list.label.code" path="code"/>
 	<acme:list-column code="any.course.list.label.title" path="title"/>
 	<acme:list-column code="any.course.list.label.abstractText" path="abstractText"/>
-  <acme:list-column code="any.course.list.label.link" path="link"/>
+  	<acme:list-column code="any.course.list.label.courseType" path="courseType"/>
 
 </acme:list>
 

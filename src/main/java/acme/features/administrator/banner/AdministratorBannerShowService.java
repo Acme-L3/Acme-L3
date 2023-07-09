@@ -42,7 +42,7 @@ public class AdministratorBannerShowService extends AbstractService<Administrato
 	@Override
 	public void unbind(final Banner object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "initMoment", "endMoment", "startDate", "endDate", "linkPhoto", "slogan", "linkDocument");
+		final Tuple tuple = super.unbind(object, "moment", "startDate", "endDate", "linkPhoto", "slogan", "linkDocument");
 		super.getResponse().setData(tuple);
 	}
 

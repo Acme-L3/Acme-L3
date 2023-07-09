@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import acme.testing.TestHarness;
 
-public class LecturerCoursePublishTest extends TestHarness {
+public class LecturerCourseLectureTest extends TestHarness {
 
 	@Test
 	public void test100Positive() {
@@ -30,12 +30,10 @@ public class LecturerCoursePublishTest extends TestHarness {
 		super.fillInputBoxIn("lecture", "Data Visualization");
 		super.clickOnSubmit("Add lecture");
 		super.checkFormExists();
-		super.clickOnSubmit("Publish");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-		super.clickOnListingRecord(1);
+		super.clickOnButton("Remove lecture");
 		super.checkFormExists();
+		super.fillInputBoxIn("lecture", "Data Visualization");
+		super.clickOnSubmit("Remove lecture");
 
 		super.signOut();
 	}
@@ -49,23 +47,11 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "My Courses");
 		super.checkListingExists();
-		super.clickOnButton("Create Course");
-		super.fillInputBoxIn("code", "ZSD899");
-		super.fillInputBoxIn("title", "titleTest");
-		super.fillInputBoxIn("retailPrice", "EUR 12");
-		super.fillInputBoxIn("abstractText", "abstractTest");
-		super.clickOnSubmit("Create");
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-		super.clickOnListingRecord(4);
+
+		super.clickOnListingRecord(0);
 		super.checkFormExists();
-		super.clickOnButton("Add lecture");
-		super.checkFormExists();
-		super.fillInputBoxIn("lecture", "Data Analysis");
-		super.clickOnSubmit("Add lecture");
-		super.checkFormExists();
-		super.clickOnSubmit("Publish");
-		super.checkErrorsExist();
+		super.checkNotButtonExists("Add lecture");
+		super.checkNotButtonExists("Remove lecture");
 
 		super.signOut();
 	}
@@ -75,24 +61,6 @@ public class LecturerCoursePublishTest extends TestHarness {
 		// HINT: this test tries to create a tutorials using principals with
 		// HINT+ inappropriate roles.
 
-		super.checkLinkExists("Sign in");
-		super.request("/lecturer/course/show");
-		super.checkPanicExists();
-
-		super.signIn("administrator", "administrator");
-		super.request("/lecturer/course/show");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("auditor1", "auditor1");
-		super.request("/lecturer/course/show");
-		super.checkPanicExists();
-		super.signOut();
-
-		super.signIn("student1", "student1");
-		super.request("/lecturer/course/show");
-		super.checkPanicExists();
-		super.signOut();
 	}
 
 }

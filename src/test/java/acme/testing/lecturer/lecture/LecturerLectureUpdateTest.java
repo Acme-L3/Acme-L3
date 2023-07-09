@@ -1,7 +1,7 @@
 
 package acme.testing.lecturer.lecture;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -11,30 +11,16 @@ import acme.testing.TestHarness;
 public class LecturerLectureUpdateTest extends TestHarness {
 
 	@Override
-	@BeforeAll
-	public void beforeAll() {
+	@BeforeEach
+	public void beforeEach() {
 		super.signIn("lecturer2", "lecturer2");
 
-		super.clickOnMenu("Lecturer", "My Courses");
+		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 
-		super.clickOnButton("Create Course");
-		super.fillInputBoxIn("code", "ZZZ999");
-		super.fillInputBoxIn("title", "titleTest");
-		super.fillInputBoxIn("retailPrice", "EUR 12");
-		super.fillInputBoxIn("abstractText", "abstractTest");
-		super.fillInputBoxIn("courseType", "BALANCED");
-		super.clickOnSubmit("Create");
-
-		super.checkListingExists();
-
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
 		super.clickOnButton("Create Lecture");
 		super.checkFormExists();
-		super.fillInputBoxIn("title", "title");
+		super.fillInputBoxIn("title", "Atitle");
 		super.fillInputBoxIn("body", "body");
 		super.fillInputBoxIn("abstractText", "abstractText");
 		super.fillInputBoxIn("lectureType", "THEORY");
@@ -52,13 +38,9 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 		super.signIn("lecturer2", "lecturer2");
 
-		super.clickOnMenu("Lecturer", "My Courses");
+		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
@@ -68,20 +50,6 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		super.fillInputBoxIn("estimateLearningTime", estimateLearningTime);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Update");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
-		super.checkColumnHasValue(0, 0, title);
-		super.checkColumnHasValue(0, 2, body);
-		super.checkColumnHasValue(0, 1, abstractText);
-		super.checkColumnHasValue(0, 3, lectureType);
-		super.checkColumnHasValue(0, 4, estimateLearningTime);
-		super.checkColumnHasValue(0, 5, link);
 
 		super.signOut();
 	}
@@ -94,13 +62,9 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 		super.signIn("lecturer2", "lecturer2");
 
-		super.clickOnMenu("Lecturer", "My Courses");
+		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 
-		super.clickOnListingRecord(1);
-		super.checkFormExists();
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);

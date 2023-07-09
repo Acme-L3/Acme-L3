@@ -20,6 +20,7 @@ master.menu.sign-out = Salir
 master.menu.anonymous = Anónimo
 master.menu.any.course= Listar cursos
 master.menu.any.list-peeps = Listar Peeps
+master.menu.any.list-courses=Listar Cursos
 master.menu.anonymous.favourite-link-alvsangon = 49030430L: Sánchez González, Álvaro
 master.menu.anonymous.favourite-link-guipacrod = 25629441N: Pacheco Rodrigues, Guillermo Alonso
 master.menu.anonymous.favourite-link-javrodcor = 29516971J: Rodríguez Cordero, Javier
@@ -70,6 +71,7 @@ master.menu.auditor.dashboard = Dashboard
 
 master.menu.lecturer = Profesor
 master.menu.lecturer.my-courses = Mis cursos
+master.menu.lecturer.my-lectures = Mis lecciones
 master.menu.lecturer.dashboard =Panel de datos
 
 # master.menu.user-account ####################################################

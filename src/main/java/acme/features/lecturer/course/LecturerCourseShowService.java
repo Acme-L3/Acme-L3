@@ -1,6 +1,8 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +32,19 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
-		final boolean status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		boolean status = false;
+
+		final Lecturer lecturer = this.repository.findLecturerByUserAccountId(super.getRequest().getPrincipal().getAccountId());
+
 		final int id = super.getRequest().getData("id", int.class);
-		final Course object = this.repository.findCourseById(id);
-		final boolean logged = object.getLecturer().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
-		super.getResponse().setAuthorised(status && logged);
+		final Course course = this.repository.findCourseById(id);
+
+		if (course != null && lecturer != null) {
+			final Collection<Course> lecturerCourses = this.repository.findAllCoursesByLecturerId(lecturer.getId());
+			status = lecturerCourses.contains(course);
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -49,7 +59,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	public void unbind(final Course object) {
 		assert object != null;
 
-		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link");
+		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link", "isPublished");
 		tuple.put("published", object.isPublished());
 		final SelectChoices choices = SelectChoices.from(CourseType.class, object.getCourseType());
 		tuple.put("types", choices);
