@@ -28,7 +28,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, code);
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("holderName", holderName);
@@ -51,7 +51,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(2);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("holderName", holderName);

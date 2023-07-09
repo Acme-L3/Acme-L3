@@ -5,12 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.activities.Activity;
-import acme.entitites.activities.ActivityType;
 import acme.entitites.enrolments.Enrolment;
 import acme.features.student.enrolment.StudentEnrolmentRepository;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.jsp.SelectChoices;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -83,17 +80,6 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
-
-		SelectChoices choices;
-		Tuple tuple;
-
-		choices = SelectChoices.from(ActivityType.class, object.getActivityType());
-
-		tuple = super.unbind(object, "title", "summary", "activityType", "link");
-		tuple.put("activities", choices);
-		tuple.put("readonly", object.getEnrolment().isDraftMode());
-
-		super.getResponse().setData(tuple);
 	}
 
 }

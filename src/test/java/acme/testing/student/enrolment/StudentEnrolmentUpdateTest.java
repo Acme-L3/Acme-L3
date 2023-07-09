@@ -26,7 +26,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.clickOnMenu("Student", "My enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("code", code);
@@ -52,7 +52,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.clickOnMenu("Student", "My enrolments");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(2);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("code", code);

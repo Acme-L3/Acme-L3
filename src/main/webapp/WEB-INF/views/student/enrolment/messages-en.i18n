@@ -21,6 +21,8 @@ student.enrolment.form.button.publish = Publish
 student.enrolment.error.expiryDate.matches = Not valid format
 student.enrolment.error.cvc.matches = Not valid format
 student.enrolment.error.code = Code duplicate
+student.enrolment.error.course = Course can not be null
 student.enrolment.error.holderName.null = Can not be null
 student.enrolment.error.lowerNibble.null = Can not be null
 student.enrolment.error.lowerNibble.notValidNumber = Not valid card number, must be between 13 and 18 digits
+

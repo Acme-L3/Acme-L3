@@ -24,7 +24,7 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 		super.signIn("student1", "student1");
 		super.clickOnMenu("Student", "My enrolments");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();

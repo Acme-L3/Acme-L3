@@ -21,6 +21,7 @@ student.enrolment.form.button.publish = Publicar
 student.enrolment.error.expiryDate.matches = Formato incorrecto
 student.enrolment.error.cvc.matches = Formato incorrecto
 student.enrolment.error.code = Código duplicado
+student.enrolment.error.course = Curso no puede estar vacío
 student.enrolment.error.holderName.null = No puede estar vacío
 student.enrolment.error.lowerNibble.null = No puede estar vacío
 student.enrolment.error.lowerNibble.notValidNumber = No es un número válido, debe estar entre 13 y 18 dígitos

@@ -23,7 +23,7 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("courses", course);
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Student", "My enrolments");
@@ -55,10 +55,9 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 		super.clickOnButton("Create");
 		super.checkFormExists();
 		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("courses", course);
 		super.clickOnSubmit("Create");
 
 		super.checkErrorsExist();
