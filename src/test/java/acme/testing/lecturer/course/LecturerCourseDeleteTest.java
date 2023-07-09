@@ -2,8 +2,6 @@
 package acme.testing.lecturer.course;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
@@ -24,21 +22,19 @@ public class LecturerCourseDeleteTest extends TestHarness {
 		super.fillInputBoxIn("title", "titleTest");
 		super.fillInputBoxIn("retailPrice", "EUR 12");
 		super.fillInputBoxIn("abstractText", "abstractTest");
-		super.fillInputBoxIn("courseType", "BALANCED");
 		super.clickOnSubmit("Create");
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(2);
+		super.clickOnListingRecord(4);
 		super.checkFormExists();
 		super.clickOnSubmit("Delete");
 
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String title, final String retailPrice, final String abstractText, final String courseType, final String link) {
+	@Test
+	public void test200Negative() {
 		// HINT: this test attempts to create tutorials with incorrect data.
 
 		super.signIn("lecturer1", "lecturer1");

@@ -53,6 +53,10 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 		final Map<String, Double> statisticsLearningTimeLectures;
 		final Map<String, Double> statisticsLearningTimeCourses;
 
+		final int id_account = super.getRequest().getPrincipal().getAccountId();
+		final Lecturer l = this.repository.findOneLecturerByUserAccountId(id_account);
+		final int id = l.getId();
+
 		countOfLecturesByType = new HashMap<>();
 		statisticsLearningTimeLectures = new HashMap<>();
 		statisticsLearningTimeCourses = new HashMap<>();
@@ -65,15 +69,15 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 			"Media", "Desviacion", "Mínimo", "Máximo"
 		};
 
-		final Integer lectureHandsOn = this.repository.findLecturesByType(LectureType.HANDS_ON);
-		final Integer lectureTheory = this.repository.findLecturesByType(LectureType.THEORY);
+		final Integer lectureHandsOn = this.repository.findLecturesByType(LectureType.HANDS_ON, id);
+		final Integer lectureTheory = this.repository.findLecturesByType(LectureType.THEORY, id);
 		countOfLecturesByType.put(LectureType.HANDS_ON, lectureHandsOn);
 		countOfLecturesByType.put(LectureType.THEORY, lectureTheory);
 
-		final Double averageLecture = this.repository.getAverageLearningTimeLectures();
-		final Double desviationLecture = this.repository.getDesviationLearningTimeLectures();
-		final Double minLecture = this.repository.getMinLearningTimeLectures();
-		final Double maxLecture = this.repository.getMaxLearningTimeLectures();
+		final Double averageLecture = this.repository.getAverageLearningTimeLectures(id);
+		final Double desviationLecture = this.repository.getDesviationLearningTimeLectures(id);
+		final Double minLecture = this.repository.getMinLearningTimeLectures(id);
+		final Double maxLecture = this.repository.getMaxLearningTimeLectures(id);
 		if (!lang.equals("es")) {
 			statisticsLearningTimeLectures.put(methodInEnglish[0], averageLecture);
 			statisticsLearningTimeLectures.put(methodInEnglish[1], desviationLecture);
@@ -86,10 +90,10 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 			statisticsLearningTimeLectures.put(methodInSpanish[3], maxLecture);
 		}
 
-		final Double averageCourse = this.repository.getAverageLearningTimeCourses();
-		final Double desviationCourse = this.repository.getDesviationLearningTimeCourses();
-		final Double minCourse = this.repository.getMinLearningTimeCourses();
-		final Double maxCourse = this.repository.getMaxLearningTimeCourses();
+		final Double averageCourse = this.repository.getAverageLearningTimeCourses(id);
+		final Double desviationCourse = this.repository.getDesviationLearningTimeCourses(id);
+		final Double minCourse = this.repository.getMinLearningTimeCourses(id);
+		final Double maxCourse = this.repository.getMaxLearningTimeCourses(id);
 		if (!lang.equals("es")) {
 			statisticsLearningTimeCourses.put(methodInEnglish[0], averageCourse);
 			statisticsLearningTimeCourses.put(methodInEnglish[1], desviationCourse);

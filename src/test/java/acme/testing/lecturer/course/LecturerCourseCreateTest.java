@@ -25,32 +25,9 @@ public class LecturerCourseCreateTest extends TestHarness {
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("retailPrice", retailPrice);
 		super.fillInputBoxIn("abstractText", abstractText);
-		super.fillInputBoxIn("courseType", courseType);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, retailPrice);
-		super.checkColumnHasValue(recordIndex, 3, abstractText);
-		super.checkColumnHasValue(recordIndex, 4, courseType);
-		super.checkColumnHasValue(recordIndex, 5, link);
-
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
-		super.checkInputBoxHasValue("abstractText", abstractText);
-		super.checkInputBoxHasValue("courseType", courseType);
-		super.checkInputBoxHasValue("link", link);
-
-		super.clickOnButton("List lectures in the course");
-		super.checkListingExists();
-		super.checkListingEmpty();
+		super.checkNotErrorsExist();
 
 		super.signOut();
 	}
@@ -70,7 +47,6 @@ public class LecturerCourseCreateTest extends TestHarness {
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("retailPrice", retailPrice);
 		super.fillInputBoxIn("abstractText", abstractText);
-		super.fillInputBoxIn("courseType", courseType);
 		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create");
 

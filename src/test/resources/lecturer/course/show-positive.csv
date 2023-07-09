@@ -1,4 +1,7 @@
 recordIndex,code,title,retailPrice,abstractText,courseType,link,user
 0,A123,Programming Course,GBP 120.00,This is the new IA programming course!,BALANCED,,lecturer1
 0,LSO439,IA Tech Day,USD 40.00,Join us on Tech day,THEORY,https://www.example.com/course-02,lecturer2
-1,SD201,Charla sobre IA,EUR 10.50,Charla sobre IA,HANDS_ON,,lecturer1
+2,SD201,Charla sobre IA,EUR 10.50,Charla sobre IA,HANDS_ON,https://www.example.com/course-03,lecturer1
+1,S732,Charla sobre AC,EUR 11.50,Charla sobre IA,HANDS_ON,https://www.example.com/course-04,lecturer2
+3,STD903,Proyecto IA,EUR 91.50,Charla sobre IA,BALANCED,https://www.example.com/course-05,lecturer1
+1,SD001,Proyecto IA 2,EUR 11.50,Charla sobre IA cancelada,THEORY,,lecturer1

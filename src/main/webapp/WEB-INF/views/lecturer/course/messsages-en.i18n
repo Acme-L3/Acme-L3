@@ -11,15 +11,21 @@ lecturer.course.list.label.retailPrice = Retail Price
 lecturer.course.list.label.abstractText = Abstract Text
 lecturer.course.list.label.link = Link
 lecturer.course.list.label.courseType = Type
+lecturer.course.form.label.lecture=Lecture
 
 lecturer.course.form.button.lecture=List lectures in the course
 lecturer.course.form.button.create=Create
 lecturer.course.form.button.update=Update
 lecturer.course.form.button.delete=Delete
 lecturer.course.form.button.publish=Publish
+lecturer.course.form.button.add-lecture=Add lecture
+lecturer.course.form.button.remove-lecture=Remove lecture
 
 lecturer.course.list.button.create=Create Course
 lecturer.course.form.error.lecture-not-publish=Lectures not published
 lecturer.course.form.error.code-duplicate= Code Duplicated
 lecturer.course.form.error.retailPrice-not-accepted= Currency not accepted
 lecturer.course.form.error.courseType-purely-theorycal= Can not publish a Theory Only Course
+lecturer.course.form.error.lecture-empty=There is not any lecture in the course
+lecturer.course.form.error.lecture-null=You need to select a lecture
+lecturer.course.form.error.not-your-lecture=You can't use others' lecture

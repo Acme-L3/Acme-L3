@@ -24,9 +24,7 @@ public class LecturerCourseListTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
 		super.checkColumnHasValue(recordIndex, 2, retailPrice);
-		super.checkColumnHasValue(recordIndex, 3, abstractText);
-		super.checkColumnHasValue(recordIndex, 4, courseType);
-		super.checkColumnHasValue(recordIndex, 5, link);
+		super.checkColumnHasValue(recordIndex, 3, courseType);
 
 		super.signOut();
 	}

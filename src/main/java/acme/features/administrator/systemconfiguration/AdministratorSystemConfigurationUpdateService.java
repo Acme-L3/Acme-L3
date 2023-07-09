@@ -57,12 +57,14 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 		super.state(b, "systemCurrency", "administrator.system-configuration.form.error.not-found-in-list");
 		// AcceptedCurrencies has pattern
 		if (super.getBuffer().getErrors().hasErrors("acceptedCurrencies"))
-			super.state(!object.getAcceptedCurrencies().matches("^[A-Z]{3}(,[A-Z]{3})*$"), "acceptedCurrencies", "administrator.system-configuration.form.error.pattern.accepted-currencies");
+			super.state(!object.getAcceptedCurrencies().matches("^[A-Z]{3}(,\\s*[A-Z]{3})*\\s*$"), "acceptedCurrencies", "administrator.system-configuration.form.error.pattern.accepted-currencies");
 	}
 
 	@Override
 	public void perform(final SystemConfiguration object) {
 		assert object != null;
+
+		object.getAcceptedCurrencies().replaceAll("\\s", "");
 
 		this.repository.save(object);
 	}

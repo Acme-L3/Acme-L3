@@ -6,7 +6,6 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entitites.course.Course;
 import acme.entitites.lecture.Lecture;
 import acme.entitites.lecture.LectureType;
 import acme.features.administrator.systemconfiguration.AdministratorSystemConfigurationRepository;
@@ -41,13 +40,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		final Course c = this.courseRepository.findCourseById(super.getRequest().getData("courseId", int.class));
 		final boolean status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		final boolean coursePublished = c.isPublished();
-		final int courseId = super.getRequest().getData("courseId", int.class);
-		final Course object = this.courseRepository.findCourseById(courseId);
-		final boolean logged = object.getLecturer().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
-		super.getResponse().setAuthorised(status && !coursePublished && logged);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -63,7 +57,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		object = new Lecture();
 		object.setTitle("");
 		object.setAbstractText("");
-		object.setEstimateLearningTime(0.0);
+		object.setEstimateLearningTime(1.0);
 		object.setBody("");
 		object.setLecturer(l);
 		object.setLink("");
@@ -77,8 +71,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void bind(final Lecture object) {
 		assert object != null;
-		super.bind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
-		object.setCourse(this.courseRepository.findCourseById(super.getRequest().getData("courseId", int.class)));
+		super.bind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link");
+		object.setPublished(false);
 	}
 
 	@Override
@@ -102,10 +96,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 		assert object != null;
 
 		final SelectChoices choices = SelectChoices.from(LectureType.class, object.getLectureType());
-		final Tuple tuple = super.unbind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
+		final Tuple tuple = super.unbind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "isPublished");
 		tuple.put("types", choices);
-		tuple.put("published", object.isPublished());
-		tuple.put("courseId", super.getRequest().getData("courseId", int.class));
 		super.getResponse().setData(tuple);
 	}
 
