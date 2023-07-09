@@ -41,6 +41,7 @@ public class CompanyPracticumSessionCreateAddendumTest extends TestHarness {
 		super.clickOnSubmit("Create Addendum");
 
 		super.checkNotErrorsExist();
+
 		super.sortListing(0, "desc");
 
 		super.clickOnListingRecord(recordIndex);
