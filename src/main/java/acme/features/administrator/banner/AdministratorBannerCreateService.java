@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entitites.banner.Banner;
 import acme.framework.components.accounts.Administrator;
+import acme.framework.components.models.Errors;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -38,11 +39,8 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void load() {
 		Banner object;
 		object = new Banner();
-		Date moment;
-		moment = MomentHelper.getCurrentMoment();
-		object.setEndMoment(moment);
-		object.setInitMoment(moment);
-
+		final Date moment = MomentHelper.getCurrentMoment();
+		object.setMoment(moment);
 		super.getBuffer().setData(object);
 
 	}
@@ -50,25 +48,29 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void bind(final Banner object) {
 		assert object != null;
-		super.bind(object, "initMoment", "endMoment", "startDate", "endDate", "linkPhoto", "slogan", "linkDocument");
+		super.bind(object, "startDate", "endDate", "linkPhoto", "slogan", "linkDocument");
 	}
 
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+		final Errors errors = super.getBuffer().getErrors();
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			final boolean b = object.getStartDate().after(MomentHelper.getCurrentMoment());
 			super.state(b, "startDate", "administrator.banner.form.error.startDate-past");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS) && object.getStartDate().after(object.getEndDate()), "endDate", "administrator.banner.form.error.endDate-not-long-enough");
+			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 7, ChronoUnit.DAYS) && object.getStartDate().before(object.getEndDate()), "endDate", "administrator.banner.form.error.endDate-not-long-enough");
 
 	}
 
 	@Override
 	public void perform(final Banner object) {
 		assert object != null;
+
+		final Date moment = MomentHelper.getCurrentMoment();
+		object.setMoment(moment);
 
 		this.repository.save(object);
 	}
@@ -77,7 +79,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void unbind(final Banner object) {
 		assert object != null;
 
-		final Tuple tuple = super.unbind(object, "initMoment", "endMoment", "startDate", "endDate", "linkPhoto", "slogan", "linkDocument");
+		final Tuple tuple = super.unbind(object, "startDate", "endDate", "linkPhoto", "slogan", "linkDocument");
 		super.getResponse().setData(tuple);
 	}
 

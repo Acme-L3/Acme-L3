@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.course.Course;
+import acme.features.lecturer.lecture.LecturerLectureRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -17,7 +18,9 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerCourseRepository	repository;
+	@Autowired
+	protected LecturerLectureRepository	lectureRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -39,7 +42,7 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	public void load() {
 		Collection<Course> objects;
 		final int id = super.getRequest().getPrincipal().getAccountId();
-		objects = this.repository.findAllCoursesByLecturerId(id);
+		objects = this.repository.findAllCoursesByLecturerUserAccountId(id);
 
 		super.getBuffer().setData(objects);
 
@@ -48,7 +51,7 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link");
+		final Tuple tuple = super.unbind(object, "code", "title", "retailPrice", "abstractText", "courseType", "link", "isPublished");
 		super.getResponse().setData(tuple);
 	}
 

@@ -3,13 +3,12 @@ package acme.features.lecturer.course;
 
 import java.util.Collection;
 
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entitites.course.Course;
-import acme.entitites.course.CourseType;
+import acme.entitites.course.CourseLecture;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
@@ -25,13 +24,14 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	@Query("select c from Course c")
 	Collection<Course> findAllCourses();
 
-	@Query("select c from Course c where c.lecturer.userAccount.id = :id")
+	@Query("select c from Course c where c.lecturer.id = :id")
 	Collection<Course> findAllCoursesByLecturerId(int id);
+	@Query("select c from Course c where c.lecturer.userAccount.id = :id")
+	Collection<Course> findAllCoursesByLecturerUserAccountId(int id);
 
 	@Query("select l from Lecturer l where l.userAccount.id = :id")
-	Lecturer findOneLecturerByUserAccountId(int id);
+	Lecturer findLecturerByUserAccountId(int id);
 
-	@Modifying
-	@Query("update Course c set c.courseType = :type where c.id = :id")
-	void setCourseTypeById(@Param("type") CourseType type, @Param("id") int id);
+	@Query("select c from CourseLecture c where c.course.id = :courseId and c.lecture.id = :lectureId")
+	CourseLecture findCourseLectureByCourseAndLecture(int courseId, int lectureId);
 }

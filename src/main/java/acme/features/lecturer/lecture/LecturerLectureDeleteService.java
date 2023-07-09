@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.lecture.Lecture;
+import acme.entitites.lecture.LectureType;
 import acme.features.lecturer.course.LecturerCourseRepository;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -34,9 +36,9 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	public void authorise() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Lecture l = this.repository.findLectureById(id);
-		final boolean status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		final boolean role = super.getRequest().getPrincipal().hasRole(Lecturer.class);
 		final boolean logged = super.getRequest().getPrincipal().getAccountId() == l.getLecturer().getUserAccount().getId();
-		super.getResponse().setAuthorised(status && logged);
+		super.getResponse().setAuthorised(role && logged);
 	}
 
 	@Override
@@ -49,13 +51,16 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void bind(final Lecture object) {
 		assert object != null;
-		super.bind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
+		super.bind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "isPublished");
 	}
 
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
 		assert object.isPublished() == false;
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(this.repository.countCoursesByLectureId(object.getId()) == 0, "title", "lecturer.lecture.form.error.lecture-in-course");
 	}
 
 	@Override
@@ -67,8 +72,11 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "abstractText", "estimateLearningTime", "body", "lectureType", "link", "course");
-		tuple.put("courseId", super.getRequest().getData("courseId", int.class));
-		super.getResponse().setData(tuple);
+
+		final SelectChoices choices = SelectChoices.from(LectureType.class, object.getLectureType());
+
+		final Tuple tuple = super.unbind(object, "title", "abstract$", "learningTime", "body", "type", "furtherInformation", "isPublished");
+		tuple.put("types", choices);
+
 	}
 }

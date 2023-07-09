@@ -3,8 +3,7 @@ administrator.banner.list.endDate = End Date
 administrator.banner.list.slogan = Slogan
 administrator.banner.list.button.create = Create Banner
 
-administrator.banner.form.initMoment = Inital creation moment
-administrator.banner.form.endMoment = End creation moment
+administrator.banner.form.moment = Creation/Modification moment
 administrator.banner.form.startDate = Start Date
 administrator.banner.form.endDate = End Date
 administrator.banner.form.linkPhoto = Link Photo

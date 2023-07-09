@@ -202,8 +202,7 @@ bg=green</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Banner
 --
-+ initMoment: Date
-+ endMoment: Date
++ moment: Date
 + startDate: Date
 + endDate: Date
 + linkPhoto: String {URL}

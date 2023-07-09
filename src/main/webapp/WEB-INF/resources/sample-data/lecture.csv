@@ -1,7 +1,11 @@
-key,title,abstractText,estimateLearningTime,body,lectureType,link,key:lecturer,key:course,isPublished
-lecture-01,Introduction to Machine Learning,This lecture provides an introduction to the field of machine learning.,1.0,"We will cover the basics of machine learning, including supervised and unsupervised learning.",THEORY,https://www.example.com/lecture-01,lecturer-01,course-01,true
-lecture-02,Deep Learning Fundamentals,"This lecture covers the fundamental concepts of deep learning, including neural networks.",1.0,"In this lecture, we will cover the basic building blocks of deep learning.",HANDS_ON,,lecturer-02,course-02,true
-lecture-03,Reinforcement Learning,This lecture provides an introduction to reinforcement learning.,2.0,we will cover the basics of reinforcement learning.,THEORY,,lecturer-01,course-01,true
-lecture-04,Probabilistic Graphical Models,This lecture covers the basics of probabilistic graphical models.,3.0,We will cover the basics of probabilistic graphical models.,THEORY,https://www.example.com/lecture-04,lecturer-02,course-02,true
-lecture-05,Data Visualization,"This lecture covers the basics of data visualization, including different types of charts.",1.5,"In this lecture, we will cover the basics of data visualization.",HANDS_ON,https://www.example.com/lecture-05,lecturer-01,course-01,true
-lecture-06,Data Wrangling,This lecture covers the basics of data wrangling.,2.0,"We will cover the basics,including the process of cleaning, transforming",HANDS_ON,https://www.example.com/lecture-06,lecturer-01,course-03,true
+key,title,abstractText,estimateLearningTime,body,lectureType,link,key:lecturer,isPublished
+lecture-01,Introduction to Machine Learning,This lecture provides an introduction to the field of machine learning.,1.0,"We will cover the basics of machine learning, including supervised and unsupervised learning.",THEORY,https://www.example.com/lecture-01,lecturer-01,true
+lecture-02,Deep Learning Fundamentals,"This lecture covers the fundamental concepts of deep learning, including neural networks.",1.1,"In this lecture, we will cover the basic building blocks of deep learning.",HANDS_ON,,lecturer-02,true
+lecture-03,Reinforcement Learning,This lecture provides an introduction to reinforcement learning.,2.0,we will cover the basics of reinforcement learning.,THEORY,,lecturer-01,true
+lecture-04,Probabilistic Graphical Models,This lecture covers the basics of probabilistic graphical models.,3.0,We will cover the basics of probabilistic graphical models.,THEORY,https://www.example.com/lecture-04,lecturer-02,true
+lecture-05,Data Visualization,"This lecture covers the basics of data visualization, including different types of charts.",1.5,"In this lecture, we will cover the basics of data visualization.",HANDS_ON,https://www.example.com/lecture-05,lecturer-01,true
+lecture-06,Data Wrangling,This lecture covers the basics of data wrangling.,3.5,"We will cover the basics,including the process of cleaning, transforming",HANDS_ON,https://www.example.com/lecture-06,lecturer-02,true
+lecture-07,Data Analysis,This lecture covers the basics of data analysis.,4.9,"We will cover the basics,including the process of analysis.",THEORY,https://www.example.com/lecture-07,lecturer-01,true
+lecture-08,Clean code,This lecture covers the basics of clean code.,4.0,We will cover the learnings of clean code book.,THEORY,https://www.example.com/lecture-08,lecturer-02,true
+lecture-09,PENDING,THIS MUST NOT APPEAR UNTIL PUBLISHED,1.1,ERROR - THIS MUST NOT APPEAR UNTIL PUBLISHED.,THEORY,https://www.example.com/lecture-09,lecturer-02,false
+lecture-10,ØðƤƠƘƘǠǢƿ,ØðƤƠƘƘǠǢƿ,4.7,ØðƤƠƘƘǠǢƿ,HANDS_ON,https://www.example.com/lecture-10,lecturer-01,true
