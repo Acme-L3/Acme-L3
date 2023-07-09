@@ -44,7 +44,8 @@ public class CompanyPracticumSessionCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 
 		super.checkNotErrorsExist();
-		super.sortListing(0, "desc");
+
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(recordIndex);
 
