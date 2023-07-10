@@ -14,4 +14,5 @@
 </acme:form>
 
 	<acme:button code="authenticated.course.list.button.list.tutorials" action="/authenticated/tutorial/list?masterId=${id}"/>
-	<acme:button code="authenticated.course.list.button.list.audits" action="/authenticated/audit/list?masterId=${id}"/>		
+	<acme:button code="authenticated.course.list.button.list.audits" action="/authenticated/audit/list?masterId=${id}"/>	
+	<acme:button code="authenticated.course.list.button.list.practicums" action="/authenticated/practicum/list?masterId=${id}"/>	
