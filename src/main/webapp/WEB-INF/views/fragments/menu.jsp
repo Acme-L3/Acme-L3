@@ -18,7 +18,6 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
-		<acme:menu-option code="master.menu.any.list-courses" action="/any/course/list"/>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.any.list-courses" action="/any/course/list"/>
@@ -45,6 +44,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated">
+			<acme:menu-suboption code="master.menu.any.list-courses" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-bulletins" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-notes" action="/authenticated/note/list"/>
 			<acme:menu-suboption code="master.menu.any.list-peeps" action="/any/peep/list"/>
