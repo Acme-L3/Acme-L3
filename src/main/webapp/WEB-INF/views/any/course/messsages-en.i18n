@@ -13,3 +13,4 @@ any.course.list.label.link = Link
 any.course.list.label.courseType = Type
 
 authenticated.course.list.button.list.tutorials = Tutorials
+authenticated.course.list.button.list.practicums = Practicums
