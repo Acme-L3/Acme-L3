@@ -1,20 +1,22 @@
-<%--
-- footer.jsp
--
-- Copyright (C) 2012-2023 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
---%>
-
 <%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+
+<jstl:if test="${banner != null }">
+	<div style="width:70%; display: flex; flex-wrap: wrap; margin: 20px;">
+		<a href="${banner.linkDocument}" style="flex: 0 1 250px; position: relative;">
+			<img src="${banner.linkPhoto}" alt="${banner.slogan}" style="width:100%"/>
+			<div style="position: absolute; bottom: 0; background-color: grey; color: white; font-size: 12px;">
+				<acme:message code="master.welcome.advertisement"/>
+			</div>
+		</a>
+		<div style="flex: 0 1 470px; font-weight: 600; justify-content: center">
+			<acme:print value="${banner.slogan}" />
+		</div>
+	</div>
+</jstl:if>
 
 <acme:footer-panel>
 	<acme:footer-subpanel code="master.footer.title.about">
