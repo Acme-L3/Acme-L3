@@ -55,8 +55,6 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		final Boolean correction = !audit.isDraftMode();
 
 		object = new AuditingRecord();
-		object.setInitialMoment(MomentHelper.getCurrentMoment());
-		object.setFinalMoment(MomentHelper.getCurrentMoment());
 		object.setCorrection(correction);
 		object.setAudit(audit);
 
