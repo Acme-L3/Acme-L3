@@ -5,8 +5,6 @@ import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -54,13 +52,11 @@ public class AuditingRecord extends AbstractEntity {
 	protected Date				finalMoment;
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected Mark				mark;
 
 	@URL
 	protected String			link;
 
-	@NotNull
 	protected boolean			correction;
 
 	// Derived attributes -----------------------------------------------------
