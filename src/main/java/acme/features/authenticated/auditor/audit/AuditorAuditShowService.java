@@ -64,18 +64,28 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		final Tuple tuple;
 
 		final Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
-		String mark;
-		if (marks.isEmpty())
-			mark = "Vacía";
-		else
-			mark = object.calculateMark(marks).toString();
+
+		String marksAsString;
+		if (!marks.isEmpty()) {
+			final StringBuilder stringBuilder = new StringBuilder();
+			for (final Mark mark : marks) {
+				stringBuilder.append(mark.toString());
+				stringBuilder.append(", ");
+			}
+
+			marksAsString = stringBuilder.toString();
+
+			if (marksAsString.endsWith(", "))
+				marksAsString = marksAsString.substring(0, marksAsString.length() - 2);
+		} else
+			marksAsString = "-";
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "Auditor", "course", "draftMode");
 		tuple.put("course", coursesChoices.getSelected().getKey());
 		tuple.put("courses", coursesChoices);
-		tuple.put("mark", mark);
+		tuple.put("mark", marksAsString);
 
 		super.getResponse().setData(tuple);
 	}
