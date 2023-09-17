@@ -55,16 +55,20 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 
 		final Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
 
-		final StringBuilder stringBuilder = new StringBuilder();
-		for (final Mark mark : marks) {
-			stringBuilder.append(mark.toString());
-			stringBuilder.append(", ");
-		}
+		String marksAsString;
+		if (!marks.isEmpty()) {
+			final StringBuilder stringBuilder = new StringBuilder();
+			for (final Mark mark : marks) {
+				stringBuilder.append(mark.toString());
+				stringBuilder.append(", ");
+			}
 
-		String marksAsString = stringBuilder.toString();
+			marksAsString = stringBuilder.toString();
 
-		if (marksAsString.endsWith(", "))
-			marksAsString = marksAsString.substring(0, marksAsString.length() - 2);
+			if (marksAsString.endsWith(", "))
+				marksAsString = marksAsString.substring(0, marksAsString.length() - 2);
+		} else
+			marksAsString = "-";
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
