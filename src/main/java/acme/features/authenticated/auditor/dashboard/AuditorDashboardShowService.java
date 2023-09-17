@@ -59,6 +59,12 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		minTimeAuditingRecords = this.repository.minimumTimeOfAuditingRecords(id);
 		maxTimeAuditingRecords = this.repository.maximumTimeOfAuditingRecords(id);
 
+		if (deviationNumberOfAuditingRecords == 0)
+			deviationNumberOfAuditingRecords = null;
+
+		if (timeDeviationAuditingRecords == 0)
+			timeDeviationAuditingRecords = null;
+
 		final AuditorDashboard dashboard = new AuditorDashboard();
 		dashboard.setTotalNumberOfTheoryAudits(totalNumberOfTheoryAudits);
 		dashboard.setTotalNumberOfHandsOnAudits(totalNumberOfHandsOnAudits);
