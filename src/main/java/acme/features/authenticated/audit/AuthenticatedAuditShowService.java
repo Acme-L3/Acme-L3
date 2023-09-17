@@ -54,11 +54,17 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 		final SelectChoices auditorsChoices;
 
 		final Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
-		String mark;
-		if (marks.isEmpty())
-			mark = "Vacía";
-		else
-			mark = object.calculateMark(marks).toString();
+
+		final StringBuilder stringBuilder = new StringBuilder();
+		for (final Mark mark : marks) {
+			stringBuilder.append(mark.toString());
+			stringBuilder.append(", ");
+		}
+
+		String marksAsString = stringBuilder.toString();
+
+		if (marksAsString.endsWith(", "))
+			marksAsString = marksAsString.substring(0, marksAsString.length() - 2);
 
 		courses = this.repository.findAllCourses();
 		coursesChoices = SelectChoices.from(courses, "title", object.getCourse());
@@ -72,8 +78,8 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 		tuple.put("courses", coursesChoices);
 		tuple.put("auditor", auditorsChoices.getSelected().getKey());
 		tuple.put("auditors", auditorsChoices);
-		tuple.put("mark", mark);
-
+		tuple.put("mark", marksAsString);
 		super.getResponse().setData(tuple);
 	}
+
 }
