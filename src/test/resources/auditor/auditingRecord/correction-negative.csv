@@ -1,8 +1,0 @@
-auditRecordIndex,auditingRecordsRecordIndex,subject,assessment,initialMoment,finalMoment,mark,link
-2,1,"","assesment 1","2021/09/30 10:00","2021/09/30 11:00","A","https://www.example.com"
-2,2,"subject 2","","2021/09/30 10:00","2021/09/30 11:00","B","https://www.example.com"
-2,3,"subject 3","assesment 3","","2021/09/30 11:00","C","https://www.example.com"
-2,4,"subject 4","assesment 4","2021/09/30 10:00","","F","https://www.example.com"
-2,4,"subject 4","assesment 4","2021/09/30 12:00","2021/09/30 11:00","F","https://www.example.com"
-2,4,"subject 4","assesment 4","2021/09/30 10:00","2021/09/30 10:10","F","https://www.example.com"
-2,4,"subject 4","assesment 4","2021/09/30 10:00","2021/09/30 11:00","","https://www.example.com"
