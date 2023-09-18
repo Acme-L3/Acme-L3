@@ -85,38 +85,6 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 		super.signOut();
 	}
 
-	//	@ParameterizedTest
-	//	@CsvFileSource(resources = "/auditor/auditingRecord/update-negative-correction.csv", encoding = "utf-8", numLinesToSkip = 1)
-	//	public void test201Negative(final int auditRecordIndex, final int auditingRecordsRecordIndex, final String subject, final String assessment, final String initialMoment, final String finalMoment, final String mark, final String link) {
-	//
-	//		super.signIn("auditor1", "auditor1");
-	//
-	//		super.clickOnMenu("Auditor", "My Audits");
-	//		super.checkListingExists();
-	//		super.clickOnListingRecord(auditRecordIndex);
-	//		super.clickOnButton("Auditing Records");
-	//		super.checkListingExists();
-	//		super.clickOnListingRecord(auditingRecordsRecordIndex);
-	//		super.checkFormExists();
-	//		super.fillInputBoxIn("subject", subject);
-	//		super.fillInputBoxIn("assessment", assessment);
-	//		super.fillInputBoxIn("initialMoment", initialMoment);
-	//		super.fillInputBoxIn("finalMoment", finalMoment);
-	//		super.fillInputBoxIn("mark", mark);
-	//		super.fillInputBoxIn("link", link);
-	//
-	//		final String auditingRecordIdString = super.getCurrentQuery();
-	//		final int auditingRecordId = Integer.parseInt(auditingRecordIdString.substring(auditingRecordIdString.indexOf("=") + 1));
-	//		final String param = String.format("id=%d", auditingRecordId);
-	//
-	//		super.checkNotSubmitExists("Update");
-	//
-	//		super.request("/auditor/auditing-record/update", param);
-	//		super.checkPanicExists();
-	//
-	//		super.signOut();
-	//	}
-
 	@Test
 	public void test300Hacking() {
 
