@@ -62,12 +62,18 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void validate(final Enrolment object) {
+		int studentId;
+		studentId = super.getRequest().getPrincipal().getActiveRoleId();
+
 		final Collection<String> allCodes = this.repo.findAllCodesFromEnrolments();
+		final Collection<String> codeRegistrados = this.repo.findCourseCodeEnrolmentByStudentId(studentId);
+
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(!allCodes.contains(object.getCode()), "code", "student.enrolment.error.code");
 		if (!super.getBuffer().getErrors().hasErrors("courses"))
 			super.state(object.getCourse() != null, "courses", "student.enrolment.error.course");
-
+		if (!super.getBuffer().getErrors().hasErrors("courses"))
+			super.state(!codeRegistrados.contains(object.getCourse().getCode()), "courses", "student.enrolment.error.courseCode");
 	}
 
 	@Override

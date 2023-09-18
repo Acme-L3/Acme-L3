@@ -33,7 +33,6 @@ public class StudentActivityShowTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.clickOnButton("Activities");
-
 		super.clickOnListingRecord(0);
 
 		super.checkInputBoxHasValue("title", title);
@@ -68,27 +67,27 @@ public class StudentActivityShowTest extends TestHarness {
 					super.checkPanicExists();
 
 					super.signIn("administrator", "administrator");
-					super.request("/student/enrolment/list");
+					super.request("/student/activity/show");
 					super.checkPanicExists();
 					super.signOut();
 
 					super.signIn("auditor1", "auditor1");
-					super.request("/student/enrolment/list");
+					super.request("/student/activity/show");
 					super.checkPanicExists();
 					super.signOut();
 
 					super.signIn("lecturer1", "lecturer1");
-					super.request("/student/enrolment/list");
+					super.request("/student/activity/show");
 					super.checkPanicExists();
 					super.signOut();
 
 					super.signIn("company1", "company1");
-					super.request("/student/enrolment/list");
+					super.request("/student/activity/show");
 					super.checkPanicExists();
 					super.signOut();
 
 					super.signIn("assistant1", "assistant1");
-					super.request("/student/enrolment/list");
+					super.request("/student/activity/show");
 					super.checkPanicExists();
 					super.signOut();
 				}

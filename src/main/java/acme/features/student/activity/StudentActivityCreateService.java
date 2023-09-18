@@ -33,15 +33,16 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void authorise() {
 		boolean status;
-		Enrolment object;
-		Principal principal;
 		int enrolmentId;
+		Enrolment enrolment;
+		Principal principal;
+		Student student;
 
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-		object = this.repo.findEnrolmentById(enrolmentId);
+		enrolment = this.repo.findEnrolmentById(enrolmentId);
 		principal = super.getRequest().getPrincipal();
-
-		status = object.getStudent().getId() == principal.getActiveRoleId();
+		student = this.repo.findStudentByPrincipalId(principal.getActiveRoleId());
+		status = student != null && enrolment.getStudent().equals(student) && !enrolment.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

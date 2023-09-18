@@ -16,13 +16,15 @@ student.enrolment.form.label.cvc = CVC
 student.enrolment.form.button.create = Create
 student.enrolment.form.button.delete = Delete
 student.enrolment.form.button.update = Update
-student.enrolment.form.button.publish = Publish
+student.enrolment.form.button.finalise = Finalise
 
-student.enrolment.error.expiryDate.matches = Not valid format
-student.enrolment.error.cvc.matches = Not valid format
+student.enrolment.error.expiryDate.matches = Date must be of format MM/yy
+student.enrolment.error.cvc.matches = CVC of the card must be a 3 digit number
 student.enrolment.error.code = Code duplicate
 student.enrolment.error.course = Course can not be null
 student.enrolment.error.holderName.null = Can not be null
 student.enrolment.error.lowerNibble.null = Can not be null
 student.enrolment.error.lowerNibble.notValidNumber = Not valid card number, must be between 13 and 18 digits
+student.enrolment.error.courseCode = You already have an enrolment with this code
+student.enrolment.error.expiryDate.isBefore = The date must be later than the current date.
 

@@ -30,15 +30,16 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	@Override
 	public void authorise() {
 		boolean status;
-		Enrolment object;
-		Principal principal;
-		int enrolmentId;
+		int id;
+		Enrolment enrolment;
+		final Principal principal;
+		Student student;
 
-		enrolmentId = super.getRequest().getData("id", int.class);
-		object = this.repo.findEnrolmentById(enrolmentId);
+		id = super.getRequest().getData("id", int.class);
+		enrolment = this.repo.findEnrolmentById(id);
 		principal = super.getRequest().getPrincipal();
-
-		status = object.getStudent().getId() == principal.getActiveRoleId() && object.isDraftMode();
+		student = this.repo.findStudentById(principal.getActiveRoleId());
+		status = student != null && enrolment.getStudent().equals(student) && enrolment.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -74,6 +75,12 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 			Enrolment exist;
 			exist = this.repo.findEnrolmentByCode(object.getCode());
 			super.state(exist == null || exist.equals(object), "code", "student.enrolment.error.code");
+		}
+
+		final Enrolment enrolment = this.repo.findEnrolmentByCode(object.getCode());
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			final Enrolment nonUpdateEnrolment = this.repo.findEnrolmentById(object.getId());
+			super.state(enrolment == null || enrolment.getCode().equals(nonUpdateEnrolment.getCode()), "code", "student.enrolment.error.code");
 
 		}
 	}

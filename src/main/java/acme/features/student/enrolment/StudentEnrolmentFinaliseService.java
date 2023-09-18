@@ -18,7 +18,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentPublishService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
 	@Autowired
 	protected StudentEnrolmentRepository repo;
@@ -36,15 +36,16 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 	@Override
 	public void authorise() {
 		boolean status;
-		Enrolment object;
-		Principal principal;
-		int enrolmentId;
+		int id;
+		Enrolment enrolment;
+		final Principal principal;
+		Student student;
 
-		enrolmentId = super.getRequest().getData("id", int.class);
-		object = this.repo.findEnrolmentById(enrolmentId);
+		id = super.getRequest().getData("id", int.class);
+		enrolment = this.repo.findEnrolmentById(id);
 		principal = super.getRequest().getPrincipal();
-
-		status = object.getStudent().getId() == principal.getActiveRoleId() && object.isDraftMode();
+		student = this.repo.findStudentById(principal.getActiveRoleId());
+		status = student != null && enrolment.getStudent().equals(student) && enrolment.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -87,11 +88,11 @@ public class StudentEnrolmentPublishService extends AbstractService<Student, Enr
 		final DateFormat format = new SimpleDateFormat("MM/yy");
 		try {
 			final Date dateParse = format.parse(expiryDate);
-			final int month = Integer.parseInt(expiryDate.split("/")[0]);
-			if (month < 1 || month > 12)
+			final int mes = Integer.parseInt(expiryDate.split("/")[0]);
+			if (mes < 1 || mes > 12)
 				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
 			if (MomentHelper.isBefore(dateParse, MomentHelper.getCurrentMoment()))
-				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
+				super.state(false, "expiryDate", "student.enrolment.error.expiryDate.isBefore");
 		} catch (final ParseException e) {
 			super.state(false, "expiryDate", "student.enrolment.error.expiryDate.matches");
 		}

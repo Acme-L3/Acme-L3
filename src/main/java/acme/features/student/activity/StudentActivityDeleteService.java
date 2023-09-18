@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entitites.activities.Activity;
-import acme.entitites.enrolments.Enrolment;
-import acme.features.student.enrolment.StudentEnrolmentRepository;
 import acme.framework.components.accounts.Principal;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -15,7 +13,7 @@ import acme.roles.Student;
 public class StudentActivityDeleteService extends AbstractService<Student, Activity> {
 
 	@Autowired
-	protected StudentEnrolmentRepository repo;
+	protected StudentActivityRepository repo;
 
 
 	@Override
@@ -32,19 +30,16 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 		boolean status;
 		int id;
 		Activity activity;
-		Principal principal;
-		Enrolment object;
+		final Principal principal;
+		Student student;
 
 		id = super.getRequest().getData("id", int.class);
 		activity = this.repo.findActivityById(id);
-
-		final Enrolment enrolment = activity.getEnrolment();
-		object = this.repo.findEnrolmentById(enrolment.getId());
 		principal = super.getRequest().getPrincipal();
+		student = this.repo.findStudentByPrincipalId(principal.getActiveRoleId());
+		status = student != null && activity.getEnrolment().getStudent().equals(student) && !activity.getEnrolment().isDraftMode();
 
-		status = object.getStudent().getId() == principal.getActiveRoleId() && activity.isDraftMode();
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
