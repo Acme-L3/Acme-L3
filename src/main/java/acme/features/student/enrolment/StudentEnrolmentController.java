@@ -31,7 +31,7 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 	protected StudentEnrolmentUpdateService		updateService;
 
 	@Autowired
-	protected StudentEnrolmentPublishService	publishService;
+	protected StudentEnrolmentFinaliseService	finaliseService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -43,6 +43,6 @@ public class StudentEnrolmentController extends AbstractController<Student, Enro
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("update", this.updateService);
-		super.addCustomCommand("publish", "update", this.publishService);
+		super.addCustomCommand("finalise", "update", this.finaliseService);
 	}
 }

@@ -39,11 +39,26 @@ public class StudentEnrolmentDeleteTest extends TestHarness {
 		super.signOut();
 	}
 
-	@Test
-	public void test200Negative() {
-		//There are not any negative test cases for this feature
-	}
+	@ParameterizedTest
+	@CsvFileSource(resources = "/student/enrolment/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int enrolmentIndex, final String code, final String motivation, final String goals) {
+		super.signIn("student1", "student1");
 
+		super.clickOnMenu("Student", "My enrolments");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(enrolmentIndex);
+		super.checkFormExists();
+
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("motivation", motivation);
+		super.checkInputBoxHasValue("goals", goals);
+
+		super.checkNotButtonExists("Delete");
+
+		super.signOut();
+	}
 	@Test
 	public void test300Hacking() {
 

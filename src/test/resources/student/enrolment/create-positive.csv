@@ -1,5 +1,5 @@
 recordIndex,code,motivation,goals,course
-0,AAA555,M,G,A123
-1,AAA557,test de motivacion,test de goal,A123
-2,AAA558,Test de motivation con valor medio= 38,Test de goals con 50 caracteres //valor medio....,A123
-3,AAA559,Esto es una prueba para llegar a las 75 y comprobar la restricción máxima..,Esto es una prueba para llegar a las noventa y nueve palabras y comprobar las restricciones maximas,SD201
+0,AAA123,texto para motivacion,texto para goal,LSO439
+1,AAA124,Test de motivation con valor medio= 38,Texto de prueba para el valor medio. Texto de prue,S732
+2,AAA125,Esto es una prueba para llegar al valor maximo. Esto es una prueba para lle,Esto es una prueba para llegar al valor maximo. Esto es una prueba para llegar al valor maximo. Esto,STD903
+3,AAA126,texto motivacion cerrado,texto goal cerrado,SD201

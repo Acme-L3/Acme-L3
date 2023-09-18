@@ -16,12 +16,14 @@ student.enrolment.form.label.cvc = CVC
 student.enrolment.form.button.create = Crear
 student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.button.update = Actualizar
-student.enrolment.form.button.publish = Publicar
+student.enrolment.form.button.finalise = Finalizar
 
-student.enrolment.error.expiryDate.matches = Formato incorrecto
-student.enrolment.error.cvc.matches = Formato incorrecto
+student.enrolment.error.expiryDate.matches = La fecha debe tener el formato MM/yy
+student.enrolment.error.cvc.matches = El CVC de la tarjeta debe ser un número de 3 dígitos
 student.enrolment.error.code = Código duplicado
 student.enrolment.error.course = Curso no puede estar vacío
 student.enrolment.error.holderName.null = No puede estar vacío
 student.enrolment.error.lowerNibble.null = No puede estar vacío
 student.enrolment.error.lowerNibble.notValidNumber = No es un número válido, debe estar entre 13 y 18 dígitos
+student.enrolment.error.courseCode = Ya tienes un registro con este código
+student.enrolment.error.expiryDate.isBefore = La fecha debe ser posterior a la fecha actual

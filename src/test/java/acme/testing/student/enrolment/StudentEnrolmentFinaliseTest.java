@@ -12,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entitites.enrolments.Enrolment;
 import acme.testing.TestHarness;
 
-public class StudentEnrolmentPublishTest extends TestHarness {
+public class StudentEnrolmentFinaliseTest extends TestHarness {
 
 	@Autowired
 	protected StudentEnrolmentTestRepository repo;
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/enrolment/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/enrolment/finalise-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String holderName, final String lowerNibble, final String expiryDate, final String CVC) {
 
 		super.signIn("student1", "student1");
@@ -36,14 +36,14 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.fillInputBoxIn("expiryDate", expiryDate);
 		super.fillInputBoxIn("cvc", CVC);
 
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Finalise");
 		super.checkNotErrorsExist();
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/enrolment/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/enrolment/finalise-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String code, final String holderName, final String lowerNibble, final String expiryDate, final String CVC) {
 
 		super.signIn("student1", "student1");
@@ -59,7 +59,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.fillInputBoxIn("expiryDate", expiryDate);
 		super.fillInputBoxIn("cvc", CVC);
 
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Finalise");
 		super.checkErrorsExist();
 		super.signOut();
 
@@ -72,14 +72,14 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 
 		super.checkLinkExists("Sign in");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 
 		super.checkLinkExists("Sign in");
 		super.signIn("administrator", "administrator");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 		super.signOut();
@@ -87,7 +87,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.checkLinkExists("Sign in");
 		super.signIn("student2", "student2");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 		super.signOut();
@@ -95,7 +95,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.checkLinkExists("Sign in");
 		super.signIn("lecturer1", "lecturer1");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 		super.signOut();
@@ -103,7 +103,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.checkLinkExists("Sign in");
 		super.signIn("company1", "company1");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 		super.signOut();
@@ -111,7 +111,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.checkLinkExists("Sign in");
 		super.signIn("auditor1", "auditor1");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 		super.signOut();
@@ -119,7 +119,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		super.checkLinkExists("Sign in");
 		super.signIn("assistant1", "assistant1");
 		enrolments.forEach(e -> {
-			super.request("/student/enrolment/publish", "id=" + e.getId());
+			super.request("/student/enrolment/finalise", "id=" + e.getId());
 			super.checkPanicExists();
 		});
 		super.signOut();
@@ -136,7 +136,7 @@ public class StudentEnrolmentPublishTest extends TestHarness {
 		for (final Enrolment e : enrolments)
 			if (!e.isDraftMode()) {
 				params = String.format("id=%d", e.getId());
-				super.request("/student/enrolment/publish", params);
+				super.request("/student/enrolment/finalise", params);
 			}
 		super.signOut();
 	}
