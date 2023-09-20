@@ -31,7 +31,10 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.checkFormExists();
 		super.clickOnButton("Activities");
 
-		super.clickOnListingRecord(0);
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(recordIndex);
+
+		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("activityType", activityType);
@@ -41,8 +44,12 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 		super.clickOnSubmit("Update");
 
-		super.clickOnListingRecord(0);
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("summary", summary);
 		super.checkInputBoxHasValue("activityType", activityType);
