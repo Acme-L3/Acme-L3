@@ -131,8 +131,8 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
-		final String cvc = "";
-		final String expiryDate = "";
+		final String cvc = super.getRequest().getData("cvc", String.class);
+		final String expiryDate = super.getRequest().getData("expiryDate", String.class);
 
 		final Course course = object.getCourse();
 
